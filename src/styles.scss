@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "node_modules/bootstrap/scss/bootstrap";
+html , body { height: 100%;}
+
+:root{
+    /*COLORS SCHEHMA*/
+    --one-color:#3E7DC3;
+    --two-color:#D9D9D9;
+    --three-color:#BDBDBD;
+    --four-color:#0F56A6;
+    --five-color:#2B4088;
+    --six-color:#176BA9;
+    --seven-color:#5B5D5E;
+    --eight-color:#000000;
+    --nine-color:#FFFFFF;
+    --ten-color:#848586;
+    --eleven-color:#13A722;
+    --tweleve-color:#FF0606;
+    --thirteen-color:#EBCAA6;
+    --fourteen-color:#FEE6CC;
+    --fifteen-color:#E8F2F9;
+
+    /*FONT FAMILIES*/
+    --one-font:Raleway;
+    --two-font:Inter;
+}
