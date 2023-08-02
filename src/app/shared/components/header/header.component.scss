@@ -1,0 +1,16 @@
+
+.navbar{
+    .nav-wrap{
+        flex-wrap: nowrap;
+    }
+    background-color: var(--nine-color);
+    .nav-link{
+        color: var(--four-color);
+        font-size: 16px;
+        font-weight: 600;
+        text-wrap: nowrap;
+    }
+    .navlink .active{
+        color: var(--tweleve-color);
+    }
+}

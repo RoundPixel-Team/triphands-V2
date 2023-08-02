@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "node_modules/bootstrap/scss/bootstrap";
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
 html , body { height: 100%;}
 
 :root{
@@ -20,6 +22,8 @@ html , body { height: 100%;}
     --thirteen-color:#EBCAA6;
     --fourteen-color:#FEE6CC;
     --fifteen-color:#E8F2F9;
+    --sixteen-color:#F5F5F5;
+
 
     /*FONT FAMILIES*/
     --one-font:Raleway;

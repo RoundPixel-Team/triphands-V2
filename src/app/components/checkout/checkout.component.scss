@@ -1,0 +1,29 @@
+.check-out{
+    background-color:var(--sixteen-color);
+    .summary-card{
+        border-radius: 10px;
+        background: #FFF;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .summary-card-text{
+            color:var(--four-color);
+            font-size: 20px;
+            font-weight: 500;
+          
+        }
+        .summary-price{
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            color:var(--eight-color);
+        }
+        .booknow-btn{
+            color:var(--nine-color);
+            background-color:var(--one-color);
+            width: 130px;
+            height: 35px;
+        }
+    }
+}
