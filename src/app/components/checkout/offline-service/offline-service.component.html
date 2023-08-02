@@ -1,0 +1,57 @@
+<!--services header-->
+<div class="w-100">
+    <div class="headerContainer">
+        {{'checkout.offlineService.header' | translate}}
+    </div>
+</div>
+
+<!--all services-->
+<div class="w-100 mt-3">
+    <div class="servicesContainer">
+        <div class="service" *ngFor="let service of flight.allOfflineServices">
+            <div class="row" style="align-items: center;">
+                <div class="col-6">
+
+                    <div class="row" style="align-items: center;">
+                        <div class="col-2">
+                            <div class="w-100 serviceImg">
+                                <img [src]="service.offlineServiceImageUrl">
+                            </div>
+                            
+                        </div>
+                        <div class="col-10">
+                            <div class="serviceTitle">
+                                {{translate.currentLang=='en'?service.serviceName:service.serviceNameAr}}
+                            </div>
+                            <div class="serviceDescription mt-2">
+                                {{translate.currentLang=='en'?service.serviceDescription:service.serviceDescriptionAr}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-3"></div>
+                <div class="col-3">
+
+                    <div class="row" style="align-items: center;">
+                        <div class="col-12 col-lg-4">
+                            <div class="servicePrice">
+                                {{service.currency | exchange:'code'}} {{service.servicePrice | exchange:'value'}}
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-8" >
+                            <button (click)="flight.addOfflineService(service)" *ngIf="!service.added" mat-raised-button class="addBtn">
+                                {{'checkout.offlineService.addBtn' | translate}}
+                            </button>
+                            <button (click)="flight.removeOfflineService(service)" *ngIf="service.added" mat-raised-button class="rmvBtn">
+                                {{'checkout.offlineService.rmvBtn' | translate}}
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

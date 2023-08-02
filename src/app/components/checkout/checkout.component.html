@@ -1,10 +1,18 @@
 <!--DATA BINDING-->
-<div class="container-fluid" *ngIf="flight.selectedFlight && flight.selectedFlight.status == 'Valid'">
+<div class="container" *ngIf="flight.selectedFlight && flight.selectedFlight.status == 'Valid'">
     <div class="row">
         <div class="col-12">
             <app-one-way *ngIf="flight.selectedFlight.searchCriteria.flightType == 'oneway'"></app-one-way>
             <app-round-trip *ngIf="flight.selectedFlight.searchCriteria.flightType == 'roundtrip'"></app-round-trip>
             <app-multi-city *ngIf="flight.selectedFlight.searchCriteria.flightType == 'multicity'"></app-multi-city>
+        </div>
+
+        <div class="col-12 mt-3">
+            <app-offline-service></app-offline-service>
+        </div>
+
+        <div class="col-12 mt-3">
+            <app-book-now></app-book-now>
         </div>
     </div>
 </div>

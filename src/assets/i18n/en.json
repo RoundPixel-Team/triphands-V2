@@ -1,5 +1,19 @@
 {
     "homePage":{
         "myBtn":"Press Here"
+    },
+
+    "checkout":{
+        "offlineService":{
+            "header":"Enjoy your Trip with our best seller services",
+            "addBtn":"Add",
+            "rmvBtn":"Added"
+        },
+        "bookNow":{
+            "standardTitle":"Standard Booking",
+            "premiumTitle":"Online check-in & Boarding pass",
+            "total":"Total",
+            "bookBtn":"Book Now"
+        }
     }
 }

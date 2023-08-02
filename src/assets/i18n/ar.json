@@ -1,5 +1,19 @@
 {
     "homePage":{
         "myBtn":"اضغط هنا"
+    },
+
+    "checkout":{
+        "offlineService":{
+            "header":"استمتع برحلتك مع أفضل خدماتنا مبيعًا",
+            "addBtn":"اشتراك",
+            "rmvBtn":"مضاف"
+        },
+        "bookNow":{
+            "standardTitle":"تذكره عادية",
+            "premiumTitle":"تسجيل الوصول عبر الإنترنت وبطاقة صعود الطائرة",
+            "total":"الاجمالي",
+            "bookBtn":"احجز الأن"
+        }
     }
 }
