@@ -32,13 +32,7 @@ export const SharedComponents = [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-    }}),
+    TranslateModule,
     MatrialComponents
   ],
   exports:[

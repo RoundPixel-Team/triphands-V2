@@ -15,7 +15,6 @@ export class CheckoutComponent implements OnInit {
   private route = inject(ActivatedRoute)
   public translate = inject(TranslateService)
 
-  Lang:string='en';
   subscription = new Subscription()
   constructor() { }
 

@@ -9,12 +9,12 @@
         align-items: center;
         .summary-card-text{
             color:var(--four-color);
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 500;
           
         }
         .summary-price{
-            font-size: 16px;
+            font-size: 1rem;
             font-style: normal;
             font-weight: 700;
             color:var(--eight-color);
@@ -22,16 +22,12 @@
         .booknow-btn{
             color:var(--nine-color);
             background-color:var(--one-color);
-            width: 130px;
-            height: 35px;
+            width: 8.125rem;
+            height: 2.188rem;
         }
     }
 }
-.ar{
-    .summary-card{
-        direction: rtl;
-    }
-}
+
 
 @media screen  and (max-width: 768px){
     .summary-card{
