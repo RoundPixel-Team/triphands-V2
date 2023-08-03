@@ -2,8 +2,17 @@
     "homePage":{
         "myBtn":"Press Here"
     },
+    "header": {
+        "currentLang": "EN",
+        "flights": "Flights",
+        "aboutUs":"About Us",
+        "contactUs":"Contact",
+        "signIn":"Sign In"
+       
+    },
 
     "checkout":{
+        "fastConfirm" :"Fast Confirmation",
         "offlineService":{
             "header":"Enjoy your Trip with our best seller services",
             "addBtn":"Add",
@@ -15,21 +24,6 @@
             "total":"Total",
             "bookBtn":"Book Now"
         }
-    }
-    ,
-    "header": {
-        "currentLang": "EN",
-        "flights": "Flights",
-        "aboutUs":"About Us",
-        "contactUs":"Contact",
-        "signIn":"Sign In"
-       
-    },
-    "checkout": {
-        "fastConfirm" :"Fast Confirmation",
-        "bookNow": "Book Now"
-    }
-    
+}
 
-    
 }

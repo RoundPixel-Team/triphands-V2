@@ -2,7 +2,14 @@
     "homePage":{
         "myBtn":"اضغط هنا"
     },
-
+    "header": {
+        "currentLang": "العربية",
+        "flights": "الرحلات",
+        "aboutUs":"تعّرف علينا",
+        "contactUs":"تواصل معنا",
+        "signIn":"تسجيل الدخول"
+       
+    },
     "checkout":{
         "fastConfirm" :"حجز سريع",
         "offlineService":{
@@ -15,14 +22,7 @@
             "premiumTitle":"تسجيل الوصول عبر الإنترنت وبطاقة صعود الطائرة",
             "total":"الاجمالي",
             "bookBtn":"احجز الأن"
-        },
-    "header": {
-        "currentLang": "العربية",
-        "flights": "الرحلات",
-        "aboutUs":"تعّرف علينا",
-        "contactUs":"تواصل معنا",
-        "signIn":"تسجيل الدخول"
-       
-    }
+        }
+    
 }
 }
