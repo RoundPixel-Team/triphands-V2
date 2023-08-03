@@ -1,3 +1,4 @@
+<!--desktop view-->
 <div class="desktopContainer w-100">
     <div class="standardBooking">
         <div class="title">
@@ -16,13 +17,16 @@
     </div>
 
     <div class="premiumBooking">
-        <div class="title">
+        <div class="title" *ngIf="!flight.recommendedOfflineService">
             {{"checkout.bookNow.premiumTitle" | translate}}
+        </div>
+        <div class="title" *ngIf="flight.recommendedOfflineService">
+            {{translate.currentLang=='en'?flight.recommendedOfflineService.serviceName:flight.recommendedOfflineService.serviceNameAr}}
         </div>
         <div class="premiumPrice mt-2">
             {{"checkout.bookNow.total" | translate}} 
             {{flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code'}} 
-            {{flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value'}} 
+            {{flight.priceWithRecommenedService | exchange:'value'}} 
         </div>
         <div  class="premiumBtn mt-4">
             <button mat-raised-button>
@@ -30,4 +34,63 @@
             </button>
         </div>
     </div>
+</div>
+
+<!--mobile view-->
+<div class="mobileContainer w-100">
+    <div class="premiumBooking">
+        <!--left side-->
+        <div>
+            <div class="title" *ngIf="!flight.recommendedOfflineService">
+                {{"checkout.bookNow.premiumTitle" | translate}}
+            </div>
+            <div class="title" *ngIf="flight.recommendedOfflineService">
+                {{translate.currentLang=='en'?flight.recommendedOfflineService.serviceName:flight.recommendedOfflineService.serviceNameAr}}
+            </div>
+
+            <div class="premiumPrice mt-2">
+                {{"checkout.bookNow.total" | translate}} 
+                {{flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code'}} 
+                {{flight.priceWithRecommenedService | exchange:'value'}} 
+            </div>
+        </div>
+
+        <!--right side-->
+        <div>
+            <div  class="premiumBtn mt-4">
+                <button mat-raised-button>
+                    {{'checkout.bookNow.bookBtn' | translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="standardBooking">
+        <!--left side-->
+        <div>
+            <div class="title">
+                {{"checkout.bookNow.standardTitle" | translate}}
+            </div>
+    
+            <div class="standardPrice mt-2">
+                {{"checkout.bookNow.total" | translate}} 
+                {{flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code'}} 
+                {{flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value'}} 
+            </div>
+        </div>
+        
+
+        <!--right side-->
+        <div>
+            <div  class="standardBtn mt-4">
+                <button mat-raised-button>
+                    {{'checkout.bookNow.bookBtn' | translate}}
+                </button>
+            </div>
+        </div>
+        
+    </div>
+
 </div>

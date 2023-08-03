@@ -1,7 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { FormArray, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightCheckoutService } from 'rp-travel-ui';
+import { FlightCheckoutService, HomePageService } from 'rp-travel-ui';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -14,6 +15,10 @@ export class CheckoutComponent implements OnInit {
   public flight = inject(FlightCheckoutService) 
   private route = inject(ActivatedRoute)
   public translate = inject(TranslateService)
+  public home = inject(HomePageService)
+
+
+  phonenumber:string = 'phonenumber'
 
   subscription = new Subscription()
   constructor() { }
@@ -26,6 +31,17 @@ export class CheckoutComponent implements OnInit {
         // this.flight.fetchLastPassengerData()
       })
     )
+  }
+
+
+  //  valdidate phone component by chaning css 
+  invalidPhone() {
+    let phone: FormGroup = (<FormGroup>((<FormArray>this.flight.usersForm.get("users"))["controls"][0]));
+    if (phone.get('phonenum')!.invalid && (phone.get('phonenum')!.touched || phone.get('phonenum')!.dirty)) {
+      this.phonenumber = "alertPhone";
+    } else {
+      this.phonenumber = "phonenumber";
+    }
   }
 
 }

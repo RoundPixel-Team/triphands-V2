@@ -23,6 +23,9 @@
             "premiumTitle":"Online check-in & Boarding pass",
             "total":"Total",
             "bookBtn":"Book Now"
+        },
+        "coponCode":{
+            "apply":"Apply Coupon"
         }
 }
 

@@ -27,8 +27,34 @@
 }
 
 
+.mainFormSection{
+    width: 100%;
+    padding: 2%;
+    background-color: var(--nine-color);
+    input{
+        width: 100%;
+        padding: 3%;
+        border-radius: 5px;
+        border-color: var(--three-color);
+        font-family: var(--two-font);
+        font-size: 1rem;
+        font-weight: 400;
+        border-width: 0.5px;
+    }
+    button{
+        border-radius: 10px;
+        width: 100%;
+        padding: 2%;
+        background-color: var(--one-color);
+        font-size: 1rem;
+        font-family: var(--two-font);
+        color: var(--nine-color);
+    }
+}
 
-@media screen  and (max-width: 768px){
+
+
+@media (max-width: 768px){
     .summary-card{
         display: none !important; 
     }

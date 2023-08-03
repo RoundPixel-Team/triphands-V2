@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { HomePageService } from 'rp-travel-ui';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,15 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   public translate = inject(TranslateService)
+  public home = inject(HomePageService)
   title = 'triphands';
 
   /**
    *
    */
   constructor(@Inject(DOCUMENT) private document: Document) {
+
+    this.home.getPointOfSale();
     
     if(localStorage.getItem('lang')){
 
