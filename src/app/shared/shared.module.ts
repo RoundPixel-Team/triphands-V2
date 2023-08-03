@@ -8,10 +8,18 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { createTranslateLoader } from '../app.module';
 import { HttpClient } from '@angular/common/http';
 import { RpTravelUiModule } from 'rp-travel-ui';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 
 
 export const MatrialComponents = [
-  MatButtonModule
+  MatButtonModule,
+  MatMenuModule,
+  MatListModule,
+  MatIconModule
+  
+
 ]
 
 export const SharedComponents = [
@@ -33,6 +41,7 @@ export const SharedComponents = [
   exports:[
     ReactiveFormsModule,
     FormsModule,
+    TranslateModule,
     MatrialComponents,
     SharedComponents,
     RpTravelUiModule,

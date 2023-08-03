@@ -7,8 +7,8 @@ import { OneWayComponent } from './one-way/one-way.component';
 import { RoundTripComponent } from './round-trip/round-trip.component';
 import { MultiCityComponent } from './multi-city/multi-city.component';
 import { OfflineServiceComponent } from './offline-service/offline-service.component';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { BookNowComponent } from './book-now/book-now.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({

@@ -16,4 +16,20 @@
             "bookBtn":"Book Now"
         }
     }
+    ,
+    "header": {
+        "currentLang": "EN",
+        "flights": "Flights",
+        "aboutUs":"About Us",
+        "contactUs":"Contact",
+        "signIn":"Sign In"
+       
+    },
+    "checkout": {
+        "fastConfirm" :"Fast Confirmation",
+        "bookNow": "Book Now"
+    }
+    
+
+    
 }

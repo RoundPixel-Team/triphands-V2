@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -13,11 +14,25 @@ export class AppComponent {
   /**
    *
    */
-  constructor() {
-    this.translate.use('en')
+  constructor(@Inject(DOCUMENT) private document: Document) {
     
+    if(localStorage.getItem('lang')){
+
+      this.translate.use(localStorage.getItem('lang')!)
+      setTimeout(() => {
+        if(this.translate.currentLang=='en'){
+       
+          this.document.dir='ltr';
+    
+        }else {
+          this.document.dir='rtl';
+        }
+      },300)
+    }else{
+      this.translate.use('en');
+      this.document.dir='ltr';
+    }
+  
   }
-  changeLang(){
-    this.translate.use(this.translate.currentLang == 'en'?'ar':'en')
-  }
+
 }

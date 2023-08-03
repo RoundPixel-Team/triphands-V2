@@ -4,6 +4,7 @@
     },
 
     "checkout":{
+        "fastConfirm" :"حجز سريع",
         "offlineService":{
             "header":"استمتع برحلتك مع أفضل خدماتنا مبيعًا",
             "addBtn":"اشتراك",
@@ -14,6 +15,14 @@
             "premiumTitle":"تسجيل الوصول عبر الإنترنت وبطاقة صعود الطائرة",
             "total":"الاجمالي",
             "bookBtn":"احجز الأن"
-        }
+        },
+    "header": {
+        "currentLang": "العربية",
+        "flights": "الرحلات",
+        "aboutUs":"تعّرف علينا",
+        "contactUs":"تواصل معنا",
+        "signIn":"تسجيل الدخول"
+       
     }
+}
 }
