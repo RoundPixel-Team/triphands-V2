@@ -1,15 +1,15 @@
 <!--DATA BINDING-->
 <div class="container-fluid check-out" *ngIf="flight.selectedFlight && flight.selectedFlight.status == 'Valid'">
-    <div class="container">
+    <div class="container" [ngClass]="{ ar: Lang === 'ar' }">
         <div class="row">
             <div class="summary-card p-2 mt-4 mx-auto col-12 ">
-                <div class="summary-card-text  ">Fast Confirmation</div>
+                <div class="summary-card-text  ">{{"checkout.fastConfirm" | translate }}</div>
               
                     <div class="row justify-content-center align-items-center ">
                         <div class="col-4 summary-price">
                            <span>{{flight.selectedFlight.airItineraryDTO.itinTotalFare.currencyCode}}&nbsp;</span>{{flight.selectedFlight.airItineraryDTO.itinTotalFare.amount}}
                         </div>
-                        <div class="col-8"><button class="btn booknow-btn">Book Now</button></div>
+                        <div class="col-8"><button class="btn booknow-btn">{{"checkout.bookNow" | translate }}</button></div>
                     </div>
                 
                   

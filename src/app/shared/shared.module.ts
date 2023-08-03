@@ -44,8 +44,10 @@ export const SharedComponents = [
   exports:[
     ReactiveFormsModule,
     FormsModule,
+    TranslateModule,
     MatrialComponents,
-    SharedComponents
+    SharedComponents,
+    
   ]
 })
 export class SharedModule { }

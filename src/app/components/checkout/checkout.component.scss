@@ -27,6 +27,11 @@
         }
     }
 }
+.ar{
+    .summary-card{
+        direction: rtl;
+    }
+}
 
 @media screen  and (max-width: 768px){
     .summary-card{

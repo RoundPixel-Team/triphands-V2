@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { FlightCheckoutService } from 'rp-travel-ui';
 import { Subscription } from 'rxjs';
 
@@ -12,7 +13,9 @@ export class CheckoutComponent implements OnInit {
   
   public flight = inject(FlightCheckoutService) 
   private route = inject(ActivatedRoute)
+  public translate = inject(TranslateService)
 
+  Lang:string='en';
   subscription = new Subscription()
   constructor() { }
 

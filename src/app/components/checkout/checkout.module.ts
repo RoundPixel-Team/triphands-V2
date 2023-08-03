@@ -6,6 +6,7 @@ import { CheckoutComponent } from './checkout.component';
 import { OneWayComponent } from './one-way/one-way.component';
 import { RoundTripComponent } from './round-trip/round-trip.component';
 import { MultiCityComponent } from './multi-city/multi-city.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { MultiCityComponent } from './multi-city/multi-city.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     CheckoutRoutingModule
   ]
 })

@@ -10,6 +10,10 @@
         "contactUs":"Contact",
         "signIn":"Sign In"
        
+    },
+    "checkout": {
+        "fastConfirm" :"Fast Confirmation",
+        "bookNow": "Book Now"
     }
     
 

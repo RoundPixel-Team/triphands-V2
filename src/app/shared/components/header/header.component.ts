@@ -16,7 +16,6 @@ Lang:string= this.translate.currentLang;
 
   ngOnInit(): void {
     this.Utilities.getCurrency(this.Utilities.selectedCurrency.Currency_Code)
-    // this.Utilities.allCurrency
     this.Utilities.selectedCurrency
   }
   updateCurrency(currency:currencyModel){

@@ -9,5 +9,9 @@
         "contactUs":"تواصل معنا",
         "signIn":"تسجيل الدخول"
        
+    },
+    "checkout": {
+        "fastConfirm" :"حجز سريع",
+        "bookNow": "احجز الان"
     }
 }
