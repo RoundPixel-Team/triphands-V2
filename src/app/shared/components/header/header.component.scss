@@ -10,7 +10,20 @@
         font-weight: 600;
         text-wrap: nowrap;
     }
+    .nav-link-active{
+        color: var(--tweleve-color);
+        font-size: 16px;
+        font-weight: 600;
+    }
     .navlink .active{
         color: var(--tweleve-color);
+    }
+    .flight-li{
+        margin-right: 150px;
+    }
+}
+@media only screen and (max-width:768px){
+    .flight-li{
+        margin-right: 0px !important;
     }
 }

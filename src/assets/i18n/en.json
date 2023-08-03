@@ -2,4 +2,16 @@
     "homePage":{
         "myBtn":"Press Here"
     }
+    ,
+    "header": {
+        "currentLang": "EN",
+        "flights": "Flights",
+        "aboutUs":"About Us",
+        "contactUs":"Contact",
+        "signIn":"Sign In"
+       
+    }
+    
+
+    
 }

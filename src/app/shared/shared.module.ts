@@ -4,10 +4,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
 export const MatrialComponents = [
-  MatButtonModule
+  MatButtonModule,
+  MatMenuModule,
+  MatListModule,
+  MatIconModule
+  
+
 ]
 
 export const SharedComponents = [
@@ -22,6 +32,13 @@ export const SharedComponents = [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+    }}),
     MatrialComponents
   ],
   exports:[
@@ -32,3 +49,6 @@ export const SharedComponents = [
   ]
 })
 export class SharedModule { }
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}

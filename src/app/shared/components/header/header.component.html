@@ -25,23 +25,30 @@
               
            
               <ul class="navbar-nav align-items-center ">
-                <li class="nav-item me-5">
-                    <a class="nav-link active " aria-current="page" href="#">Flights</a>
+                <li class="nav-item flight-li">
+                    <a class="nav-link active " aria-current="page" href="#">{{"header.flights" | translate }}</a>
                   </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link active" aria-current="page" href="#">About Us</a>
+                    <a class="nav-link active" aria-current="page" href="#">{{"header.aboutUs"  | translate}}</a>
                   </li>
                   <li class="nav-item mx-2">
-                    <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                    <a class="nav-link active" aria-current="page" href="#">{{"header.contactUs"  | translate}}</a>
                   </li>
                   <li class="nav-item mx-2">
-                    <a class="nav-link active" aria-current="page" href="#">KWD</a>
-                  </li>
+                    <ng-container *ngIf="this.Utilities.selectedCurrency ">
+                      <button   mat-button [matMenuTriggerFor]="currencyMenu" class="nav-link-active">
+                        <img width="20" height="15" src="{{this.Utilities.selectedCurrency['Image_Url']}}"> {{ this.Utilities.selectedCurrency["Currency_Code"] }}
+                      
+                      </button>
+                    </ng-container></li>
                   <li class="nav-item mx-2">
-                    <a class="nav-link active" aria-current="page" href="#">English</a>
-                  </li>
+                    <button class="langBtn" mat-button  class="nav-link" (click)="updateLang()">
+                      <mat-icon class="langIcon">language</mat-icon>
+        
+                      {{"header.currentLang"  | translate}}
+                    </button>                  </li>
                   <li class="nav-item mx-2">
-                    <a class="nav-link active" aria-current="page" href="#">Sign in</a>
+                    <a class="nav-link active" aria-current="page" href="#">{{"header.signIn"  | translate}}</a>
                   </li>
               </ul>
             </div>
@@ -49,3 +56,9 @@
 
   
 </nav>
+<mat-menu #currencyMenu="matMenu">
+  <button mat-menu-item *ngFor="let currency of this.Utilities.allCurrency " (click)="updateCurrency(currency)">
+    <img width="25" height="25" [src]="currency.Image_Url"> {{ currency["Currency_Code"] }}
+  </button>
+</mat-menu>
+
