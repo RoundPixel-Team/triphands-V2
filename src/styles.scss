@@ -27,4 +27,27 @@ html , body { height: 100%;background-color:#F5F5F5;;}
     /*FONT FAMILIES*/
     --one-font:Raleway;
     --two-font:Inter;
+
+
+    .phonenumber {
+        width: 100%;
+        padding: 3%;
+        border-radius: 5px;
+        border-color: var(--three-color);
+        font-family: var(--two-font);
+        font-size: 1rem;
+        font-weight: 400;
+        border-width: 0.5px;
+      }
+
+      .alert {
+        width: 100%;
+        padding: 3%;
+        border-radius: 5px;
+        border-color: var(--tweleve-color) !important;
+        font-family: var(--two-font);
+        font-size: 1rem;
+        font-weight: 400;
+        border-width: 0.5px;
+      }
 }

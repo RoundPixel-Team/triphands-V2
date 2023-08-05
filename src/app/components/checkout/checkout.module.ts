@@ -9,6 +9,7 @@ import { MultiCityComponent } from './multi-city/multi-city.component';
 import { OfflineServiceComponent } from './offline-service/offline-service.component';
 import { BookNowComponent } from './book-now/book-now.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
+    NgxIntlTelInputModule,
     CheckoutRoutingModule
   ]
 })

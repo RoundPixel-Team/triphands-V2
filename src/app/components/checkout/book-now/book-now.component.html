@@ -10,7 +10,7 @@
             {{flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value'}} 
         </div>
         <div  class="standardBtn mt-4">
-            <button mat-raised-button>
+            <button mat-raised-button (click)="goToNextStep()">
                 {{'checkout.bookNow.bookBtn' | translate}}
             </button>
         </div>
@@ -29,7 +29,7 @@
             {{flight.priceWithRecommenedService | exchange:'value'}} 
         </div>
         <div  class="premiumBtn mt-4">
-            <button mat-raised-button>
+            <button mat-raised-button (click)="goToNextStep()">
                 {{'checkout.bookNow.bookBtn' | translate}}
             </button>
         </div>
@@ -58,7 +58,7 @@
         <!--right side-->
         <div>
             <div  class="premiumBtn mt-4">
-                <button mat-raised-button>
+                <button mat-raised-button (click)="goToNextStep()">
                     {{'checkout.bookNow.bookBtn' | translate}}
                 </button>
             </div>
@@ -85,7 +85,7 @@
         <!--right side-->
         <div>
             <div  class="standardBtn mt-4">
-                <button mat-raised-button>
+                <button mat-raised-button (click)="goToNextStep()">
                     {{'checkout.bookNow.bookBtn' | translate}}
                 </button>
             </div>

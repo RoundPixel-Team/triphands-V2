@@ -16,4 +16,9 @@ export class BookNowComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  goToNextStep(){
+    console.log('show me the form', this.flight.usersArray)
+  }
+
 }
