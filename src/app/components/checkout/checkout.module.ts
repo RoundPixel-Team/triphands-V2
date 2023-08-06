@@ -10,6 +10,9 @@ import { OfflineServiceComponent } from './offline-service/offline-service.compo
 import { BookNowComponent } from './book-now/book-now.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 @NgModule({
@@ -19,12 +22,14 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
     RoundTripComponent,
     MultiCityComponent,
     OfflineServiceComponent,
-    BookNowComponent
+    BookNowComponent,
+    PassengerDetailsComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     NgxIntlTelInputModule,
+    MatExpansionModule,
     CheckoutRoutingModule
   ]
 })

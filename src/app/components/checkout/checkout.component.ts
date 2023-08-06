@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit {
 
   CountryISO = CountryISO;
 
-
+  checkoutStepNow : number = 1
   phonenumber:string = 'phonenumber'
 
   subscription = new Subscription()
@@ -42,7 +42,9 @@ export class CheckoutComponent implements OnInit {
     },1000)
   }
 
-
+  changeCheckoutStep(event:number){
+    this.checkoutStepNow = event
+  }
   //  valdidate phone component by chaning css 
   invalidPhone() {
     let phone: FormGroup = (<FormGroup>((<FormArray>this.flight.usersForm.get("users"))["controls"][0]));

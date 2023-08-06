@@ -1,0 +1,158 @@
+<!--passengers header-->
+<div class="w-100">
+    <div class="headerContainer">
+        {{'checkout.passengers.header' | translate}}
+    </div>
+</div>
+
+
+<div class="w-100 sectionContainer" [ngClass]="{'ar':translate.currentLang == 'ar'}">
+    <div class="row">
+        <div class="col-12 col-lg-4 mt-2">
+            <div class="passengersHeaderTitle">
+                {{'checkout.passengers.passengersTitle' | translate}}
+            </div>
+            <div class="passengersHeaderSteps mt-2">
+                {{'checkout.passengers.passengersTitleStep' | translate}}
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6 mt-2">
+            <div class="passengersHeaderDescription">
+                {{'checkout.passengers.passengersDescriptionTxt' | translate}}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row mt-4" [formGroup]="flight.usersForm">
+        <ng-container formArrayName="users">
+            <ng-container *ngFor="let user of flight.usersArray.controls; let i = index">
+                <ng-container [formGroupName]="i">
+                    <div class="col-12">
+                        <mat-accordion>
+                            <mat-expansion-panel [expanded]="i === 0">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title> 
+                                        <mat-panel-description>
+                                            <div class="passengerTitle">
+                                            {{translate.currentLang == 'en'?"Passenger":"مسافر"}} 
+                                            {{i+1}}
+                                            {{translate.currentLang == 'en'?"Of":"من"}} 
+                                            {{flight.usersArray.length}}
+                                        </div>
+                                        </mat-panel-description>
+                                         </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="row">
+                                    <!--passenger header-->
+                                    <div class="col-12 col-lg-3">
+                                        <div class="passengerTitle">
+                                            {{translate.currentLang == 'en'?"Passenger":"مسافر"}} 
+                                            {{i+1}}
+                                            {{translate.currentLang == 'en'?"Of":"من"}} 
+                                            {{flight.usersArray.length}}
+                                        </div>
+                                        <div class="passengerType mt-2" *ngIf="user.get('type')!.value == 'ADT'">
+                                            {{'checkout.passengers.adult' | translate}}
+                                        </div>
+                                        <div class="passengerType mt-2" *ngIf="user.get('type')!.value == 'CNN'">
+                                            {{'checkout.passengers.child' | translate}}
+                                        </div>
+                                        <div class="passengerType mt-2" *ngIf="user.get('type')!.value == 'INF'">
+                                            {{'checkout.passengers.Infant' | translate}}
+                                        </div>
+                                    </div>
+
+                                    <!--passenger inputs-->
+                                    <div class="col-12 col-lg-9">
+                                        <div class="row">
+                                            <div class="col-6 col-lg-3">
+                                                <div (click)="assignGenderToUser(i,'Male')" 
+                                                [ngClass]="{'genderSelection':user.get('title')!.value != 'Male','selectedGender':user.get('title')!.value == 'Male'}"
+                                                >
+                                                {{'checkout.passengers.male' | translate}}
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-3">
+                                                <div (click)="assignGenderToUser(i,'Female')" 
+                                                [ngClass]="{'genderSelection':user.get('title')!.value != 'Female','selectedGender':user.get('title')!.value == 'Female'}"
+                                                >
+                                                {{'checkout.passengers.female' | translate}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-12 col-lg-4">
+                                                <input type="text" formControlName="firstName" 
+                                                [placeholder]="translate.currentLang=='en'?'First Name':'الاسم الاول'">
+                                            </div>
+
+                                            <div class="col-12 col-lg-4">
+                                                <input type="text" formControlName="lastName"
+                                                [placeholder]="translate.currentLang=='en'?'Last Name':'الاسم الاخير'">
+                                            </div>
+
+                                            <!--ADULT CALENDER-->
+                                            <div class="col-12 col-lg-4" style="position: relative;"
+                                             *ngIf="user.get('type')!.value == 'ADT'">
+                                                <input formControlName="dateOfBirth" 
+                                                [min]="minAdultDateBirth" [max]="todayDate" 
+                                                 [matDatepicker]="pickerADT" type="datetime" formControlName="dateOfBirth"
+                                                [placeholder]="translate.currentLang=='en'?'Date Of Birth':'تاريخ الميلاد'">
+                                                <mat-datepicker-toggle matSuffix [for]="pickerADT"></mat-datepicker-toggle>
+                                                <mat-datepicker [startAt]="minAdultDateBirth" #pickerADT></mat-datepicker>
+                                            </div>
+
+                                            <!--CHILD CALENDER-->
+                                            <div class="col-12 col-lg-4" style="position: relative;" 
+                                            *ngIf="user.get('type')!.value == 'CNN'">
+                                                <input formControlName="dateOfBirth" 
+                                                [min]="minChildDateBirth" [max]="todayDate" 
+                                                 [matDatepicker]="pickerCNN" type="datetime" formControlName="dateOfBirth"
+                                                [placeholder]="translate.currentLang=='en'?'Date Of Birth':'تاريخ الميلاد'">
+                                                <mat-datepicker-toggle matSuffix [for]="pickerCNN"></mat-datepicker-toggle>
+                                                <mat-datepicker [startAt]="minChildDateBirth" #pickerCNN></mat-datepicker>
+                                            </div>
+
+                                            <!--INFANTS CALENDER-->
+                                            <div class="col-12 col-lg-4" style="position: relative;"
+                                             *ngIf="user.get('type')!.value == 'INF'">
+                                                <input formControlName="dateOfBirth" 
+                                                [min]="minInfantDateBirth" [max]="todayDate" 
+                                                 [matDatepicker]="pickerINF" type="datetime" formControlName="dateOfBirth"
+                                                [placeholder]="translate.currentLang=='en'?'Date Of Birth':'تاريخ الميلاد'">
+                                                <mat-datepicker-toggle matSuffix [for]="pickerINF"></mat-datepicker-toggle>
+                                                <mat-datepicker [startAt]="minInfantDateBirth" #pickerINF></mat-datepicker>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3 passportDetailsSection">
+                                            <div class="col-12 col-lg-6">
+                                                <mat-accordion>
+                                                    <mat-expansion-panel>
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>
+                                                                This is the expansion title
+                                                              </mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <div class="col-12 col-lg-6"></div>
+                                                    </mat-expansion-panel>
+                                                </mat-accordion>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+
+</div>

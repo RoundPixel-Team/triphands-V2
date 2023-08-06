@@ -26,6 +26,17 @@
         },
         "coponCode":{
             "apply":"Apply Coupon"
+        },
+        "passengers":{
+            "header":"Who Are Travelling ?",
+            "passengersTitle":"Passanger Details",
+            "passengersTitleStep":"Step 2 of 3",
+            "passengersDescriptionTxt":"Please Enter Details Exactly As They Appear On Your Passport.",
+            "adult":"Adult",
+            "child":"Child",
+            "Infant":"Infant",
+            "male":"Male",
+            "female":"Female"
         }
 }
 

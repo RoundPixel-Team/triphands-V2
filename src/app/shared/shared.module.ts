@@ -11,13 +11,18 @@ import { RpTravelUiModule } from 'rp-travel-ui';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 export const MatrialComponents = [
   MatButtonModule,
   MatMenuModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
   
 
 ]

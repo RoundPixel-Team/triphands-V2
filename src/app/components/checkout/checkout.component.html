@@ -1,7 +1,7 @@
 <!--DATA BINDING-->
 <div class="container" *ngIf="flight.selectedFlight && flight.selectedFlight.status == 'Valid'">
     <div class="row">
-        <div class="summary-card p-2 mt-4 mx-auto col-12 ">
+        <div class="summary-card p-2 mt-4 mx-auto col-12" *ngIf="checkoutStepNow == 1">
             <div class="summary-card-text  ">{{"checkout.fastConfirm" | translate }}</div>
                 <div class="row justify-content-center align-items-center ">
                     <div class="col-4 summary-price">
@@ -19,7 +19,7 @@
         </div>
 
         <!--MAIN FORM SECTION-->
-        <div class="col-12 mt-3">
+        <div class="col-12 mt-3" *ngIf="checkoutStepNow == 1">
             <div class="mainFormSection" [formGroup]="flight.usersForm">
                 <ng-container formArrayName="users">
                     <ng-container *ngFor="let user of flight.usersArray.controls | slice: 0:1; let i = index">
@@ -64,11 +64,16 @@
 
 
         <!--OFFLINE SERVICES SECTION-->
-        <div class="col-12 mt-3">
+        <div class="col-12 mt-3" *ngIf="checkoutStepNow == 1">
             <app-offline-service></app-offline-service>
         </div>
 
         <!--BOOK NOW SECTION-->
-        <div class="col-12 mt-3">
-            <app-book-now></app-book-now>
+        <div class="col-12 mt-3" *ngIf="checkoutStepNow == 1">
+            <app-book-now (checkoutSteps)="changeCheckoutStep($event)"></app-book-now>
+        </div>
+
+        <!--PASSENGERS DETAILS-->
+        <div class="col-12 mt-3" *ngIf="checkoutStepNow == 2">
+            <app-passenger-details></app-passenger-details>
         </div>

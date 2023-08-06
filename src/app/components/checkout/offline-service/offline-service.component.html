@@ -34,13 +34,13 @@
                 <div class="col-3">
 
                     <div class="row" style="align-items: center;">
-                        <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-5">
                             <div class="servicePrice">
                                 {{service.currency | exchange:'code'}} {{service.servicePrice | exchange:'value'}}
                             </div>
                         </div>
 
-                        <div class="col-12 col-lg-8" >
+                        <div class="col-12 col-lg-7" >
                             <button (click)="flight.addOfflineService(service)" *ngIf="!service.added" mat-raised-button class="addBtn">
                                 {{'checkout.offlineService.addBtn' | translate}}
                             </button>
