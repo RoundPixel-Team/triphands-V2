@@ -11,13 +11,14 @@ import { RpTravelUiModule } from 'rp-travel-ui';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatCardModule} from '@angular/material/card';
 
 export const MatrialComponents = [
   MatButtonModule,
   MatMenuModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatCardModule
   
 
 ]
