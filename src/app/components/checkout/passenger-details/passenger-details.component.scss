@@ -102,6 +102,47 @@ mat-panel-description{
     align-items: center;
 }
 
+.payNowSection{
+    width: 25%;
+    margin-top: 10rem;
+    display: block;
+    float: right !important;
+    text-align: center;
+    .price{
+        color: var(--eight-color);
+        font-family: var(--two-font);
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 700;
+    }
+    .fareBreakup{
+        color: var(--seven-color);
+        font-family: var(--two-font);
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 400;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .payBtn{
+        button{
+            width: 80%;
+            border-radius: 10px;
+            background:var(--one-color);
+            padding: 8% 2%;
+            color: var(--nine-color);
+            font-family: var(--two-font);
+            font-size: 1.25rem;
+            font-style: normal;
+            font-weight: 700;
+        }
+    }
+}
+
+.ar .payNowSection{
+    float: left !important;
+}
+
 .ar mat-datepicker-toggle{
     position: absolute;
     left: 5% !important;
@@ -109,3 +150,8 @@ mat-panel-description{
     bottom: 0;
     top: 0%;
 }
+
+mat-expansion-panel{
+    box-shadow: none !important;
+}
+

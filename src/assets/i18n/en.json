@@ -36,8 +36,23 @@
             "child":"Child",
             "Infant":"Infant",
             "male":"Male",
-            "female":"Female"
-        }
+            "female":"Female",
+            "passportDetailsHeader":"Passport Details",
+            "fareBreakup":"Fare Breakup",
+            "payNow":"Pay Securely"
+        },
+        "BookingSummary":"Booking Summary",
+        "PriceBreakDown":"Price Break Down",
+        "PriceBreakDown1":"Fare Breakup",
+        "AdultFare":"Adult ",
+        "ChildFare":"Child",
+        "InfantFare":"Infant",
+        "baseFare":"Base Fare ",
+        "tax":"Tax ",
+        "paymentFees":"Payment fees",
+        "TotalFare": "Total Fare",
+        "to":"to",
+        "Taxes": "Taxes"
 }
 
 }

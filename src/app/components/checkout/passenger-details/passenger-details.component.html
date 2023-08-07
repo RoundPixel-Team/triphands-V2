@@ -85,21 +85,24 @@
 
                                         <div class="row mt-3">
                                             <div class="col-12 col-lg-4">
-                                                <input type="text" formControlName="firstName" 
+                                                <input [ngClass]="{'alert':user.get('firstName')!.touched && user.get('firstName')!.status == 'INVALID'}"
+                                                 type="text" formControlName="firstName" 
                                                 [placeholder]="translate.currentLang=='en'?'First Name':'الاسم الاول'">
                                             </div>
 
                                             <div class="col-12 col-lg-4">
-                                                <input type="text" formControlName="lastName"
+                                                <input [ngClass]="{'alert':user.get('lastName')!.touched && user.get('lastName')!.status == 'INVALID'}"
+                                                type="text" formControlName="lastName"
                                                 [placeholder]="translate.currentLang=='en'?'Last Name':'الاسم الاخير'">
                                             </div>
 
                                             <!--ADULT CALENDER-->
                                             <div class="col-12 col-lg-4" style="position: relative;"
                                              *ngIf="user.get('type')!.value == 'ADT'">
-                                                <input formControlName="dateOfBirth" 
+                                                <input [ngClass]="{'alert':user.get('dateOfBirth')!.touched && user.get('dateOfBirth')!.status == 'INVALID'}"
+                                                 formControlName="dateOfBirth" 
                                                 [min]="minAdultDateBirth" [max]="todayDate" 
-                                                 [matDatepicker]="pickerADT" type="datetime" formControlName="dateOfBirth"
+                                                 [matDatepicker]="pickerADT" type="datetime"
                                                 [placeholder]="translate.currentLang=='en'?'Date Of Birth':'تاريخ الميلاد'">
                                                 <mat-datepicker-toggle matSuffix [for]="pickerADT"></mat-datepicker-toggle>
                                                 <mat-datepicker [startAt]="minAdultDateBirth" #pickerADT></mat-datepicker>
@@ -108,9 +111,10 @@
                                             <!--CHILD CALENDER-->
                                             <div class="col-12 col-lg-4" style="position: relative;" 
                                             *ngIf="user.get('type')!.value == 'CNN'">
-                                                <input formControlName="dateOfBirth" 
+                                                <input [ngClass]="{'alert':user.get('dateOfBirth')!.touched && user.get('dateOfBirth')!.status == 'INVALID'}"
+                                                formControlName="dateOfBirth" 
                                                 [min]="minChildDateBirth" [max]="todayDate" 
-                                                 [matDatepicker]="pickerCNN" type="datetime" formControlName="dateOfBirth"
+                                                 [matDatepicker]="pickerCNN" type="datetime"
                                                 [placeholder]="translate.currentLang=='en'?'Date Of Birth':'تاريخ الميلاد'">
                                                 <mat-datepicker-toggle matSuffix [for]="pickerCNN"></mat-datepicker-toggle>
                                                 <mat-datepicker [startAt]="minChildDateBirth" #pickerCNN></mat-datepicker>
@@ -119,25 +123,60 @@
                                             <!--INFANTS CALENDER-->
                                             <div class="col-12 col-lg-4" style="position: relative;"
                                              *ngIf="user.get('type')!.value == 'INF'">
-                                                <input formControlName="dateOfBirth" 
+                                                <input [ngClass]="{'alert':user.get('dateOfBirth')!.touched && user.get('dateOfBirth')!.status == 'INVALID'}"
+                                                 formControlName="dateOfBirth" 
                                                 [min]="minInfantDateBirth" [max]="todayDate" 
-                                                 [matDatepicker]="pickerINF" type="datetime" formControlName="dateOfBirth"
+                                                 [matDatepicker]="pickerINF" type="datetime"
                                                 [placeholder]="translate.currentLang=='en'?'Date Of Birth':'تاريخ الميلاد'">
                                                 <mat-datepicker-toggle matSuffix [for]="pickerINF"></mat-datepicker-toggle>
                                                 <mat-datepicker [startAt]="minInfantDateBirth" #pickerINF></mat-datepicker>
                                             </div>
                                         </div>
 
-                                        <div class="row mt-3 passportDetailsSection">
-                                            <div class="col-12 col-lg-6">
+                                        <!--PASSPORT DETAILS SECTION-->
+                                        <div class="row mt-3 passportDetailsSection" *ngIf="flight.selectedFlight!.passportDetailsRequired!">
+                                            <div class="col-12 col-lg-8">
                                                 <mat-accordion>
-                                                    <mat-expansion-panel>
+                                                    <mat-expansion-panel hideToggle>
                                                         <mat-expansion-panel-header>
                                                             <mat-panel-title>
-                                                                This is the expansion title
+                                                               + {{'checkout.passengers.passportDetailsHeader' | translate}}
                                                               </mat-panel-title>
                                                         </mat-expansion-panel-header>
-                                                        <div class="col-12 col-lg-6"></div>
+                                                        <div class="row">
+                                                            <div class="col-12 col-lg-6 mt-2">
+                                                                <input [ngClass]="{'alert':user.get('passportnumber')!.touched && user.get('passportnumber')!.status == 'INVALID'}"
+                                                                type="text" formControlName="passportnumber" 
+                                                                [placeholder]="translate.currentLang=='en'?'Passport No':'رقم جواز السفر'">
+                                                            </div>
+    
+                                                            <div class="col-12 col-lg-6 mt-2">
+                                                                <input [ngClass]="{'alert':user.get('issuedcountry')!.touched && user.get('issuedcountry')!.status == 'INVALID'}"
+                                                                 type="text" formControlName="issuedcountry"  aria-label="country"
+                                                                [matAutocomplete]="issuedCountryAuto" #issuedCountryVal
+                                                                [placeholder]="translate.currentLang == 'en'? 'Issued Country': 'بلد المصدر'">
+                                                                <mat-autocomplete
+                                                                    (optionSelected)="assignCountries($event, i)"
+                                                                    #issuedCountryAuto="matAutocomplete">
+                                                                    <mat-option
+                                                                    *ngFor="let country of home.allCountries | councode : issuedCountryVal.value"
+                                                                    [value]="country.countryName" >
+                                                                    {{ country.countryName }}
+                                                                    </mat-option>
+                                                                </mat-autocomplete>
+                                                            </div>
+    
+                                                            <!--passport expiration CALENDER-->
+                                                            <div class="col-12 col-lg-6 mt-2" style="position: relative;">
+                                                                <input [ngClass]="{'alert':user.get('expdate')!.touched && user.get('expdate')!.status == 'INVALID'}"
+                                                                formControlName="expdate"
+                                                                [matDatepicker]="passportPicker" type="datetime"
+                                                                [placeholder]="translate.currentLang=='en'?'Expiration Date':'تاريخ الانتهاء'">
+                                                                <mat-datepicker-toggle matSuffix [for]="passportPicker"></mat-datepicker-toggle>
+                                                                <mat-datepicker #passportPicker></mat-datepicker>
+                                                            </div>
+                                                        </div>
+                                                        
                                                     </mat-expansion-panel>
                                                 </mat-accordion>
                                             </div>
@@ -153,6 +192,26 @@
                 </ng-container>
             </ng-container>
         </ng-container>
+        <div class="col-12">
+            <div class="payNowSection">
+                <div class="price">
+                    {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code' }}  
+                    {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value' }}
+                </div>
+        
+                <div class="fareBreakup mt-3" (click)="openFareBreakUp()">
+                    {{'checkout.passengers.fareBreakup' | translate}}
+                </div>
+        
+                <div class="payBtn mt-3">
+                    <button mat-raised-button>{{'checkout.passengers.payNow' | translate}}</button>
+                </div>
+            </div>
+        </div>
+        
     </div>
+
+
+    
 
 </div>

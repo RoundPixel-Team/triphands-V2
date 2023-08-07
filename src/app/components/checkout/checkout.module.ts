@@ -12,6 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FareBreakupComponent } from './fare-breakup/fare-breakup.component';
 
 
 
@@ -23,7 +24,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MultiCityComponent,
     OfflineServiceComponent,
     BookNowComponent,
-    PassengerDetailsComponent
+    PassengerDetailsComponent,
+    FareBreakupComponent
   ],
   imports: [
     CommonModule,

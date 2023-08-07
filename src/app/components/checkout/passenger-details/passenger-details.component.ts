@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightCheckoutService } from 'rp-travel-ui';
+import { FlightCheckoutService, HomePageService } from 'rp-travel-ui';
 
 @Component({
   selector: 'app-passenger-details',
@@ -11,6 +11,7 @@ export class PassengerDetailsComponent implements OnInit {
 
   public flight = inject(FlightCheckoutService)
   public translate = inject(TranslateService)
+  public home = inject(HomePageService)
 
   todayDate = new Date();
   minAdultDateBirth = new Date(1990, 0, 1)
@@ -18,6 +19,7 @@ export class PassengerDetailsComponent implements OnInit {
   minInfantDateBirth = new Date(2020, 0, 1)
 
 
+  @Output() fareBreakup = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -28,6 +30,15 @@ export class PassengerDetailsComponent implements OnInit {
 
   assignGenderToUser(index:number,value:string){
     this.flight.usersArray.at(index).get('title')?.setValue(value)
+  }
+
+  assignCountries(event:any,index:number){
+    this.flight.usersArray.at(index).get('countryofresident')?.setValue(event.option.value)
+    this.flight.usersArray.at(index).get('national')?.setValue(event.option.value)
+  }
+
+  openFareBreakUp(){
+    this.fareBreakup.emit(true)
   }
 
 }

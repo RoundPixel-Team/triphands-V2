@@ -13,7 +13,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 export const MatrialComponents = [
@@ -23,8 +24,8 @@ export const MatrialComponents = [
   MatIconModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  
-
+  MatAutocompleteModule,
+  MatDialogModule
 ]
 
 export const SharedComponents = [

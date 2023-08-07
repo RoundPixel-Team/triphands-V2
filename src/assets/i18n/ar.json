@@ -35,8 +35,22 @@
             "child":"طفل",
             "Infant":"رضيع",
             "male":"ذكر",
-            "female":"أنثي"
-        }
+            "female":"أنثي",
+            "passportDetailsHeader":"تفاصيل جواز السفر",
+            "fareBreakup":"تفاصيل السعر",
+            "payNow":"ادفع بأمان"
+        },
+        "BookingSummary":"ملخص الحجز",
+        "PriceBreakDown":"تفاصيل السعر",
+        "AdultFare":"البالغ",
+        "ChildFare":"الأطفال",
+        "InfantFare":"الرضيع",
+        "baseFare":"سعر التذكرة ",
+        "tax":"الضرائب",
+        "paymentFees":"تكالبف الدفع",
+        "TotalFare": "التكلفة الإجمالية",
+        "to":"الي",
+        "Taxes": "الضريبة"
     
 }
 }

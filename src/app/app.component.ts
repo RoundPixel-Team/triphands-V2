@@ -18,7 +18,7 @@ export class AppComponent {
    */
   constructor(@Inject(DOCUMENT) private document: Document) {
 
-    this.home.getPointOfSale();
+    
     
     if(localStorage.getItem('lang')){
 
@@ -37,6 +37,10 @@ export class AppComponent {
       this.document.dir='ltr';
     }
   
+    this.home.getPointOfSale();
+    this.home.getCountries(this.translate.currentLang)
   }
+
+  
 
 }

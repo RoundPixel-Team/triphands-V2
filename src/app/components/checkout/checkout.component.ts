@@ -23,6 +23,8 @@ export class CheckoutComponent implements OnInit {
   checkoutStepNow : number = 1
   phonenumber:string = 'phonenumber'
 
+  showFareBreaker : boolean = false
+
   subscription = new Subscription()
   constructor() { }
 
@@ -53,6 +55,10 @@ export class CheckoutComponent implements OnInit {
     } else {
       this.phonenumber = "phonenumber";
     }
+  }
+
+  fareBreakupWindow(val:boolean){
+    this.showFareBreaker = val
   }
 
 }
