@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { FlightCheckoutService } from 'rp-travel-ui';
 
 @Component({
   selector: 'app-multi-city',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./multi-city.component.scss']
 })
 export class MultiCityComponent implements OnInit {
+  public flight = inject(FlightCheckoutService) 
 
   constructor() { }
 
