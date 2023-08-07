@@ -1,37 +1,60 @@
 <div class="card-container">
     
-        <div *ngFor="let data of flight.selectedFlight!.airItineraryDTO!.allJourney!.flights ">
+        <div *ngIf=" flight.selectedFlight!.airItineraryDTO!.allJourney!.flights[0] as data">
                 <mat-card class="mat-card">
-                    <mat-card-content class="card-body">
-                        <div class="row">
-                            <div class="col-3 d-flex  align-items-center">
-                                <img class=" logo-img " src={{data.flightAirline?.airlineLogo}}>
-                                <div class="logo-name">{{data.flightAirline?.airlineName}}</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3"></div>
-                            <div class="col-4 flight-time">
-                                <div>{{data.flightDTO![0].departureDate | date : "shortTime"}}  -  {{data.flightDTO![0].arrivalDate | date : "shortTime"}}</div>
-                            </div>
-                        </div>
-                        <div class="row mt-3 align-items-center">
-                            <div class="col-3"></div>
-                            <div class="col-4 flight-location">
-                                {{data.flightDTO![0].departureTerminalAirport.cityName}} ({{data.flightDTO![0].departureTerminalAirport.airportCode}}) - {{data.flightDTO![data.flightDTO!.length-1].arrivalTerminalAirport.cityName}}  ( {{data.flightDTO![data.flightDTO!.length-1].arrivalTerminalAirport.airportCode}})
-                            </div>
-                            <div class="col-4 flight-duration">
-                                <div class="">{{data.flightDTO![0].durationPerLeg | hourminute }}
-                                    <span class="spanStyle">({{data.flightDTO![0].isStopSegment? 'Stop' : 'Direct'}})</span>
+                    <div class="card-content">
+                        <mat-card-content class="card-body">
+                            <div class="row">
+                                <div class="col-5 d-flex  align-items-center">
+                                    <img class=" logo-img me-2" src={{data.flightAirline?.airlineLogo}}>
+                                    <div class="logo-name">{{data.flightAirline?.airlineName}}</div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div class="col-4 flight-time">
+                                    <div>{{data.flightDTO![0].departureDate | date : "shortTime"}}  -  {{data.flightDTO![data.flightDTO!.length-1].arrivalDate | date : "shortTime"}}</div>
+                                </div>
+                            </div>
+                            <div class="row mt-2 align-items-center">
+                                <div class="col-3"></div>
+                                <div class="col-4 flight-location">
+                                    {{data.flightDTO![0].departureTerminalAirport.airportCode=='XNB'?'Dubai': data.flightDTO![0].departureTerminalAirport.cityName}} 
+                                    ({{data.flightDTO![0].departureTerminalAirport.airportCode }}) 
+                                    - {{data.flightDTO![data.flightDTO!.length-1].arrivalTerminalAirport.cityName}} 
+                                     ( {{data.flightDTO![data.flightDTO!.length-1].arrivalTerminalAirport.airportCode}})
+                                </div>
+                                <div class="col-lg-4 col-sm-10 d-flex flight-duration">
+                                            <div class="duration me-2">{{flight.selectedFlight!.airItineraryDTO!.totalDuration | hourminute }}</div>
+                                            <div class="stops">
+                                                <div *ngIf="flight.selectedFlight!.airItineraryDTO.allJourney.flights[0].stopsNum==0">(Direct)</div>
+                                            <div *ngIf="flight.selectedFlight!.airItineraryDTO.allJourney.flights[0].stopsNum==1">(1 Stop)</div>
+                                            <div *ngIf="flight.selectedFlight!.airItineraryDTO.allJourney.flights[0].stopsNum>1">(2+ Stops)</div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    
+                                    </div>
+                               
+                             
+                </mat-card-content>
+                <div class=" card-footer">
+                    <div class="card-footer-content">
+                        <div class="col-2">
+                            <div *ngIf="flight.selectedFlight!.airItineraryDTO.isRefundable">
+                               Refundable
+                              </div>
+                              <div *ngIf="!flight.selectedFlight!.airItineraryDTO.isRefundable">
+                                Non Refundable
+                              </div>
                         </div>
-                        <div class="row mt-3 card-footer justify-content-between mb-0">
-                            <div class="col-6">Refundable</div>
-                            <div class="col-6">Flight Details</div>
-                        </div>
-                
-            </mat-card-content>
+                        <div class="col-lg-2 col-sm-4">Flight Details</div>
+                    </div>
+                  
+                </div>
+                    </div>
+                    
             </mat-card>
             </div>
     </div>

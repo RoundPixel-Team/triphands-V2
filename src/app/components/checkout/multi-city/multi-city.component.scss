@@ -1,0 +1,100 @@
+::ng-deep .mat-card{
+    padding:0px !important;
+    border-radius:0px !important;
+}
+
+
+.mat-card{
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  width: 100%;
+  background-color: var(--nine-color);
+  color: var(--eight-color);
+  font-size: 18px;
+  padding: 1%;
+  font-weight: 500;
+  border: 1px solid #BDBDBD;
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .card-body{
+    flex-grow: 1;
+    padding: 16px 32px;
+  }
+  .logo-img{
+    width:130px;
+    border-radius: 20%;
+   
+  }
+  .logo-name{
+    font-size: 1rem;
+  }
+ .flight-time{
+    font-size: 1.25rem;
+ }
+ .flight-location{
+    color:var(--seven-color);
+    font-size: 1rem;
+ }
+ .flight-duration{
+    color:var(--seven-color);
+    font-size: 1rem;
+   
+  
+ 
+}
+  .card-footer{
+    background-color: #E8F2F9;
+    padding: 8px 15px;
+    margin-top: auto;
+  .card-footer-content{
+    display: flex;
+  justify-content: space-between;
+  color:var(--seven-color);
+
+  }
+}
+}
+@media (max-width: 768px) {
+ 
+  .card-body {
+    padding: 8px 16px; 
+  }
+
+  .logo-img {
+    width: 80px !important; 
+  }
+
+  .logo-name {
+    font-size: 0.9rem !important; 
+    text-wrap: nowrap;
+  }
+
+  .flight-time {
+    font-size: 1rem !important;
+    text-wrap: nowrap;
+  }
+
+  .flight-location {
+    font-size: 0.9rem !important; 
+    text-wrap: nowrap;
+  }
+
+  .flight-duration {
+    font-size: 0.9rem; 
+    display: flex;
+    justify-content: center;
+    text-wrap: nowrap;
+    margin-top: 3px;
+  }
+
+  
+  .card-footer-content{
+    font-size: 0.9rem !important;
+    text-wrap:nowrap;
+  }
+}
