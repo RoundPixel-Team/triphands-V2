@@ -54,7 +54,15 @@
         "paymentFees":"Payment fees",
         "TotalFare": "Total Fare",
         "to":"to",
-        "Taxes": "Taxes"
+        "Taxes": "Taxes",
+        "summaryCard":{
+            "refundable": "Refundable",
+            "nonRefundable": "Non Refundable",
+            "flightDetails": "Flight details",
+            "direct":"Direct",
+            "oneStop": "One Stop",
+            "twoStops": "2+ Stops"
+        }
 }
 
 }

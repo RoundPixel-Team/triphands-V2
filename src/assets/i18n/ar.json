@@ -52,7 +52,14 @@
         "paymentFees":"تكالبف الدفع",
         "TotalFare": "التكلفة الإجمالية",
         "to":"الي",
-        "Taxes": "الضريبة"
-    
+        "Taxes": "الضريبة",
+        "summaryCard":{
+            "refundable": "قابلة للاسترداد",
+            "nonRefundable": "غير قابلة للاسترداد",
+            "flightDetails": "تفاصيل الرحلة",
+            "direct":"مباشر",
+            "oneStop": "محطة توقف واحدة",
+            "twoStops": "محطتين توقف أو أكثر"
+        }
 }
 }

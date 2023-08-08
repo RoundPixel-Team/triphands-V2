@@ -1,4 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { FlightCheckoutService } from 'rp-travel-ui';
 
 @Component({
@@ -8,6 +9,7 @@ import { FlightCheckoutService } from 'rp-travel-ui';
 })
 export class MultiCityComponent implements OnInit {
   public flight = inject(FlightCheckoutService) 
+  public translate = inject(TranslateService)
 
   constructor() { }
 
