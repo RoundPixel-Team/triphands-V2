@@ -21,19 +21,19 @@ export class AppComponent {
 
     let env = {
         offlineSeats:"http://178.63.214.219:7025",
-        searchflow:  'https://wegosearch.triphands.com',
-        BookingFlow:  'https://wegobook.triphands.com',
-        FareRules:  'https://wegoprovider.triphands.com',
-        asm:  'https://backofficeapi.triphands.com',
+        searchflow:  'https://wegosearch.khaleejgate.com',
+        BookingFlow:  'https://wegobook.khaleejgate.com',
+        FareRules:  'https://wegoprovider.khaleejgate.com',
+        asm:  'https://backofficeapi.khaleejgate.com',
         Apihotels:  "https://hotels.rhlatycom",
-        hotelprepay: 'https://prepayapi.triphands.com',
-        users:  'https://usersapi.triphands.com',
-        admin:  'https://adminapi.triphands.com/',
-        getDPayment:  'https://adminapi.triphands.com/',
-        bookHotels: "https://hotels.triphands.com",
-        hotelPrepay: 'https://prepayapi.triphands.com',
-        backOffice: 'https://backofficeapi.triphands.com',
-        FlightTop:'https://flightsearch.triphands.com',
+        hotelprepay: 'https://prepayapi.khaleejgate.com',
+        users:  'https://usersapi.khaleejgate.com',
+        admin:  'https://adminapi.khaleejgate.com/',
+        getDPayment:  'https://adminapi.khaleejgate.com/',
+        bookHotels: "https://hotels.khaleejgate.com",
+        hotelPrepay: 'https://prepayapi.khaleejgate.com',
+        backOffice: 'https://backofficeapi.khaleejgate.com',
+        FlightTop:'https://flightsearch.khaleejgate.com',
         offers: {
           getAll: 'http://41.215.243.138:7893/api/GetAllOffersAPI?POS=',
           getAllActive:'http://41.215.243.138:7893/api/GetAllActiveOffersAPI?POS=',
@@ -43,7 +43,30 @@ export class AppComponent {
         }
       }
 
-    // this.environment.envConfiguration(env)
+      let envTazkrti = {
+          offlineSeats:"http://41.223.55.14:7025",
+          searchflow:  'https://flightsearch.khaleejgate.com',
+          BookingFlow:  'https://flightflow.khaleejgate.com',
+          FareRules:  'https://flightprov.khaleejgate.com',
+          asm:  'https://backofficeapi.khaleejgate.com',
+          Apihotels:  "https://hotels.Tazkrticom",
+          hotelprepay: 'https://prepayapi.khaleejgate.com',
+          users:  'https://usersapi.khaleejgate.com',
+          admin:  'https://adminapi.khaleejgate.com/',
+          getDPayment:  'https://adminapi.khaleejgate.com/',
+          bookHotels: "https://hotels.khaleejgate.com",
+          hotelPrepay: 'https://prepayapi.khaleejgate.com',
+          backOffice: 'https://backofficeapi.khaleejgate.com',
+          FlightTop:'https://flightsearch.khaleejgate.com',
+          offers: {
+            getAll: 'http://41.215.243.36:7893/api/GetAllOffersAPI?POS=',
+            getByID: 'http://41.215.243.36:7893/api/GetOfferByIdAPI?OfferId=',
+            BookOffer: "http://41.215.243.36:7895/api/BookOffer",
+            RetriveItineraryDetails:'/api/Admin/RetriveItineraryDetails'
+          }
+      }
+
+    this.environment.envConfiguration(env)
     
     setTimeout(()=>{
       if(localStorage.getItem('lang')){

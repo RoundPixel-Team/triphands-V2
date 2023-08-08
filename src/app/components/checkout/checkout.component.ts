@@ -44,7 +44,7 @@ export class CheckoutComponent implements OnInit,OnDestroy {
     this.subscription.add(this.flight.paymentLink.subscribe((res:any)=>{
       console.log("show me payment link",res)
       if(res){
-        window.location.href = res.link;
+        window.location.href = res.link; 
       }
     }))
   }
