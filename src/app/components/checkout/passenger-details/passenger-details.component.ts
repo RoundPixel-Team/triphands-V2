@@ -33,12 +33,30 @@ export class PassengerDetailsComponent implements OnInit {
   }
 
   assignCountries(event:any,index:number){
-    this.flight.usersArray.at(index).get('countryofresident')?.setValue(event.option.value)
-    this.flight.usersArray.at(index).get('national')?.setValue(event.option.value)
+    this.flight.usersArray.at(index).get('countryOfResidence')?.setValue(event.option.value)
+    this.flight.usersArray.at(index).get('nationality')?.setValue(event.option.value)
   }
 
   openFareBreakUp(){
     this.fareBreakup.emit(true)
+  }
+
+  saveBooking(){
+    if(this.flight.usersArray.invalid){
+      for(var i = 0; i < this.flight.usersArray.length ; i++){
+        this.flight.usersArray.at(i).markAllAsTouched()
+      }
+
+      document.getElementById('passengersFormSection')!.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    }
+    else{
+      this.flight.saveBooking(this.home.selectedCurrency.Currency_Code)
+    }
+    
   }
 
 }

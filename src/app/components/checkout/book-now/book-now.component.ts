@@ -22,7 +22,14 @@ export class BookNowComponent implements OnInit {
 
   goToNextStep(){
     console.log('show me the form', 2)
-    this.checkoutSteps.emit(2)
+    if(this.flight.usersArray.at(0).get('email')?.status == 'INVALID' || this.flight.usersArray.at(0).get('phoneNumber')?.status == 'INVALID'){
+      this.flight.usersArray.at(0).get('email')?.markAsTouched()
+      this.flight.usersArray.at(0).get('phoneNumber')?.markAsTouched()
+      this.checkoutSteps.emit(-1)
+    }else{
+      this.checkoutSteps.emit(2)
+    }
+    
   }
 
 }

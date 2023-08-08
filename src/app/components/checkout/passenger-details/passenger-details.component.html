@@ -25,7 +25,7 @@
     </div>
 
 
-    <div class="row mt-4" [formGroup]="flight.usersForm">
+    <div class="row mt-4" [formGroup]="flight.usersForm" id="passengersFormSection" #passengersFormSection>
         <ng-container formArrayName="users">
             <ng-container *ngFor="let user of flight.usersArray.controls; let i = index">
                 <ng-container [formGroupName]="i">
@@ -53,13 +53,13 @@
                                             {{translate.currentLang == 'en'?"Of":"من"}} 
                                             {{flight.usersArray.length}}
                                         </div>
-                                        <div class="passengerType mt-2" *ngIf="user.get('type')!.value == 'ADT'">
+                                        <div class="passengerType mt-2" *ngIf="user.get('PassengerType')!.value == 'ADT'">
                                             {{'checkout.passengers.adult' | translate}}
                                         </div>
-                                        <div class="passengerType mt-2" *ngIf="user.get('type')!.value == 'CNN'">
+                                        <div class="passengerType mt-2" *ngIf="user.get('PassengerType')!.value == 'CNN'">
                                             {{'checkout.passengers.child' | translate}}
                                         </div>
-                                        <div class="passengerType mt-2" *ngIf="user.get('type')!.value == 'INF'">
+                                        <div class="passengerType mt-2" *ngIf="user.get('PassengerType')!.value == 'INF'">
                                             {{'checkout.passengers.Infant' | translate}}
                                         </div>
                                     </div>
@@ -67,14 +67,14 @@
                                     <!--passenger inputs-->
                                     <div class="col-12 col-lg-9">
                                         <div class="row">
-                                            <div class="col-6 col-lg-3">
+                                            <div class="col-6 col-lg-3 mt-2">
                                                 <div (click)="assignGenderToUser(i,'Male')" 
                                                 [ngClass]="{'genderSelection':user.get('title')!.value != 'Male','selectedGender':user.get('title')!.value == 'Male'}"
                                                 >
                                                 {{'checkout.passengers.male' | translate}}
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-lg-3">
+                                            <div class="col-6 col-lg-3  mt-2">
                                                 <div (click)="assignGenderToUser(i,'Female')" 
                                                 [ngClass]="{'genderSelection':user.get('title')!.value != 'Female','selectedGender':user.get('title')!.value == 'Female'}"
                                                 >
@@ -84,21 +84,21 @@
                                         </div>
 
                                         <div class="row mt-3">
-                                            <div class="col-12 col-lg-4">
+                                            <div class="col-12 col-lg-4  mt-2">
                                                 <input [ngClass]="{'alert':user.get('firstName')!.touched && user.get('firstName')!.status == 'INVALID'}"
                                                  type="text" formControlName="firstName" 
                                                 [placeholder]="translate.currentLang=='en'?'First Name':'الاسم الاول'">
                                             </div>
 
-                                            <div class="col-12 col-lg-4">
+                                            <div class="col-12 col-lg-4 mt-2">
                                                 <input [ngClass]="{'alert':user.get('lastName')!.touched && user.get('lastName')!.status == 'INVALID'}"
                                                 type="text" formControlName="lastName"
                                                 [placeholder]="translate.currentLang=='en'?'Last Name':'الاسم الاخير'">
                                             </div>
 
                                             <!--ADULT CALENDER-->
-                                            <div class="col-12 col-lg-4" style="position: relative;"
-                                             *ngIf="user.get('type')!.value == 'ADT'">
+                                            <div class="col-12 col-lg-4 mt-2" style="position: relative;"
+                                             *ngIf="user.get('PassengerType')!.value == 'ADT'">
                                                 <input [ngClass]="{'alert':user.get('dateOfBirth')!.touched && user.get('dateOfBirth')!.status == 'INVALID'}"
                                                  formControlName="dateOfBirth" 
                                                 [min]="minAdultDateBirth" [max]="todayDate" 
@@ -109,8 +109,8 @@
                                             </div>
 
                                             <!--CHILD CALENDER-->
-                                            <div class="col-12 col-lg-4" style="position: relative;" 
-                                            *ngIf="user.get('type')!.value == 'CNN'">
+                                            <div class="col-12 col-lg-4 mt-2" style="position: relative;" 
+                                            *ngIf="user.get('PassengerType')!.value == 'CNN'">
                                                 <input [ngClass]="{'alert':user.get('dateOfBirth')!.touched && user.get('dateOfBirth')!.status == 'INVALID'}"
                                                 formControlName="dateOfBirth" 
                                                 [min]="minChildDateBirth" [max]="todayDate" 
@@ -121,8 +121,8 @@
                                             </div>
 
                                             <!--INFANTS CALENDER-->
-                                            <div class="col-12 col-lg-4" style="position: relative;"
-                                             *ngIf="user.get('type')!.value == 'INF'">
+                                            <div class="col-12 col-lg-4 mt-2" style="position: relative;"
+                                             *ngIf="user.get('PassengerType')!.value == 'INF'">
                                                 <input [ngClass]="{'alert':user.get('dateOfBirth')!.touched && user.get('dateOfBirth')!.status == 'INVALID'}"
                                                  formControlName="dateOfBirth" 
                                                 [min]="minInfantDateBirth" [max]="todayDate" 
@@ -145,14 +145,14 @@
                                                         </mat-expansion-panel-header>
                                                         <div class="row">
                                                             <div class="col-12 col-lg-6 mt-2">
-                                                                <input [ngClass]="{'alert':user.get('passportnumber')!.touched && user.get('passportnumber')!.status == 'INVALID'}"
-                                                                type="text" formControlName="passportnumber" 
+                                                                <input [ngClass]="{'alert':user.get('PassportNumber')!.touched && user.get('PassportNumber')!.status == 'INVALID'}"
+                                                                type="text" formControlName="PassportNumber" 
                                                                 [placeholder]="translate.currentLang=='en'?'Passport No':'رقم جواز السفر'">
                                                             </div>
-    
+     
                                                             <div class="col-12 col-lg-6 mt-2">
-                                                                <input [ngClass]="{'alert':user.get('issuedcountry')!.touched && user.get('issuedcountry')!.status == 'INVALID'}"
-                                                                 type="text" formControlName="issuedcountry"  aria-label="country"
+                                                                <input [ngClass]="{'alert':user.get('IssuedCountry')!.touched && user.get('IssuedCountry')!.status == 'INVALID'}"
+                                                                 type="text" formControlName="IssuedCountry"  aria-label="country"
                                                                 [matAutocomplete]="issuedCountryAuto" #issuedCountryVal
                                                                 [placeholder]="translate.currentLang == 'en'? 'Issued Country': 'بلد المصدر'">
                                                                 <mat-autocomplete
@@ -168,8 +168,8 @@
     
                                                             <!--passport expiration CALENDER-->
                                                             <div class="col-12 col-lg-6 mt-2" style="position: relative;">
-                                                                <input [ngClass]="{'alert':user.get('expdate')!.touched && user.get('expdate')!.status == 'INVALID'}"
-                                                                formControlName="expdate"
+                                                                <input [ngClass]="{'alert':user.get('PassportExpiry')!.touched && user.get('PassportExpiry')!.status == 'INVALID'}"
+                                                                formControlName="PassportExpiry"
                                                                 [matDatepicker]="passportPicker" type="datetime"
                                                                 [placeholder]="translate.currentLang=='en'?'Expiration Date':'تاريخ الانتهاء'">
                                                                 <mat-datepicker-toggle matSuffix [for]="passportPicker"></mat-datepicker-toggle>
@@ -203,7 +203,7 @@
                     {{'checkout.passengers.fareBreakup' | translate}}
                 </div>
         
-                <div class="payBtn mt-3">
+                <div class="payBtn mt-3" (click)="saveBooking()">
                     <button mat-raised-button>{{'checkout.passengers.payNow' | translate}}</button>
                 </div>
             </div>

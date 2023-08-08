@@ -67,15 +67,6 @@
     opacity: 1;
   }
   
-  .popupOfflineService{
-    margin: 10rem auto;
-    padding: 1%;
-    background: var(--nine-color);
-    border-radius: 5px;
-    width: 30%;
-    position: relative;
-    transition: all 5s ease-in-out;
-  }
   
   .popupFareBreaker {
     margin: 84vh auto;
@@ -84,7 +75,16 @@
     border-radius: 5px;
     width: 30%;
     position: relative;
-    transition: all 5s ease-in-out;
+  }
+
+  .popupError {
+    margin: 40vh auto;
+    padding: 0px;
+    background: var(--nine-color);
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    padding: 4%;
   }
   
   .popupFareBreaker h2 , .popupOfflineService h2 {
@@ -105,4 +105,18 @@
     .summary-card{
         display: none !important; 
     }
+    .popupFareBreaker , .popupError {
+      width: 90%;
+    }
+}
+
+
+.searchAgainBtn{
+  border-radius: 10px;
+  background-color: var(--one-color);
+  padding: 2%;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--nine-color);
 }

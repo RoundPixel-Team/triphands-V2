@@ -155,3 +155,11 @@ mat-expansion-panel{
     box-shadow: none !important;
 }
 
+
+@media (max-width:769px) {
+    .payNowSection{
+        width: 100% !important;
+        float: unset !important;
+    }
+}
+

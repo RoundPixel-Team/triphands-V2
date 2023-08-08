@@ -12,6 +12,8 @@
     },
 
     "checkout":{
+        "error":"Ops, Your session has been expired or something went wrong !",
+        "searchAgain":"Search Again",
         "fastConfirm" :"Fast Confirmation",
         "offlineService":{
             "header":"Enjoy your Trip with our best seller services",

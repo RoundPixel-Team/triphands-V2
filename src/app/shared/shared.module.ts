@@ -16,6 +16,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 export const MatrialComponents = [
@@ -27,7 +28,8 @@ export const MatrialComponents = [
   MatNativeDateModule,
   MatAutocompleteModule,
   MatDialogModule,
-  MatCardModule
+  MatCardModule,
+  MatProgressSpinnerModule
 ]
 
 export const SharedComponents = [

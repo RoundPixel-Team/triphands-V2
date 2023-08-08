@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CountryISO } from 'ngx-intl-tel-input';
 import { FlightCheckoutService, HomePageService } from 'rp-travel-ui';
@@ -11,12 +11,13 @@ import { Subscription } from 'rxjs';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent implements OnInit,OnDestroy {
   
   public flight = inject(FlightCheckoutService) 
   private route = inject(ActivatedRoute)
   public translate = inject(TranslateService)
   public home = inject(HomePageService)
+  private router = inject(Router)
 
   CountryISO = CountryISO;
 
@@ -26,7 +27,10 @@ export class CheckoutComponent implements OnInit {
   showFareBreaker : boolean = false
 
   subscription = new Subscription()
+
+  scrollToMainForm!: ElementRef<HTMLInputElement>;
   constructor() { }
+  
 
   ngOnInit(): void {
     this.subscription.add(
@@ -37,20 +41,31 @@ export class CheckoutComponent implements OnInit {
       })
     )
 
-    setTimeout(()=>{
-      if(this.home.pointOfSale){
-        
+    this.subscription.add(this.flight.paymentLink.subscribe((res:any)=>{
+      console.log("show me payment link",res)
+      if(res){
+        window.location.href = res.link;
       }
-    },1000)
+    }))
   }
 
   changeCheckoutStep(event:number){
-    this.checkoutStepNow = event
+    if(event == -1){
+      this.invalidPhone()
+      document.getElementById('mainFormSection')!.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    }else{
+      this.checkoutStepNow = event
+    }
+    
   }
   //  valdidate phone component by chaning css 
   invalidPhone() {
     let phone: FormGroup = (<FormGroup>((<FormArray>this.flight.usersForm.get("users"))["controls"][0]));
-    if (phone.get('phonenum')!.invalid && (phone.get('phonenum')!.touched || phone.get('phonenum')!.dirty)) {
+    if (phone.get('phoneNumber')!.invalid && (phone.get('phoneNumber')!.touched || phone.get('phoneNumber')!.dirty)) {
       this.phonenumber = "alert";
     } else {
       this.phonenumber = "phonenumber";
@@ -60,5 +75,17 @@ export class CheckoutComponent implements OnInit {
   fareBreakupWindow(val:boolean){
     this.showFareBreaker = val
   }
+
+
+  goToHomePage(){
+    // this.router.navigate(['/'])
+    location.reload()
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+    this.flight.destroyer()
+  }
+
 
 }
