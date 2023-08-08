@@ -10,11 +10,9 @@ import { FlightCheckoutService } from 'rp-travel-ui';
 export class RoundTripComponent implements OnInit {
   public flight = inject(FlightCheckoutService) 
   public translate = inject(TranslateService)
-currentLang=this.translate.currentLang;
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.currentLang);
   }
 
 }

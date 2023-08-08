@@ -13,7 +13,7 @@
                     </div>
                     <div class="row">
                         <div class="col-3"></div>
-                        <div class="col-4 flight-time">
+                        <div class="col-4 flight-time" [ngClass]="{'ar':translate.currentLang==='ar'}">
                             <div>{{data.flightDTO![0].departureDate | date : "shortTime"}}  -  {{data.flightDTO![data.flightDTO!.length-1].arrivalDate | date : "shortTime"}}</div>
                         </div>
                     </div>
@@ -28,9 +28,9 @@
                         <div class="col-lg-4 col-sm-10 d-flex flight-duration">
                                     <div class="duration me-2">{{data.elapsedTime| hourminute }}</div>
                                     <div class="stops">
-                                        <div *ngIf="data.stopsNum==0">(Direct)</div>
-                                    <div *ngIf="data.stopsNum==1">(1 Stop)</div>
-                                    <div *ngIf="data.stopsNum>1">(2+ Stops)</div>
+                                        <div *ngIf="data.stopsNum==0">({{"checkout.summaryCard.direct" | translate}})</div>
+                                    <div *ngIf="data.stopsNum==1">({{"checkout.summaryCard.oneStop" | translate}})</div>
+                                    <div *ngIf="data.stopsNum>1">({{"checkout.summaryCard.twoStops" | translate}})</div>
                                     </div>
                                     
                                 </div>
@@ -46,13 +46,13 @@
         <div class="card-footer-content">
             <div class="col-2">
                 <div *ngIf="flight.selectedFlight!.airItineraryDTO.isRefundable">
-                   Refundable
+                    {{"checkout.summaryCard.refundable" | translate}}
                   </div>
                   <div *ngIf="!flight.selectedFlight!.airItineraryDTO.isRefundable">
-                    Non Refundable
-                  </div>
+                    {{"checkout.summaryCard.nonRefundable" | translate}}
+                </div>
             </div>
-            <div class="col-lg-2 col-sm-4">Flight Details</div>
+            <div class="col-lg-2 col-sm-4">{{"checkout.summaryCard.flightDetails" | translate}}</div>
         </div>
       
     </div>

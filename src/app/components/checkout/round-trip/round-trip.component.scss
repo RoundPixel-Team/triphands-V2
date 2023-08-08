@@ -3,7 +3,11 @@
     border-radius:0px !important;
 }
 
-
+.ar{
+  direction: ltr;
+  display: flex;
+  justify-content: flex-end;
+}
 .mat-card{
   display: flex;
   flex-direction: column;
@@ -59,9 +63,7 @@
   }
 }
 }
-.ar{
-    direction: rtl;
-  }
+
 @media (max-width: 768px) {
  
   .card-body {

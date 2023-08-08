@@ -23,6 +23,14 @@
             "premiumTitle":"Online check-in & Boarding pass",
             "total":"Total",
             "bookBtn":"Book Now"
+        },
+        "summaryCard":{
+            "refundable": "Refundable",
+            "nonRefundable": "Non Refundable",
+            "flightDetails": "Flight details",
+            "direct":"Direct",
+            "oneStop": "One Stop",
+            "twoStops": "2+ Stops"
         }
 }
 
