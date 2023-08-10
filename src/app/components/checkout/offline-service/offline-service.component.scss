@@ -11,10 +11,10 @@
 
 .servicesContainer{
     width: 100%;
-    padding: 2%;
-    background-color: var(--nine-color);
     .service{
         width: 100%;
+        background-color: var(--nine-color);
+        padding: 2%;
         .serviceImg{
             width: 100%;
             img{
