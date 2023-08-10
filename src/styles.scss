@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "node_modules/bootstrap/scss/bootstrap";
-@import "~bootstrap/scss/bootstrap";
 html , body { height: 100%;background-color:#F5F5F5;;}
 
 :root{
@@ -28,3 +27,35 @@ html , body { height: 100%;background-color:#F5F5F5;;}
     --one-font:Raleway;
     --two-font:Inter;
 }
+
+.flight_details .mat-tab-labels .mat-tab-label {
+    border-radius: 1em;
+    margin: 1em;
+    border-radius: 0.9em;
+    font-weight: 500;
+    color: #000000;
+    opacity: 1;
+    overflow: hidden;
+  }
+  .flight_details  .mat-tab-label.mat-tab-label-active {
+    border-radius: 10px;
+    border:1px solid red;
+    min-width: 100px;
+    height: 44px;
+  }
+  .flight_details .mat-tab-group.mat-primary .mat-ink-bar {
+    background: unset;
+  }
+  .flight_details .mat-tab-header {
+    border-bottom: unset;
+  }
+  .flight_details .mat-tab-body-content{
+    overflow: hidden;
+  }
+  @media (max-width:768px){
+    .flight_details .mat-tab-labels .mat-tab-label {
+      margin: 3%;
+      padding: 0 1.2em;
+      overflow: hidden;
+    }
+  }

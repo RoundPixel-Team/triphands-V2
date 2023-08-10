@@ -31,6 +31,21 @@
             "direct":"Direct",
             "oneStop": "One Stop",
             "twoStops": "2+ Stops"
+        },
+        "flightDetails":{
+            "flightRoute" :"Flight Route",
+            "fareRules": "Fare Rules",
+            "baggage": "Baggage",
+            "flightNo":"Flight Num.",
+            "Stopover":"Stopover",
+            "operatedBy": "operated By: ",
+            "cancel": "Cancellation Charge",
+            "change": "Change Charge",
+            "cancelFareText":"In case of the booking is cancelled before the departure of the first flight.",
+            "changeFareText":"In case of the booking is changed before the departure of the first flight.",
+            "fareLabel":"Trip Hands Service Charge",
+            "cabinBaggage": "Cabin Baggage"
+
         }
 }
 

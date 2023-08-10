@@ -12,13 +12,14 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatTabsModule} from '@angular/material/tabs';
 export const MatrialComponents = [
   MatButtonModule,
   MatMenuModule,
   MatListModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatTabsModule,
   
 
 ]

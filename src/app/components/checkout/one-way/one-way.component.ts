@@ -11,13 +11,21 @@ import { Subscription } from 'rxjs';
 export class OneWayComponent implements OnInit {
   public flight = inject(FlightCheckoutService) 
   public translate = inject(TranslateService)
-
+  showDetails:boolean=false;
+  collapseRoute:boolean=false;
   subscription = new Subscription()
+  
 
   constructor() { }
 
   ngOnInit(): void {
   this.flight.selectedFlight;
   }
-
+  toggleDetailsCard(){
+    this.showDetails=!this.showDetails;
+  }
+  detailsCollapse(){
+    this.collapseRoute=!this.collapseRoute;
+  }
+ 
 }
