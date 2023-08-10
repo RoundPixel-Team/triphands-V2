@@ -60,6 +60,21 @@
             "direct":"مباشر",
             "oneStop": "محطة توقف واحدة",
             "twoStops": "محطتين توقف أو أكثر"
+        },
+        "flightDetails":{
+            "flightRoute" :"مسار الرحلة",
+            "fareRules": "قواعد الرحلة",
+            "baggage": "الأمتعة",
+            "flightNo":"رقم الرحلة",
+            "Stopover":"مدة التوقف",
+            "operatedBy": "بواسطة: ",
+            "cancel": "تكلفة الغاء الحجز",
+            "change": "تكلفة تغيير الحجز",
+            "cancelFareText":"في حالة الغاء الحجز قبل موعد اقلاع الرحلة الأولى.",
+            "changeFareText":"في حالة تغيير الحجز قبل موعد اقلاع الرحلة الأولى.",
+            "fareLabel":" رسوم خدمات Trip Hands",
+            "cabinBaggage": "وزن الأمتعة"
+
         }
 }
 }

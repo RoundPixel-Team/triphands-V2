@@ -6,7 +6,7 @@
   direction: ltr;
 }
 
-.mat-card{
+.summary-mat-card{
   display: flex;
   flex-direction: column;
   height: 100%; 
@@ -61,6 +61,132 @@
   }
 }
 }
+.flight_details{
+  font-family: var(--two-font);
+  .card-body{
+    flex-grow: 1;
+    padding: 16px 32px;
+    .close-btn{
+      background-color: var(--fifteen-color);
+      border-radius: 18px;
+      width: 50px;
+      height: 37px;
+    }
+.main-route{
+  .main-date{
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .journey{
+    color: var(--seven-color);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+    .code{
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    .date{
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .airport_name{
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+}
+.details{
+  border-top: 1px solid var(--three-color) ;
+.timeline{
+       margin-bottom: 1em;
+        margin-top: 1em;
+        padding: 0 3em;
+        .col-1{
+          align-self: center !important;
+        }
+        .date{
+          font-size: 1rem;
+          font-weight: 500;
+
+        }
+        .time{
+          display: block;
+          color: var(--seven-color);
+          font-size: 1rem;
+
+                }
+                .airport-name{
+                background-color: var(--fifteen-color);
+                padding: 1.3em;
+                font-weight: 600;
+                font-size: 1rem;
+                width: 100%;
+                }
+                .flight-duration-time{
+                  padding-top: 0.5rem;
+                  font-size: 1rem;
+                  font-weight: 500;
+                }
+                .plane-icon{
+                  margin-left: -1rem;
+                }
+                .airport-info{
+                  font-size: 1rem;
+                  font-weight: 500;
+                }
+        .transit .content {
+                padding: 1rem 2.5em;
+                border-radius: 18px;
+                border:1px solid var(--one-color);
+                width: 100%;
+                margin-top: 1.5em;
+                font-size: 1rem;
+                font-weight: 500;
+        }
+        .operatedAirline{
+          text-align: end;
+          color:var(--one-color);
+      }
+}
+}
+.cancellation {
+  .content {
+    background-color: var(--fifteen-color);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.21rem;
+  }
+  .cancel-text {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.21rem;
+    background-color: var(--two-color);
+  }
+  li {
+    font-weight: 400;
+  }
+  .text-price {
+    font-weight: 400;
+  }
+}
+.baggage{
+  .airline-name{
+      color:var(--one-color);
+      font-size: 1rem;
+  }
+  .CabinClass{
+    color:var(--one-color);
+      font-size: 1.25rem;
+  }
+  .CabinBagg{
+    color:var(--one-color);
+    font-size: 1rem;
+  }
+}
+  }
+
+}
 @media (max-width: 768px) {
  
   .card-body {
@@ -99,4 +225,66 @@
     font-size: 0.9rem !important;
     text-wrap:nowrap;
   }
+  .journey{
+    .airport_name{
+      display: none;
+    }
+  }
+    .details{
+      .timeline{
+        padding: .5em!important;
+       
+        .flight-data{
+          height: 3.5rem;
+          .col-1{
+            align-self: start !important;
+          }
+        }
+            .flight-duration-time{
+                padding-top: 0.5rem ;
+                font-size: small !important;
+            }
+            .airport-info{
+                width: 100%;
+                font-size: small !important;
+               text-wrap:nowrap;
+            }
+            .plane-icon{
+              .img{
+                width: 40px !important;
+              }
+             
+
+            }
+          
+        .date{
+          font-size: small !important;
+        }
+        .time{
+          font-size: small !important;
+        }
+      .airport-name{
+        padding:1em .5em !important;
+        height: 3.5rem;
+        font-size: 0.75rem !important;
+      }
+        
+    }
+    
+  
+  }
+ .baggage{
+  .airline-name{
+  text-wrap:nowrap;
+    font-size: small !important;
+}
+.CabinClass{
+  text-wrap:nowrap;
+    font-size: 0.75rem !important;
+}
+.CabinBagg{
+  
+  font-size:small !important;
+}
+}
 }

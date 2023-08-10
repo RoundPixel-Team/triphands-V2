@@ -19,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
+import {MatTabsModule} from '@angular/material/tabs';
 export const MatrialComponents = [
   MatButtonModule,
   MatMenuModule,
@@ -29,7 +30,10 @@ export const MatrialComponents = [
   MatAutocompleteModule,
   MatDialogModule,
   MatCardModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTabsModule,
+  
+
 ]
 
 export const SharedComponents = [
