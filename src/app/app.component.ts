@@ -66,7 +66,7 @@ export class AppComponent {
           }
       }
 
-    this.environment.envConfiguration(env)
+    this.environment.envConfiguration(envTazkrti)
     
     setTimeout(()=>{
       if(localStorage.getItem('lang')){
