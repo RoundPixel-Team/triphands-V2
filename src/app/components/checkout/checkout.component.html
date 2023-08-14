@@ -12,9 +12,9 @@
 
         <!--FLIGHT CARD BINDING-->
         <div class="col-12  mt-3">
-            <app-one-way *ngIf="flight.selectedFlight.searchCriteria.flightType == 'oneway' || 'Oneway' || 'OneWay' "></app-one-way>
-            <app-round-trip *ngIf="flight.selectedFlight.searchCriteria.flightType == 'roundtrip' || 'Roundtrip' || 'RoundTrip' "></app-round-trip>
-            <app-multi-city *ngIf="flight.selectedFlight.searchCriteria.flightType == 'multicity' || 'Multicity' || 'MultiCity' "></app-multi-city>
+            <app-one-way *ngIf="flight.selectedFlight.searchCriteria.flightType == 'oneway' || flight.selectedFlight.searchCriteria.flightType == 'Oneway' || flight.selectedFlight.searchCriteria.flightType =='OneWay' "></app-one-way>
+            <app-round-trip *ngIf="flight.selectedFlight.searchCriteria.flightType == 'roundtrip' || flight.selectedFlight.searchCriteria.flightType =='Roundtrip' || flight.selectedFlight.searchCriteria.flightType =='RoundTrip' "></app-round-trip>
+            <app-multi-city *ngIf="flight.selectedFlight.searchCriteria.flightType == 'multicity' || flight.selectedFlight.searchCriteria.flightType =='Multicity' || flight.selectedFlight.searchCriteria.flightType =='MultiCity' "></app-multi-city>
         </div>
 
         <!--MAIN FORM SECTION-->

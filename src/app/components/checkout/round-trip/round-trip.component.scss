@@ -29,6 +29,12 @@
     flex-grow: 1;
     padding: 16px 32px;
   }
+  .airlineLogo{
+    border: 1px solid #e8e8e8;
+    padding: 6px;
+    border-radius: 5px;
+    background: white;
+  }
   .logo-img{
     width:130px;
     border-radius: 20%;
@@ -61,10 +67,14 @@
   color:var(--seven-color);
 
   }
+  .flight-details{
+    cursor: pointer;
+  }
 }
 }
 .flight_details{
   font-family: var(--two-font);
+ 
   .card-body{
     flex-grow: 1;
     padding: 16px 32px;
@@ -75,6 +85,7 @@
       height: 37px;
     }
 .main-route{
+
   .main-date{
     font-size: 1rem;
     font-weight: 600;

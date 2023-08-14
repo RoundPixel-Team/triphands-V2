@@ -47,12 +47,7 @@
                                 <div class="row">
                                     <!--passenger header-->
                                     <div class="col-12 col-lg-3">
-                                        <div class="passengerTitle">
-                                            {{translate.currentLang == 'en'?"Passenger":"مسافر"}} 
-                                            {{i+1}}
-                                            {{translate.currentLang == 'en'?"Of":"من"}} 
-                                            {{flight.usersArray.length}}
-                                        </div>
+                                       
                                         <div class="passengerType mt-2" *ngIf="user.get('PassengerType')!.value == 'ADT'">
                                             {{'checkout.passengers.adult' | translate}}
                                         </div>
@@ -199,7 +194,7 @@
                     {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value' }}
                 </div>
         
-                <div class="fareBreakup mt-3" (click)="openFareBreakUp()">
+                <div class="fareBreakup mt-3"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                     {{'checkout.passengers.fareBreakup' | translate}}
                 </div>
         
@@ -215,3 +210,11 @@
     
 
 </div>
+<div class="modal fade modal-sm" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <app-fare-breakup></app-fare-breakup>
+
+      </div>
+    </div>
+  </div>

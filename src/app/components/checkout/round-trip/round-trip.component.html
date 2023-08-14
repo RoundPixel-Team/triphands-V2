@@ -5,19 +5,16 @@
                 <div class="card-content">
                     <mat-card-content class="card-body ">
                         <div *ngFor="let data of flight.selectedFlight!.airItineraryDTO!.allJourney!.flights ">
-                            <div class="row">
-                                <div class="col-5 d-flex  align-items-center " >
-                                    <img class=" logo-img me-2" src={{data.flightAirline!.airlineLogo}}>
-                                    <div class="logo-name">{{data.flightAirline!.airlineName}}</div>
-                                </div>
+                            <div class="row mt-3" >
+                              <div class="col-lg-3 col-sm-6 d-flex  align-items-center" >
+                                <img class=" me-2 airlineLogo" src={{data.flightAirline!.airlineLogo}}>
+                                <div class="logo-name">{{data.flightAirline!.airlineName}}</div>
                             </div>
-                            <div class="row" >
-                                <div class="col-3"></div>
-                                <div class="col-4 flight-time" [ngClass]="{'ar':translate.currentLang==='ar'}">
+                                <div class="col-lg-4 col-sm-6 flight-time d-flex  align-items-center" [ngClass]="{'ar':translate.currentLang==='ar'}">
                                     <div>{{data.flightDTO![0].departureDate | date : "shortTime"}}  -  {{data.flightDTO![data.flightDTO!.length-1].arrivalDate | date : "shortTime"}}</div>
                                 </div>
                             </div>
-                            <div class="row mt-3 align-items-center">
+                            <div class="row align-items-center">
                                 <div class="col-3"></div>
                                 <div class="col-4 flight-location">
                                     {{data.flightDTO![0].departureTerminalAirport.airportCode=='XNB'?'Dubai': data.flightDTO![0].departureTerminalAirport.cityName}} 
@@ -52,7 +49,7 @@
                             {{"checkout.summaryCard.nonRefundable" | translate}}
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-4" (click)="toggleDetailsCard()">
+                    <div class="col-lg-2 col-sm-4 flight-details" (click)="toggleDetailsCard()">
                         {{ "checkout.summaryCard.flightDetails" | translate }}
                   
                 </div>               
@@ -90,7 +87,7 @@
                         {{
                           data.flightDTO[0].departureTerminalAirport
                             .airportCode
-                        }},
+                        }} 
                       </span><span class="date">
                         {{
                           data.flightDTO[0].departureDate
@@ -111,7 +108,7 @@
                         data.flightDTO[
                           data.flightDTO.length - 1
                         ].arrivalTerminalAirport.airportCode
-                      }},</span> <span class="date">
+                      }}</span> <span class="date">
                         {{
                           data.flightDTO[
                             data.flightDTO.length - 1
@@ -140,8 +137,12 @@
                     class="img-fluid"
                   />
                 </div>
+                
                  </div>
+                 
                 </div>
+                
+                <hr *ngIf="flight.selectedFlight!.airItineraryDTO!.allJourney!.flights.length -1  != flightIndex">
                 </div>
                 <div *ngIf="collapseRoute && flight.selectedFlight!.airItineraryDTO!.allJourney.flights[index].flightDTO" class="details">
                 <div class="container">
