@@ -187,18 +187,21 @@
                 </ng-container>
             </ng-container>
         </ng-container>
-        <div class="col-12">
-            <div class="payNowSection">
-                <div class="price">
-                    {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code' }}  
-                    {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value' }}
+        <div class="">
+            <div class="payNowSection d-flex row justify-content-end align-items-center">
+                <div class="col-lg-2 col-4 col-sm-4">
+                    <div class="price">
+                        {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code' }}  
+                        {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value' }}
+                    </div>
+            
+                    <div class="fareBreakup "  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        {{'checkout.passengers.fareBreakup' | translate}}
+                    </div>
+            
                 </div>
-        
-                <div class="fareBreakup mt-3"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    {{'checkout.passengers.fareBreakup' | translate}}
-                </div>
-        
-                <div class="payBtn mt-3" (click)="saveBooking()">
+              
+                <div class="payBtn  col-lg-2 col-4 col-sm-4" (click)="saveBooking()">
                     <button mat-raised-button>{{'checkout.passengers.payNow' | translate}}</button>
                 </div>
             </div>

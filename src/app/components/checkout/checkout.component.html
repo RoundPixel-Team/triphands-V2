@@ -69,9 +69,12 @@
         </div>
 
         <!--BOOK NOW SECTION-->
-        <div class="col-12 mt-3" *ngIf="checkoutStepNow == 1">
-            <app-book-now (checkoutSteps)="changeCheckoutStep($event)"></app-book-now>
+        <div class="bookNowWrapper">
+            <div class="col-12 mt-3" *ngIf="checkoutStepNow == 1">
+                <app-book-now (checkoutSteps)="changeCheckoutStep($event)"></app-book-now>
+            </div>
         </div>
+        
 
         <!--PASSENGERS DETAILS-->
         <div class="col-12 mt-3" *ngIf="checkoutStepNow == 2">

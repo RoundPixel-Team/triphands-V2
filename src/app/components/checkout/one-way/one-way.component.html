@@ -117,7 +117,7 @@
           >
           <mat-tab  label="{{'checkout.flightDetails.flightRoute' |translate}}">
             <div class="flight_route mt-3">
-              <div class="main-route" (click)="detailsCollapse()">
+              <div class="main-route">
              <div class="row w-100"> 
               <div class="main-date">{{data.flightDTO[0].arrivalDate | date : "mediumDate"}}</div>
               <div class="col-md-10">
@@ -167,7 +167,7 @@
                 </div>
               </div>
 
-              <div class="col-md-2 mt-2">
+              <div class="col-md-2 mt-2 col-sm-8 d-flex justify-content-between">
                 <img
                   src="{{
                     data.flightDTO[0].flightAirline.airlineLogo
@@ -176,6 +176,9 @@
                   title="airlineLogo"
                   class="img-fluid"
                 />
+                <button class="show-more-button" [class.expanded]="collapseRoute" (click)="detailsCollapse()">
+                  <div class="arrow"></div>
+                </button>
               </div>
                </div>
               </div>

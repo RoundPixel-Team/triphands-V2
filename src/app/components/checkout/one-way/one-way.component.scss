@@ -53,7 +53,7 @@
  
 }
   .card-footer{
-    background-color: #E8F2F9;
+    background-color: var(--fifteen-color);
     padding: 8px 15px;
     margin-top: auto;
   .card-footer-content{
@@ -191,7 +191,41 @@
   }
 }
   }
-
+  .show-more-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--one-color);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .arrow {
+    width: 10px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: translateY(-50%) rotate(45deg);
+    position: absolute;
+    top: 50%;
+    left: 38%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .show-more-button.expanded {
+    background-color: var(--nine-color);
+    border:2px solid var(--one-color);
+  }
+  
+  .show-more-button.expanded .arrow {
+    transform: translateY(-50%) rotate(225deg);
+    border: solid var(--one-color);
+    border-width: 0 2px 2px 0;
+  }
 }
 @media (max-width: 768px) {
  
@@ -274,7 +308,9 @@
         height: 3.5rem;
         font-size: 0.75rem !important;
       }
-        
+      .airline_logo{
+        display: none;
+      }
     }
     
   

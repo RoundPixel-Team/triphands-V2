@@ -1,8 +1,8 @@
 .headerContainer{
     width: 100%;
     padding: 1%;
-    background-color: var(--three-color);
-    color: var(--nine-color);
+    background-color: var(--fifteen-color);
+    color:var(--seven-color);
     text-align: center;
     font-family: var(--one-font);
     font-size: 1.563rem;
@@ -102,10 +102,8 @@ mat-panel-description{
 }
 
 .payNowSection{
-    width: 25%;
     margin-top: 10rem;
-    display: block;
-    float: right !important;
+    // float: right !important;
     text-align: center;
     .price{
         color: var(--eight-color);
@@ -125,13 +123,12 @@ mat-panel-description{
     }
     .payBtn{
         button{
-            width: 80%;
             border-radius: 10px;
             background:var(--one-color);
-            padding: 8% 2%;
+            padding: 3% 18%;
             color: var(--nine-color);
             font-family: var(--two-font);
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-style: normal;
             font-weight: 700;
         }
@@ -156,9 +153,26 @@ mat-expansion-panel{
 
 
 @media (max-width:769px) {
+  .headerContainer{
+    font-size: 1rem !important;
+    padding: 3% !important;
+  }
     .payNowSection{
-        width: 100% !important;
-        float: unset !important;
+      display: flex;
+      flex-direction: column;
+      .price{
+        margin-left: 18px;
+        text-wrap: nowrap;
+
+      }
+      .fareBreakup{
+        margin-top: 5px;
+        margin-left: 18px;
+        text-wrap: nowrap;
+      }
+      .payBtn{
+        margin-top: 10px;
+      }
     }
 }
 

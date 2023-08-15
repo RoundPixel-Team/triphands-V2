@@ -11,8 +11,8 @@ export class RoundTripComponent implements OnInit {
   public flight = inject(FlightCheckoutService) 
   public translate = inject(TranslateService)
   showDetails:boolean=false;
-  collapseRoute:boolean=false;
   index:number=0;
+  detailsStates: boolean[] = [];
   constructor() { }
 
   ngOnInit(): void {
@@ -20,11 +20,10 @@ export class RoundTripComponent implements OnInit {
   toggleDetailsCard(){
     this.showDetails=!this.showDetails;
   }
-  detailsCollapse(index: number){
-    if (this.index == index && this.collapseRoute == true) {
-      this.collapseRoute = !this.collapseRoute;
+  detailsCollapse(flightIndex: number){
+    if (this.detailsStates[flightIndex] === undefined) {
+      this.detailsStates[flightIndex] = true;
     } else {
-      this.index = index;
-      this.collapseRoute = true;
+      this.detailsStates[flightIndex] = !this.detailsStates[flightIndex];
     }  }
 }
