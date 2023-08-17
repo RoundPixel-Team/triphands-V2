@@ -79,7 +79,7 @@
   }
 
   .popupError {
-    margin: 40vh auto;
+    margin: 20vh auto;
     padding: 0px;
     background: var(--nine-color);
     border-radius: 5px;
@@ -109,10 +109,7 @@
     .popupFareBreaker , .popupError {
       width: 90%;
     }
-    .container {
-      position: relative;
-      min-height: 100vh;
-      padding-bottom: 35vh;
+    
     .bookNowWrapper{
       position: fixed;
       z-index: 999;
@@ -120,7 +117,7 @@
       right: 0;
       bottom: 0;
     }
-  }
+  
 }
 
 

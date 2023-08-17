@@ -25,7 +25,7 @@
               
            
               <ul class="navbar-nav align-items-center ">
-                <li class="nav-item flight-li">
+                <li class="nav-item flight-li" [ngClass]="{ 'ar': translate.currentLang === 'ar' }">
                     <a class="nav-link active " aria-current="page" href="#">{{"header.flights" | translate }}</a>
                   </li>
                 <li class="nav-item mx-2">

@@ -12,7 +12,7 @@
     },
 
     "checkout":{
-        "error":"Ops, Your session has been expired or something went wrong !",
+        "error":"Sorry, Your session has been expired or something went wrong !",
         "searchAgain":"Search Again",
         "fastConfirm" :"Fast Confirmation",
         "offlineService":{
@@ -24,7 +24,9 @@
             "standardTitle":"Standard Booking",
             "premiumTitle":"Online check-in & Boarding pass",
             "total":"Total",
-            "bookBtn":"Book with"
+            "bookBtn":"Book with",
+            "fastBookBtn":"Book Now",
+            "standardFare":"Continue with standard Fare"
         },
         "coponCode":{
             "apply":"Apply Coupon"
