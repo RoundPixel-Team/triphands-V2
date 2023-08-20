@@ -1,0 +1,91 @@
+.searchbox{
+    width:90%;
+    padding: 1rem;
+    margin: 3rem auto;
+    border-radius: 10px;
+    background-color: #fff;
+    font-family: var(--one-font);
+    box-shadow: 0px 4px 4px 0px #00000040;
+    .searchbox_header{
+        &_title{
+            font-family: var(--one-font);
+            color: var(--tweleve-color);
+            font-weight: 400;
+            font-size: 30px;
+        }
+        &_btns{
+            margin: 0 1rem;
+            &__wrapper{
+                margin: 0 1rem;
+                display: flex;
+                justify-self: center;
+                align-items: center;
+                .radioBtn{
+                    width:25px;
+                    height:100%;
+                    border-radius: 50px;
+                    background-color: transparent;
+                    border-color: transparent;
+                    color: transparent;
+                    box-shadow: 0px 0px 4px 2px #00000040;
+                }
+                .radioBtn:active, .radioBtn:focus, .radioBtn:hover{
+                    background-color: var(--blue-color);
+                    color: var(--blue-color);
+                }
+                .flightType{
+                    font-size: 14px;
+                    color: #000;
+                    font-weight: 400;
+                    margin-inline-start: 0.5rem;
+                }
+            }
+        }
+    }
+}
+//#region Media Queries
+@media(max-width:540px) {
+    .searchbox{
+        padding: 1rem 0.4rem;
+        .searchbox_header_btns{
+            margin: 1rem 0 0;
+            &__wrapper{
+                margin: 0;
+                margin-inline-end: 0.8rem;
+                .flightType{
+                    margin-inline-start: 0.5rem;
+                }
+            }
+        }
+    }
+}
+@media(max-width:375px) {
+    .searchbox{
+        padding: 1rem 0.4rem;
+        .searchbox_header_btns{
+            margin: 1rem 0 0;
+            &__wrapper{
+                margin: 0;
+                margin-inline-end: 0.3rem;
+                .flightType{
+                    margin-inline-start: 0.2rem;
+                }
+            }
+        }
+    }
+}
+@media(max-width:325px) {
+    .searchbox{
+        padding: 1rem 0.3rem;
+        .searchbox_header_btns{
+            &__wrapper{
+                margin-inline-end: 0.1rem;
+                .flightType{
+                    margin-inline-start: 0.2rem;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+//#endregion

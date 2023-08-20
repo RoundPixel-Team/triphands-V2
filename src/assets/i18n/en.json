@@ -1,83 +1,86 @@
 {
-    "homePage":{
-        "myBtn":"Press Here"
+  "homePage": {
+    "myBtn": "Press Here"
+  },
+  "header": {
+    "currentLang": "EN",
+    "flights": "Flights",
+    "aboutUs": "About Us",
+    "contactUs": "Contact",
+    "signIn": "Sign In"
+  },
+
+  "checkout": {
+    "error": "Ops, Your session has been expired or something went wrong !",
+    "searchAgain": "Search Again",
+    "fastConfirm": "Fast Confirmation",
+    "offlineService": {
+      "header": "Enjoy your Trip with our best seller services",
+      "addBtn": "Add",
+      "rmvBtn": "Added"
     },
-    "header": {
-        "currentLang": "EN",
-        "flights": "Flights",
-        "aboutUs":"About Us",
-        "contactUs":"Contact",
-        "signIn":"Sign In"
-       
+    "bookNow": {
+      "standardTitle": "Standard Booking",
+      "premiumTitle": "Online check-in & Boarding pass",
+      "total": "Total",
+      "bookBtn": "Book with"
     },
-
-    "checkout":{
-        "error":"Ops, Your session has been expired or something went wrong !",
-        "searchAgain":"Search Again",
-        "fastConfirm" :"Fast Confirmation",
-        "offlineService":{
-            "header":"Enjoy your Trip with our best seller services",
-            "addBtn":"Add",
-            "rmvBtn":"Added"
-        },
-        "bookNow":{
-            "standardTitle":"Standard Booking",
-            "premiumTitle":"Online check-in & Boarding pass",
-            "total":"Total",
-            "bookBtn":"Book with"
-        },
-        "coponCode":{
-            "apply":"Apply Coupon"
-        },
-        "passengers":{
-            "header":"Who Are Travelling ?",
-            "passengersTitle":"Passanger Details",
-            "passengersTitleStep":"Step 2 of 3",
-            "passengersDescriptionTxt":"Please Enter Details Exactly As They Appear On Your Passport.",
-            "adult":"Adult",
-            "child":"Child",
-            "Infant":"Infant",
-            "male":"Male",
-            "female":"Female",
-            "passportDetailsHeader":"Passport Details",
-            "fareBreakup":"Fare Breakup",
-            "payNow":"Pay Securely"
-        },
-        "BookingSummary":"Booking Summary",
-        "PriceBreakDown":"Price Break Down",
-        "PriceBreakDown1":"Fare Breakup",
-        "AdultFare":"Adult ",
-        "ChildFare":"Child",
-        "InfantFare":"Infant",
-        "baseFare":"Base Fare ",
-        "tax":"Tax ",
-        "paymentFees":"Payment fees",
-        "TotalFare": "Total Fare",
-        "to":"to",
-        "Taxes": "Taxes",
-        "summaryCard":{
-            "refundable": "Refundable",
-            "nonRefundable": "Non Refundable",
-            "flightDetails": "Flight details",
-            "direct":"Direct",
-            "oneStop": "One Stop",
-            "twoStops": "2+ Stops"
-        },
-        "flightDetails":{
-            "flightRoute" :"Flight Route",
-            "fareRules": "Fare Rules",
-            "baggage": "Baggage",
-            "flightNo":"Flight Num.",
-            "Stopover":"Stopover",
-            "operatedBy": "operated By: ",
-            "cancel": "Cancellation Charge",
-            "change": "Change Charge",
-            "cancelFareText":"In case of the booking is cancelled before the departure of the first flight.",
-            "changeFareText":"In case of the booking is changed before the departure of the first flight.",
-            "fareLabel":"Trip Hands Service Charge",
-            "cabinBaggage": "Cabin Baggage"
-
-        }
-}
-
+    "coponCode": {
+      "apply": "Apply Coupon"
+    },
+    "passengers": {
+      "header": "Who Are Travelling ?",
+      "passengersTitle": "Passanger Details",
+      "passengersTitleStep": "Step 2 of 3",
+      "passengersDescriptionTxt": "Please Enter Details Exactly As They Appear On Your Passport.",
+      "adult": "Adult",
+      "child": "Child",
+      "Infant": "Infant",
+      "male": "Male",
+      "female": "Female",
+      "passportDetailsHeader": "Passport Details",
+      "fareBreakup": "Fare Breakup",
+      "payNow": "Pay Securely"
+    },
+    "BookingSummary": "Booking Summary",
+    "PriceBreakDown": "Price Break Down",
+    "PriceBreakDown1": "Fare Breakup",
+    "AdultFare": "Adult ",
+    "ChildFare": "Child",
+    "InfantFare": "Infant",
+    "baseFare": "Base Fare ",
+    "tax": "Tax ",
+    "paymentFees": "Payment fees",
+    "TotalFare": "Total Fare",
+    "to": "to",
+    "Taxes": "Taxes",
+    "summaryCard": {
+      "refundable": "Refundable",
+      "nonRefundable": "Non Refundable",
+      "flightDetails": "Flight details",
+      "direct": "Direct",
+      "oneStop": "One Stop",
+      "twoStops": "2+ Stops"
+    },
+    "flightDetails": {
+      "flightRoute": "Flight Route",
+      "fareRules": "Fare Rules",
+      "baggage": "Baggage",
+      "flightNo": "Flight Num.",
+      "Stopover": "Stopover",
+      "operatedBy": "operated By: ",
+      "cancel": "Cancellation Charge",
+      "change": "Change Charge",
+      "cancelFareText": "In case of the booking is cancelled before the departure of the first flight.",
+      "changeFareText": "In case of the booking is changed before the departure of the first flight.",
+      "fareLabel": "Trip Hands Service Charge",
+      "cabinBaggage": "Cabin Baggage"
+    }
+  },
+  "searchbox": {
+    "flights":"Flights"
+  },
+  "One-way": "One-way",
+  "Round-trip": "Round-trip",
+  "Multi-city": "Multi-city"
 }

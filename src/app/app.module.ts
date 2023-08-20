@@ -8,10 +8,18 @@ import { SharedModule } from './shared/shared.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SearchBoxComponent } from './components/searchBox/searchBox.component';
+import { OneWayComponent } from './components/searchBox/one-way/one-way.component';
+import { RoundTripComponent } from './components/searchBox/round-trip/round-trip.component';
+import { MultiCityComponent } from './components/searchBox/multi-city/multi-city.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchBoxComponent,
+    OneWayComponent,
+    RoundTripComponent,
+    MultiCityComponent
   ],
   imports: [
     BrowserModule,

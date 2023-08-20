@@ -76,5 +76,11 @@
             "cabinBaggage": "وزن الأمتعة"
 
         }
-}
+},
+"searchbox": {
+    "flights":"الرحلات"
+  },
+"One-way":"اتجاه واحد",
+"Round-trip":"ذهاب وعوده",
+"Multi-city":"عدة وجهات"
 }
