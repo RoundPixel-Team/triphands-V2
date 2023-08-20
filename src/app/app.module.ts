@@ -12,6 +12,8 @@ import { SearchBoxComponent } from './components/searchBox/searchBox.component';
 import { OneWayComponent } from './components/searchBox/one-way/one-way.component';
 import { RoundTripComponent } from './components/searchBox/round-trip/round-trip.component';
 import { MultiCityComponent } from './components/searchBox/multi-city/multi-city.component';
+import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { JsonPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { MultiCityComponent } from './components/searchBox/multi-city/multi-city
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    NgbDatepickerModule,
+    NgbAlertModule,
     BrowserAnimationsModule,
     HttpClientModule,
     TranslateModule.forRoot({

@@ -78,7 +78,11 @@
     }
   },
   "searchbox": {
-    "flights":"Flights"
+    "flights":"Flights",
+    "depart":"departing",
+    "retun":"landing",
+    "leaveFrom":"Leaving from",
+    "goingTo":"going to"
   },
   "One-way": "One-way",
   "Round-trip": "Round-trip",

@@ -2,8 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FlightSearchService } from 'rp-travel-ui';
 import { CitiesModule, flightType } from './interfaces/interfaces';
 import { TranslateService } from '@ngx-translate/core';
-import airportar from "src/assets/airports/airportar.json";
-import airporten from "src/assets/airports/airporten.json";
+// import airportar from "src/assets/airports/airportar.json";
+// import airporten from "src/assets/airports/airporten.json";
 
 @Component({
   selector: 'app-searchBox',
@@ -34,7 +34,7 @@ export class SearchBoxComponent implements OnInit {
 
     //fill the cities array based on language
     if(this.translate.currentLang == 'en'){
-      this.cities = airporten ;
+      // this.cities = airporten ;
     }
   }
   //select flight type from HTML and set value to searchFlight form

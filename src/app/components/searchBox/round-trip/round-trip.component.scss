@@ -1,0 +1,8 @@
+@import '../../../shared/scss/mixins.scss';
+
+.searchBox{
+    font-family: var(--one-font);
+    .searchboxInput{
+        @include cityInput;
+    }
+}
