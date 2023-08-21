@@ -6,12 +6,7 @@
     <div class="container-fluid">
       <div class="row">
         <ng-container formArrayName="Flights">
-          <ng-container
-            *ngFor="
-              let item of searchbox.flightsArray['controls'] | slice : 0 : 1;
-              let i = index
-            "
-          >
+          <ng-container *ngFor="let item of searchbox.flightsArray['controls'] | slice : 0 : 1;let i = index ">
             <ng-container [formGroupName]="0">
               <!-- Depart City -->
               <div class="col-12 col-md-12 col-lg-3" (click)="showDate()">
@@ -166,7 +161,7 @@
             </div>
             <!-- Travellers Component -->
             <ng-template #elseCondition>
-              <div>
+              <div class="travellerComp">
                 <app-travellers></app-travellers>
               </div>
               </ng-template>
