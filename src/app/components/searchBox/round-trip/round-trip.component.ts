@@ -1,8 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightSearchService } from 'rp-travel-ui';
-import { NgbDate, NgbCalendar, NgbDateParserFormatter, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
-import airporten from "src/assets/airports/airporten.json"; 
+import { FlightSearchService, airPorts } from 'rp-travel-ui';
+import { NgbDate, NgbCalendar, NgbDateParserFormatter, } from '@ng-bootstrap/ng-bootstrap';
+import { SharedService } from 'src/app/shared/services/shared.service';
 @Component({
   selector: 'app-round-trip',
   templateUrl: './round-trip.component.html',
@@ -11,8 +11,9 @@ import airporten from "src/assets/airports/airporten.json";
 export class RoundTripComponent implements OnInit {
   searchbox = inject(FlightSearchService);
   translate = inject(TranslateService);
+  sharedService = inject(SharedService)
+  cities?:airPorts[] =[] ;
   hoveredDate: NgbDate | null = null;
-  citiesen:any;
 	fromDate: NgbDate | null;
 	toDate: NgbDate | null;
   constructor(private calendar: NgbCalendar, public formatter: NgbDateParserFormatter) {
@@ -21,9 +22,9 @@ export class RoundTripComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.cities = this.sharedService.cities;
+    console.log("AIRPORTS", this.cities);
     console.log('Formmmmm', this.searchbox.flightsArray.at(0).get('departing')?.value); 
-    this.citiesen = airporten;
-    console.log('cities', this.citiesen); 
   }
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {

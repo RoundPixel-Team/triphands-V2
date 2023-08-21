@@ -3,16 +3,6 @@ export interface flightType {
   label: string;
 }
 
-export interface CitiesModule {
-  airportCode: string;
-  airportName: string;
-  cityName: string;
-  cityCode: string;
-  countryCode: string;
-  countryName: string;
-  regionName: string;
-  type?: string;
-}
 // export interface searchBoxModel{
 //     flightType: string
 //     Direct: boolean

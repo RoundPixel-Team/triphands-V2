@@ -1,9 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FlightSearchService } from 'rp-travel-ui';
-import { CitiesModule, flightType } from './interfaces/interfaces';
-import { TranslateService } from '@ngx-translate/core';
-// import airportar from "src/assets/airports/airportar.json";
-// import airporten from "src/assets/airports/airporten.json";
+import { FlightSearchService, airPorts } from 'rp-travel-ui';
+import { flightType } from './interfaces/interfaces';
 
 @Component({
   selector: 'app-searchBox',
@@ -13,8 +10,6 @@ import { TranslateService } from '@ngx-translate/core';
 export class SearchBoxComponent implements OnInit {
   //#region variables
   public flightSearch = inject(FlightSearchService);
-  private translate = inject(TranslateService);
-  cities?:CitiesModule;
   flightTypes: Array<flightType> = [
     { type: 'OneWay', label: 'One-way' },
     { type: 'RoundTrip', label: 'Round-trip' },
@@ -31,11 +26,6 @@ export class SearchBoxComponent implements OnInit {
 
     //set value of flight type to Open Round Trip component
     this.flightSearch.searchFlight.get('flightType')?.setValue('RoundTrip');
-
-    //fill the cities array based on language
-    if(this.translate.currentLang == 'en'){
-      // this.cities = airporten ;
-    }
   }
   //select flight type from HTML and set value to searchFlight form
   selectFlightType(flightType: string) {

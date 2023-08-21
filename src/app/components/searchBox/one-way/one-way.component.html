@@ -7,14 +7,11 @@
       <div class="row">
         <ng-container formArrayName="Flights">
           <ng-container
-            *ngFor="
-              let item of searchbox.flightsArray['controls'] | slice : 0 : 1;
-              let i = index
-            "
-          >
+            *ngFor="let item of searchbox.flightsArray['controls'] | slice : 0 : 1; let i = index">
             <ng-container [formGroupName]="0">
               <!-- Depart City -->
               <div class="col-12 col-md-12 col-lg-3">
+                <!-- Depart Input -->
                 <input
                   formControlName="departing"
                   type="text"
@@ -25,17 +22,20 @@
                   #firstD
                   class="searchboxInput"
                 />
+                <!-- Depart Airports -->
                 <mat-autocomplete #autoa="matAutocomplete">
-                  <mat-option *ngFor="let city of cities|filterCity:item.get('departing')!.value|limitTo:5"
-                          [value]="city.cityName +','+ city.airportCode" >
-                          <span [innerHTML]="city.airportName| highlighter:item.get('departing')!.value"></span> -
-                          <span [innerHTML]="city.countryName| highlighter:item.get('departing')!.value"></span> (
-                          <span [innerHTML]="city.airportCode| highlighter:item.get('departing')!.value"></span> )
-                        </mat-option>
+                  <ng-container *ngIf="sharedService.cities !=undefined">
+                    <mat-option *ngFor="let city of sharedService.cities | filterCity : item.get('departing')?.value " [value]="city.cityName + ',' + city.airportCode">
+                        <span [innerHTML]="city.airportName| highlighter:item.get('departing')?.value"></span> -
+                        <span [innerHTML]="city.countryName| highlighter:item.get('departing')?.value"></span> (
+                        <span [innerHTML]="city.airportCode| highlighter:item.get('departing')?.value"></span> )
+                      </mat-option>
+                  </ng-container>   
                 </mat-autocomplete>
               </div>
               <!-- Land City -->
               <div class="col-12 col-md-12 col-lg-3">
+                <!-- Land Inputs -->
                 <input
                   formControlName="landing"
                   type="text"
@@ -46,29 +46,37 @@
                   #firstAr
                   class="searchboxInput"
                 />
+                <!-- Land Airports -->
                 <mat-autocomplete #autob="matAutocomplete">
-                  <mat-option *ngFor="let city of cities|filterCity:item.get('landing')!.value|limitTo:5"
-                          [value]="city.cityName +'('+  city.airportCode +')' ">
-
-                          <span [innerHTML]="city.airportName| highlighter:item.get('landing')!.value"></span> -
-                          <span [innerHTML]="city.countryName| highlighter:item.get('landing')!.value"></span> (
-                          <span [innerHTML]="city.airportCode| highlighter:item.get('landing')!.value"></span>)
-                        </mat-option>
+                  <ng-container *ngIf="sharedService.cities !=undefined">
+                    <mat-option *ngFor="let city of sharedService.cities | filterCity : item.get('landing')?.value " [value]="city.cityName + ',' + city.airportCode">
+                        <span [innerHTML]="city.airportName| highlighter:item.get('landing')?.value"></span> -
+                        <span [innerHTML]="city.countryName| highlighter:item.get('landing')?.value"></span> (
+                        <span [innerHTML]="city.airportCode| highlighter:item.get('landing')?.value"></span> )
+                      </mat-option>
+                  </ng-container>   
                 </mat-autocomplete>
               </div>
-              <!-- {{searchbox.flightsArray.at(0).get('departingD')?.value | date:'MMMM dd'}} -->
-              <!-- Depart Date -->
+              <!-- Depart Date Input -->
               <div class="col-12 col-md-12 col-lg-3">
                 <input
-                class="searchboxInput"
-                placeholder="{{searchbox.flightsArray.at(0).get('departingD')?.value | date:'MMM dd'}}"/>
+                  class="searchboxInput"
+                  placeholder="{{searchbox.flightsArray.at(0).get('departingD')?.value | date : 'MMM dd'}}" />
               </div>
-              <ngb-datepicker #dp (dateSelect)="onDateSelection($event)"></ngb-datepicker>
               <!-- Travelers/Class -->
+              <div class="col-12 col-md-12 col-lg-3"></div>
+              <!-- DatePicker -->
+              <ngb-datepicker #dp (dateSelect)="onDateSelection($event)"
+              ></ngb-datepicker>
             </ng-container>
           </ng-container>
         </ng-container>
       </div>
     </div>
   </form>
+
+  <!--Submit Button -->
+  <div class="submitBtn">
+    <button (click)="submit()">Submit</button>
+  </div>
 </div>

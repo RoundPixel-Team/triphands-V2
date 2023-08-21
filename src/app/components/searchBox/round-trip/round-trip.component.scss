@@ -5,4 +5,11 @@
     .searchboxInput{
         @include cityInput;
     }
+    .submitBtn {
+        text-align: center;
+        margin-top: 1rem;
+        button {
+          @include searchSubmitBtn;
+        }
+      }
 }

@@ -1,10 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightSearchService } from 'rp-travel-ui';
-import { NgbCalendar, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
-import { CitiesModule } from '../interfaces/interfaces';
-import airporten from "src/assets/airports/airporten.json"; 
+import { FilterCityPipe, FlightSearchService, airPorts } from 'rp-travel-ui';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-one-way',
@@ -14,24 +12,17 @@ import airporten from "src/assets/airports/airporten.json";
 export class OneWayComponent implements OnInit {
   searchbox = inject(FlightSearchService);
   translate = inject(TranslateService);
-  model?: NgbDateStruct;
-  cities: CitiesModule[] = [];
-  citiesar?: CitiesModule[];
-  citiesen?: CitiesModule[];
-	date?: { year: number; month: number };
+  sharedService = inject(SharedService);
+  constructor() { }
 
-  constructor(private calendar: NgbCalendar) { }
-	selectToday() {
-		this.model = this.calendar.getToday();
-	}
-  ngOnInit(): void {
-    this.citiesen = airporten;
-  }
-
-
+  ngOnInit(): void { }
+//update date value from form Array
   onDateSelection(date: NgbDate){
     console.log(date)
     this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date(date.year,date.month-1,date.day))
   }
+submit(){
+  console.log("ONE WAY FORMMM", this.searchbox.searchFlight.value)
+}
 
 }

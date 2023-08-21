@@ -2,6 +2,10 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EnvironmentService, HomePageService } from 'rp-travel-ui';
+import airporten from "src/assets/airports/airporten.json"; 
+import airportar from "src/assets/airports/airportar.json"; 
+import { SharedService } from './shared/services/shared.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,7 +15,8 @@ import { EnvironmentService, HomePageService } from 'rp-travel-ui';
 export class AppComponent {
   public translate = inject(TranslateService)
   public home = inject(HomePageService)
-  public environment = inject(EnvironmentService)
+  public environment = inject(EnvironmentService);
+  private sharedService = inject(SharedService);
   title = 'triphands';
 
   /**
@@ -70,11 +75,9 @@ export class AppComponent {
     
     setTimeout(()=>{
       if(localStorage.getItem('lang')){
-
         this.translate.use(localStorage.getItem('lang')!)
         setTimeout(() => {
           if(this.translate.currentLang=='en'){
-         
             this.document.dir='ltr';
       
           }else {
@@ -88,10 +91,17 @@ export class AppComponent {
     
       this.home.getPointOfSale();
       this.home.getCountries(this.translate.currentLang)
-    },500)
-    
+    },500) 
   }
 
+  ngOnInit(){
+    if(localStorage.getItem('lang') == 'en'){
+      this.sharedService.cities = airporten;
+    }
+    else{
+      this.sharedService.cities = airportar;
+    }
+  }
   
 
 }
