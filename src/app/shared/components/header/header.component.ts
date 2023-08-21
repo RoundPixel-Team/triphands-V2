@@ -28,20 +28,16 @@ Lang:string= this.translate.currentLang;
     this.Utilities.selectedCurrency=currency;
   }
   updateLang(){
-    console.log("LANG ببببب", this.translate.currentLang);
     this.translate.use(this.translate.currentLang == 'en'?'ar':'en');
-    console.log("LANG", this.translate.currentLang);
     
     setTimeout(() => {
       if(this.translate.currentLang=='en'){
         this.sharedService.cities = airporten;
         this.document.dir='ltr';
-        console.log("LANG EN", this.translate.currentLang);
       }
       else if(this.translate.currentLang == 'ar') {
         this.sharedService.cities = airportar;
         this.document.dir='rtl';
-        console.log("LANG aR", this.translate.currentLang);
       }
       localStorage.setItem('lang',this.translate.currentLang)
     },300)
