@@ -8,20 +8,20 @@
                     
                     <div class="row mt-3">
                       <div class="col-lg-3 col-sm-6 d-flex  align-items-center ">
-                        <img class=" me-2 airlineLogo" src={{data.flightAirline!.airlineLogo}}>
+                        <img class=" me-2 airline-logo" src={{data.flightAirline!.airlineLogo}}>
                         <div class="logo-name">{{data.flightAirline!.airlineName}}</div>
                     </div>
-                        <div class="col-lg-4 col-sm-6 flight-time" [ngClass]="{'ar':translate.currentLang==='ar'}">
-                            <div>{{data.flightDTO![0].departureDate | date : "shortTime"}}  -  {{data.flightDTO![data.flightDTO!.length-1].arrivalDate | date : "shortTime"}}</div>
+                        <div class="col-lg-4 col-sm-6 d-flex align-items-center" [ngClass]="{'ar':translate.currentLang==='ar'}">
+                            <div class="flight-time">{{data.flightDTO![0].departureDate | date : "shortTime"}}  -  {{data.flightDTO![data.flightDTO!.length-1].arrivalDate | date : "shortTime"}}</div>
                         </div>
                     </div>
-                    <div class="row mt-3 align-items-center">
+                    <div class="row  align-items-center">
                         <div class="col-3"></div>
                         <div class="col-4 flight-location">
                             {{data.flightDTO![0].departureTerminalAirport.airportCode=='XNB'?'Dubai': data.flightDTO![0].departureTerminalAirport.cityName}} 
                             ({{data.flightDTO![0].departureTerminalAirport.airportCode }}) 
                             - {{data.flightDTO![data.flightDTO!.length-1].arrivalTerminalAirport.cityName}} 
-                             ( {{data.flightDTO![data.flightDTO!.length-1].arrivalTerminalAirport.airportCode}})
+                             ({{data.flightDTO![data.flightDTO!.length-1].arrivalTerminalAirport.airportCode}})
                         </div>
                         <div class="col-lg-4 col-sm-10 d-flex flight-duration">
                                     <div class="duration me-2">{{data.elapsedTime| hourminute }}</div>
@@ -133,7 +133,7 @@
                 }}"
                 alt="airline logo"
                 title="airlineLogo"
-                class="img-fluid"
+                class="airline-logo"
               />
               <button class="show-more-button" [class.expanded]="detailsStates[flightIndex]" (click)="detailsCollapse(flightIndex)">
                 <div class="arrow"></div>
@@ -373,7 +373,7 @@
                         }}"
                         alt="airline logo"
                         title="airlineLogo"
-                        class="w-100"
+                        class="airline-logo"
                       />
                     </div>
                     <div class="col-6 col-md-10 col-lg-9 col-xl-9">

@@ -35,11 +35,20 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title> 
                                         <mat-panel-description>
-                                            <div class="passengerTitle">
+                                            <div class="passengerTitle me-1">
                                             {{translate.currentLang == 'en'?"Passenger":"مسافر"}} 
                                             {{i+1}}
                                             {{translate.currentLang == 'en'?"Of":"من"}} 
-                                            {{flight.usersArray.length}}
+                                            {{flight.usersArray.length}} 
+                                        </div>
+                                         <div class="passengerTitle" *ngIf="user.get('PassengerType')!.value == 'ADT'">
+                                            ({{'checkout.passengers.adult' | translate}})
+                                        </div>
+                                        <div class="passengerTitle" *ngIf="user.get('PassengerType')!.value == 'CNN'">
+                                            ({{'checkout.passengers.child' | translate}})
+                                        </div>
+                                        <div class="passengerTitle" *ngIf="user.get('PassengerType')!.value == 'INF'">
+                                            ({{'checkout.passengers.Infant' | translate}})
                                         </div>
                                         </mat-panel-description>
                                          </mat-panel-title>
@@ -188,7 +197,7 @@
             </ng-container>
         </ng-container>
         <div class="">
-            <div class="payNowSection d-flex row justify-content-end align-items-center">
+            <div class="payNowSection align-items-center">
                 <div class="col-lg-2 col-4 col-sm-4">
                     <div class="price">
                         {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code' }}  

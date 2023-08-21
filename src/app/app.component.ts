@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, Inject, inject } from '@angular/core';
+import { DOCUMENT, Location } from '@angular/common';
+import { Component, Inject, inject,OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EnvironmentService, HomePageService } from 'rp-travel-ui';
 import airporten from "src/assets/airports/airporten.json"; 
@@ -12,13 +12,16 @@ import { SharedService } from './shared/services/shared.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   public translate = inject(TranslateService)
   public home = inject(HomePageService)
   public environment = inject(EnvironmentService);
   private sharedService = inject(SharedService);
   title = 'triphands';
+   currentURL = location.href;
 
+  // Define the checkout URL you want to check against
+   checkoutURL = "checkout";
   /**
    *
    */
@@ -72,26 +75,32 @@ export class AppComponent {
       }
 
     this.environment.envConfiguration(envTazkrti)
+    if (!this.currentURL.includes(this.checkoutURL)) {
+      setTimeout(()=>{
     
-    setTimeout(()=>{
-      if(localStorage.getItem('lang')){
-        this.translate.use(localStorage.getItem('lang')!)
-        setTimeout(() => {
-          if(this.translate.currentLang=='en'){
-            this.document.dir='ltr';
+        if(localStorage.getItem('lang')){
+  
+          this.translate.use(localStorage.getItem('lang')!)
+          setTimeout(() => {
+            if(this.translate.currentLang=='en'){
+           
+              this.document.dir='ltr';
+        
+            }else {
+              this.document.dir='rtl';
+            }
+          },300)
+        }else{
+          this.translate.use('en');
+          this.document.dir='ltr';
+        }
       
-          }else {
-            this.document.dir='rtl';
-          }
-        },300)
-      }else{
-        this.translate.use('en');
-        this.document.dir='ltr';
-      }
+        this.home.getPointOfSale();
+        this.home.getCountries(this.translate.currentLang)
+      },500)
+    }
+  
     
-      this.home.getPointOfSale();
-      this.home.getCountries(this.translate.currentLang)
-    },500) 
   }
 
   ngOnInit(){
