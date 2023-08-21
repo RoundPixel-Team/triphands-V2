@@ -14,6 +14,7 @@ import { RoundTripComponent } from './components/searchBox/round-trip/round-trip
 import { MultiCityComponent } from './components/searchBox/multi-city/multi-city.component';
 import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { JsonPipe } from '@angular/common';
+import { TravellersComponent } from './components/searchBox/travellers/travellers.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { JsonPipe } from '@angular/common';
     SearchBoxComponent,
     OneWayComponent,
     RoundTripComponent,
-    MultiCityComponent
+    MultiCityComponent,
+    TravellersComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@
             *ngFor="let item of searchbox.flightsArray['controls'] | slice : 0 : 1; let i = index">
             <ng-container [formGroupName]="0">
               <!-- Depart City -->
-              <div class="col-12 col-md-12 col-lg-3">
+              <div class="col-12 col-md-12 col-lg-3" (click)="showDate()">
                 <!-- Depart Input -->
                 <input
                   formControlName="departing"
@@ -34,7 +34,7 @@
                 </mat-autocomplete>
               </div>
               <!-- Land City -->
-              <div class="col-12 col-md-12 col-lg-3">
+              <div class="col-12 col-md-12 col-lg-3" (click)="showDate()">
                 <!-- Land Inputs -->
                 <input
                   formControlName="landing"
@@ -58,16 +58,26 @@
                 </mat-autocomplete>
               </div>
               <!-- Depart Date Input -->
-              <div class="col-12 col-md-12 col-lg-3">
+              <div class="col-12 col-md-12 col-lg-3" (click)="showDate()">
                 <input
                   class="searchboxInput"
                   placeholder="{{searchbox.flightsArray.at(0).get('departingD')?.value | date : 'MMM dd'}}" />
               </div>
               <!-- Travelers/Class -->
-              <div class="col-12 col-md-12 col-lg-3"></div>
+              <div class="col-12 col-md-12 col-lg-3" (click)="showTravellers()">
+                <input type="text" placeholder="Travelers/Class" value="{{getTotalPassenger() + '/' + searchbox.searchFlight.controls['class'].value}}" class="searchboxInput"/>
+              </div>
               <!-- DatePicker -->
-              <ngb-datepicker #dp (dateSelect)="onDateSelection($event)"
+              <div *ngIf="showDatePicker; else elseCondition">
+                <ngb-datepicker #dp (dateSelect)="onDateSelection($event)"
               ></ngb-datepicker>
+              </div>
+              <!-- Travellers Component -->
+              <ng-template #elseCondition>
+                <div>
+                  <app-travellers></app-travellers>
+                </div>
+              </ng-template>
             </ng-container>
           </ng-container>
         </ng-container>

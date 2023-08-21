@@ -85,7 +85,8 @@
   "depart":"departing",
   "retun":"landing",
   "leaveFrom":"Leaving from",
-  "goingTo":"going to"
+  "goingTo":"going to",
+  "traveller":"Travelers/Class"
 },
 "One-way": "One-way",
 "Round-trip": "Round-trip",
