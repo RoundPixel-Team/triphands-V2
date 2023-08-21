@@ -102,9 +102,12 @@ mat-panel-description{
 }
 
 .payNowSection{
-    margin-top: 10rem;
+    margin-top: 2rem;
     // float: right !important;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     .price{
         color: var(--eight-color);
         font-family: var(--two-font);
@@ -135,9 +138,6 @@ mat-panel-description{
     }
 }
 
-.ar .payNowSection{
-    float: left !important;
-}
 
 .ar mat-datepicker-toggle{
     position: absolute;
@@ -160,15 +160,16 @@ mat-expansion-panel{
     .payNowSection{
       display: flex;
       flex-direction: column;
+      margin-right: 1.25rem;
       .price{
         margin-left: 18px;
-        text-wrap: nowrap;
+        white-space: nowrap;
 
       }
       .fareBreakup{
         margin-top: 5px;
         margin-left: 18px;
-        text-wrap: nowrap;
+        white-space: nowrap;
       }
       .payBtn{
         margin-top: 10px;
