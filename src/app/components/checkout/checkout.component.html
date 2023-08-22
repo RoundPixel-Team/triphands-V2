@@ -6,7 +6,7 @@
                     <div class="col-4 summary-price ">
                        <span>{{flight.selectedFlight.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code'}}&nbsp;</span>{{flight.selectedFlight.airItineraryDTO.itinTotalFare.amount | exchange:'value'}}
                     </div>
-                    <div class="col-6 me-3"><button class="btn booknow-btn">{{"checkout.bookNow.bookBtn" | translate }}</button></div>
+                    <div class="col-6 me-3"><button class="btn booknow-btn">{{"checkout.bookNow.fastBookBtn" | translate }}</button></div>
                 </div>
         </div>
 
@@ -69,9 +69,12 @@
         </div>
 
         <!--BOOK NOW SECTION-->
-        <div class="col-12 mt-3" *ngIf="checkoutStepNow == 1">
-            <app-book-now (checkoutSteps)="changeCheckoutStep($event)"></app-book-now>
+        <div class="bookNowWrapper">
+            <div class="col-12 mt-3" *ngIf="checkoutStepNow == 1">
+                <app-book-now (checkoutSteps)="changeCheckoutStep($event)"></app-book-now>
+            </div>
         </div>
+        
 
         <!--PASSENGERS DETAILS-->
         <div class="col-12 mt-3" *ngIf="checkoutStepNow == 2">

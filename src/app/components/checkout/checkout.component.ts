@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnDestroy, OnInit, inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, ElementRef, Inject, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -29,7 +30,7 @@ export class CheckoutComponent implements OnInit,OnDestroy {
   subscription = new Subscription()
 
   scrollToMainForm!: ElementRef<HTMLInputElement>;
-  constructor() { }
+  constructor(@Inject(DOCUMENT) private document: Document) { }
   
 
   ngOnInit(): void {
@@ -47,8 +48,24 @@ export class CheckoutComponent implements OnInit,OnDestroy {
         window.location.href = res.link; 
       }
     }))
+    this.subscription.add(this.flight.selectedFlightLang.subscribe((res:any)=>{
+      console.log("show me selected lang",res);
+      this.handleLangChange(res);
+    }))
   }
+handleLangChange(currentLang:string){
+  this.translate.use(currentLang)
+  setTimeout(() => {
+    if(this.translate.currentLang=='en'){
+    
+      this.document.dir='ltr';
 
+    }else {
+      this.document.dir='rtl';
+    }
+    localStorage.setItem('lang',currentLang)
+  },300)
+}
   changeCheckoutStep(event:number){
     if(event == -1){
       this.invalidPhone()

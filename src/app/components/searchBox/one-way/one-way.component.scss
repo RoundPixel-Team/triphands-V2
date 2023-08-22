@@ -1,0 +1,15 @@
+@import "../../../shared/scss/mixins.scss";
+.searchBox {
+  font-family: var(--one-font);
+  .searchboxInput {
+    @include cityInput;
+  }
+
+  .submitBtn {
+    text-align: center;
+    margin-top: 1rem;
+    button {
+      @include searchSubmitBtn;
+    }
+  }
+}

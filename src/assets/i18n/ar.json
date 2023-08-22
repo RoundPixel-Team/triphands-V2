@@ -23,7 +23,9 @@
             "standardTitle":"تذكره عادية",
             "premiumTitle":"تسجيل الوصول عبر الإنترنت وبطاقة صعود الطائرة",
             "total":"الاجمالي",
-            "bookBtn":"احجز الأن"
+            "bookBtn":"احجز مع",
+            "fastBookBtn":"احجز الان",
+            "standardFare":"الاستمرار مع السعر القياسي"
         },
         "coponCode":{
             "apply":"استخدام الكوبون"
@@ -76,5 +78,11 @@
             "cabinBaggage": "وزن الأمتعة"
 
         }
-}
+},
+"searchbox": {
+    "flights":"الرحلات"
+  },
+"One-way":"اتجاه واحد",
+"Round-trip":"ذهاب وعوده",
+"Multi-city":"عدة وجهات"
 }

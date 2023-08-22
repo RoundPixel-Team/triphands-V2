@@ -7,22 +7,20 @@
     <mat-card class="summary-mat-card">
       <div class="card-content">
         <mat-card-content class="card-body">
-          <div class="row">
-            <div class="col-5 d-flex align-items-center">
+      
+          <div class="row mt-3">
+            <div class="col-lg-3 col-sm-6 d-flex align-items-center ">
               <img
-                class="logo-img me-2"
-                src="{{ data.flightAirline!.airlineLogo }}"
-              />
-              <div class="logo-name">{{ data.flightAirline!.airlineName }}</div>
+              class=" me-2 airline-logo "
+              src="{{ data.flightAirline!.airlineLogo }}"
+            />
+            <div class="logo-name">{{ data.flightAirline!.airlineName }}</div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-3"></div>
             <div
-              class="col-4 flight-time"
-              [ngClass]="{ ar: translate.currentLang === 'ar' }"
+              class="col-lg-4 col-sm-6  d-flex align-items-center"
+              [ngClass]="{' ar': translate.currentLang === 'ar' }"
             >
-              <div>
+              <div class="flight-time">
                 {{ data.flightDTO![0].departureDate | date : "shortTime" }} -
                 {{
                   data.flightDTO![data.flightDTO!.length - 1].arrivalDate
@@ -31,7 +29,7 @@
               </div>
             </div>
           </div>
-          <div class="row mt-2 align-items-center">
+          <div class="row align-items-center">
             <div class="col-3"></div>
             <div class="col-4 flight-location">
               {{
@@ -44,8 +42,8 @@
                 data.flightDTO![data.flightDTO!.length - 1]
                   .arrivalTerminalAirport.cityName
               }}
-              (
-              {{
+              
+              ({{
                 data.flightDTO![data.flightDTO!.length - 1]
                   .arrivalTerminalAirport.airportCode
               }})
@@ -96,7 +94,7 @@
                 {{ "checkout.summaryCard.nonRefundable" | translate }}
               </div>
             </div>
-            <div class="col-lg-2 col-sm-4" (click)="toggleDetailsCard()">
+            <div class="col-lg-2 col-sm-4 flight-details" (click)="toggleDetailsCard()">
                     {{ "checkout.summaryCard.flightDetails" | translate }}
               
             </div>
@@ -119,7 +117,7 @@
           >
           <mat-tab  label="{{'checkout.flightDetails.flightRoute' |translate}}">
             <div class="flight_route mt-3">
-              <div class="main-route" (click)="detailsCollapse()">
+              <div class="main-route">
              <div class="row w-100"> 
               <div class="main-date">{{data.flightDTO[0].arrivalDate | date : "mediumDate"}}</div>
               <div class="col-md-10">
@@ -129,7 +127,7 @@
                       {{
                         data.flightDTO[0].departureTerminalAirport
                           .airportCode
-                      }},
+                      }} 
                     </span><span class="date">
                       {{
                         data.flightDTO[0].departureDate
@@ -150,7 +148,7 @@
                       data.flightDTO[
                         data.flightDTO.length - 1
                       ].arrivalTerminalAirport.airportCode
-                    }},</span> <span class="date">
+                    }}</span> <span class="date">
                       {{
                         data.flightDTO[
                           data.flightDTO.length - 1
@@ -169,15 +167,18 @@
                 </div>
               </div>
 
-              <div class="col-md-2 mt-2">
+              <div class="col-md-2 mt-2 col-sm-8 d-flex justify-content-between">
                 <img
                   src="{{
                     data.flightDTO[0].flightAirline.airlineLogo
                   }}"
                   alt="airline logo"
                   title="airlineLogo"
-                  class="img-fluid"
+                  class="airline-logo"
                 />
+                <button class="show-more-button" [class.expanded]="collapseRoute" (click)="detailsCollapse()">
+                  <div class="arrow"></div>
+                </button>
               </div>
                </div>
               </div>
@@ -402,7 +403,7 @@
                 <div class="row mt-3">
                   <div class="col-8 col-md-5 col-lg-5 col-xl-5">
                     <div class="row">
-                      <div class="col-6 col-md-3 col-lg-3 col-xl-3">
+                      <div class="col-6 col-md-3 col-lg-3 col-xl-3 ">
                         <img
                           src="{{
                             data.flightDTO[0].flightAirline
@@ -410,7 +411,7 @@
                           }}"
                           alt="airline logo"
                           title="airlineLogo"
-                          class="w-100"
+                          class="airline-logo"
                         />
                       </div>
                       <div class="col-6 col-md-10 col-lg-9 col-xl-9">

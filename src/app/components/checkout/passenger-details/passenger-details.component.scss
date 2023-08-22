@@ -1,8 +1,8 @@
 .headerContainer{
     width: 100%;
     padding: 1%;
-    background-color: var(--three-color);
-    color: var(--nine-color);
+    background-color: var(--fifteen-color);
+    color:var(--seven-color);
     text-align: center;
     font-family: var(--one-font);
     font-size: 1.563rem;
@@ -63,8 +63,8 @@
     }
     .selectedGender{
         border-radius: 5px;
-        border: 1px solid var(--fourteen-color);
-        background-color: var(--fourteen-color);
+        border: 1px solid var(--fifteen-color);
+        background-color: var(--fifteen-color);
         padding: 4%;
         width: 85%;
         color: var(--four-color);
@@ -98,16 +98,16 @@
 }
 
 mat-panel-description{
-    justify-content: center;
     align-items: center;
 }
 
 .payNowSection{
-    width: 25%;
-    margin-top: 10rem;
-    display: block;
-    float: right !important;
+    margin-top: 2rem;
+    // float: right !important;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     .price{
         color: var(--eight-color);
         font-family: var(--two-font);
@@ -126,22 +126,18 @@ mat-panel-description{
     }
     .payBtn{
         button{
-            width: 80%;
             border-radius: 10px;
             background:var(--one-color);
-            padding: 8% 2%;
+            padding: 3% 18%;
             color: var(--nine-color);
             font-family: var(--two-font);
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-style: normal;
             font-weight: 700;
         }
     }
 }
 
-.ar .payNowSection{
-    float: left !important;
-}
 
 .ar mat-datepicker-toggle{
     position: absolute;
@@ -157,9 +153,99 @@ mat-expansion-panel{
 
 
 @media (max-width:769px) {
+  .headerContainer{
+    font-size: 1rem !important;
+    padding: 3% !important;
+  }
     .payNowSection{
-        width: 100% !important;
-        float: unset !important;
+      display: flex;
+      flex-direction: column;
+      margin-right: 1.25rem;
+      .price{
+        margin-left: 18px;
+        white-space: nowrap;
+
+      }
+      .fareBreakup{
+        margin-top: 5px;
+        margin-left: 18px;
+        white-space: nowrap;
+      }
+      .payBtn{
+        margin-top: 10px;
+      }
     }
 }
 
+//modal styles
+.summary-title {
+    padding: 1.063rem 1.938rem;
+    background-color: var(--one-color);
+    font-family: var(--two-font);
+    font-weight: 700;
+    font-size: 1.563rem;
+    color: var(--nine-color);
+  }
+  .footer-section {
+    padding: 1.063rem 1.938rem;
+    background-color: var(--one-color);
+    color: var(--nine-color);
+    font-weight: 400;
+    line-height: 19.36px;
+    font-family: var(--two-font);
+  }
+  .summary-title h2 {
+    margin: 0;
+  }
+  
+  .second-box {
+    border-left: 1px solid var(--seven-color);
+    border-right: 1px solid var(--seven-color);
+  }
+  .city {
+    border-bottom: 1px solid var(--three-color);
+  }
+  .summary-cites {
+    padding: 1.2rem 1.938rem;
+  }
+  .summary-priceBreack {
+    padding: 1.2rem 1.938rem 1.4rem;
+  }
+  .summary-cites h3,
+  .summary-priceBreack h4 {
+    font-family: var(--two-font);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--eight-color);
+    line-height: 24.2px;
+    margin: 0;
+  }
+  
+  .summary-cites p {
+    font-family: var(--two-font);
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: var(--seven-color);
+  }
+  
+
+  .fare-title {
+    font-family: var(--two-font);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--eight-color);
+    line-height: 19.36px;
+  }
+  
+  .fare-amount {
+    font-family: var(--two-font);
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--eight-color);
+  }
+  
+  .summary-prices {
+    margin-top: 2%;
+    margin-bottom: 8%;
+  }
+  

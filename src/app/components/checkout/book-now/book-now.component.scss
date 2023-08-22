@@ -1,6 +1,4 @@
 .desktopContainer{
-    display: flex;
-    justify-content: space-between;
     padding: 2%;
     background-color: var(--nine-color);
     .standardBooking{
@@ -30,6 +28,11 @@
 
     .premiumBooking{
         font-family: var(--one-font) !important;
+        .newBookingLink{
+            text-decoration: underline;
+            cursor: pointer;
+            color:var(--sixteen-color);
+        }
         .title{
             font-weight: 700;
             font-size: 1rem;
@@ -44,10 +47,10 @@
             button{
                 border-radius: 10px;
                 background-color: var(--one-color);
-                padding: 5% 28%;
+                padding: 1% 10%;
                 font-size: 1rem;
                 font-style: normal;
-                font-weight: 700;
+                font-weight: 500;
                 color: var(--nine-color);
             }
         }
@@ -55,72 +58,91 @@
 }
 
 
-.mobileContainer{
-    padding: 2%;
-    background-color: var(--nine-color);
-    .standardBooking{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-family: var(--one-font) !important;
-        .title{
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--sixteen-color);
-        }
-        .standardPrice{
-            font-size: 1rem;
-            color: var(--eight-color);
-            font-weight: 700;
-        }
-        .standardBtn{
-            button{
-                border-radius: 10px;
-                background-color: var(--seventeen-color);
-                width: 8rem;
-                height: 3.5rem;
-                font-size: 1rem;
-                font-style: normal;
-                font-weight: 700;
-                color: var(--sixteen-color);
-            }
-        }
-    }
-    .premiumBooking{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-family: var(--one-font) !important;
-        .title{
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--sixteen-color);
-        }
-        .premiumPrice{
-            font-size: 1rem;
-            color: var(--eight-color);
-            font-weight: 700;
-        }
-        .premiumBtn{
-            button{
-                border-radius: 10px;
-                background-color: var(--one-color);
-                width: 8rem;
-                height: 3.5rem;
-                font-size: 1rem;
-                font-style: normal;
-                font-weight: 700;
-                color: var(--nine-color);
-            }
-        }
-    }
-}
+// .mobileContainer{
+//     padding: 2%;
+//     background-color: var(--nine-color);
+//     .standardBooking{
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         font-family: var(--one-font) !important;
+//         .title{
+//             font-weight: 700;
+//             font-size: 1rem;
+//             color: var(--sixteen-color);
+//         }
+//         .standardPrice{
+//             font-size: 1rem;
+//             color: var(--eight-color);
+//             font-weight: 700;
+//         }
+//         .standardBtn{
+//             button{
+//                 border-radius: 10px;
+//                 background-color: var(--seventeen-color);
+//                 width: 8rem;
+//                 height: 3.5rem;
+//                 font-size: 1rem;
+//                 font-style: normal;
+//                 font-weight: 700;
+//                 color: var(--sixteen-color);
+//             }
+//         }
+//     }
+//     .premiumBooking{
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         font-family: var(--one-font) !important;
+//         .title{
+//             font-weight: 700;
+//             font-size: 1rem;
+//             color: var(--sixteen-color);
+//         }
+//         .premiumPrice{
+//             font-size: 1rem;
+//             color: var(--eight-color);
+//             font-weight: 700;
+//         }
+//         .premiumBtn{
+//             button{
+//                 border-radius: 10px;
+//                 background-color: var(--one-color);
+//                 width: 8rem;
+//                 height: 3.5rem;
+//                 font-size: 1rem;
+//                 font-style: normal;
+//                 font-weight: 700;
+//                 color: var(--nine-color);
+//             }
+//         }
+//     }
+// }
 
 
 @media (max-width:769px) {
     .desktopContainer{
-        display: none;
+        .standardBooking{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .premiumBooking{
+            display: flex;
+            flex-direction: column;
+            .newBookingLink{
+                margin:10px;
+            }
+         .premiumBtn{
+            button{
+                padding: 3% !important;
+                font-size: 0.9rem !important;
+
+            }
+         }
     }
+    }
+ 
 }
 
 @media (min-width:770px) {

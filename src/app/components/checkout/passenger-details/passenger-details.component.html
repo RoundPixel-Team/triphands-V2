@@ -35,11 +35,20 @@
                                 <mat-expansion-panel-header>
                                     <mat-panel-title> 
                                         <mat-panel-description>
-                                            <div class="passengerTitle">
+                                            <div class="passengerTitle me-1">
                                             {{translate.currentLang == 'en'?"Passenger":"مسافر"}} 
                                             {{i+1}}
                                             {{translate.currentLang == 'en'?"Of":"من"}} 
-                                            {{flight.usersArray.length}}
+                                            {{flight.usersArray.length}} 
+                                        </div>
+                                         <div class="passengerTitle" *ngIf="user.get('PassengerType')!.value == 'ADT'">
+                                            ({{'checkout.passengers.adult' | translate}})
+                                        </div>
+                                        <div class="passengerTitle" *ngIf="user.get('PassengerType')!.value == 'CNN'">
+                                            ({{'checkout.passengers.child' | translate}})
+                                        </div>
+                                        <div class="passengerTitle" *ngIf="user.get('PassengerType')!.value == 'INF'">
+                                            ({{'checkout.passengers.Infant' | translate}})
                                         </div>
                                         </mat-panel-description>
                                          </mat-panel-title>
@@ -47,12 +56,7 @@
                                 <div class="row">
                                     <!--passenger header-->
                                     <div class="col-12 col-lg-3">
-                                        <div class="passengerTitle">
-                                            {{translate.currentLang == 'en'?"Passenger":"مسافر"}} 
-                                            {{i+1}}
-                                            {{translate.currentLang == 'en'?"Of":"من"}} 
-                                            {{flight.usersArray.length}}
-                                        </div>
+                                       
                                         <div class="passengerType mt-2" *ngIf="user.get('PassengerType')!.value == 'ADT'">
                                             {{'checkout.passengers.adult' | translate}}
                                         </div>
@@ -192,18 +196,21 @@
                 </ng-container>
             </ng-container>
         </ng-container>
-        <div class="col-12">
-            <div class="payNowSection">
-                <div class="price">
-                    {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code' }}  
-                    {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value' }}
+        <div class="">
+            <div class="payNowSection align-items-center">
+                <div class="col-lg-2 col-4 col-sm-4">
+                    <div class="price">
+                        {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code' }}  
+                        {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value' }}
+                    </div>
+            
+                    <div class="fareBreakup "  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        {{'checkout.passengers.fareBreakup' | translate}}
+                    </div>
+            
                 </div>
-        
-                <div class="fareBreakup mt-3" (click)="openFareBreakUp()">
-                    {{'checkout.passengers.fareBreakup' | translate}}
-                </div>
-        
-                <div class="payBtn mt-3" (click)="saveBooking()">
+              
+                <div class="payBtn  col-lg-2 col-4 col-sm-4" (click)="saveBooking()">
                     <button mat-raised-button>{{'checkout.passengers.payNow' | translate}}</button>
                 </div>
             </div>
@@ -215,3 +222,11 @@
     
 
 </div>
+<div class="modal fade modal-sm" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <app-fare-breakup></app-fare-breakup>
+
+      </div>
+    </div>
+  </div>

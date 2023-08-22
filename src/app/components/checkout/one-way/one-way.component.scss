@@ -29,11 +29,12 @@
     flex-grow: 1;
     padding: 16px 32px;
   }
-  .logo-img{
-    width:130px;
-    border-radius: 20%;
-   
-  }
+  .airline-logo{
+  border: 1px solid #e8e8e8;
+  padding: 10px;
+  border-radius: 5px;
+  background: white;
+}
   .logo-name{
     font-size: 1rem;
   }
@@ -52,7 +53,7 @@
  
 }
   .card-footer{
-    background-color: #E8F2F9;
+    background-color: var(--fifteen-color);
     padding: 8px 15px;
     margin-top: auto;
   .card-footer-content{
@@ -60,6 +61,9 @@
   justify-content: space-between;
   color:var(--seven-color);
 
+  }
+  .flight-details{
+    cursor: pointer;
   }
 }
 }
@@ -73,6 +77,14 @@
       border-radius: 18px;
       width: 50px;
       height: 37px;
+    }
+    .airline-logo{
+      width: 55px;
+      height: 55px;
+      border: 1px solid #e8e8e8;
+      padding: 6px;
+      border-radius: 5px;
+      background: white;
     }
 .main-route{
   .main-date{
@@ -187,10 +199,52 @@
   }
 }
   }
-
+  .show-more-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--one-color);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .arrow {
+    width: 10px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: translateY(-50%) rotate(45deg);
+    position: absolute;
+    top: 50%;
+    left: 38%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .show-more-button.expanded {
+    background-color: var(--nine-color);
+    border:2px solid var(--one-color);
+  }
+  
+  .show-more-button.expanded .arrow {
+    transform: translateY(-50%) rotate(225deg);
+    border: solid var(--one-color);
+    border-width: 0 2px 2px 0;
+  }
 }
 @media (max-width: 768px) {
- 
+  .ar{
+    direction: ltr;
+  
+  .flight-time{
+    
+    margin-right: 5.625rem;
+    margin-left: 0rem;    
+  }
+}
   .card-body {
     padding: 8px 16px; 
   }
@@ -201,31 +255,33 @@
 
   .logo-name {
     font-size: 0.9rem !important; 
-    text-wrap: nowrap;
+    white-space: nowrap;
   }
 
   .flight-time {
     font-size: 1rem !important;
-    text-wrap: nowrap;
+    margin-top: 0.5rem;
+    margin-left: 5.625rem;
+    
   }
 
   .flight-location {
     font-size: 0.9rem !important; 
-    text-wrap: nowrap;
+    white-space: nowrap;
   }
 
   .flight-duration {
     font-size: 0.9rem; 
     display: flex;
     justify-content: center;
-    text-wrap: nowrap;
+    white-space: nowrap;
     margin-top: 3px;
   }
 
   
   .card-footer-content{
     font-size: 0.9rem !important;
-    text-wrap:nowrap;
+    white-space:nowrap;
   }
   .journey{
     .airport_name{
@@ -249,7 +305,7 @@
             .airport-info{
                 width: 100%;
                 font-size: small !important;
-               text-wrap:nowrap;
+               white-space:nowrap;
             }
             .plane-icon{
               .img{
@@ -270,18 +326,20 @@
         height: 3.5rem;
         font-size: 0.75rem !important;
       }
-        
+      .airline_logo{
+        display: none;
+      }
     }
     
   
   }
  .baggage{
   .airline-name{
-  text-wrap:nowrap;
+  
     font-size: small !important;
 }
 .CabinClass{
-  text-wrap:nowrap;
+  white-space:nowrap;
     font-size: 0.75rem !important;
 }
 .CabinBagg{

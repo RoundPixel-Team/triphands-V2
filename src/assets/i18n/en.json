@@ -1,18 +1,17 @@
 {
-    "homePage":{
-        "myBtn":"Press Here"
-    },
-    "header": {
-        "currentLang": "EN",
-        "flights": "Flights",
-        "aboutUs":"About Us",
-        "contactUs":"Contact",
-        "signIn":"Sign In"
-       
-    },
+  "homePage": {
+    "myBtn": "Press Here"
+  },
+  "header": {
+    "currentLang": "EN",
+    "flights": "Flights",
+    "aboutUs": "About Us",
+    "contactUs": "Contact",
+    "signIn": "Sign In"
+  },
 
     "checkout":{
-        "error":"Ops, Your session has been expired or something went wrong !",
+        "error":"Sorry, Your session has been expired or something went wrong !",
         "searchAgain":"Search Again",
         "fastConfirm" :"Fast Confirmation",
         "offlineService":{
@@ -24,7 +23,9 @@
             "standardTitle":"Standard Booking",
             "premiumTitle":"Online check-in & Boarding pass",
             "total":"Total",
-            "bookBtn":"Book Now"
+            "bookBtn":"Book with",
+            "fastBookBtn":"Book Now",
+            "standardFare":"Continue with standard Fare"
         },
         "coponCode":{
             "apply":"Apply Coupon"
@@ -78,6 +79,15 @@
             "cabinBaggage": "Cabin Baggage"
 
         }
-}
-
+},
+"searchbox": {
+  "flights":"Flights",
+  "depart":"departing",
+  "retun":"landing",
+  "leaveFrom":"Leaving from",
+  "goingTo":"going to"
+},
+"One-way": "One-way",
+"Round-trip": "Round-trip",
+"Multi-city": "Multi-city"
 }
