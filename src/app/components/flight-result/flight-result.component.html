@@ -1,14 +1,16 @@
-
-<div class="flights-result-container row mt-3">
-     <div class="col-3">
-          <app-flights-filters></app-flights-filters>
-     </div>
-     <div class="col-8">
-          <app-oneway-result *ngIf="FlightResult.FlightType == 'oneway' || FlightResult.FlightType == 'Oneway' || FlightResult.FlightType =='OneWay' "></app-oneway-result>
-          <app-roundtrip-result *ngIf="FlightResult.FlightType== 'roundtrip' || FlightResult.FlightType=='Roundtrip' || FlightResult.FlightType=='RoundTrip' "></app-roundtrip-result>
-          <app-multicity-result *ngIf="FlightResult.FlightType== 'multicity' || FlightResult.FlightType=='Multicity' || FlightResult.FlightType=='MultiCity' "></app-multicity-result> 
+<div class="container-fluid">
+     <div class="flights-result-container row mt-3">
+          <div class="col-3">
+               <app-flights-filters></app-flights-filters>
+          </div>
+          <div class="col-8">
+               <app-oneway-result *ngIf="FlightResult.FlightType == 'oneway' || FlightResult.FlightType == 'Oneway' || FlightResult.FlightType =='OneWay' "></app-oneway-result>
+               <app-roundtrip-result *ngIf="FlightResult.FlightType== 'roundtrip' || FlightResult.FlightType=='Roundtrip' || FlightResult.FlightType=='RoundTrip' "></app-roundtrip-result>
+               <app-multicity-result *ngIf="FlightResult.FlightType== 'multicity' || FlightResult.FlightType=='Multicity' || FlightResult.FlightType=='MultiCity' "></app-multicity-result> 
+          </div>
      </div>
 </div>
+
 
 
 

@@ -89,5 +89,13 @@
 },
 "One-way": "One-way",
 "Round-trip": "Round-trip",
-"Multi-city": "Multi-city"
+"Multi-city": "Multi-city",
+
+"flightFilter":{
+  "stops":"Stops",
+  "direct":"Direct",
+  "oneStop":"One Stop",
+  "moreStop":"2+ Stop",
+  "price":"Price"
+}
 }

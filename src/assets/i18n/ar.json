@@ -84,5 +84,13 @@
   },
 "One-way":"اتجاه واحد",
 "Round-trip":"ذهاب وعوده",
-"Multi-city":"عدة وجهات"
+"Multi-city":"عدة وجهات",
+
+"flightFilter":{
+  "stops":"محطات التوقف",
+  "direct":"مباشر",
+  "oneStop":"1 ترانزيت",
+  "moreStop":"2+ ترانزيت",
+  "price":"السعر"
+}
 }

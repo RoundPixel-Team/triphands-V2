@@ -1,1 +1,32 @@
-<p>flights-filters works!</p>
+<div class="filterContainer" [formGroup]="flightResult.filterForm">
+    <div class="filterCriteria mb-4">
+        <div class="title">{{'flightFilter.stops' | translate}}</div>
+        <hr>
+        <div class="row criteria" formGroupName="stopsForm">
+            <div class="col-12">
+            <mat-checkbox  class="filterCheckbox" formControlName="noStops">{{'flightFilter.direct' | translate}}</mat-checkbox>
+            </div>
+            <div class="col-12">
+            <mat-checkbox  class="filterCheckbox" formControlName="oneStop">{{'flightFilter.oneStop' | translate}}</mat-checkbox>
+            </div>
+            <div class="col-12">
+            <mat-checkbox  class="filterCheckbox" formControlName="twoAndm">{{'flightFilter.moreStop' | translate}}</mat-checkbox>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="filterCriteria mb-4">
+        <div class="title">{{'flightFilter.price' | translate}}</div>
+        <hr>
+        <div class="row criteria">
+            <div class="col-12">
+                <!-- <ngx-slider *ngIf="!flightResult.loading" formControlName="priceSlider"  [options]="flightResult.priceOptions">
+                </ngx-slider> -->
+
+                <!-- <ngx-slider style="opacity: 0.2;"  [value]="0" [highValue]="500" [options]="optionsLoading" *ngIf="flightResult.loading">
+                </ngx-slider> -->
+            </div>
+        </div>
+    </div>
+</div>

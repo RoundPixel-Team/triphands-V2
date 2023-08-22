@@ -21,7 +21,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 
 export const MatrialComponents = [
@@ -37,7 +37,8 @@ export const MatrialComponents = [
   MatProgressSpinnerModule,
   MatTabsModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatCheckboxModule
 ]
 
 export const SharedComponents = [
