@@ -6,6 +6,8 @@ import { FlightResultComponent } from './flight-result.component';
 import { OnewayComponent } from './oneway/oneway.component';
 import { RoundtripComponent } from './roundtrip/roundtrip.component';
 import { MulticityComponent } from './multicity/multicity.component';
+import { FlightsFiltersComponent } from './flights-filters/flights-filters.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { MulticityComponent } from './multicity/multicity.component';
     FlightResultComponent,
     OnewayComponent,
     RoundtripComponent,
-    MulticityComponent
+    MulticityComponent,
+    FlightsFiltersComponent
   ],
   imports: [
     CommonModule,
-    FlightResultRoutingModule
+    FlightResultRoutingModule,
+    SharedModule,
   ]
 })
 export class FlightResultModule { }

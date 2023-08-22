@@ -35,8 +35,6 @@ export class FlightResultComponent implements OnInit {
         }
 
         this.FlightResult.getDataFromUrl(lang, currency, pointOfReservation, flightType, flightsInfo, serachId, passengers, Cclass, showDirect)
-        console.log("ggfggf", this.FlightResult.orgnizedResponce)
-        console.log(flightType,'show flight type')
       });
   }
 
