@@ -1,3 +1,11 @@
+
+::ng-deep .mat-card{
+    padding:0px !important;
+    border-radius:0px !important;
+}
+::ng-deep .mat-card-content{
+    margin-bottom: 0px !important;
+}
 .flight-mat-card{
     display: flex;
     flex-direction: column;
@@ -20,6 +28,7 @@
       padding: 16px 32px;
     }
     .airline-logo{
+        width: 60px;
     border: 1px solid #e8e8e8;
     padding: 10px;
     border-radius: 5px;
@@ -42,12 +51,45 @@
     
    
   }
-  .booknow-btn{
-    color:var(--nine-color);
-    background-color:var(--one-color);
-    width: 8.125rem;
-    height: 2.188rem;
-}
+  .v-line{
+    margin-bottom: -45px;
+    margin-top: -17px;
+    margin-right: -22px;
+  }
+  .v-line img {
+    height: 175px;
+  }
+  .right-side-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .flight-price{
+        font-size: 1.2rem;
+        color: var(--eight-color);
+        font-weight: 600;
+        
+    }
+    .flight-price span {
+        vertical-align: sub; 
+        font-size: 1rem;
+    }
+      .booknow-btn{
+        font-weight: 600;
+        color:var(--nine-color);
+        background-color:var(--one-color);
+        width: 10.125rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .refund-state{
+        color:var(--seven-color);
+        font-size: 1rem;
+    }
+  }
+
     .card-footer{
       background-color: var(--fifteen-color);
       padding: 8px 15px;
@@ -56,6 +98,7 @@
       display: flex;
     justify-content: space-between;
     color:var(--seven-color);
+    font-size: 1rem;
   
     }
     .flight-details{
