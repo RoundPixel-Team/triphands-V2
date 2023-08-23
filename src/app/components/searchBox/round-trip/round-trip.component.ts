@@ -1,8 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightSearchService } from 'rp-travel-ui';
+import { AlertMsgModel, FlightSearchService } from 'rp-travel-ui';
 import { NgbCalendar, NgbDate, NgbDateParserFormatter, } from '@ng-bootstrap/ng-bootstrap';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-round-trip',
   templateUrl: './round-trip.component.html',
@@ -18,6 +19,9 @@ export class RoundTripComponent implements OnInit {
   hoveredDate: NgbDate | null = null;
 	fromDate: NgbDate;
 	toDate: NgbDate | null = null;
+  lang:string='en';
+  resultLink?:string | { adult: AlertMsgModel; child: AlertMsgModel; infant: AlertMsgModel; retDate: AlertMsgModel; depDate: AlertMsgModel; };
+  
 //#endregion
 	constructor(calendar: NgbCalendar, public formatter: NgbDateParserFormatter) {
 		this.fromDate = calendar.getToday();
@@ -67,8 +71,8 @@ export class RoundTripComponent implements OnInit {
   getTotalPassenger(){
     let adult = this.searchbox.searchFlight?.get('passengers.adults')?.value;
     let child = this.searchbox.searchFlight?.get('passengers.child')?.value;
-    let infent = this.searchbox.searchFlight?.get('passengers.infent')?.value;
-    return this.searchbox.getTotalPassengers(adult,child,infent);
+    let infant = this.searchbox.searchFlight?.get('passengers.infant')?.value;
+    return this.searchbox.getTotalPassengers(adult,child,infant);
   }
   submit() {
     console.log('ROUND TRIP FORMMM', this.searchbox.searchFlight.value);

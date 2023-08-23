@@ -84,8 +84,18 @@
     "leaveFrom": "المغادرة من",
     "goingTo": "الوصول الى",
     "traveller": "المسافرون / الدرجة",
-    "title": "من يسافر؟"
+    "title": "من يسافر؟",
+    "class": "درجة السفر",
+    "adults":"البالغين",
+    "children":"الاطفاال",
+    "infants":"الرضع",
+    "addFlight":"+ إضافة رحلة أخرى",
+    "removeFlight":"- إزالة الرحلة",
+    "search":"بحث الرحلات"
   },
+  "Business": "رجال أعمال",
+  "Economy": "سياحية",
+  "First": "اولى",
   "One-way": "اتجاه واحد",
   "Round-trip": "ذهاب وعوده",
   "Multi-city": "عدة وجهات"

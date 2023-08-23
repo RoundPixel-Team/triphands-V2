@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightSearchService } from 'rp-travel-ui';
+import { AlertMsgModel, FlightSearchService } from 'rp-travel-ui';
 import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
@@ -15,12 +15,12 @@ export class OneWayComponent implements OnInit {
   translate = inject(TranslateService);
   sharedService = inject(SharedService);
   showDatePicker:boolean = true;
+  lang:string='en';
+  resultLink?:string | { adult: AlertMsgModel; child: AlertMsgModel; infant: AlertMsgModel; retDate: AlertMsgModel; depDate: AlertMsgModel; };
   //#endregion
   constructor() {}
 
-  ngOnInit(): void {
-    console.log("ADult",this.searchbox.searchFlight?.get('passengers.adults')?.value);
-    
+  ngOnInit(): void {   
   }
   showDate(){
     this.showDatePicker = true;
@@ -32,8 +32,8 @@ export class OneWayComponent implements OnInit {
   getTotalPassenger(){
     let adult = this.searchbox.searchFlight?.get('passengers.adults')?.value;
     let child = this.searchbox.searchFlight?.get('passengers.child')?.value;
-    let infent = this.searchbox.searchFlight?.get('passengers.infent')?.value;
-    return this.searchbox.getTotalPassengers(adult,child,infent);
+    let infant = this.searchbox.searchFlight?.get('passengers.infant')?.value;
+    return this.searchbox.getTotalPassengers(adult,child,infant);
   }
   //update date value from form Array
   onDateSelection(date: NgbDate) {
@@ -43,6 +43,9 @@ export class OneWayComponent implements OnInit {
       ?.setValue(new Date(date.year, date.month - 1, date.day));
   }
   submit() {
+    this.lang = JSON.stringify(localStorage.getItem('lang') as string);
     console.log('ONE WAY FORMMM', this.searchbox.searchFlight.value);
+    this.resultLink = this.searchbox.onSubmit(this.lang,'kwd','eg',0,',');
+    console.log("FINAL RESPONSE", this.searchbox.onSubmit(this.lang,'kwd','eg',0,','));
   }
 }

@@ -1,5 +1,4 @@
 .searchbox{
-    width:90%;
     padding: 1rem;
     margin: 3rem auto;
     border-radius: 10px;
@@ -43,6 +42,59 @@
         }
     }
 }
+//#region daterPicker
+  ::ng-deep .searchBox .mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0;
+  }
+  ::ng-deep .searchBox .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 0.7em;
+  }
+  ::ng-deep .searchBox ngb-datepicker {
+    width: 80% !important;
+    position: relative !important;
+    border: none !important;
+  }
+  ::ng-deep .searchBox .ngb-dp-weekdays,
+  ::ng-deep .searchBox .ngb-dp-week {
+    justify-content: space-evenly !important;
+  } 
+  ::ng-deep .searchBox .ngb-dp-month {
+    width: 100% !important;
+  }
+  ::ng-deep ngb-datepicker-navigation-select>.form-select{
+    margin-top: -5px !important;
+    direction: ltr;
+  }
+  ::ng-deep .searchBox .ngb-dp-arrow{
+    position: absolute !important;
+    top: 40% !important;
+    left: -8% !important;
+  
+    button {
+      padding: 1.3rem 0.6rem 2.5rem 1rem !important;
+      border: 1px solid rgb(2, 117, 216);
+      border-radius: 25px 0px 0px 25px ;
+      background-color: #E6EFFA !important;
+    }
+  }
+  ::ng-deep .searchBox .ngb-dp-arrow.right {
+    position: absolute !important;
+    top: 40% !important;
+    right: -8% !important;
+    left: unset !important;
+  
+    button {
+      padding: 1.3rem 1rem 2.5rem 0.6rem !important;
+      border: 1px solid rgb(2, 117, 216);
+      border-radius: 0px 25px 25px 0;
+      background-color: #E6EFFA !important;
+    }
+  }
+  ::ng-deep .searchBox .ngb-dp-months {
+    direction:ltr;
+  }
+//#endregion
+
 //#region Media Queries
 @media(max-width:540px) {
     .searchbox{
@@ -58,6 +110,20 @@
             }
         }
     }
+
+    ::ng-deep .searchBox .ngb-dp-arrow{
+        button{
+          padding:  0.6rem 0.2rem 2rem 0.6rem !important;
+        }
+      }
+      ::ng-deep .searchBox .ngb-dp-arrow.right{
+        button{
+          padding:  0.6rem 0.6rem 2rem 0.2rem !important;
+        }
+      }
+      ::ng-deep .searchBox .ngb-dp-months {
+        display: block !important;
+      }
 }
 @media(max-width:375px) {
     .searchbox{

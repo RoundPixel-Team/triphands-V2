@@ -85,10 +85,20 @@
   "depart":"departing",
   "retun":"landing",
   "leaveFrom":"Leaving from",
-  "goingTo":"going to",
+  "goingTo":"Going to",
   "traveller":"Travelers/Class",
-  "title":"Who's traveling?"
+  "title":"Who's traveling?",
+  "class":"Class",
+  "adults":"Adults",
+  "children":"Children",
+  "infants":"Infants",
+  "addFlight":"+ Add Another Flight",
+  "removeFlight":"- Remove Flight",
+  "search":"Search Flights"
 },
+"Business":"business",
+"Economy":"Economy",
+"First":"First",
 "One-way": "One-way",
 "Round-trip": "Round-trip",
 "Multi-city": "Multi-city"

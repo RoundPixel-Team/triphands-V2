@@ -1,169 +1,197 @@
-<div class="searchBox">
+<div class="searchBox" [ngClass]="{ ar: translate.currentLang == 'ar' }">
   <form
     [formGroup]="searchbox.searchFlight"
-    [dir]="translate.currentLang == 'ar' ? 'rtl' : 'ltr'"
   >
     <div class="container-fluid">
       <div class="row">
         <ng-container formArrayName="Flights">
-          <ng-container *ngFor="let item of searchbox.flightsArray['controls'] | slice : 0 : 1;let i = index ">
+          <ng-container
+            *ngFor="
+              let item of searchbox.flightsArray['controls'] | slice : 0 : 1;
+              let i = index
+            "
+          >
             <ng-container [formGroupName]="0">
               <!-- Depart City -->
-              <div class="col-12 col-md-12 col-lg-3" (click)="showDate()">
-                <input
-                  formControlName="departing"
-                  type="text"
-                  placeholder="{{ 'searchbox.leaveFrom' | translate }}"
-                  aria-label="City"
-                  matInput
-                  [matAutocomplete]="autoa"
-                  #firstD
-                  class="searchboxInput"
-                />
-                <mat-autocomplete #autoa="matAutocomplete">
-                  <ng-container *ngIf="sharedService.cities != undefined">
-                    <mat-option
-                      *ngFor="
-                        let city of sharedService.cities
-                          | filterCity : item.get('departing')?.value
-                          | limitTo : 5
-                      "
-                      [value]="city.cityName + ',' + city.airportCode"
-                    >
-                      <span
-                        [innerHTML]="
-                          city.airportName
-                            | highlighter : item.get('departing')?.value
+              <div class="col-12 col-md-12 col-lg-3 firstInput" (click)="showDate()">
+                <mat-form-field color="accent" class="searchboxInput">
+                  <p class="cityInputPlacholder">
+                    {{ "searchbox.leaveFrom" | translate }}
+                  </p>
+                  <!-- Depart Input -->
+                  <input
+                    formControlName="departing"
+                    type="text"
+                    aria-label="City"
+                    matInput
+                    [matAutocomplete]="autoa"
+                    #firstD
+                  />
+                  <!-- Depart Airports -->
+                  <mat-autocomplete #autoa="matAutocomplete">
+                    <ng-container *ngIf="sharedService.cities != undefined">
+                      <mat-option
+                        *ngFor="
+                          let city of sharedService.cities
+                            | filterCity : item.get('departing')?.value
+                            | limitTo : 5
                         "
-                      ></span>
-                      -
-                      <span
-                        [innerHTML]="
-                          city.countryName
-                            | highlighter : item.get('departing')?.value
-                        "
-                      ></span>
-                      (
-                      <span
-                        [innerHTML]="
-                          city.airportCode
-                            | highlighter : item.get('departing')?.value
-                        "
-                      ></span>
-                      )
-                    </mat-option>
-                  </ng-container>
-                </mat-autocomplete>
+                        [value]="city.cityName + ',' + city.airportCode"
+                      >
+                        <span
+                          [innerHTML]="
+                            city.airportName
+                              | highlighter : item.get('departing')?.value
+                          "
+                        ></span>
+                        -
+                        <span
+                          [innerHTML]="
+                            city.countryName
+                              | highlighter : item.get('departing')?.value
+                          "
+                        ></span>
+                        (
+                        <span
+                          [innerHTML]="
+                            city.airportCode
+                              | highlighter : item.get('departing')?.value
+                          "
+                        ></span>
+                        )
+                      </mat-option>
+                    </ng-container>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <!-- Switch Arrow -->
+                <div class="switchArrow" (click)="searchbox.switchDestination(item)">
+                  <img src="../../../../assets/images/SwitchIcon.svg"/>
+                </div>
               </div>
               <!-- Land City -->
               <div class="col-12 col-md-12 col-lg-3" (click)="showDate()">
-                <input
-                  formControlName="landing"
-                  type="text"
-                  placeholder="{{ 'searchbox.goingTo' | translate }}"
-                  aria-label="City"
-                  matInput
-                  [matAutocomplete]="autob"
-                  #firstAr
-                  class="searchboxInput"
-                />
-                <mat-autocomplete #autob="matAutocomplete">
-                  <ng-container *ngIf="sharedService.cities != undefined">
-                    <mat-option
-                      *ngFor="
-                        let city of sharedService.cities
-                          | filterCity : item.get('landing')?.value
-                          | limitTo : 5
-                      "
-                      [value]="city.cityName + ',' + city.airportCode"
-                    >
-                      <span
-                        [innerHTML]="
-                          city.airportName
-                            | highlighter : item.get('landing')?.value
+                <mat-form-field color="accent" class="searchboxInput">
+                  <p class="cityInputPlacholder">
+                    {{ "searchbox.goingTo" | translate }}
+                  </p>
+                  <!-- Land Input -->
+                  <input
+                    formControlName="landing"
+                    type="text"
+                    aria-label="City"
+                    matInput
+                    [matAutocomplete]="autob"
+                    #firstAr
+                  />
+                  <!-- Land Airports -->
+                  <mat-autocomplete #autob="matAutocomplete">
+                    <ng-container *ngIf="sharedService.cities != undefined">
+                      <mat-option
+                        *ngFor="
+                          let city of sharedService.cities
+                            | filterCity : item.get('landing')?.value
+                            | limitTo : 5
                         "
-                      ></span>
-                      -
-                      <span
-                        [innerHTML]="
-                          city.countryName
-                            | highlighter : item.get('landing')?.value
-                        "
-                      ></span>
-                      (
-                      <span
-                        [innerHTML]="
-                          city.airportCode
-                            | highlighter : item.get('landing')?.value
-                        "
-                      ></span
-                      >)
-                    </mat-option>
-                  </ng-container>
-                </mat-autocomplete>
+                        [value]="city.cityName + ',' + city.airportCode"
+                      >
+                        <span
+                          [innerHTML]="
+                            city.airportName
+                              | highlighter : item.get('landing')?.value
+                          "
+                        ></span>
+                        -
+                        <span
+                          [innerHTML]="
+                            city.countryName
+                              | highlighter : item.get('landing')?.value
+                          "
+                        ></span>
+                        (
+                        <span
+                          [innerHTML]="
+                            city.airportCode
+                              | highlighter : item.get('landing')?.value
+                          "
+                        ></span
+                        >)
+                      </mat-option>
+                    </ng-container>
+                  </mat-autocomplete>
+                </mat-form-field>
               </div>
-              <!-- Depart Date -->
-              <!-- Retrurn Date -->
-              <div class="col-12 col-md-12 col-lg-3"  (click)="showDate()">
-                <input
-                  class="searchboxInput"
-                  placeholder="{{
-                    searchbox.flightsArray.at(0).get('departingD')?.value
-                      | date : 'MMM dd'
-                  }}"
-                />
-                <input
-                  class="searchboxInput"
-                  placeholder="{{ 'searchbox.retun' | translate }}"
-                  value="{{
-                    searchbox.searchFlight.controls['returnDate']?.value
-                      | date : 'MMM dd'
-                  }}"
-                />
+              <!-- Form Dates -->
+              <div class="col-12 col-md-12 col-lg-4" (click)="showDate()">
+                <div class="d-flex dateInputs">
+                  <!-- Depart Date -->
+                  <mat-form-field color="accent" class="searchboxInput">
+                    <p class="cityInputPlacholder">
+                      {{ "searchbox.depart" | translate }}
+                    </p>
+                    <input
+                      matInput
+                      value="{{
+                        searchbox.flightsArray.at(0).get('departingD')?.value
+                          | date : 'MMM dd'
+                      }}"
+                    />
+                  </mat-form-field>
+                  <!-- Retrurn Date -->
+                  <mat-form-field color="accent" class="searchboxInput">
+                    <p class="cityInputPlacholder">
+                      {{ "searchbox.retun" | translate }}
+                    </p>
+                    <input
+                      matInput
+                      value="{{
+                        searchbox.searchFlight.controls['returnDate'].value
+                          | date : 'MMM dd'
+                      }}"
+                    />
+                  </mat-form-field>
+                </div>
               </div>
               <!-- Travelers/Class -->
-              <div class="col-12 col-md-12 col-lg-3" (click)="showTravellers()">
-                <input
-                  type="text"
-                  placeholder="{{ 'searchbox.traveller' | translate }}"
-                  value="{{
-                    getTotalPassenger() +
-                      '/' +
-                      searchbox.searchFlight.controls['class'].value
-                  }}"
-                  class="searchboxInput"
-                />
+              <div class="col-12 col-md-12 col-lg-2" (click)="showTravellers()">
+                <mat-form-field class="searchboxInput">
+                  <p class="cityInputPlacholder">
+                    {{ "searchbox.traveller" | translate }}
+                  </p>
+                  <input
+                    matInput
+                    type="text"
+                    value="{{getTotalPassenger() + '/' + (searchbox.searchFlight.controls['class'].value | translate)}}"
+                  />
+                </mat-form-field>
               </div>
-
               <!-- Date Picker -->
-              <div *ngIf="showDatePicker; else elseCondition">
+              <div *ngIf="showDatePicker; else elseCondition" class="datePicker">
                 <ngb-datepicker
-                #dp
-                (dateSelect)="onDateSelection($event)"
-                [displayMonths]="2"
-                [dayTemplate]="t"
-                outsideDays="hidden"
-              >
-              </ngb-datepicker>
-              <ng-template #t let-date let-focused="focused">
-                <span
-                  class="custom-day"
-                  [class.focused]="focused"
-                  [class.range]="isRange(date)"
-                  [class.faded]="isHovered(date) || isInside(date)"
-                  (mouseenter)="hoveredDate = date"
-                  (mouseleave)="hoveredDate = null"
+                  #dp
+                  (dateSelect)="onDateSelection($event)"
+                  [displayMonths]="2"
+                  [dayTemplate]="t"
+                  outsideDays="hidden"
                 >
-                  {{ date.day }}
-                </span>
-              </ng-template>
-              
-            </div>
-            <!-- Travellers Component -->
-            <ng-template #elseCondition>
-              <div class="travellerComp">
-                <app-travellers></app-travellers>
+                </ngb-datepicker>
+                <ng-template #t let-date let-focused="focused">
+                  <span
+                    class="custom-day"
+                    [class.focused]="focused"
+                    [class.range]="isRange(date)"
+                    [class.faded]="isHovered(date) || isInside(date)"
+                    (mouseenter)="hoveredDate = date"
+                    (mouseleave)="hoveredDate = null"
+                  >
+                    {{ date.day }}
+                  </span>
+                </ng-template>
               </div>
+              <!-- Travellers Component (Else condition) -->
+              <ng-template #elseCondition>
+                <div class="travellerComp">
+                  <app-travellers></app-travellers>
+                </div>
               </ng-template>
             </ng-container>
           </ng-container>
@@ -173,6 +201,6 @@
   </form>
   <!--Submit Button -->
   <div class="submitBtn">
-    <button (click)="submit()">Submit</button>
+    <button (click)="submit()">{{'searchbox.search' | translate}}</button>
   </div>
 </div>
