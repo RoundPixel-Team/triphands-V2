@@ -17,7 +17,7 @@ export class BookNowComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
+  } 
 
 
   goToNextStep(){

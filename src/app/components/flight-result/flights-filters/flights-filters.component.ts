@@ -1,3 +1,4 @@
+import { Options } from '@angular-slider/ngx-slider';
 import { Component, OnInit, inject } from '@angular/core';
 import { FlightResultService } from 'rp-travel-ui';
 
@@ -10,10 +11,10 @@ export class FlightsFiltersComponent implements OnInit {
 
   flightResult = inject(FlightResultService)
 
-  // optionsLoading : Options = {
-  //   ceil : 0,
-  //   floor:500,
-  // }
+  optionsLoading : Options = {
+    ceil : 0,
+    floor:500,
+  }
   constructor() { }
 
   ngOnInit(): void {
