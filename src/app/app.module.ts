@@ -15,6 +15,7 @@ import { MultiCityComponent } from './components/searchBox/multi-city/multi-city
 import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { JsonPipe } from '@angular/common';
 import { TravellersComponent } from './components/searchBox/travellers/travellers.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TravellersComponent } from './components/searchBox/travellers/traveller
     OneWayComponent,
     RoundTripComponent,
     MultiCityComponent,
-    TravellersComponent
+    TravellersComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
