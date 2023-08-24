@@ -91,6 +91,11 @@
   "direct":"مباشر",
   "oneStop":"1 ترانزيت",
   "moreStop":"2+ ترانزيت",
-  "price":"السعر"
+  "price":"السعر",
+  "airlines":"خطوط الطيران",
+  "time":"التوقيت",
+  "departingTime":"وقت الاقلاع",
+  "landing":"وقت الوصول",
+  "duration":"وقت الرحلة"
 }
 }

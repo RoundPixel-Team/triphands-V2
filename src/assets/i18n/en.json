@@ -96,6 +96,11 @@
   "direct":"Direct",
   "oneStop":"One Stop",
   "moreStop":"2+ Stop",
-  "price":"Price"
+  "price":"Price",
+  "airlines":"Airlines",
+  "time":"Time",
+  "departingTime":"Departing Time",
+  "landing":"Landing Time",
+  "duration":"Flight Duration"
 }
 }
