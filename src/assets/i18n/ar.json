@@ -82,6 +82,11 @@
 "searchbox": {
     "flights":"الرحلات"
   },
+  "flightsResult":{
+    "moreFlights":"رحلات بنفس السعر",
+    "lessFlights":"اخفاء المزيد"
+
+  },
 "One-way":"اتجاه واحد",
 "Round-trip":"ذهاب وعوده",
 "Multi-city":"عدة وجهات"

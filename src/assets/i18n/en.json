@@ -87,6 +87,11 @@
   "leaveFrom":"Leaving from",
   "goingTo":"going to"
 },
+"flightsResult":{
+  "moreFlights":"More flights at same price",
+  "lessFlights":"Hide more flights"
+},
+
 "One-way": "One-way",
 "Round-trip": "Round-trip",
 "Multi-city": "Multi-city"

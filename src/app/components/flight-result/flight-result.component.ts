@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FlightResultService } from 'rp-travel-ui';
 
 @Component({
@@ -10,6 +10,8 @@ import { FlightResultService } from 'rp-travel-ui';
 export class FlightResultComponent implements OnInit {
   FlightResult= inject(FlightResultService)
   route = inject(ActivatedRoute)
+  router = inject(Router)
+  searchId!:string
   constructor() { }
 
   ngOnInit(): void {
@@ -33,9 +35,10 @@ export class FlightResultComponent implements OnInit {
         else {
           showDirect = true;
         }
-
+        this.searchId=params['searchId']
         this.FlightResult.getDataFromUrl(lang, currency, pointOfReservation, flightType, flightsInfo, serachId, passengers, Cclass, showDirect)
       });
   }
+  
 
 }
