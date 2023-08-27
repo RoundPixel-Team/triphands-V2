@@ -1,90 +1,31 @@
 {
-    "homePage":{
-        "myBtn":"اضغط هنا"
-    },
-    "header": {
-        "currentLang": "العربية",
-        "flights": "الرحلات",
-        "aboutUs":"تعّرف علينا",
-        "contactUs":"تواصل معنا",
-        "signIn":"تسجيل الدخول"
-       
-    },
-    "checkout":{
-        "error":"عذرًا ، انتهت المدة المتاحة أو حدث خطأ ما!",
-        "searchAgain":"ابحث مرة اخري",
-        "fastConfirm" :"حجز سريع",
-        "offlineService":{
-            "header":"استمتع برحلتك مع أفضل خدماتنا مبيعًا",
-            "addBtn":"اشتراك",
-            "rmvBtn":"مضاف"
-        },
-        "bookNow":{
-            "standardTitle":"تذكره عادية",
-            "premiumTitle":"تسجيل الوصول عبر الإنترنت وبطاقة صعود الطائرة",
-            "total":"الاجمالي",
-            "bookBtn":"احجز مع",
-            "fastBookBtn":"احجز الان",
-            "standardFare":"الاستمرار مع السعر القياسي"
-        },
-        "coponCode":{
-            "apply":"استخدام الكوبون"
-        },
-        "passengers":{
-            "header":"بيانات المسافرين",
-            "passengersTitle":"تفاصيل المسافرون",
-            "passengersTitleStep":"خطوة 2 من 3",
-            "passengersDescriptionTxt":"الرجاء إدخال التفاصيل تمامًا كما تظهر في جواز سفرك.",
-            "adult":"بالغ",
-            "child":"طفل",
-            "Infant":"رضيع",
-            "male":"ذكر",
-            "female":"أنثي",
-            "passportDetailsHeader":"تفاصيل جواز السفر",
-            "fareBreakup":"تفاصيل السعر",
-            "payNow":"ادفع بأمان"
-        },
-        "BookingSummary":"ملخص الحجز",
-        "PriceBreakDown":"تفاصيل السعر",
-        "AdultFare":"البالغ",
-        "ChildFare":"الأطفال",
-        "InfantFare":"الرضيع",
-        "baseFare":"سعر التذكرة ",
-        "tax":"الضرائب",
-        "paymentFees":"تكالبف الدفع",
-        "TotalFare": "التكلفة الإجمالية",
-        "to":"الي",
-        "Taxes": "الضريبة",
-        "summaryCard":{
-            "refundable": "قابلة للاسترداد",
-            "nonRefundable": "غير قابلة للاسترداد",
-            "flightDetails": "تفاصيل الرحلة",
-            "direct":"مباشر",
-            "oneStop": "محطة توقف واحدة",
-            "twoStops": "محطتين توقف أو أكثر"
-        },
-        "flightDetails":{
-            "flightRoute" :"مسار الرحلة",
-            "fareRules": "قواعد الرحلة",
-            "baggage": "الأمتعة",
-            "flightNo":"رقم الرحلة",
-            "Stopover":"مدة التوقف",
-            "operatedBy": "بواسطة: ",
-            "cancel": "تكلفة الغاء الحجز",
-            "change": "تكلفة تغيير الحجز",
-            "cancelFareText":"في حالة الغاء الحجز قبل موعد اقلاع الرحلة الأولى.",
-            "changeFareText":"في حالة تغيير الحجز قبل موعد اقلاع الرحلة الأولى.",
-            "fareLabel":" رسوم خدمات Trip Hands",
-            "cabinBaggage": "وزن الأمتعة"
-
-        }
-},
-"searchbox": {
-    "flights":"الرحلات"
+  "homePage": {
+    "myBtn": "اضغط هنا"
   },
-"One-way":"اتجاه واحد",
-"Round-trip":"ذهاب وعوده",
-"Multi-city":"عدة وجهات",
+  "searchbox": {
+    "flights": "الرحلات",
+    "depart": "المغادرة",
+    "retun": "الوصول",
+    "leaveFrom": "المغادرة من",
+    "goingTo": "الوصول الى",
+    "traveller": "المسافرون / الدرجة",
+    "title": "من يسافر؟",
+    "class": "درجة السفر",
+    "adults":"البالغين",
+    "children":"الاطفاال",
+    "infants":"الرضع",
+    "addFlight":"+ إضافة رحلة أخرى",
+    "removeFlight":"- إزالة الرحلة",
+    "search":"بحث الرحلات",
+    "close":"اغلاق",
+    "confirm":"تأكيد"
+  },
+  "Business": "رجال أعمال",
+  "Economy": "سياحية",
+  "First": "اولى",
+  "One-way": "اتجاه واحد",
+  "Round-trip": "ذهاب وعوده",
+  "Multi-city": "عدة وجهات",
 
 "flightFilter":{
   "stops":"محطات التوقف",

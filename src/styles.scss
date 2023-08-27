@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "node_modules/bootstrap/scss/bootstrap";
-html , body { height: 100%;background-color:#F5F5F5;;}
+html , body{ height: 100%;background-color:#F5F5F5; display: flex; flex-direction: column; flex-grow: 1;}
 
 :root{
     /*COLORS SCHEHMA*/
@@ -32,7 +32,6 @@ html , body { height: 100%;background-color:#F5F5F5;;}
     
 }
 
-
 .phonenumber {
   width: 100%;
   padding: 3%;
@@ -54,6 +53,30 @@ html , body { height: 100%;background-color:#F5F5F5;;}
   font-weight: 400;
   border-width: 0.5px;
 }
+
+//#region DatePicker
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+
+.custom-day.range,
+.custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+//#endregion
 
 .mat-progress-spinner svg{
   position: unset !important;

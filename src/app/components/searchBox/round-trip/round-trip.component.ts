@@ -1,63 +1,94 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightSearchService, airPorts } from 'rp-travel-ui';
-import { NgbDate, NgbCalendar, NgbDateParserFormatter, } from '@ng-bootstrap/ng-bootstrap';
+import { AlertMsgModel, FlightSearchService } from 'rp-travel-ui';
+import { NgbCalendar, NgbDate, NgbDateParserFormatter, } from '@ng-bootstrap/ng-bootstrap';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-round-trip',
   templateUrl: './round-trip.component.html',
   styleUrls: ['./round-trip.component.scss'],
 })
 export class RoundTripComponent implements OnInit {
+  //#region variables
   searchbox = inject(FlightSearchService);
   translate = inject(TranslateService);
   sharedService = inject(SharedService)
-  cities?:airPorts[] =[] ;
+  router = inject(Router)
+
+  public screenWidth: number= 650;
+
+  showDatePicker:boolean = true;
   hoveredDate: NgbDate | null = null;
-	fromDate: NgbDate | null;
-	toDate: NgbDate | null;
-  constructor(private calendar: NgbCalendar, public formatter: NgbDateParserFormatter) {
-    this.fromDate = calendar.getToday();
-		this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
-  }
+	fromDate: NgbDate;
+	toDate: NgbDate | null = null;
+  lang:string='en';
+  resultLink?:string | { adult: AlertMsgModel; child: AlertMsgModel; infant: AlertMsgModel; retDate: AlertMsgModel; depDate: AlertMsgModel; };
   
+//#endregion
+	constructor(calendar: NgbCalendar, public formatter: NgbDateParserFormatter) {
+		this.fromDate = calendar.getToday();
+		this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+	}
+
   ngOnInit(): void {
-    this.cities = this.sharedService.cities;
-    console.log("AIRPORTS", this.cities);
-    console.log('Formmmmm', this.searchbox.flightsArray.at(0).get('departing')?.value); 
+    this.screenWidth = window.innerWidth;  
   }
-  onDateSelection(date: NgbDate) {
+   //update date value from form Array
+   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
-      this.fromDate = date;
-    } else if (this.fromDate && !this.toDate && date && date.after(this.fromDate)) {
-      this.toDate = date;
-    } else {
-      this.toDate = null;
-      this.fromDate = date;
-    }
+			this.fromDate = date;
+		} else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+			this.toDate = date;
+      this.searchbox.searchFlight.controls['returnDate'].setValue(new Date(this.toDate?.year, this.toDate?.month - 1, this.toDate?.day));
+		} else {
+			this.toDate = null;
+			this.fromDate = date;
+		}
+    this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date(this.fromDate?.year, this.fromDate?.month - 1, this.fromDate?.day));
+    
   }
-
   isHovered(date: NgbDate) {
-    return (
-      this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate)
-    );
+		return (
+			this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate)
+		);
+	}
+
+	isInside(date: NgbDate) {
+		return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
+	}
+
+	isRange(date: NgbDate) {
+		return (
+			date.equals(this.fromDate) ||
+			(this.toDate && date.equals(this.toDate)) ||
+			this.isInside(date) ||
+			this.isHovered(date)
+		);
+	}
+  showDate(){
+    this.showDatePicker = true;
+  }
+  showMobileDate(index:number){
+    this.router.navigate([`/searchboxMob/${index}`])
+  }
+  showTravellers(){
+    this.showDatePicker = false;
+  }
+    //get total Passengers
+  getTotalPassenger(){
+    let adult = this.searchbox.searchFlight?.get('passengers.adults')?.value;
+    let child = this.searchbox.searchFlight?.get('passengers.child')?.value;
+    let infant = this.searchbox.searchFlight?.get('passengers.infant')?.value;
+    return this.searchbox.getTotalPassengers(adult,child,infant);
+  }
+  submit() {
+    console.log('ROUND TRIP FORMMM', this.searchbox.searchFlight.value);
   }
 
-  isInside(date: NgbDate) {
-    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
-  }
-
-  isRange(date: NgbDate) {
-    return (
-      date.equals(this.fromDate) ||
-      (this.toDate && date.equals(this.toDate)) ||
-      this.isInside(date) ||
-      this.isHovered(date)
-    );
-  }
-
-  validateInput(currentValue: NgbDate | null, input: string): NgbDate | null {
-    const parsed = this.formatter.parse(input);
-    return parsed && this.calendar.isValid(NgbDate.from(parsed)) ? NgbDate.from(parsed) : currentValue;
-  }
+  @HostListener('window:resize', ['$event'])  
+  onResize() {  
+    this.screenWidth = window.innerWidth;  
+  }  
 }
