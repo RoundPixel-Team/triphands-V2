@@ -23,3 +23,36 @@
         border: none;
     }
 }
+
+.sortingContainer{
+    .criteria , .sortByCriteria{
+        border: 1px solid #F5F5F5;
+        background: var(--nine-color);
+        text-align: center;
+        padding: 1% 2%;
+        cursor: pointer;
+        .text{
+            color: var(--eight-color);
+            font-family: var(--two-font);
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 400;
+        }
+        .value{
+            color: var(--eight-color);
+            font-family: var(--two-font);
+            font-size: 0.875rem;
+            font-style: normal;
+            font-weight: 700;
+        }
+    }
+    .criteria:hover , .sortByCriteria:hover{
+        background: #cfcfcf;
+        transition-duration: 0.5s;
+    }
+    .sortByCriteria{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

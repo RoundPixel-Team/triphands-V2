@@ -98,5 +98,15 @@
   "landing":"وقت الوصول",
   "duration":"وقت الرحلة",
   "modifySearch":"تعديل البحث"
+},
+"sorting":{
+  "cheapest":"اقل سعر",
+  "shortest": "اقل وقت",
+  "bestExperience":"افضل تجربة",
+  "sortBy":"ترتيب حسب",
+  "departureEarliest":"مغادرة (اقرب وقت)",
+  "departureLatest":"مغادرة (ابعد وقت)",
+  "returnEarliest":"العودة (اقرب وقت)",
+  "returnLatest":"العودة (ابعد وقت)"
 }
 }

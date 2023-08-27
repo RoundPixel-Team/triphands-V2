@@ -43,7 +43,8 @@ export const MatrialComponents = [
   MatTabsModule,
   MatFormFieldModule,
   MatInputModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  
 ]
 
 export const SharedComponents = [

@@ -20,6 +20,7 @@
                </div>
           </div>
 
+          <!--LAZY LOADING FOR SUMMARY SECTION-->
           <div class="col-12 mt-2 mb-2" *ngIf="FlightResult.loading">
                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
           </div>
@@ -28,6 +29,31 @@
                <app-flights-filters></app-flights-filters>
           </div>
           <div class="col-8">
+               <!-- START SORTING CONTAINER -->
+               <div class="sortingContainer" *ngIf="!FlightResult.loading && FlightResult.response">
+                    <div class="row">
+                         <!--cheapeast-->
+                         <div class="col-6 col-lg-3 criteria" (click)="FlightResult.sortMyResult(1)">
+                              <div class="text">{{'sorting.cheapest' | translate}}</div>
+                              <div class="value">{{FlightResult.cheapeastLowestFare | exchange:'value'}} {{FlightResult.response!.searchCriteria!.currency | exchange:"code"}}</div>
+                         </div>
+                         <!--shortest-->
+                         <div class="col-6 col-lg-3 criteria" (click)="FlightResult.sortMyResult(2)">
+                              <div class="text">{{'sorting.shortest' | translate}}</div>
+                              <div class="value">{{FlightResult.shortestLowestFare | exchange:'value'}} {{FlightResult.response!.searchCriteria!.currency | exchange:"code"}}</div>
+                         </div>
+                         <!--best experience-->
+                         <div class="col-6 col-lg-3 criteria" (click)="FlightResult.sortMyResult(7)">
+                              <div class="text">{{'sorting.bestExperience' | translate}}</div>
+                              <div class="value">{{FlightResult.bestExperienceLowestFare | exchange:'value'}} {{FlightResult.response!.searchCriteria!.currency | exchange:"code"}}</div>
+                         </div>
+                         <!--time sorting-->
+                         <div class="col-6 col-lg-3 sortByCriteria" [matMenuTriggerFor]="sortByMenu">
+                              <div class="text">{{'sorting.sortBy' | translate}}</div>
+                         </div>
+                    </div>
+               </div>
+               <!-- END SORTING CONTAINER -->
                <app-oneway-result *ngIf="FlightResult.FlightType == 'oneway' || FlightResult.FlightType == 'Oneway' || FlightResult.FlightType =='OneWay' "></app-oneway-result>
                <app-roundtrip-result *ngIf="FlightResult.FlightType== 'roundtrip' || FlightResult.FlightType=='Roundtrip' || FlightResult.FlightType=='RoundTrip' "></app-roundtrip-result>
                <app-multicity-result *ngIf="FlightResult.FlightType== 'multicity' || FlightResult.FlightType=='Multicity' || FlightResult.FlightType=='MultiCity' "></app-multicity-result> 
@@ -35,6 +61,16 @@
      </div>
 </div>
 
+
+<!--SORT BY MENU-->
+<mat-menu #sortByMenu="matMenu">
+     <button (click)="FlightResult.sortMyResult(3)" mat-menu-item>{{'sorting.departureEarliest' | translate}}</button>
+     <button (click)="FlightResult.sortMyResult(4)" mat-menu-item>{{'sorting.departureLatest' | translate}}</button>
+     <!-- <button *ngIf="FlightResult.response!.searchCriteria!.flightType == 'roundtrip'"
+     (click)="FlightResult.sortMyResult(5)" mat-menu-item>{{'sorting.returnEarliest' | translate}}</button>
+     <button *ngIf="FlightResult.response!.searchCriteria!.flightType == 'roundtrip'"
+     (click)="FlightResult.sortMyResult(6)" mat-menu-item>{{'sorting.returnLatest' | translate}}</button> -->
+</mat-menu>
 
 
 

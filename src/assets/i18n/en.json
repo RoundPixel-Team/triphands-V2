@@ -103,5 +103,15 @@
   "landing":"Landing Time",
   "duration":"Flight Duration",
   "modifySearch":"Modifiy Search"
+},
+"sorting":{
+  "cheapest":"Cheapest",
+  "shortest": "Shortest",
+  "bestExperience":"Best Experience",
+  "sortBy":"Sort BY",
+  "departureEarliest":"Departure (Earliest)",
+  "departureLatest":"Departure (Latest)",
+  "returnEarliest":"Return (Earliest)",
+  "returnLatest":"Return (Latest)"
 }
 }
