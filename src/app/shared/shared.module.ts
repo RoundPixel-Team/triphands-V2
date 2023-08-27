@@ -25,6 +25,8 @@ import { OneWayComponent } from '../components/searchBox/one-way/one-way.compone
 import { RoundTripComponent } from '../components/searchBox/round-trip/round-trip.component';
 import { MultiCityComponent } from '../components/searchBox/multi-city/multi-city.component';
 import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { SearchboxMobileComponent } from '../components/searchBox/searchbox-mobile/searchbox-mobile.component';
+import { TravellersComponent } from '../components/searchBox/travellers/travellers.component';
 
 export const MatrialComponents = [
   MatButtonModule,
@@ -49,6 +51,8 @@ export const SharedComponents = [
   HeaderComponent,
   FooterComponent,
   SearchBoxComponent,
+  SearchboxMobileComponent,
+  TravellersComponent,
   OneWayComponent,
   RoundTripComponent,
   MultiCityComponent

@@ -19,10 +19,6 @@ const routes: Routes = [
 
   },
   {
-    path:"searchbox",
-    component:SearchBoxComponent
-  },
-  {
     path:"searchboxMob/:index",
     component:SearchboxMobileComponent
   }
