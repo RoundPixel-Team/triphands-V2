@@ -15,7 +15,7 @@ FlightResult= inject(FlightResultService)
   public translate = inject(TranslateService)
 moreFlights:boolean=false;
 showDetails:boolean=false;
-showMoreDetails:boolean=false;
+showMoreDetails:boolean[]=[];
 collapseRoute:boolean=false;
 term!:flight;
 seqNum!:number;
@@ -39,8 +39,9 @@ searchId!:string
     this.seqNum=sequenceNum;
   }
   toggleMoreDetailsCard(m:number){
-    this.showMoreDetails = !this.showMoreDetails;
+    this.showMoreDetails[m] = !this.showMoreDetails[m];
     this.moreDetailsIndex = m;
+ 
   }
   detailsCollapse(){
     this.collapseRoute=!this.collapseRoute;

@@ -15,13 +15,15 @@ export class RoundtripComponent implements OnInit {
   public translate = inject(TranslateService)
 moreFlights:boolean=false;
 showDetails:boolean=false;
-showMoreDetails:boolean=false;
+showMoreDetails:boolean[]=[];
 collapseRoute:boolean=false;
 term!:flight;
 seqNum!:number;
 moreDetailsIndex: number = 0;
 searchId!:string
 @Input() flight: airItineraries[] = [];
+detailsStates: boolean[] = [];
+index:number=0;
   constructor() { }
 
   ngOnInit(): void {
@@ -36,12 +38,15 @@ searchId!:string
     this.seqNum=sequenceNum;
   }
   toggleMoreDetailsCard(m:number){
-    this.showMoreDetails = !this.showMoreDetails;
+    this.showMoreDetails[m] = !this.showMoreDetails[m];
     this.moreDetailsIndex = m;
   }
-  detailsCollapse(){
-    this.collapseRoute=!this.collapseRoute;
-  }
+  detailsCollapse(flightIndex: number){
+    if (this.detailsStates[flightIndex] === undefined) {
+      this.detailsStates[flightIndex] = true;
+    } else {
+      this.detailsStates[flightIndex] = !this.detailsStates[flightIndex];
+    }    }
   toCheckout(sid: string, sequenceNum: number,providerKey: number | undefined) {
     this.router.navigate(["/checkout"], {
       queryParams: { sid: sid, sequenceNum: sequenceNum, providerKey: providerKey },

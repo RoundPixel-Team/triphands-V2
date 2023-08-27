@@ -108,6 +108,7 @@
   }
   .flight_details{
     font-family: var(--two-font);
+   
     .card-body{
       flex-grow: 1;
       padding: 16px 32px;
@@ -126,10 +127,12 @@
         background: white;
       }
   .main-route{
+  
     .main-date{
       font-size: 1rem;
       font-weight: 600;
     }
+   
     .journey{
       color: var(--seven-color);
       display: flex;
@@ -150,7 +153,6 @@
     }
   }
   .details{
-    border-top: 1px solid var(--three-color) ;
   .timeline{
          margin-bottom: 1em;
           margin-top: 1em;
@@ -273,4 +275,5 @@
       border: solid var(--one-color);
       border-width: 0 2px 2px 0;
     }
+  
   }
