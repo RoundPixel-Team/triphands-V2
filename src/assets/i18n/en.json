@@ -101,6 +101,7 @@
   "time":"Time",
   "departingTime":"Departing Time",
   "landing":"Landing Time",
-  "duration":"Flight Duration"
+  "duration":"Flight Duration",
+  "modifySearch":"Modifiy Search"
 }
 }

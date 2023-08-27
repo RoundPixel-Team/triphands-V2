@@ -9,6 +9,7 @@ import { MulticityComponent } from './multicity/multicity.component';
 import { FlightsFiltersComponent } from './flights-filters/flights-filters.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -17,12 +18,13 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     OnewayComponent,
     RoundtripComponent,
     MulticityComponent,
-    FlightsFiltersComponent
+    FlightsFiltersComponent,
   ],
   imports: [
     CommonModule,
     FlightResultRoutingModule,
     NgxSliderModule,
+    MatProgressBarModule,
     SharedModule,
   ]
 })

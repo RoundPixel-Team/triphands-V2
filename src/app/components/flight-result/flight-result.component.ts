@@ -10,6 +10,8 @@ import { FlightResultService } from 'rp-travel-ui';
 export class FlightResultComponent implements OnInit {
   FlightResult= inject(FlightResultService)
   route = inject(ActivatedRoute)
+
+  modifiySearch: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

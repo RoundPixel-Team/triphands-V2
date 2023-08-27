@@ -23,6 +23,11 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
+import { SearchBoxComponent } from '../components/searchBox/searchBox.component';
+import { OneWayComponent } from '../components/searchBox/one-way/one-way.component';
+import { RoundTripComponent } from '../components/searchBox/round-trip/round-trip.component';
+import { MultiCityComponent } from '../components/searchBox/multi-city/multi-city.component';
+import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 export const MatrialComponents = [
   MatButtonModule,
@@ -43,7 +48,11 @@ export const MatrialComponents = [
 
 export const SharedComponents = [
   HeaderComponent,
-  FooterComponent
+  FooterComponent,
+  SearchBoxComponent,
+  OneWayComponent,
+  RoundTripComponent,
+  MultiCityComponent
 ]
 @NgModule({
   declarations: [
@@ -55,6 +64,8 @@ export const SharedComponents = [
     FormsModule,
     TranslateModule,
     RpTravelUiModule,
+    NgbDatepickerModule,
+    NgbAlertModule,
     MatrialComponents
   ],
   exports:[
@@ -64,6 +75,8 @@ export const SharedComponents = [
     MatrialComponents,
     SharedComponents,
     RpTravelUiModule,
+    NgbDatepickerModule,
+    NgbAlertModule,
     TranslateModule
   ]
 })

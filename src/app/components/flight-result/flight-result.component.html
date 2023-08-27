@@ -1,5 +1,29 @@
 <div class="container-fluid">
      <div class="flights-result-container row mt-3">
+          <!-- START SUMMARY AND MODIFIY SEARCH SECTION -->
+          <div class="col-12 mt-2 mb-2" *ngIf="!FlightResult.loading && FlightResult.response">
+               <div class="row flightSummaryContainer">
+                    <!--FLIGHTS SUMMARY-->
+                    <div class="col-6 col-lg-4 flightSummary" *ngFor="let flight of FlightResult.response!.searchCriteria!.flights">
+                         <p>{{flight.departingFrom}} - {{flight.arrivingTo}}</p>
+                         <p>{{flight.departingOnDate | date:'longDate'}}</p>
+                    </div>
+                    <!--MODIFIY BUTTON-->
+                    <div class="col-12 col-lg-4">
+                         <button (click)="modifiySearch = !modifiySearch">{{'flightFilter.modifySearch' | translate}}</button>
+                    </div>
+
+                    <!--SEARCH BOX CONTAINER-->
+                    <div class="col-12" *ngIf="modifiySearch">
+                         <app-searchBox></app-searchBox>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 mt-2 mb-2" *ngIf="FlightResult.loading">
+               <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          </div>
+          <!-- END SUMMARY AND MODIFIY SEARCH SECTION -->
           <div class="col-3">
                <app-flights-filters></app-flights-filters>
           </div>
