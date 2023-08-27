@@ -30,10 +30,10 @@
   position: relative;
 }
 .switchArrow{
-  @include switchArrow(-3.6%,25%);
+  @include switchArrow(-1rem,25%);
 }
 .ar .switchArrow{
-  left: -4.8%;
+  left: -1rem;
   right: unset !important;
 }
 //#endregion

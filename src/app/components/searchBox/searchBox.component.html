@@ -15,7 +15,7 @@
             *ngFor="let flightType of flightTypes; let i = index"
           >
             <button
-              class="radioBtn"
+              class="radioBtn" [ngClass]="{'radioBtn-active':flightSearch.searchFlight.get('flightType')?.value == flightType.type}"
               (click)="selectFlightType(flightType.type)"
             >
               .

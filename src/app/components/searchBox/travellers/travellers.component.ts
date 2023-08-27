@@ -19,9 +19,7 @@ export class TravellersComponent implements OnInit {
   //#endregion
   constructor() {}
 
-  ngOnInit(): void {
-    console.log("valaaa",this.searchbox.searchFlight?.get('passengers.adults')?.value);
-  }
+  ngOnInit(): void {}
 
   changeAdultValue(action:string){
     if(this.searchbox.searchFlight?.get('passengers.adults')?.value >= 9){

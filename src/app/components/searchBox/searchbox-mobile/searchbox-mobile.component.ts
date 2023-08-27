@@ -19,6 +19,7 @@ export class SearchboxMobileComponent implements OnInit {
   hoveredDate: NgbDate | null = null;
 	fromDate?: NgbDate;
 	toDate: NgbDate | null = null;
+  showPicker:boolean =true;
 
   constructor() { }
 
@@ -74,7 +75,12 @@ export class SearchboxMobileComponent implements OnInit {
 			this.isHovered(date)
 		);
 	}
-
+showDatePicker(){
+  this.showPicker = true;
+}
+showTravellers(){
+  this.showPicker = false;
+}
   @HostListener('window:resize', ['$event'])  
   onResize() {  
     this.screenWidth = window.innerWidth;  

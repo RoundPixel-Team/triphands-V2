@@ -8,6 +8,22 @@
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
+    .header_btnsList{
+      border: 1px solid #fff;
+      border-radius: 4px;
+      align-self: center;  
+      padding: 0.2rem 0.3rem;
+      .header_icon{
+        color: #fff;
+        font-size: 16px;
+        margin: 0 0.6rem;
+        padding: 0.25rem 0.5rem;
+      }
+      .header_icon:active, .header_icon:focus, .header_icon:hover{
+        background-color: #fff;
+        color: var(--blue-color);
+    }
+    }
     .header_closeBtn{
       button {
         background-color: var(--one-color);

@@ -34,11 +34,11 @@
 }
 
 .switchArrow {
-  @include switchArrow(-4.8%, 30%)
+  @include switchArrow(-1rem, 30%)
 }
 
 .ar .switchArrow {
-  left: -5.8%;
+  left: -1rem;
   right: unset !important;
 }
 
