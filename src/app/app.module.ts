@@ -16,6 +16,7 @@ import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstra
 import { JsonPipe } from '@angular/common';
 import { TravellersComponent } from './components/searchBox/travellers/travellers.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { SearchboxMobileComponent } from './components/searchBox/searchbox-mobile/searchbox-mobile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     RoundTripComponent,
     MultiCityComponent,
     TravellersComponent,
-    HomePageComponent
+    HomePageComponent,
+    SearchboxMobileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertMsgModel, FlightSearchService } from 'rp-travel-ui';
 import { NgbCalendar, NgbDate, NgbDateParserFormatter, } from '@ng-bootstrap/ng-bootstrap';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-round-trip',
   templateUrl: './round-trip.component.html',
@@ -14,6 +15,9 @@ export class RoundTripComponent implements OnInit {
   searchbox = inject(FlightSearchService);
   translate = inject(TranslateService);
   sharedService = inject(SharedService)
+  router = inject(Router)
+
+  public screenWidth: number= 650;
 
   showDatePicker:boolean = true;
   hoveredDate: NgbDate | null = null;
@@ -28,7 +32,9 @@ export class RoundTripComponent implements OnInit {
 		this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
 	}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.screenWidth = window.innerWidth;  
+  }
    //update date value from form Array
    onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
@@ -64,6 +70,9 @@ export class RoundTripComponent implements OnInit {
   showDate(){
     this.showDatePicker = true;
   }
+  showMobileDate(index:number){
+    this.router.navigate([`/searchboxMob/${index}`])
+  }
   showTravellers(){
     this.showDatePicker = false;
   }
@@ -77,4 +86,9 @@ export class RoundTripComponent implements OnInit {
   submit() {
     console.log('ROUND TRIP FORMMM', this.searchbox.searchFlight.value);
   }
+
+  @HostListener('window:resize', ['$event'])  
+  onResize() {  
+    this.screenWidth = window.innerWidth;  
+  }  
 }

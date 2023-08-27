@@ -5,6 +5,7 @@
     background-color: #fff;
     font-family: var(--one-font);
     box-shadow: 0px 4px 4px 0px #00000040;
+    width: 85%;
     .searchbox_header{
         &_title{
             font-family: var(--one-font);
@@ -15,11 +16,11 @@
         &_btns{
             margin: 0 1rem;
             &__wrapper{
-                margin: 0 1rem;
-                display: flex;
-                justify-self: center;
-                align-items: center;
-                .radioBtn{
+              margin: 0 1rem;
+              display: flex;
+              justify-self: center;
+              align-items: center;
+              .radioBtn{
                     width:25px;
                     height:100%;
                     border-radius: 50px;
@@ -50,7 +51,7 @@
     padding-bottom: 0.7em;
   }
   ::ng-deep .searchBox ngb-datepicker {
-    width: 80% !important;
+    width: 75% !important;
     position: relative !important;
     border: none !important;
   }
@@ -68,7 +69,7 @@
   ::ng-deep .searchBox .ngb-dp-arrow{
     position: absolute !important;
     top: 40% !important;
-    left: -8% !important;
+    left: -7% !important;
   
     button {
       padding: 1.3rem 0.6rem 2.5rem 1rem !important;
@@ -80,7 +81,7 @@
   ::ng-deep .searchBox .ngb-dp-arrow.right {
     position: absolute !important;
     top: 40% !important;
-    right: -8% !important;
+    right: -7% !important;
     left: unset !important;
   
     button {

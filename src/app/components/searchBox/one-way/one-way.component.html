@@ -66,12 +66,21 @@
                 </mat-form-field>
               </div>
               <!-- Depart Date Input -->
-              <div class="col-12 col-lg-2" (click)="showDate()">
+              <div class="col-12 col-lg-2" *ngIf="screenWidth >= 650; else dateElseCondition;" (click)="showDate()">
                   <mat-form-field class="searchboxInput">
                     <p class="cityInputPlacholder  ">{{ 'searchbox.depart' | translate }}</p>
                     <input matInput type="text" value="{{searchbox.flightsArray.at(0).get('departingD')?.value | date : 'MMM dd'}}" />
                   </mat-form-field>
               </div>
+              <!-- Date Else Condition -->
+              <ng-template #dateElseCondition>
+                <div class="col-12 col-lg-2" (click)="showMobileDate(0)">
+                    <mat-form-field class="searchboxInput">
+                      <p class="cityInputPlacholder  ">{{ 'searchbox.depart' | translate }}</p>
+                      <input matInput type="text" value="{{searchbox.flightsArray.at(0).get('departingD')?.value | date : 'MMM dd'}}" />
+                    </mat-form-field>
+                </div>
+              </ng-template>
               <!-- Travelers/Class -->
               <div class="col-12 col-md-12 col-lg-2" (click)="showTravellers()">
                 <mat-form-field class="searchboxInput">
@@ -80,23 +89,21 @@
                 </mat-form-field>
               </div>
               <!-- DatePicker -->
-              <div *ngIf="showDatePicker; else elseCondition" class="datePicker">
+              <div *ngIf="showDatePicker && screenWidth >= 650" class="datePicker">
                 <ngb-datepicker #dp (dateSelect)="onDateSelection($event)"
               ></ngb-datepicker>
               </div>
               <!-- Travellers Component -->
-              <ng-template #elseCondition>
-                <div class="travellerComp">
-                  <app-travellers></app-travellers>
-                </div>
-              </ng-template>
+              <div *ngIf="!showDatePicker" class="travellerComp">
+                <app-travellers></app-travellers>
+              </div>
             </ng-container>
           </ng-container>
         </ng-container>
       </div>
     </div>
   </form>
-
+  
   <!--Submit Button -->
   <div class="submitBtn">
     <button (click)="submit()">{{'searchbox.search' | translate}}</button>

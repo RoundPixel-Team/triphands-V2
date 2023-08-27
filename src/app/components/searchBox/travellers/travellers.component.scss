@@ -69,3 +69,13 @@
         @include textStyle(rgb(2, 117, 216), 20px, 600);
     }
 }
+
+@media(max-width:540px) {
+    .traveller_wrapper{
+        flex-direction: column;
+        width: 100%;
+    }
+    .travelInput, .classType{
+        width: 100%;
+    }   
+}

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { SearchboxMobileComponent } from './components/searchBox/searchbox-mobile/searchbox-mobile.component';
+import { SearchBoxComponent } from './components/searchBox/searchBox.component';
 
 const routes: Routes = [
   {
@@ -11,6 +13,14 @@ const routes: Routes = [
     path:'checkout',
     loadChildren:()  =>import('./components/checkout/checkout.module').then((m)=> m.CheckoutModule) 
   },
+  {
+    path:"searchbox",
+    component:SearchBoxComponent
+  },
+  {
+    path:"searchboxMob/:index",
+    component:SearchboxMobileComponent
+  }
 ];
 
 @NgModule({

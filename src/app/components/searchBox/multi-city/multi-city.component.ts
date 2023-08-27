@@ -1,5 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertMsgModel, FlightSearchService } from 'rp-travel-ui';
@@ -15,6 +16,10 @@ export class MultiCityComponent implements OnInit {
   searchbox = inject(FlightSearchService);
   translate = inject(TranslateService);
   sharedService = inject(SharedService);
+  router = inject(Router);
+
+  public screenWidth: number=650;    
+
   showDatePicker:Array<boolean>=[true,false,false,false];
   showTraveller:Array<boolean>=[false,false,false,false];
   flightActionValid: boolean = true;
@@ -23,11 +28,16 @@ export class MultiCityComponent implements OnInit {
   //#endregion
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.screenWidth = window.innerWidth
+  }
 
   showDate(index:number) {
     this.showTraveller[index]=false;
     this.showDatePicker[index]=!this.showDatePicker[index];
+  }
+  showMobileDate(index:number){
+    this.router.navigate([`/searchboxMob/${index}`])
   }
   showTravellers(index:number) {
     this.showDatePicker[index]=false;
@@ -64,4 +74,9 @@ export class MultiCityComponent implements OnInit {
   submit() {
     console.log('MULTI CITY FORMMM', this.searchbox.searchFlight.value);
   }
+
+  @HostListener('window:resize', ['$event'])  
+  onResize() {  
+    this.screenWidth = window.innerWidth;  
+  }  
 }

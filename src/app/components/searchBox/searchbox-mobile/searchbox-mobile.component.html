@@ -1,0 +1,53 @@
+<div class="calenderMobile"  *ngIf="screenWidth < 650;">
+  <div class="container">
+    <div class="calenderMobile_header">
+      <div class="header_btnsList">
+        <!-- -->
+      </div>
+      <div class="header_closeBtn">
+        <button (click)="backToSearchBox()">{{'searchbox.close' | translate}}</button>
+      </div>
+    </div>
+    <!-- RoundTrip DatePicker -->
+    <div
+      class="calenderMobile_datepicker"
+      *ngIf="flightType == 'RoundTrip'; else elseCondition"
+    >
+      <ngb-datepicker
+        #dp
+        (dateSelect)="onDateSelectionRound($event)"
+        [dayTemplate]="t"
+        outsideDays="hidden"
+        [displayMonths]="12"
+        navigation="none"
+      >
+      </ngb-datepicker>
+      <ng-template #t let-date let-focused="focused">
+        <span
+          class="custom-day"
+          [class.focused]="focused"
+          [class.range]="isRange(date)"
+          [class.faded]="isHovered(date) || isInside(date)"
+          (mouseenter)="hoveredDate = date"
+          (mouseleave)="hoveredDate = null"
+        >
+          {{ date.day }}
+        </span>
+      </ng-template>
+    </div>
+    <!-- One Way, Multicity Datepicker-->
+    <ng-template #elseCondition>
+      <div class="calenderMobile_datepicker">
+        <ngb-datepicker
+          #dp
+          (dateSelect)="onDateSelection($event)"
+          [displayMonths]="12"
+          navigation="none"
+        ></ngb-datepicker>
+      </div>
+    </ng-template>
+    <div class="confirmBtn">
+      <button (click)="confirmDate()">{{'searchbox.confirm' | translate}}</button>
+    </div>
+  </div>
+</div>

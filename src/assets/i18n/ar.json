@@ -91,7 +91,9 @@
     "infants":"الرضع",
     "addFlight":"+ إضافة رحلة أخرى",
     "removeFlight":"- إزالة الرحلة",
-    "search":"بحث الرحلات"
+    "search":"بحث الرحلات",
+    "close":"اغلاق",
+    "confirm":"تأكيد"
   },
   "Business": "رجال أعمال",
   "Economy": "سياحية",

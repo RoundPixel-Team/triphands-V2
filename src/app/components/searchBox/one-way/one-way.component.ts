@@ -1,4 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertMsgModel, FlightSearchService } from 'rp-travel-ui';
@@ -14,6 +15,10 @@ export class OneWayComponent implements OnInit {
   searchbox = inject(FlightSearchService);
   translate = inject(TranslateService);
   sharedService = inject(SharedService);
+  router = inject(Router);
+
+  public screenWidth: number=650;  
+
   showDatePicker:boolean = true;
   lang:string='en';
   resultLink?:string | { adult: AlertMsgModel; child: AlertMsgModel; infant: AlertMsgModel; retDate: AlertMsgModel; depDate: AlertMsgModel; };
@@ -21,9 +26,13 @@ export class OneWayComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {   
+    this.screenWidth = window.innerWidth;
   }
   showDate(){
     this.showDatePicker = true;
+  }
+  showMobileDate(index:number){
+    this.router.navigate([`/searchboxMob/${index}`])
   }
   showTravellers(){
     this.showDatePicker = false;
@@ -48,4 +57,8 @@ export class OneWayComponent implements OnInit {
     this.resultLink = this.searchbox.onSubmit(this.lang,'kwd','eg',0,',');
     console.log("FINAL RESPONSE", this.searchbox.onSubmit(this.lang,'kwd','eg',0,','));
   }
+  @HostListener('window:resize', ['$event'])  
+  onResize() {  
+    this.screenWidth = window.innerWidth;  
+  }  
 }
