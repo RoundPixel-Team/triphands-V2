@@ -7,7 +7,7 @@
                 
             <div class="row">
                
-                <div class="col-9 ">
+                <div class="col-lg-9 col-sm-12 col-md-12 p-1">
                     <div class="flight-info-container">
                         <div class="first-flight">
                             <div class="row">
@@ -149,10 +149,8 @@
                    
                 </div>
            
-                <div class="col-1 v-line">
-                    <img src="../../../../assets/images/v-line.svg">
-                </div>
-                <div class="col-2 right-side-wrapper">
+               
+                <div class="col-lg-3 col-sm-12 col-md-12 right-side-wrapper">
                     <div class="flight-price mt-2">
                         <span>{{flight[0].itinTotalFare.currencyCode | exchange:'code'}}&nbsp;</span>{{flight[0].itinTotalFare.amount | exchange:'value'}}
 
@@ -571,7 +569,7 @@
               
                 <mat-card-content class="card-body">
               <div class="row">
-                  <div class="col-9 p-1">
+                  <div class="col-lg-9 col-sm-12 col-md-12 p-1">
                     <div class="first-flight-container">
                       <div class="row">
                         <div class="col-6">
@@ -641,7 +639,7 @@
                     </div>
                     </div>
                     <div class="sec-flight-container">
-                      <div class="second-flight mt-2" *ngIf="item.allJourney.flights[1] as returnData">
+                      <div class="second-flight " *ngIf="item.allJourney.flights[1] as returnData">
                         <div class="row">
                             <div class="col-6">
                                 <div class="flight-time">
@@ -712,10 +710,8 @@
                     </div>
 
                   </div>
-                  <div class="col-1 v-line">
-                      <img src="../../../../assets/images/v-line.svg">
-                  </div>
-                  <div class="col-2 right-side-wrapper">
+                  
+                  <div class="col-lg-3 col-sm-12 col-md-12 right-side-wrapper">
                       <div class="flight-price mt-2">
                           <span>{{item.itinTotalFare.currencyCode | exchange:'code'}}&nbsp;</span>{{item.itinTotalFare.amount | exchange:'value'}}
       
