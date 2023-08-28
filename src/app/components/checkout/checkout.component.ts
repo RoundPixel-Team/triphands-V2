@@ -101,7 +101,7 @@ handleLangChange(currentLang:string){
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
-    this.flight.destroyer()
+    // this.flight.destroyer()
   }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { FlightResultService } from 'rp-travel-ui';
 
 @Component({
@@ -10,13 +11,14 @@ import { FlightResultService } from 'rp-travel-ui';
 export class FlightResultComponent implements OnInit,OnDestroy {
   FlightResult= inject(FlightResultService)
   route = inject(ActivatedRoute)
+  translate  = inject(TranslateService)
 
   modifiySearch: boolean = false;
   router = inject(Router)
   searchId!:string
   constructor() { }
   ngOnDestroy(): void {
-    this.FlightResult.destroyer()
+    // this.FlightResult.destroyer()
   }
 
   ngOnInit(): void {
