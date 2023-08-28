@@ -64,6 +64,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-left: 1px dashed var(--three-color);
+
     .flight-price{
         font-size: 1.2rem;
         color: var(--eight-color);
@@ -102,6 +104,9 @@
   
     }
     .flight-details{
+      cursor: pointer;
+    }
+    .more-flights{
       cursor: pointer;
     }
   }
@@ -276,4 +281,97 @@
       border-width: 0 2px 2px 0;
     }
   
+  }
+  @media (max-width: 768px){
+    .right-side-wrapper{
+      border-top: 1px dashed var(--three-color);
+      border-left: none !important;
+      .flight-price{
+          font-size: 1rem !important;
+          
+          
+          
+      }
+      .flight-price span { 
+          font-size: 1rem !important;
+      }
+        .booknow-btn{
+          font-weight: 600;
+          width: 10.125rem;
+          height: 2rem;
+          
+      }
+      .refund-state{
+          color:var(--seven-color);
+          font-size: 1rem;
+      }
+    }
+    .card-footer-content{
+      font-size: 0.7rem !important;
+      white-space:nowrap;
+    }
+    .journey{
+      .airport_name{
+        display: none;
+      }
+    }
+      .details{
+        .timeline{
+          padding: .5em!important;
+         
+          .flight-data{
+            height: 3.5rem;
+            .col-1{
+              align-self: start !important;
+            }
+          }
+              .flight-duration-time{
+                  padding-top: 0.5rem ;
+                  font-size: small !important;
+              }
+              .airport-info{
+                  width: 100%;
+                  font-size: small !important;
+                 white-space:nowrap;
+              }
+              .plane-icon{
+                .img{
+                  width: 40px !important;
+                }
+               
+  
+              }
+            
+          .date{
+            font-size: small !important;
+          }
+          .time{
+            font-size: small !important;
+          }
+        .airport-name{
+          padding:1em .5em !important;
+          height: 3.5rem;
+          font-size: 0.75rem !important;
+        }
+        .airline_logo{
+          display: none;
+        }
+      }
+      
+    
+    }
+   .baggage{
+    .airline-name{
+    
+      font-size: small !important;
+  }
+  .CabinClass{
+    white-space:nowrap;
+      font-size: 0.75rem !important;
+  }
+  .CabinBagg{
+    
+    font-size:small !important;
+  }
+  }
   }
