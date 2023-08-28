@@ -127,5 +127,9 @@
   "departureLatest":"Departure (Latest)",
   "returnEarliest":"Return (Earliest)",
   "returnLatest":"Return (Latest)"
+},
+"flightsResult":{
+  "moreFlights":"More flights at same price",
+  "lessFlights":"Hide more flights"
 }
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FlightResultService } from 'rp-travel-ui';
 
 @Component({
@@ -7,12 +7,17 @@ import { FlightResultService } from 'rp-travel-ui';
   templateUrl: './flight-result.component.html',
   styleUrls: ['./flight-result.component.scss']
 })
-export class FlightResultComponent implements OnInit {
+export class FlightResultComponent implements OnInit,OnDestroy {
   FlightResult= inject(FlightResultService)
   route = inject(ActivatedRoute)
 
   modifiySearch: boolean = false;
+  router = inject(Router)
+  searchId!:string
   constructor() { }
+  ngOnDestroy(): void {
+    this.FlightResult.destroyer()
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -35,9 +40,11 @@ export class FlightResultComponent implements OnInit {
         else {
           showDirect = true;
         }
-
+        this.searchId=params['searchId']
+        console.log("I'LL")
         this.FlightResult.getDataFromUrl(lang, currency, pointOfReservation, flightType, flightsInfo, serachId, passengers, Cclass, showDirect)
       });
   }
+  
 
 }

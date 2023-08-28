@@ -49,5 +49,10 @@
   "departureLatest":"مغادرة (ابعد وقت)",
   "returnEarliest":"العودة (اقرب وقت)",
   "returnLatest":"العودة (ابعد وقت)"
-}
+},
+"flightsResult":{
+  "moreFlights":"رحلات بنفس السعر",
+  "lessFlights":"اخفاء المزيد"
+
+},
 }
