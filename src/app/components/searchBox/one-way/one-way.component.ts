@@ -1,28 +1,64 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
-import { FilterCityPipe, FlightSearchService, airPorts } from 'rp-travel-ui';
+import { AlertMsgModel, FlightSearchService } from 'rp-travel-ui';
 import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-one-way',
   templateUrl: './one-way.component.html',
-  styleUrls: ['./one-way.component.scss']
+  styleUrls: ['./one-way.component.scss'],
 })
 export class OneWayComponent implements OnInit {
+  //#region variables
   searchbox = inject(FlightSearchService);
   translate = inject(TranslateService);
   sharedService = inject(SharedService);
-  constructor() { }
+  router = inject(Router);
 
-  ngOnInit(): void { }
-//update date value from form Array
-  onDateSelection(date: NgbDate){
-    console.log(date)
-    this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date(date.year,date.month-1,date.day))
+  public screenWidth: number=650;  
+
+  showDatePicker:boolean = true;
+  lang:string='en';
+  resultLink?:string | { adult: AlertMsgModel; child: AlertMsgModel; infant: AlertMsgModel; retDate: AlertMsgModel; depDate: AlertMsgModel; };
+  //#endregion
+  constructor() {}
+
+  ngOnInit(): void {   
+    this.screenWidth = window.innerWidth;
   }
-submit(){
-  console.log("ONE WAY FORMMM", this.searchbox.searchFlight.value)
-}
-
+  showDate(){
+    this.showDatePicker = true;
+  }
+  showMobileDate(index:number){
+    this.router.navigate([`/searchboxMob/${index}`])
+  }
+  showTravellers(){
+    this.showDatePicker = false;
+  }
+  //get total Passengers
+  getTotalPassenger(){
+    let adult = this.searchbox.searchFlight?.get('passengers.adults')?.value;
+    let child = this.searchbox.searchFlight?.get('passengers.child')?.value;
+    let infant = this.searchbox.searchFlight?.get('passengers.infant')?.value;
+    return this.searchbox.getTotalPassengers(adult,child,infant);
+  }
+  //update date value from form Array
+  onDateSelection(date: NgbDate) {
+    this.searchbox.flightsArray
+      .at(0)
+      .get('departingD')
+      ?.setValue(new Date(date.year, date.month - 1, date.day));
+  }
+  submit() {
+    this.lang = JSON.stringify(localStorage.getItem('lang') as string);
+    console.log('ONE WAY FORMMM', this.searchbox.searchFlight.value);
+    this.resultLink = this.searchbox.onSubmit(this.lang,'kwd','eg',0,',');
+    console.log("FINAL RESPONSE", this.searchbox.onSubmit(this.lang,'kwd','eg',0,','));
+  }
+  @HostListener('window:resize', ['$event'])  
+  onResize() {  
+    this.screenWidth = window.innerWidth;  
+  }  
 }

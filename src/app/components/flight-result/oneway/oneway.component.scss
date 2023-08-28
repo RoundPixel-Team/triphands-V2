@@ -1,0 +1,65 @@
+.flight-mat-card{
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    width: 100%;
+    background-color: var(--nine-color);
+    color: var(--eight-color);
+    font-size: 18px;
+    padding: 1%;
+    font-weight: 500;
+    border: 1px solid #BDBDBD;
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .card-body{
+      flex-grow: 1;
+      padding: 16px 32px;
+    }
+    .airline-logo{
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+    border-radius: 5px;
+    background: white;
+  }
+    .logo-name{
+      font-size: 1rem;
+    }
+   .flight-time{
+      font-size: 1.25rem;
+   }
+   .flight-location{
+      color:var(--seven-color);
+      font-size: 1rem;
+   }
+   .flight-duration{
+      color:var(--seven-color);
+      font-size: 1rem;
+     
+    
+   
+  }
+  .booknow-btn{
+    color:var(--nine-color);
+    background-color:var(--one-color);
+    width: 8.125rem;
+    height: 2.188rem;
+}
+    .card-footer{
+      background-color: var(--fifteen-color);
+      padding: 8px 15px;
+      margin-top: auto;
+    .card-footer-content{
+      display: flex;
+    justify-content: space-between;
+    color:var(--seven-color);
+  
+    }
+    .flight-details{
+      cursor: pointer;
+    }
+  }
+  }

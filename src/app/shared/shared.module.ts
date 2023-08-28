@@ -4,25 +4,29 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { createTranslateLoader } from '../app.module';
-import { HttpClient } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatSelectModule} from '@angular/material/select';
 import { RpTravelUiModule } from 'rp-travel-ui';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatListModule} from '@angular/material/list';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatCardModule} from '@angular/material/card';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
-
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
+import { SearchBoxComponent } from '../components/searchBox/searchBox.component';
+import { OneWayComponent } from '../components/searchBox/one-way/one-way.component';
+import { RoundTripComponent } from '../components/searchBox/round-trip/round-trip.component';
+import { MultiCityComponent } from '../components/searchBox/multi-city/multi-city.component';
+import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { SearchboxMobileComponent } from '../components/searchBox/searchbox-mobile/searchbox-mobile.component';
+import { TravellersComponent } from '../components/searchBox/travellers/travellers.component';
 
 export const MatrialComponents = [
   MatButtonModule,
@@ -37,12 +41,21 @@ export const MatrialComponents = [
   MatProgressSpinnerModule,
   MatTabsModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatCheckboxModule,
+  
+  MatSelectModule
 ]
 
 export const SharedComponents = [
   HeaderComponent,
-  FooterComponent
+  FooterComponent,
+  SearchBoxComponent,
+  SearchboxMobileComponent,
+  TravellersComponent,
+  OneWayComponent,
+  RoundTripComponent,
+  MultiCityComponent
 ]
 @NgModule({
   declarations: [
@@ -54,6 +67,8 @@ export const SharedComponents = [
     FormsModule,
     TranslateModule,
     RpTravelUiModule,
+    NgbDatepickerModule,
+    NgbAlertModule,
     MatrialComponents
   ],
   exports:[
@@ -63,6 +78,8 @@ export const SharedComponents = [
     MatrialComponents,
     SharedComponents,
     RpTravelUiModule,
+    NgbDatepickerModule,
+    NgbAlertModule,
     TranslateModule
   ]
 })

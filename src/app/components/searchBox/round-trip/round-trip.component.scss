@@ -1,15 +1,63 @@
-@import '../../../shared/scss/mixins.scss';
+@import "../../../shared/scss/mixins.scss";
 
-.searchBox{
-    font-family: var(--one-font);
-    .searchboxInput{
-        @include cityInput;
+.searchBox {
+  font-family: var(--one-font);
+
+  .searchboxInput {
+    @include cityInput;
+  }
+
+  .cityInputPlacholder {
+    @include cityInputPlacholder;
+  }
+
+  .dateInputs {
+    width: 50%;
+  }
+
+  .submitBtn {
+    text-align: center;
+    margin-top: 1rem;
+
+    button {
+      @include searchSubmitBtn;
     }
-    .submitBtn {
-        text-align: center;
-        margin-top: 1rem;
-        button {
-          @include searchSubmitBtn;
-        }
-      }
+  }
+  .travellerComp, .datePicker {
+    text-align: center;
+  }
+}
+
+//#region switch arrow
+.firstInput {
+  position: relative;
+}
+
+.switchArrow {
+  @include switchArrow(-1rem, 30%)
+}
+
+.ar .switchArrow {
+  left: -1rem;
+  right: unset !important;
+}
+
+//#endregion
+@media(max-width :991px) and (min-width:490px) {
+  .searchBox {
+    .dateInputs {
+      width: 100% !important;
+    }
+  }
+}
+@media(max-width :991px){
+
+  .switchArrow {
+    transform: rotate(90deg);
+    @include switchArrow(0, 77%);
+  }
+
+  .ar .switchArrow {
+    left: 0;
+  }
 }
