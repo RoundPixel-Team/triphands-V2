@@ -23,7 +23,7 @@ export class RoundTripComponent implements OnInit {
 
   showDatePicker:boolean = true;
   hoveredDate: NgbDate | null = null;
-	fromDate: NgbDate;
+	fromDate!: NgbDate;
 	toDate: NgbDate | null = null;
   lang:string='en';
   currency?: string;
@@ -32,14 +32,25 @@ export class RoundTripComponent implements OnInit {
 //#endregion
 	constructor(public calendar: NgbCalendar, public formatter: NgbDateParserFormatter,config: NgbInputDatepickerConfig) {
 
-    this.fromDate = calendar.getToday();
-    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
-    config.minDate = { year: 1900, month: 1, day: 1 };
-		config.maxDate = { year: 2099, month: 12, day: 31 };
-    // days that don't belong to current month are not visible
-		config.outsideDays = 'hidden';
-    // setting datepicker popup to close only on click outside
-		config.autoClose = 'outside';
+    if(this.searchbox.flightsArray.at(0).get('departingD')?.valid){
+      this.fromDate = calendar.getToday()
+      this.fromDate.year = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getFullYear()
+      this.fromDate.month = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getMonth() + 1
+      this.fromDate.day = Number(this.searchbox.flightsArray.at(0).get('departingD')?.value.toString().split(' ')[2])-1
+      
+
+      this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+      this.toDate.year = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getFullYear()
+      this.toDate.month = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getMonth() + 1
+      this.toDate.day = Number(this.searchbox.searchFlight.get('returnDate')?.value.toString().split(' ')[2])
+
+    }
+    else{
+      this.fromDate = calendar.getToday()
+      this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+      console.log("WITHOUT FORM VALUE")
+    }
+    
 	}
 
   ngOnInit(): void {
@@ -54,7 +65,7 @@ export class RoundTripComponent implements OnInit {
       this.searchbox.searchFlight.controls['returnDate'].setValue(new Date(this.toDate?.year, this.toDate?.month - 1, this.toDate?.day));
 		} else {
 			this.toDate = null;
-			this.fromDate = date;
+			this.fromDate = date; 
 		}
     this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date(this.fromDate?.year, this.fromDate?.month - 1, this.fromDate?.day));
     

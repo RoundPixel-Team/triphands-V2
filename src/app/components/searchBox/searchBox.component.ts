@@ -26,7 +26,7 @@ export class SearchBoxComponent implements OnInit {
 
     //set value of flight type to Open Round Trip component
 
-    this.flightSearch.searchFlight.get('flightType')?.setValue(this.flightSearch.searchFlight.get('flightType')?.value);
+    // this.flightSearch.sea rchFlight.get('flightType')?.setValue(this.flightSearch.searchFlight.get('flightType')?.value);
   }
   //select flight type from HTML and set value to searchFlight form
   selectFlightType(flightType: string) {
