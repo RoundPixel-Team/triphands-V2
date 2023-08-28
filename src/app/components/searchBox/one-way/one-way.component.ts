@@ -2,8 +2,13 @@ import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
-import { AlertMsgModel, FlightSearchService } from 'rp-travel-ui';
+import {
+  AlertMsgModel,
+  FlightSearchService,
+  HomePageService,
+} from 'rp-travel-ui';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-one-way',
@@ -13,36 +18,43 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 export class OneWayComponent implements OnInit {
   //#region variables
   searchbox = inject(FlightSearchService);
+  homePageService = inject(HomePageService);
   translate = inject(TranslateService);
   sharedService = inject(SharedService);
   router = inject(Router);
 
-  public screenWidth: number=650;  
+  public screenWidth: number = 650;
 
-  showDatePicker:boolean = true;
-  lang:string='en';
-  resultLink?:string | { adult: AlertMsgModel; child: AlertMsgModel; infant: AlertMsgModel; retDate: AlertMsgModel; depDate: AlertMsgModel; };
+  showDatePicker: boolean = true;
+  lang: string = 'en';
+  currency?: string;
+  resultLink?:| string| {
+        adult: AlertMsgModel;
+        child: AlertMsgModel;
+        infant: AlertMsgModel;
+        retDate: AlertMsgModel;
+        depDate: AlertMsgModel;};
   //#endregion
   constructor() {}
 
-  ngOnInit(): void {   
+  ngOnInit(): void {
     this.screenWidth = window.innerWidth;
   }
-  showDate(){
+  showDate() {
     this.showDatePicker = true;
   }
-  showMobileDate(index:number){
-    this.router.navigate([`/searchboxMob/${index}`])
+  showMobileDate(index: number) {
+    this.router.navigate([`/searchboxMob/${index}`]);
   }
-  showTravellers(){
+  showTravellers() {
     this.showDatePicker = false;
   }
   //get total Passengers
-  getTotalPassenger(){
+  getTotalPassenger() {
     let adult = this.searchbox.searchFlight?.get('passengers.adults')?.value;
     let child = this.searchbox.searchFlight?.get('passengers.child')?.value;
     let infant = this.searchbox.searchFlight?.get('passengers.infant')?.value;
-    return this.searchbox.getTotalPassengers(adult,child,infant);
+    return this.searchbox.getTotalPassengers(adult, child, infant);
   }
   //update date value from form Array
   onDateSelection(date: NgbDate) {
@@ -52,13 +64,58 @@ export class OneWayComponent implements OnInit {
       ?.setValue(new Date(date.year, date.month - 1, date.day));
   }
   submit() {
-    this.lang = JSON.stringify(localStorage.getItem('lang') as string);
-    console.log('ONE WAY FORMMM', this.searchbox.searchFlight.value);
-    this.resultLink = this.searchbox.onSubmit(this.lang,'kwd','eg',0,',');
-    console.log("FINAL RESPONSE", this.searchbox.onSubmit(this.lang,'kwd','eg',0,','));
+    this.lang = this.translate.currentLang; //get language
+    this.currency = this.homePageService.selectedCurrency.Currency_Code; //get currency from homepage service
+    this.resultLink = this.searchbox.onSubmit(
+      this.lang,
+      this.currency,
+      this.lang,
+      1,
+      ','
+    ); //call submit function from searchbox service
+    
+    let splittedLink = this.resultLink.toString().split('/');
+    if (typeof this.resultLink == 'object') {
+      //loop on resultLink object which have returned messages of unvalid inputs
+      Object.entries(this.resultLink).forEach(([key, value], index) => {
+        if (this.lang == 'en') {
+          if(value.enMsg != ''){
+            this.tinyAlert(value.enMsg);
+          }
+        } else {
+          if(value.arMsg != ''){
+            this.tinyAlert(value.arMsg);
+          }
+        }
+      });
+      this.searchbox.searchFlight.updateValueAndValidity();
+    } else if (typeof this.resultLink == 'string' && this.resultLink != '') {
+      this.router.navigate([
+        '/flightResult',
+        splittedLink[0],
+        splittedLink[1],
+        splittedLink[2],
+        splittedLink[3],
+        splittedLink[4],
+        splittedLink[5],
+        splittedLink[6],
+        splittedLink[7],
+        splittedLink[8],
+      ]);
+      localStorage.setItem('form',JSON.stringify(this.searchbox.searchFlight.value))
+    }
   }
-  @HostListener('window:resize', ['$event'])  
-  onResize() {  
-    this.screenWidth = window.innerWidth;  
-  }  
+
+  tinyAlert(message: any) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: message,
+    });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.screenWidth = window.innerWidth;
+  }
 }

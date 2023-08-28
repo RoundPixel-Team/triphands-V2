@@ -3,8 +3,9 @@ import { FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
-import { AlertMsgModel, FlightSearchService } from 'rp-travel-ui';
+import { AlertMsgModel, FlightSearchService, HomePageService } from 'rp-travel-ui';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-multi-city',
@@ -14,6 +15,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 export class MultiCityComponent implements OnInit {
   //#region variables
   searchbox = inject(FlightSearchService);
+  homePageService = inject(HomePageService);
   translate = inject(TranslateService);
   sharedService = inject(SharedService);
   router = inject(Router);
@@ -24,6 +26,7 @@ export class MultiCityComponent implements OnInit {
   showTraveller:Array<boolean>=[false,false,false,false];
   flightActionValid: boolean = true;
   lang:string='en';
+  currency?: string;
   resultLink?:string | { adult: AlertMsgModel; child: AlertMsgModel; infant: AlertMsgModel; retDate: AlertMsgModel; depDate: AlertMsgModel; };
   //#endregion
   constructor() {}
@@ -72,9 +75,51 @@ export class MultiCityComponent implements OnInit {
     }
   }
   submit() {
-    console.log('MULTI CITY FORMMM', this.searchbox.searchFlight.value);
+    this.lang = this.translate.currentLang; //get language
+    this.currency = this.homePageService.selectedCurrency.Currency_Code; //get currency from homepage service
+    this.resultLink = this.searchbox.onSubmit(
+      this.lang,
+      this.currency,
+      this.lang,
+      1,
+      ','
+    ); //call submit function from searchbox service
+    let splittedLink = this.resultLink.toString().split('/');
+    if (typeof this.resultLink == 'object') {
+      //loop on resultLink object which have returned messages of unvalid inputs
+      Object.entries(this.resultLink).forEach(([key, value], index) => {
+        if (this.lang == 'en') {
+          this.tinyAlert(value.enMsg);
+        } else {
+          this.tinyAlert(value.arMsg);
+        }
+        console.log(value.enMsg);
+      });
+      this.searchbox.searchFlight.updateValueAndValidity();
+    } else if (typeof this.resultLink == 'string' && this.resultLink != '') {
+      this.router.navigate([
+        '/flightResult',
+        splittedLink[0],
+        splittedLink[1],
+        splittedLink[2],
+        splittedLink[3],
+        splittedLink[4],
+        splittedLink[5],
+        splittedLink[6],
+        splittedLink[7],
+        splittedLink[8],
+      ]);
+      localStorage.setItem('form',JSON.stringify(this.searchbox.searchFlight.value))
+    }
   }
 
+  tinyAlert(message: any) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: message,
+    });
+  }
   @HostListener('window:resize', ['$event'])  
   onResize() {  
     this.screenWidth = window.innerWidth;  

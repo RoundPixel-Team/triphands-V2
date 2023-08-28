@@ -33,7 +33,7 @@ export class SearchboxMobileComponent implements OnInit {
   }
 
   backToSearchBox(){
-    this.router.navigate(['/searchbox']);
+    this.router.navigate(['/']);
   }
   confirmDate(){
     //update local storage after setting the date **Very important**
