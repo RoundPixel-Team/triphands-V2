@@ -4,7 +4,7 @@ import { FlightCheckoutService } from 'rp-travel-ui';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-one-way',
+  selector: 'app-one-way-checkout',
   templateUrl: './one-way.component.html',
   styleUrls: ['./one-way.component.scss']
 })

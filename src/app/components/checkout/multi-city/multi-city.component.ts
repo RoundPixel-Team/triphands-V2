@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FlightCheckoutService } from 'rp-travel-ui';
 
 @Component({
-  selector: 'app-multi-city',
+  selector: 'app-multi-city-checkout',
   templateUrl: './multi-city.component.html',
   styleUrls: ['./multi-city.component.scss']
 })

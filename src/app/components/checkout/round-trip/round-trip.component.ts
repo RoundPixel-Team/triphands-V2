@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FlightCheckoutService } from 'rp-travel-ui';
 
 @Component({
-  selector: 'app-round-trip',
+  selector: 'app-round-trip-checkout',
   templateUrl: './round-trip.component.html',
   styleUrls: ['./round-trip.component.scss']
 })
