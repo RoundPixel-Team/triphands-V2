@@ -15,7 +15,7 @@ export class MulticityComponent implements OnInit {
   public translate = inject(TranslateService)
 moreFlights:boolean=false;
 showDetails:boolean=false;
-showMoreDetails:boolean=false;
+showMoreDetails:boolean[]=[];
 collapseRoute:boolean=false;
 term!:flight;
 seqNum!:number;
@@ -38,7 +38,7 @@ index:number=0;
     this.seqNum=sequenceNum;
   }
   toggleMoreDetailsCard(m:number){
-    this.showMoreDetails = !this.showMoreDetails;
+    this.showMoreDetails[m] = !this.showMoreDetails[m];
     this.moreDetailsIndex = m;
   }
   detailsCollapse(flightIndex: number){
