@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { SearchboxMobileComponent } from './components/searchBox/searchbox-mobile/searchbox-mobile.component';
 import { SearchBoxComponent } from './components/searchBox/searchBox.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path:"searchboxMob/:index",
     component:SearchboxMobileComponent
+  },
+  {
+    path:"aboutUs",
+    component:AboutUsComponent
+  },
+  {
+    path:"termsOfUse",
+    component:TermsOfUseComponent
   }
 ];
 
