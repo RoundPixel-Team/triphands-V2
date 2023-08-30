@@ -27,6 +27,8 @@ import { MultiCityComponent } from '../components/searchBox/multi-city/multi-cit
 import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { SearchboxMobileComponent } from '../components/searchBox/searchbox-mobile/searchbox-mobile.component';
 import { TravellersComponent } from '../components/searchBox/travellers/travellers.component';
+import { LoginComponent } from '../components/users/login/login.component';
+import { SignUpComponent } from '../components/users/sign-up/sign-up.component';
 
 export const MatrialComponents = [
   MatButtonModule,
@@ -55,11 +57,15 @@ export const SharedComponents = [
   TravellersComponent,
   OneWayComponent,
   RoundTripComponent,
-  MultiCityComponent
+  MultiCityComponent,
+  LoginComponent,
+  SignUpComponent
+  
 ]
 @NgModule({
   declarations: [
-    SharedComponents
+    SharedComponents,
+    
   ],
   imports: [
     CommonModule,
@@ -69,7 +75,9 @@ export const SharedComponents = [
     RpTravelUiModule,
     NgbDatepickerModule,
     NgbAlertModule,
-    MatrialComponents
+    MatrialComponents,
+    
+    
   ],
   exports:[
     ReactiveFormsModule,
@@ -80,7 +88,9 @@ export const SharedComponents = [
     RpTravelUiModule,
     NgbDatepickerModule,
     NgbAlertModule,
-    TranslateModule
+    TranslateModule,
+    
+    
   ]
 })
 export class SharedModule { }

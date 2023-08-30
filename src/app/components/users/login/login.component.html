@@ -1,0 +1,45 @@
+<div class="login-container w-100 h-100">
+    <div class="row">
+        <div class="col-6 ">
+            <div class="left-side">
+                <img src="../../../../assets/images/login_bg.png"> 
+                <div class="background-overlay">
+                   <div class="left-side-content">
+                    <div class="crateAccount">
+                        <span class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          {{ translate.currentLang == "en" ? "Sign Up" : "تسجيل" }} /
+                        </span>
+                        <span class="">
+                          {{ translate.currentLang == "en" ? "Login" : "تسجيل الدخول" }}
+                        </span>
+                      </div>
+                      <div class="find_gift">
+                        <p>
+                          {{
+                            translate.currentLang == "en"
+                              ? "Just sign up and Find your gift inside !"
+                              : "فقط قم بالتسجيل  ابحث عن هديتك في الداخل! "
+                          }}
+                        </p>
+                        <img class="w-20" src="../../../../assets/images/gift.png" />
+                      </div>
+                   </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-6">
+            
+        <div class="right-side"> Right side data</div>
+        </div>
+        
+    </div>
+</div>
+<div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <app-sign-up></app-sign-up>
+  
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,64 @@
+.login-container{
+    
+.left-side {
+img{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+    .background-ovelay{
+        position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+   background:  rgba(62, 125, 195, 0.75);
+    
+    
+}
+.left-side-content{
+    position: absolute;
+    top: 45px;
+    right: 205px;
+    height: 100%;
+    width: 100%;
+    padding: 4rem 3.4rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+    z-index: 1000;
+    color: var(--nine-color);
+    .crateAccount{
+       
+    }
+    .find_gift{
+       
+    }
+    .crateAccount span{
+        color: var(--white-c);
+        font-size: 25px;
+        font-weight: 700;
+        font-family: var(--first-en);
+        cursor: pointer;
+    }
+    .find_gift p{
+        font-size: 20px;
+        color: var(--white-c);
+        font-weight: 600;
+        font-family: var(--first-en);
+        line-height: 1.2em;
+        text-align: center;
+    }
+    .find_gift img{
+        display: block;
+        margin: 0 auto;
+        height:100px;
+        width: 100px;
+}
+
+}
+}
+}
+
