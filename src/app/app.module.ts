@@ -11,13 +11,17 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     AboutUsComponent,
-    TermsOfUseComponent
+    TermsOfUseComponent,
+    ContactUsComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
