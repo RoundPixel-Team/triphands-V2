@@ -1,6 +1,12 @@
 {
   "homePage": {
-    "myBtn": "Press Here"
+    "myBtn": "Press Here",
+    "titleAd":"TripHands.Com",
+    "textAd" :"Your Trip Is Click Away",
+    "bodyAd":"Trusted by the most discerning travelers, TripHands.com is the ultimate search platform for flights, hotels, and cars",
+    "wegoAd":"Loved by Travelers and",
+    "wegoAd1":"TRUSTED",
+    "by":"BY"
   },
   "header": {
     "currentLang": "EN",
@@ -131,5 +137,14 @@
 "flightsResult":{
   "moreFlights":"More flights at same price",
   "lessFlights":"Hide more flights"
-}
+},
+"coreValues":{
+"title":"Look no further",
+"bodyTxt":"Search all online travel deals in one go"
+},
+"Dubai":"Dubai",
+"Rome":"Rome",
+"Paris":"Paris",
+"body":"Stay at this 5-star luxury resort in Hurghada. Enjoy free WiFi, free parking, and 3 restaurants. Popular attractions Desert Rose Aqua Park and Senzo Mall are located nearby. Discover genuine guest reviews for Pharaoh Azur Resort, in Village Road neighborhood, along with the latest prices and availability – book now.",
+"priceTxt":"Price Per Person is KWD121"
 }

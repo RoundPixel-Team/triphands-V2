@@ -26,12 +26,12 @@
           #dp
           (dateSelect)="onDateSelectionRound($event)"
           [dayTemplate]="t"
-          outsideDays="hidden"
           [displayMonths]="12"
+          outsideDays="hidden"
           navigation="none"
         >
         </ngb-datepicker>
-        <ng-template #t let-date let-focused="focused">
+        <ng-template #t let-date let-focused="focused" (click)="$event.stopPropagation()">
           <span
             class="custom-day"
             [class.focused]="focused"

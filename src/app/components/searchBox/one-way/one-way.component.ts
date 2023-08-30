@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AlertMsgModel,
@@ -27,6 +27,8 @@ export class OneWayComponent implements OnInit {
 
   showDatePicker: boolean = true;
   lang: string = 'en';
+  oneWayDate: NgbDate = this.calendar.getToday();
+  hoveredDate: NgbDate | null = null;
   currency?: string;
   resultLink?:| string| {
         adult: AlertMsgModel;
@@ -35,7 +37,7 @@ export class OneWayComponent implements OnInit {
         retDate: AlertMsgModel;
         depDate: AlertMsgModel;};
   //#endregion
-  constructor() {}
+  constructor(public calendar :NgbCalendar) {}
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;

@@ -1,9 +1,8 @@
 import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertMsgModel, FlightSearchService, HomePageService } from 'rp-travel-ui';
-import { NgbCalendar, NgbDate, NgbDateParserFormatter, NgbInputDatepickerConfig, } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCalendar, NgbDate, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { SharedService } from 'src/app/shared/services/shared.service';
-import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 @Component({
@@ -30,13 +29,13 @@ export class RoundTripComponent implements OnInit {
   resultLink?:string | { adult: AlertMsgModel; child: AlertMsgModel; infant: AlertMsgModel; retDate: AlertMsgModel; depDate: AlertMsgModel; };
   
 //#endregion
-	constructor(public calendar: NgbCalendar, public formatter: NgbDateParserFormatter,config: NgbInputDatepickerConfig) {
+	constructor(public calendar: NgbCalendar, public formatter: NgbDateParserFormatter) {
 
-    if(this.searchbox.flightsArray.at(0).get('departingD')?.valid){
+    if(this.searchbox.flightsArray.at(0).get('departingD')?.value){
       this.fromDate = calendar.getToday()
       this.fromDate.year = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getFullYear()
       this.fromDate.month = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getMonth() + 1
-      this.fromDate.day = Number(this.searchbox.flightsArray.at(0).get('departingD')?.value.toString().split(' ')[2])-1
+      this.fromDate.day = Number(this.searchbox.flightsArray.at(0).get('departingD')?.value.toString().split(' ')[2] - 1 )
       
 
       this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
@@ -104,7 +103,7 @@ export class RoundTripComponent implements OnInit {
     let infant = this.searchbox.searchFlight?.get('passengers.infant')?.value;
     return this.searchbox.getTotalPassengers(adult,child,infant);
   }
-  submit() {
+  submit() {    
     this.lang = this.translate.currentLang; //get language
     this.currency = this.homePageService.selectedCurrency.Currency_Code; //get currency from homepage service
     this.resultLink = this.searchbox.onSubmit(
@@ -139,7 +138,9 @@ export class RoundTripComponent implements OnInit {
         splittedLink[7],
         splittedLink[8],
       ]);
+      console.log("datess", this.searchbox.searchFlight.get('returnDate')?.value);
       localStorage.setItem('form',JSON.stringify(this.searchbox.searchFlight.value))
+      console.log("datess AFTEER", this.searchbox.searchFlight.get('returnDate')?.value);
     }
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { inject, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { FlightSearchService } from 'rp-travel-ui';
 
 @Component({
@@ -21,7 +21,26 @@ export class SearchboxMobileComponent implements OnInit {
 	toDate: NgbDate | null = null;
   showPicker:boolean =true;
 
-  constructor() { }
+  constructor(public calendar: NgbCalendar) { 
+    if(this.searchbox.flightsArray.at(0).get('departingD')?.valid){
+      this.fromDate = calendar.getToday()
+      this.fromDate.year = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getFullYear()
+      this.fromDate.month = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getMonth() + 1
+      this.fromDate.day = Number(this.searchbox.flightsArray.at(0).get('departingD')?.value.toString().split(' ')[2])+1
+      
+
+      this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+      this.toDate.year = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getFullYear()
+      this.toDate.month = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getMonth() + 1
+      this.toDate.day = Number(this.searchbox.searchFlight.get('returnDate')?.value.toString().split(' ')[2])
+
+    }
+    else{
+      this.fromDate = calendar.getToday()
+      this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+      console.log("WITHOUT FORM VALUE")
+    }
+  }
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;  

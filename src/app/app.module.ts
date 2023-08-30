@@ -9,11 +9,15 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { TopDestinationComponent } from './components/top-destination/top-destination.component';
+import { CoreValuesComponent } from './components/core-values/core-values.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
+    TopDestinationComponent,
+    CoreValuesComponent
   ],
   imports: [
     BrowserModule,

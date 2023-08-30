@@ -1,0 +1,17 @@
+<section class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 my-2" *ngFor="let card of cards; let i=index">
+            <div class="topDestination" style="background-image: url('{{card.imageUrl}}')">
+                <!-- Top destination text -->
+                <div></div>
+                <div class="topDestination_wrapper">
+                    <h2 class="title">{{card.title | translate}}</h2>
+                    <p  class="body" *ngIf="lang == 'en'">{{card.body | translate}}</p>
+                    <p  class="body" *ngIf="lang == 'ar'">{{card.bodyAr | translate}}</p>
+                    <span class="footer" *ngIf="lang == 'en'">{{card.footer | translate}}</span>
+                    <span class="footer" *ngIf="lang == 'ar'">{{card.footerAr | translate}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
