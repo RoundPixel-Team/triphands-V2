@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-5 flight-location">
+                                <div class="col-lg-5 col-sm-12 flight-location">
                                     {{
                                       data.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
                                         ? "Dubai"
@@ -117,7 +117,7 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-5 flight-location">
+                            <div class="col-lg-5 col-sm-12 flight-location">
                                 {{
                                   returnData.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
                                     ? "Dubai"
@@ -178,9 +178,9 @@
             </div>
               <div class="card-footer">
                 <div class="card-footer-content">
-                  <div class="col-2">
+                  <div class="col-lg-2 col-sm-1">
                   </div>
-                  <div class="col-4">
+                  <div class="col-lg-4 col-sm-10">
                     <div class="more-flights" *ngIf="flight.length>1 && !moreFlights">
                       <div (click)="showMoreFlights()"
                       
@@ -610,7 +610,7 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-5 flight-location">
+                        <div class="col-lg-5 col-sm-12 flight-location">
                             {{
                               moreData.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
                                 ? "Dubai"
@@ -639,7 +639,7 @@
                     </div>
                     </div>
                     <div class="sec-flight-container">
-                      <div class="second-flight " *ngIf="item.allJourney.flights[1] as returnData">
+                      <div class="second-flight mt-3 " *ngIf="item.allJourney.flights[1] as returnData">
                         <div class="row">
                             <div class="col-6">
                                 <div class="flight-time">
@@ -679,7 +679,7 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-5 flight-location">
+                            <div class="col-lg-5 col-sm-12 flight-location">
                                 {{
                                   returnData.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
                                     ? "Dubai"

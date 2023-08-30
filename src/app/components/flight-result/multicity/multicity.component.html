@@ -9,8 +9,8 @@
                         <div *ngFor=" let data of flight[0].allJourney.flights; let i=index;">
 
 
-                        <div class="row">
-                            <div class="col-6 mt-3">
+                        <div class="row mt-2">
+                            <div class="col-6 ">
                                 <div class="flight-time">
                                     {{ data.flightDTO![0].departureDate | date : "shortTime" }} -
                                     {{
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-5 flight-location">
+                            <div class="col-lg-5 col-sm-12 flight-location">
                                 {{
                                   data.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
                                     ? "Dubai"
@@ -109,9 +109,9 @@
         </div>
         <div class="card-footer">
             <div class="card-footer-content">
-              <div class="col-2">
+              <div class="col-lg-2 col-sm-1">
               </div>
-              <div class="col-4">
+              <div class="col-lg-4 col-sm-10">
                 <div class="more-flights" *ngIf="flight.length>1 && !moreFlights">
                   <div (click)="showMoreFlights()"
                   
@@ -502,8 +502,8 @@
                   <div class="col-lg-9 col-sm-12 col-md-12 p-1">
                     <div *ngFor="  let moreData of item.allJourney.flights">
                     <div class="first-flight-container">
-                      <div class="row">
-                        <div class="col-6 mt-3">
+                      <div class="row mt-3">
+                        <div class="col-6 ">
                             <div class="flight-time">
                                 {{ moreData.flightDTO![0].departureDate | date : "shortTime" }} -
                                 {{
@@ -541,7 +541,7 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-5 flight-location">
+                        <div class="col-lg-5 col-sm-12 flight-location">
                             {{
                               moreData.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
                                 ? "Dubai"

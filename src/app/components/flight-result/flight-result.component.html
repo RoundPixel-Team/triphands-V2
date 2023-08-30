@@ -23,6 +23,7 @@
           <!--LAZY LOADING FOR SUMMARY SECTION-->
           <div class="col-12 mt-2 mb-2" *ngIf="FlightResult.loading">
                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+             
           </div>
           <!-- END SUMMARY AND MODIFIY SEARCH SECTION -->
           <div class="col-lg-3 col-sm-12">
@@ -105,8 +106,55 @@
                     <app-roundtrip-result [flight]="flight" *ngIf="FlightResult.FlightType== 'roundtrip' || FlightResult.FlightType=='Roundtrip' || FlightResult.FlightType=='RoundTrip' "></app-roundtrip-result>
                     <app-multicity-result [flight]="flight" *ngIf="FlightResult.FlightType== 'multicity' || FlightResult.FlightType=='Multicity' || FlightResult.FlightType=='MultiCity' "></app-multicity-result> 
                </div>
+                 
+               <div *ngIf="FlightResult.loading"> 
+                    
+                    <div class="w-100 mt-1 lazyLoadCard">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
+       
+                       <div class="w-100 mt-1 lazyLoadCard2">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
+       
+                       <div class="w-100 mt-1 lazyLoadCard3 ">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
+       
+                       <div class="w-100 mt-1 lazyLoadCard4">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
+       
+                       <div class="w-100 mt-1 lazyLoadCard5 ">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
+       
+                       <div class="w-100 mt-1 lazyLoadCard6">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
+               
+          </div> 
           </div>
      </div>
+     
 </div>
 
 

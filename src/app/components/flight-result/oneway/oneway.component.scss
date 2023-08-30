@@ -277,7 +277,7 @@
       border-top: 1px dashed var(--three-color);
       border-left: none !important;
       .flight-price{
-          font-size: 1rem !important;
+          font-size: 1.25rem !important;
           
           
           
@@ -296,8 +296,11 @@
           font-size: 1rem;
       }
     }
+    .flight-time{
+      font-size: 1rem !important;
+   }
     .card-footer-content{
-      font-size: 0.7rem !important;
+      font-size: 0.9rem !important;
       white-space:nowrap;
     }
     .journey{

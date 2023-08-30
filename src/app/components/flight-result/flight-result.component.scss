@@ -147,3 +147,93 @@
         display: none !important;
     }
   }
+  .lazyLoadCard {
+    animation-name: lazyLoadingCard;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+  
+  .lazyLoadCard2 {
+    animation-name: lazyLoadingCard;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-delay: 0.1s;
+  }
+  
+  .lazyLoadCard3 {
+    animation-name: lazyLoadingCard;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-delay: 0.2s;
+  }
+  
+  .lazyLoadCard4 {
+    animation-name: lazyLoadingCard;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-delay: 0.1.5s;
+  }
+  
+  .lazyLoadCard5 {
+    animation-name: lazyLoadingCard;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-delay: 0.4s;
+  }
+  
+  .lazyLoadCard6 {
+    animation-name: lazyLoadingCard;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-delay: 0.5s;
+  }
+  @keyframes lazyLoadingCard {
+    0% {
+      opacity: 0.1;
+    }
+  
+    20% {
+      opacity: 0.2;
+    }
+  
+    40% {
+      opacity: 0.4;
+    }
+  
+    60% {
+      opacity: 0.6;
+    }
+  
+    80% {
+      opacity: 0.8;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
