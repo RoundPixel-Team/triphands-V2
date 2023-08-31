@@ -53,24 +53,22 @@ export class AppComponent implements OnInit{
     this.environment.envConfiguration(envTriphands)
     if (!this.currentURL.includes(this.checkoutURL)) {
       setTimeout(()=>{
-    
         if(localStorage.getItem('lang')){
-  
           this.translate.use(localStorage.getItem('lang')!)
           setTimeout(() => {
             if(this.translate.currentLang=='en'){
-           
               this.document.dir='ltr';
-        
+              this.sharedService.cities = airporten;
+              
             }else {
               this.document.dir='rtl';
+              this.sharedService.cities = airportar;
             }
           },300)
         }else{
           this.translate.use('en');
           this.document.dir='ltr';
         }
-      
         this.home.getPointOfSale();
         this.home.getCountries(this.translate.currentLang)
       },500)
@@ -80,7 +78,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
-    if(localStorage.getItem('lang') == 'en'){
+    if(this.translate.currentLang=='en'){
       this.sharedService.cities = airporten;
     }
     else{

@@ -24,23 +24,28 @@
       >
         <ngb-datepicker
           #dp
-          (dateSelect)="onDateSelectionRound($event)"
+          [displayMonths]="12"
           [dayTemplate]="t"
           outsideDays="hidden"
-          [displayMonths]="12"
-          navigation="none"
+          (dateSelect)="onDateSelectionRound($event)"
+          [startDate]="startDateValue"
+          firstDate="startDateValue"
         >
         </ngb-datepicker>
-        <ng-template #t let-date let-focused="focused">
+        <ng-template
+          #t
+          let-date
+          let-focused="focused"
+          (click)="$event.stopPropagation()"
+        >
           <span
             class="custom-day"
             [class.focused]="focused"
-            [class.range]="isRange(date)"
-            [class.faded]="isHovered(date) || isInside(date)"
+            [class.range]="isRangeR(date)"
+            [class.faded]="isHoveredR(date) || isInsideR(date)"
             (mouseenter)="hoveredDate = date"
             (mouseleave)="hoveredDate = null"
-          >
-            {{ date.day }}
+            >{{ date.day }}
           </span>
         </ng-template>
       </div>
@@ -49,10 +54,28 @@
         <div class="calenderMobile_datepicker">
           <ngb-datepicker
             #dp
-            (dateSelect)="onDateSelection($event)"
             [displayMonths]="12"
-            navigation="none"
-          ></ngb-datepicker>
+            [dayTemplate]="t"
+            outsideDays="hidden"
+            [firstDayOfWeek]="7"
+            [startDate]="retStartDate()"
+            firstDate="retStartDate()"
+            (restoreFocus)="(true)"
+          >
+          </ngb-datepicker>
+          <ng-template #t let-date let-focused="focused">
+            <span
+              (click)="onDateSelection(date)"
+              (closed)="onDateSelection(date)"
+              class="custom-day"
+              [class.focused]="focused"
+              [class.active]="true"
+              [class.range]="isRange(date)"
+              [class.value]="isRange(date)"
+              [class.faded]="isHovered(date) || isInside(date)"
+              >{{ date.day }}
+            </span>
+          </ng-template>
         </div>
       </ng-template>
     </div>

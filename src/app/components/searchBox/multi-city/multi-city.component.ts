@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertMsgModel, FlightSearchService, HomePageService } from 'rp-travel-ui';
 import { SharedService } from 'src/app/shared/services/shared.service';
@@ -26,14 +26,48 @@ export class MultiCityComponent implements OnInit {
   showTraveller:Array<boolean>=[false,false,false,false];
   flightActionValid: boolean = true;
   lang:string='en';
+  startDateValue:any;
   currency?: string;
   resultLink?:string | { adult: AlertMsgModel; child: AlertMsgModel; infant: AlertMsgModel; retDate: AlertMsgModel; depDate: AlertMsgModel; };
   //#endregion
-  constructor() {}
+  constructor(public calendar: NgbCalendar) {}
 
   ngOnInit(): void {
-    this.screenWidth = window.innerWidth
+    this.screenWidth = window.innerWidth;
+    this.retStartDate(0); 
   }
+
+  retStartDate(index:number){
+    let day = 0;
+    let month = 0;
+    let year = 0;
+    if(this.searchbox.flightsArray.at(index).get('departingD')?.value){
+      year = new Date(this.searchbox.flightsArray.at(index).get('departingD')?.value).getFullYear()
+      month = new Date(this.searchbox.flightsArray.at(index).get('departingD')?.value).getMonth() + 1
+      day = Number(this.searchbox.flightsArray.at(index).get('departingD')?.value.toString().split(' ')[2])
+  
+      return this.startDateValue =  { year: year, month: month, day: day }
+    }
+    else{
+      return this.startDateValue  =this.calendar.getToday();
+    }
+  }
+  isHovered(date: NgbDate) {
+		return (
+			this.startDateValue && date.after(this.startDateValue) && date.before(this.startDateValue)
+		);
+	}
+	isInside(date: NgbDate) {  
+		return date.after(this.startDateValue) && date.before(this.startDateValue);
+	}
+	isRange(date: NgbDate) {
+		return (
+			date.equals(this.startDateValue) ||
+			(this.startDateValue && date.equals(this.startDateValue)) ||
+			this.isInside(date) ||
+			this.isHovered(date)
+		);
+	}
 
   showDate(index:number) {
     this.showTraveller[index]=false;

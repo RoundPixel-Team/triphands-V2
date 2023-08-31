@@ -143,10 +143,7 @@
                     </p>
                     <input
                       matInput
-                      value="{{
-                        searchbox.searchFlight.controls['returnDate'].value
-                          | date : 'MMM dd'
-                      }}"
+                      value="{{searchbox.searchFlight.controls['returnDate'].value | date : 'MMM dd'}}"
                     />
                   </mat-form-field>
                 </div>
@@ -201,23 +198,22 @@
               <div *ngIf="showDatePicker && screenWidth >= 650" class="datePicker">
                 <ngb-datepicker
                   #dp
-                  (click)="$event.stopPropagation()"
                   [displayMonths]="2"
                   [dayTemplate]="t"
-                  [startDate]="fromDate"
                   outsideDays="hidden"
+                  (dateSelect)="onDateSelection($event)"
+                  [startDate]="startDateValue"
+                  firstDate="startDateValue"
                 >
                 </ngb-datepicker>
                 <ng-template #t let-date let-focused="focused" (click)="$event.stopPropagation()">
                   <span
-                    (click)="$event.stopPropagation()"
                     class="custom-day"
                     [class.focused]="focused"
                     [class.range]="isRange(date)"
                     [class.faded]="isHovered(date) || isInside(date)"
                     (mouseenter)="hoveredDate = date"
                     (mouseleave)="hoveredDate = null"
-                    (click)="onDateSelection(date)"
                   >{{ date.day }}
                   </span>
                 </ng-template>

@@ -13,6 +13,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { TopDestinationComponent } from './components/top-destination/top-destination.component';
+import { CoreValuesComponent } from './components/core-values/core-values.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     AboutUsComponent,
     TermsOfUseComponent,
     ContactUsComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    TopDestinationComponent,
+    CoreValuesComponent
   ],
   imports: [
     BrowserModule,
