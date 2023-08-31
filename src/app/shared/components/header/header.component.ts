@@ -5,6 +5,8 @@ import {  HomePageService, currencyModel } from 'rp-travel-ui';
 import { SharedService } from '../../services/shared.service';
 import airporten from "src/assets/airports/airporten.json"; 
 import airportar from "src/assets/airports/airportar.json"; 
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +20,10 @@ public sharedService = inject(SharedService);
 
 Lang:string= this.translate.currentLang;
 
-  constructor(@Inject(DOCUMENT) private document: Document,) { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private dialog:MatDialog
+    ) { }
 
   ngOnInit(): void {
     this.Utilities.getCurrency(this.Utilities.selectedCurrency.Currency_Code)
@@ -42,6 +47,12 @@ Lang:string= this.translate.currentLang;
       localStorage.setItem('lang',this.translate.currentLang)
     },300)
     
+  }
+
+
+  goToLogin(){
+    this.dialog.closeAll();
+    const dialogRef = this.dialog.open(LoginComponent,{panelClass: 'autModal'});
   }
 
 }

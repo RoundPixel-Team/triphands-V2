@@ -47,8 +47,8 @@
         
                       {{"header.currentLang"  | translate}}
                     </button>                  </li>
-                  <li class="nav-item mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <a class="nav-link active" aria-current="page" href="#">{{"header.signIn"  | translate}}</a>
+                  <li class="nav-item mx-2" (click)="goToLogin()" style="cursor: pointer;">
+                    <a class="nav-link active" aria-current="page">{{"header.signIn"  | translate}}</a>
                   </li>
               </ul>
             </div>
@@ -61,12 +61,3 @@
     <img width="25" height="25" [src]="currency.Image_Url"> {{ currency["Currency_Code"] }}
   </button>
 </mat-menu>
-
-<div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <app-login></app-login>
-
-    </div>
-  </div>
-</div>

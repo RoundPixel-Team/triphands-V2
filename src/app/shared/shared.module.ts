@@ -28,8 +28,8 @@ import { NgbAlertModule, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstra
 import { SearchboxMobileComponent } from '../components/searchBox/searchbox-mobile/searchbox-mobile.component';
 import { TravellersComponent } from '../components/searchBox/travellers/travellers.component';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from '../components/users/login/login.component';
-import { SignUpComponent } from '../components/users/sign-up/sign-up.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 export const MatrialComponents = [
   MatButtonModule,
@@ -60,13 +60,13 @@ export const SharedComponents = [
   RoundTripComponent,
   MultiCityComponent,
   LoginComponent,
-  SignUpComponent
+  SignupComponent
   
 ]
+
 @NgModule({
   declarations: [
-    SharedComponents,
-    
+    SharedComponents,    
   ],
   imports: [
     CommonModule,
