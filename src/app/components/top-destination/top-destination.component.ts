@@ -11,13 +11,10 @@ import { inject } from '@angular/core';
 export class TopDestinationComponent implements OnInit {
   translate = inject(TranslateService);
   cards:Array<topDestinationCard>=[];
-  lang:string = 'en'
   constructor() { }
 
   ngOnInit(): void {
-    // this.lang = this.translate.currentLang;
 
-    
     this.cards=[
       {
         imageUrl:'../../../assets/images/Dubai.png',

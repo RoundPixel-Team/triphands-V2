@@ -34,6 +34,7 @@ export class MultiCityComponent implements OnInit {
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
+    this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date());
     this.retStartDate(0); 
   }
 
@@ -50,6 +51,7 @@ export class MultiCityComponent implements OnInit {
     }
     else{
       return this.startDateValue  =this.calendar.getToday();
+      this.searchbox.flightsArray.at(index).get('departingD')?.setValue(this.calendar.getToday())
     }
   }
   isHovered(date: NgbDate) {
