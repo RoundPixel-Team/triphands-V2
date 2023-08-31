@@ -190,26 +190,25 @@
               >
                 <ngb-datepicker
                   #dp
-                  (click)="$event.stopPropagation()"
-                  focused="focused"
-                  (dateSelect)="onDateSelection($event)"
-                  [startDate]="(oneWayDate)"
+                  [displayMonths]="1"
                   [dayTemplate]="t"
                   outsideDays="hidden"
-                ></ngb-datepicker>
-                <ng-template
-                  #t
-                  let-date
-                  let-focused="focused"
-                  (click)="$event.stopPropagation()"
+                  [firstDayOfWeek]="7"
+                  [startDate]="startDateValue"
+                  firstDate="startDateValue"
+                  (restoreFocus)="(true)"
                 >
+                </ngb-datepicker>
+                <ng-template #t let-date let-focused="focused">
                   <span
-                    (click)="$event.stopPropagation()"
+                    (click)="onDateSelection(date)"
+                    (closed)="onDateSelection(date)"
                     class="custom-day"
                     [class.focused]="focused"
-                    (mouseenter)="hoveredDate = date"
-                    (mouseleave)="hoveredDate = null"
-                    (click)="onDateSelection(date)"
+                    [class.active]="true"
+                    [class.range]="isRange(date)"
+                    [class.value]="isRange(date)"
+                    [class.faded]="isHovered(date) || isInside(date)"
                     >{{ date.day }}
                   </span>
                 </ng-template>

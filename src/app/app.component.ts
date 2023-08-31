@@ -53,13 +53,10 @@ export class AppComponent implements OnInit{
     this.environment.envConfiguration(envTriphands)
     if (!this.currentURL.includes(this.checkoutURL)) {
       setTimeout(()=>{
-    
         if(localStorage.getItem('lang')){
-  
           this.translate.use(localStorage.getItem('lang')!)
           setTimeout(() => {
             if(this.translate.currentLang=='en'){
-           
               this.document.dir='ltr';
         
             }else {
@@ -70,7 +67,6 @@ export class AppComponent implements OnInit{
           this.translate.use('en');
           this.document.dir='ltr';
         }
-      
         this.home.getPointOfSale();
         this.home.getCountries(this.translate.currentLang)
       },500)

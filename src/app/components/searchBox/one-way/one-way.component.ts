@@ -27,8 +27,8 @@ export class OneWayComponent implements OnInit {
 
   showDatePicker: boolean = true;
   lang: string = 'en';
-  oneWayDate: NgbDate = this.calendar.getToday();
-  hoveredDate: NgbDate | null = null;
+  startDateValue:any;
+  endDateValue: Date = new Date(2023, 9, 30);
   currency?: string;
   resultLink?:| string| {
         adult: AlertMsgModel;
@@ -41,7 +41,38 @@ export class OneWayComponent implements OnInit {
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
+    let day = 0;
+    let month = 0;
+    let year = 0;
+    if(this.searchbox.flightsArray.at(0).get('departingD')?.value){
+      year = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getFullYear()
+      month = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getMonth() + 1
+      day = Number(this.searchbox.flightsArray.at(0).get('departingD')?.value.toString().split(' ')[2])
+  
+      this.startDateValue =  { year: year, month: month, day: day }
+    }else{
+      this.startDateValue  =this.calendar.getToday();
+    }
+    
   }
+  isHovered(date: NgbDate) {
+		return (
+			this.startDateValue && date.after(this.startDateValue) && date.before(this.startDateValue)
+		);
+	}
+
+	isInside(date: NgbDate) {  
+		return date.after(this.startDateValue) && date.before(this.startDateValue);
+	}
+	isRange(date: NgbDate) {
+		return (
+			date.equals(this.startDateValue) ||
+			(this.startDateValue && date.equals(this.startDateValue)) ||
+			this.isInside(date) ||
+			this.isHovered(date)
+		);
+	}
+
   showDate() {
     this.showDatePicker = true;
   }
