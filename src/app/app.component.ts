@@ -49,8 +49,31 @@ export class AppComponent implements OnInit{
             RetriveItineraryDetails:'/api/Admin/RetriveItineraryDetails'
           }
       }
+      let envWego = {
+        offlineSeats:"http://178.63.214.219:7025",
+        searchflow:  'https://wegosearch.triphands.com',
+        BookingFlow:  'https://wegobook.triphands.com',
+        FareRules:  'https://wegoprovider.triphands.com',
+        asm:  'https://backofficeapi.triphands.com',
+        Apihotels:  "https://hotels.rhlatycom",
+        hotelprepay: 'https://prepayapi.triphands.com',
+        users:  'https://usersapi.triphands.com',
+        admin:  'https://adminapi.triphands.com/',
+        getDPayment:  'https://adminapi.triphands.com/',
+        bookHotels: "https://hotels.triphands.com",
+        hotelPrepay: 'https://prepayapi.triphands.com',
+        backOffice: 'https://backofficeapi.triphands.com',
+        FlightTop:'https://flightsearch.triphands.com',
+        offers: {
+          getAll: 'http://41.215.243.138:7893/api/GetAllOffersAPI?POS=',
+          getAllActive:'http://41.215.243.138:7893/api/GetAllActiveOffersAPI?POS=',
+          getByID: 'http://41.215.243.138:7893/api/GetOfferByIdAPI?OfferId=',
+          BookOffer: "http://41.215.243.138:7895/api/BookOffer",
+          RetriveItineraryDetails:'/api/Admin/RetriveItineraryDetails'
+        }
+      }
 
-    this.environment.envConfiguration(envTriphands)
+    this.environment.envConfiguration(envWego)
     if (!this.currentURL.includes(this.checkoutURL)) {
       setTimeout(()=>{
         if(localStorage.getItem('lang')){

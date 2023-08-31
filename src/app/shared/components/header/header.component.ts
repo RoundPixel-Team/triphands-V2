@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit, inject } from '@angular/core';
+import { Component, Inject, Input, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {  HomePageService, currencyModel } from 'rp-travel-ui';
 import { SharedService } from '../../services/shared.service';
@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit {
 public Utilities = inject(HomePageService)
 public translate = inject(TranslateService)
 public sharedService = inject(SharedService);
+
+@Input() homePage:boolean = true
 
 Lang:string= this.translate.currentLang;
 
