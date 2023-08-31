@@ -41,6 +41,7 @@ export class OneWayComponent implements OnInit {
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
+    this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date());
     let day = 0;
     let month = 0;
     let year = 0;

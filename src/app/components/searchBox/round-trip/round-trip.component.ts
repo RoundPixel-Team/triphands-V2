@@ -55,7 +55,11 @@ export class RoundTripComponent implements OnInit {
 	}
 
   ngOnInit(): void {
+    var date = new Date();
+    date.setDate(date.getDate() + 10);
     this.screenWidth = window.innerWidth; 
+    this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date());
+    this.searchbox.searchFlight.get('returnDate')?.setValue(date);
     let day = 0;
     let month = 0;
     let year = 0;
