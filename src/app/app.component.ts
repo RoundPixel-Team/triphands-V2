@@ -68,6 +68,7 @@ export class AppComponent implements OnInit{
         }else{
           this.translate.use('en');
           this.document.dir='ltr';
+          this.sharedService.cities = airporten;
         }
         this.home.getPointOfSale();
         this.home.getCountries(this.translate.currentLang)
@@ -78,12 +79,12 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
-    if(this.translate.currentLang=='en'){
-      this.sharedService.cities = airporten;
-    }
-    else{
-      this.sharedService.cities = airportar;
-    }
+    // if(this.translate.currentLang=='en'){
+    //   this.sharedService.cities = airporten;
+    // }
+    // else{
+    //   this.sharedService.cities = airportar;
+    // }
   }
   
 
