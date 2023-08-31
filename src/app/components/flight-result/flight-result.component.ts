@@ -18,7 +18,7 @@ export class FlightResultComponent implements OnInit,OnDestroy {
   searchId!:string
   constructor() { }
   ngOnDestroy(): void {
-    // this.FlightResult.destroyer()
+    this.FlightResult.destroyer()
   }
 
   ngOnInit(): void {

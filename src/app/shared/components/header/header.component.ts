@@ -37,10 +37,12 @@ Lang:string= this.translate.currentLang;
     
     setTimeout(() => {
       if(this.translate.currentLang=='en'){
+        console.log("iam in en now")
         this.sharedService.cities = airporten;
         this.document.dir='ltr';
       }
       else if(this.translate.currentLang == 'ar') {
+        console.log("iam in ar now")
         this.sharedService.cities = airportar;
         this.document.dir='rtl';
       }
