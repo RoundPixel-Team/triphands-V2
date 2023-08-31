@@ -6,10 +6,10 @@
                 <div></div>
                 <div class="topDestination_wrapper">
                     <h2 class="title">{{card.title | translate}}</h2>
-                    <p  class="body" *ngIf="lang == 'en'">{{card.body | translate}}</p>
-                    <p  class="body" *ngIf="lang == 'ar'">{{card.bodyAr | translate}}</p>
-                    <span class="footer" *ngIf="lang == 'en'">{{card.footer | translate}}</span>
-                    <span class="footer" *ngIf="lang == 'ar'">{{card.footerAr | translate}}</span>
+                    <p  class="body" *ngIf="translate.currentLang == 'en'">{{card.body | translate}}</p>
+                    <p  class="body" *ngIf="translate.currentLang == 'ar'">{{card.bodyAr | translate}}</p>
+                    <span class="footer" *ngIf="translate.currentLang == 'en'">{{card.footer | translate}}</span>
+                    <span class="footer" *ngIf="translate.currentLang == 'ar'">{{card.footerAr | translate}}</span>
                 </div>
             </div>
         </div>
