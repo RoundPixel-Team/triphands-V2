@@ -6,6 +6,7 @@
     .searchBox {
         background-image: url('../../../assets/images/cloud\ 1.png');
         background-repeat: no-repeat;
+        background-size: cover;
         padding: 3rem 0 4rem 0;
         border-radius: 0 0 10rem 10rem;
     }
@@ -16,12 +17,13 @@
         .tripHands_title {
             color: #FF0000;
             font-weight: 700;
-            font-size: 45px;
+            font-size: 35px;
         }
         .tripHands_text {
             color: #0F56A6;
             font-weight: 700;
-            font-size: 45px;
+            font-size: 35px;
+            margin-top: -5px;
         }
         .tripHands_body{
             color:#5B5D5E;
