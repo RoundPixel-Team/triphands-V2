@@ -58,9 +58,11 @@ export class AppComponent implements OnInit{
           setTimeout(() => {
             if(this.translate.currentLang=='en'){
               this.document.dir='ltr';
-        
+              this.sharedService.cities = airporten;
+              
             }else {
               this.document.dir='rtl';
+              this.sharedService.cities = airportar;
             }
           },300)
         }else{
@@ -76,7 +78,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
-    if(localStorage.getItem('lang') == 'en'){
+    if(this.translate.currentLang=='en'){
       this.sharedService.cities = airporten;
     }
     else{
