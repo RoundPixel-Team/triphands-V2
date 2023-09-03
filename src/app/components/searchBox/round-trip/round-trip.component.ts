@@ -79,7 +79,6 @@ export class RoundTripComponent implements OnInit {
 			this.fromDate = date;  
 		}
     this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date(this.fromDate?.year, this.fromDate?.month - 1, this.fromDate?.day));
-    console.log("COUNT", this.count);
     
     if(this.count==2){
       this.showDatePicker = false;
