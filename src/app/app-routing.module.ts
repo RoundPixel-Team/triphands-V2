@@ -22,6 +22,11 @@ const routes: Routes = [
     loadChildren:()  =>import('./components/flight-result/flight-result.module').then((m)=> m.FlightResultModule) 
 
   },
+  {
+    path:'confirmation',
+    loadChildren:()  =>import('./components/flight-confimration/flight-confimration.module').then((m)=> m.FlightConfimrationModule) 
+
+  },
   {path:"searchboxMob/:index", component:SearchboxMobileComponent},
   {path:"aboutUs",component:AboutUsComponent },
   {path:"termsOfUse",component:TermsOfUseComponent},
