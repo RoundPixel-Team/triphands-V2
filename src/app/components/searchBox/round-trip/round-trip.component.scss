@@ -26,6 +26,10 @@
   .travellerComp, .datePicker {
     text-align: center;
   }
+  .closeIcon{
+    font-size: 1.3rem;
+    color:#787878;
+  }
 }
 
 //#region switch arrow
@@ -54,10 +58,10 @@
 
   .switchArrow {
     transform: rotate(90deg);
-    @include switchArrow(0, 77%);
+    @include switchArrow(2rem, 77%);
   }
 
   .ar .switchArrow {
-    left: 0;
+    left: 2rem;
   }
 }

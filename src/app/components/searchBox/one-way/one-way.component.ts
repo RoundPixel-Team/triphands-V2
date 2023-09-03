@@ -41,20 +41,6 @@ export class OneWayComponent implements OnInit {
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
-    this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date());
-    let day = 0;
-    let month = 0;
-    let year = 0;
-    if(this.searchbox.flightsArray.at(0).get('departingD')?.value){
-      year = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getFullYear()
-      month = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getMonth() + 1
-      day = Number(this.searchbox.flightsArray.at(0).get('departingD')?.value.toString().split(' ')[2])
-  
-      this.startDateValue =  { year: year, month: month, day: day }
-    }else{
-      this.startDateValue  =this.calendar.getToday();
-    }
-    
   }
   isHovered(date: NgbDate) {
 		return (
@@ -73,7 +59,22 @@ export class OneWayComponent implements OnInit {
 			this.isHovered(date)
 		);
 	}
-
+  retStartDate(index:number){
+    let day = 0;
+    let month = 0;
+    let year = 0;
+    if(this.searchbox.flightsArray.at(index).get('departingD')?.value){
+      year = new Date(this.searchbox.flightsArray.at(index).get('departingD')?.value).getFullYear()
+      month = new Date(this.searchbox.flightsArray.at(index).get('departingD')?.value).getMonth() + 1
+      day = Number(this.searchbox.flightsArray.at(index).get('departingD')?.value.toString().split(' ')[2])
+  
+      return this.startDateValue =  { year: year, month: month, day: day }
+    }
+    else{
+      this.searchbox.flightsArray.at(index).get('departingD')?.setValue(this.calendar.getToday())
+      return this.startDateValue  =this.calendar.getToday();
+    }
+  }
   showDate() {
     this.showDatePicker = true;
   }
@@ -96,6 +97,8 @@ export class OneWayComponent implements OnInit {
       .at(0)
       .get('departingD')
       ?.setValue(new Date(date.year, date.month - 1, date.day));
+      console.log("DATEEEEE", this.searchbox.searchFlight.controls['Flights'].value);
+      this.showDatePicker = false;
   }
   submit() {
     this.lang = this.translate.currentLang; //get language

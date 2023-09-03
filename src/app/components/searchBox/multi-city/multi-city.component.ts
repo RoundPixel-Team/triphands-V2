@@ -34,7 +34,6 @@ export class MultiCityComponent implements OnInit {
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
-    this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date());
     this.retStartDate(0); 
   }
 
@@ -95,6 +94,8 @@ export class MultiCityComponent implements OnInit {
       .at(index)
       .get('departingD')
       ?.setValue(new Date(date.year, date.month - 1, date.day));
+      this.showDatePicker[index] = false;
+      this.showTraveller[index] = true;
   }
   addFlight() {
     this.searchbox.addFlight();

@@ -19,8 +19,11 @@
                   <p class="cityInputPlacholder">
                     {{ "searchbox.leaveFrom" | translate }}
                   </p>
-                  <!-- Depart Input -->
-                  <input formControlName="departing" type="text" class="input" aria-label="City" matInput [matAutocomplete]="autoa" #firstD/>
+                  <!-- Depart Input --> 
+                  <div class="d-flex">
+                    <input onClick="this.select();" formControlName="departing" type="text" class="input" aria-label="City" matInput [matAutocomplete]="autoa" #firstD/>
+                    <i class="bi bi-x closeIcon" (click)="firstD.value=' '"></i>
+                  </div>
                   <!-- Depart Airports -->
                   <mat-autocomplete #autoa="matAutocomplete">
                     <ng-container *ngIf="sharedService.cities != undefined">
@@ -49,46 +52,17 @@
                     {{ "searchbox.goingTo" | translate }}
                   </p>
                   <!-- Land Inputs -->
-                  <input
-                    formControlName="landing"
-                    type="text"
-                    class="input"
-                    aria-label="City"
-                    matInput
-                    [matAutocomplete]="autob"
-                    #firstAr
-                  />
+                  <div class="d-flex">
+                    <input onClick="this.select();" formControlName="landing" type="text" class="input" aria-label="City" matInput [matAutocomplete]="autob" #firstAr />
+                    <i class="bi bi-x closeIcon" (click)="firstAr.value=' '"></i>
+                  </div>
                   <!-- Land Airports -->
                   <mat-autocomplete #autob="matAutocomplete">
                     <ng-container *ngIf="sharedService.cities != undefined">
-                      <mat-option
-                        *ngFor="
-                          let city of sharedService.cities
-                            | filterCity : item.get('landing')?.value
-                        "
-                        [value]="city.cityName + ',' + city.airportCode"
-                      >
+                      <mat-option *ngFor="let city of sharedService.cities | filterCity : item.get('landing')?.value"[value]="city.cityName + ',' + city.airportCode">
                         <span
-                          [innerHTML]="
-                            city.airportName
-                              | highlighter : item.get('landing')?.value
-                          "
-                        ></span>
-                        -
-                        <span
-                          [innerHTML]="
-                            city.countryName
-                              | highlighter : item.get('landing')?.value
-                          "
-                        ></span>
-                        (
-                        <span
-                          [innerHTML]="
-                            city.airportCode
-                              | highlighter : item.get('landing')?.value
-                          "
-                        ></span>
-                        )
+                          [innerHTML]="city.airportName| highlighter : item.get('landing')?.value"></span>-<span [innerHTML]="city.countryName| highlighter : item.get('landing')?.value"
+                        ></span>(<span [innerHTML]="city.airportCode| highlighter : item.get('landing')?.value"></span>)
                       </mat-option>
                     </ng-container>
                   </mat-autocomplete>
@@ -154,7 +128,7 @@
             <div *ngIf="showDatePicker[i] && !showTraveller[i] && screenWidth >= 650" class="datePicker">
               <ngb-datepicker
               #dp
-              [displayMonths]="1"
+              [displayMonths]="2"
               [dayTemplate]="t"
               outsideDays="hidden"
               [firstDayOfWeek]="7"
