@@ -31,7 +31,9 @@
     color:#787878;
   }
 }
-
+::ng-deep .ngb-dp-header{
+  direction: ltr !important;
+}
 //#region switch arrow
 .firstInput {
   position: relative;

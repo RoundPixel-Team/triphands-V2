@@ -29,6 +29,9 @@
 ::ng-deep .searchBox  .mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 0.7em;
 }
+::ng-deep .ngb-dp-header{
+  direction: ltr !important;
+}
 //#region switch arrow
 .firstInput{
   position: relative;
