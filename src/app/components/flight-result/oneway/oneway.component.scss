@@ -28,9 +28,9 @@
       padding: 16px 32px;
     }
     .airline-logo{
-        width: 60px;
+        width: 40px;
     border: 1px solid #e8e8e8;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     background: white;
   }
@@ -298,6 +298,12 @@
     }
     .flight-time{
       font-size: 1rem !important;
+      white-space: nowrap;
+
+   }
+   .flight-duration{
+    white-space: nowrap;
+
    }
     .card-footer-content{
       font-size: 0.9rem !important;
