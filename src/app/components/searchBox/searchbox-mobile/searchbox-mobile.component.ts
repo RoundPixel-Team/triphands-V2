@@ -28,21 +28,16 @@ export class SearchboxMobileComponent implements OnInit {
       this.fromDate.year = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getFullYear()
       this.fromDate.month = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getMonth()+1
       this.fromDate.day = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getDate()
-      // this.fromDate.day = Number(this.searchbox.flightsArray?.at(this.flightIndex).get('departingD')?.value.toString().split('-')[2].split('T')[0])
-      
-      
+
       this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
       this.toDate.year = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getFullYear()
       this.toDate.month = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getMonth() + 1
       this.toDate.day = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getDate();
-      // this.toDate.day = Number(this.searchbox.searchFlight.get('returnDate')?.value.toString().split('-')[2].split('T')[0])
     }
     else{
       this.fromDate = calendar.getToday()
       this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
     }
-    console.log("DEPART",this.fromDate.day);
-    console.log("RETURN",this.toDate.day);
   }
 
   ngOnInit(): void {
@@ -62,14 +57,11 @@ export class SearchboxMobileComponent implements OnInit {
       year = new Date(this.searchbox.flightsArray?.at(this.flightIndex).get('departingD')?.value).getFullYear();
       month = new Date(this.searchbox.flightsArray?.at(this.flightIndex).get('departingD')?.value).getMonth(); 
       day = new Date(this.searchbox.flightsArray?.at(this.flightIndex).get('departingD')?.value).getDate() 
-      // day = Number(this.searchbox.flightsArray?.at(this.flightIndex).get('departingD')?.value.toString().split('-')[2].split('T')[0]);
 
-      this.startDateValue = { year: year, month: month+1, day: day+1 };
+      this.startDateValue = { year: year, month: month+1, day: day };
     } else {
       this.startDateValue = this.calendar.getToday();
-    }
-    console.log("startDateValue", this.startDateValue);
-    
+    }    
     return this.startDateValue;
   }
   backToSearchBox() {
@@ -85,15 +77,9 @@ export class SearchboxMobileComponent implements OnInit {
   }
   //update date value from form Array
   onDateSelection(date: NgbDate) {
-    console.log("one way HERREE");
-    this.searchbox.flightsArray
-      .at(this.flightIndex)
-      ?.get('departingD')
-      ?.setValue(new Date(date.year, date.month - 1, date.day));
+    this.searchbox.flightsArray.at(this.flightIndex)?.get('departingD')?.setValue(new Date(date.year, date.month - 1, date.day));
   }
-  onDateSelectionRound(date: NgbDate) {
-    console.log("ROUND TRIP HERREE");
-    
+  onDateSelectionRound(date: NgbDate) {    
     if (!this.fromDate && !this.toDate) {
 			this.fromDate = date;
 		} else if (this.fromDate && !this.toDate && date.after(this.fromDate)){
