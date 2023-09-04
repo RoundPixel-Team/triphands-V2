@@ -73,7 +73,7 @@ export class AppComponent implements OnInit{
         }
       }
 
-    this.environment.envConfiguration(envWego)
+    this.environment.envConfiguration(envTriphands)
     if (!this.currentURL.includes(this.checkoutURL)) {
       setTimeout(()=>{
         if(localStorage.getItem('lang')){
