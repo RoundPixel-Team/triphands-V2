@@ -28,8 +28,9 @@
           [dayTemplate]="t"
           outsideDays="hidden"
           (dateSelect)="onDateSelectionRound($event)"
-          [startDate]="startDateValue"
-          firstDate="startDateValue"
+          [startDate]="retStartDate()"
+          firstDate="retStartDate()"
+          (restoreFocus)="(true)"
         >
         </ngb-datepicker>
         <ng-template

@@ -18,12 +18,19 @@
   .travellerComp, .datePicker{
     text-align: center;
   }
+  .closeIcon{
+    font-size: 1.3rem;
+    color:#787878;
+  }
 }
 ::ng-deep .searchBox .mat-form-field-appearance-legacy .mat-form-field-underline{
   height:0;
 }
 ::ng-deep .searchBox  .mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 0.7em;
+}
+::ng-deep .ngb-dp-header{
+  direction: ltr !important;
 }
 //#region switch arrow
 .firstInput{
@@ -37,13 +44,14 @@
   right: unset !important;
 }
 //#endregion
+@media(max-width :991px){
 
-@media(max-width:991px) {
-  .switchArrow{
+  .switchArrow {
     transform: rotate(90deg);
-    @include switchArrow(0,77%);
+    @include switchArrow(2rem, 77%);
   }
-  .ar .switchArrow{
-    left: 0;
+
+  .ar .switchArrow {
+    left: 2rem;
   }
 }

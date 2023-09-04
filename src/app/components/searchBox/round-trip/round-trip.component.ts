@@ -27,6 +27,7 @@ export class RoundTripComponent implements OnInit {
   startDateValue:any;
   endDateValue:any;
   lang:string='en';
+  count:number = 0;
   currency?: string;
   resultLink?:string | { adult: AlertMsgModel; child: AlertMsgModel; infant: AlertMsgModel; retDate: AlertMsgModel; depDate: AlertMsgModel; };
   
@@ -55,11 +56,7 @@ export class RoundTripComponent implements OnInit {
 	}
 
   ngOnInit(): void {
-    var date = new Date();
-    date.setDate(date.getDate() + 10);
     this.screenWidth = window.innerWidth; 
-    this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date());
-    this.searchbox.searchFlight.get('returnDate')?.setValue(date);
     let day = 0;
     let month = 0;
     let year = 0;
@@ -71,16 +68,21 @@ export class RoundTripComponent implements OnInit {
   }
    //update date value from form Array
    onDateSelection(date: NgbDate) {
+    this.count++
     if (!this.fromDate && !this.toDate) {
 			this.fromDate = date;
 		} else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
 			this.toDate = date;
+      this.searchbox.searchFlight.get('returnDate')?.setValue(new Date(Number(this.toDate?.year), Number(this.toDate?.month)-1, this.toDate?.day));
 		} else {
       this.toDate = null;
 			this.fromDate = date;  
 		}
-    this.searchbox.searchFlight.get('returnDate')?.setValue(new Date(Number(this.toDate?.year), Number(this.toDate?.month)-1, this.toDate?.day));
     this.searchbox.flightsArray.at(0).get('departingD')?.setValue(new Date(this.fromDate?.year, this.fromDate?.month - 1, this.fromDate?.day));
+    
+    if(this.count==2){
+      this.showDatePicker = false;
+    }
   }
   isHovered(date: NgbDate) {
 		return (
@@ -121,8 +123,6 @@ export class RoundTripComponent implements OnInit {
     this.currency = this.homePageService.selectedCurrency.Currency_Code; //get currency from homepage service
     this.resultLink = this.searchbox.onSubmit(this.lang,this.currency,this.lang,1,','); //call submit function from searchbox service
     let splittedLink = this.resultLink.toString().split('/');
-
-    console.log("VALUE", this.resultLink);
     
     if (typeof this.resultLink == 'object') {
       //loop on resultLink object which have returned messages of unvalid inputs
@@ -134,12 +134,10 @@ export class RoundTripComponent implements OnInit {
             this.tinyAlert(value.arMsg);
           }
         }
-        console.log(value.enMsg);
       });
       this.searchbox.searchFlight.updateValueAndValidity();
     } else if (typeof this.resultLink == 'string' && this.resultLink) {
       if(this.searchbox.searchFlight.valid){
-        console.log("VALID HERE");
         localStorage.setItem('form',JSON.stringify(this.searchbox.searchFlight.value))
         this.router.navigate([
           '/flightResult',
@@ -157,8 +155,6 @@ export class RoundTripComponent implements OnInit {
       else{
         this.searchbox.searchFlight.markAllAsTouched();
       }
-      console.log("datess", this.searchbox.searchFlight.get('returnDate')?.value);
-      console.log("datess AFTEER", this.searchbox.searchFlight.get('returnDate')?.value);
     }
   }
 

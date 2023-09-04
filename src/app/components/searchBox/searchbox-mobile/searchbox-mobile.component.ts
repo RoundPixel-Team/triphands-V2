@@ -23,41 +23,23 @@ export class SearchboxMobileComponent implements OnInit {
   showPicker: boolean = true;
 
   constructor(public calendar: NgbCalendar) {
-    if (this.searchbox.flightsArray.at(0).get('departingD')?.valid) {
-      this.fromDate = calendar.getToday();
-      this.fromDate.year = new Date(
-        this.searchbox.flightsArray.at(0).get('departingD')?.value
-      ).getFullYear();
-      this.fromDate.month =
-        new Date(
-          this.searchbox.flightsArray.at(0).get('departingD')?.value
-        ).getMonth() + 1;
-      this.fromDate.day = Number(
-        this.searchbox.flightsArray
-          .at(0)
-          .get('departingD')
-          ?.value.toString()
-          .split(' ')[2]
-      );
+    if(this.searchbox.flightsArray.at(0).get('departingD')?.value){
+      this.fromDate = calendar.getToday()
+      this.fromDate.year = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getFullYear()
+      this.fromDate.month = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getMonth() + 1
+      this.fromDate.day = Number(this.searchbox.flightsArray.at(0).get('departingD')?.value.toString().split(' ')[2])
+      
 
       this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
-      this.toDate.year = new Date(
-        this.searchbox.searchFlight.get('returnDate')?.value
-      ).getFullYear();
-      this.toDate.month =
-        new Date(
-          this.searchbox.searchFlight.get('returnDate')?.value
-        ).getMonth() + 1;
-      this.toDate.day = Number(
-        this.searchbox.searchFlight
-          .get('returnDate')
-          ?.value.toString()
-          .split(' ')[2]
-      );
-    } else {
-      this.fromDate = calendar.getToday();
+      this.toDate.year = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getFullYear()
+      this.toDate.month = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getMonth() + 1
+      this.toDate.day = Number(this.searchbox.searchFlight.get('returnDate')?.value.toString().split(' ')[2])
+
+    }
+    else{
+      this.fromDate = calendar.getToday()
       this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
-      console.log('WITHOUT FORM VALUE');
+      console.log("WITHOUT FORM VALUE")
     }
   }
 
@@ -71,6 +53,11 @@ export class SearchboxMobileComponent implements OnInit {
     this.retStartDate();
   }
   retStartDate() {
+    console.log(
+      'VALUEEEEE',
+      this.searchbox.flightsArray.at(this.flightIndex).get('departingD')?.value
+    );
+
     let day = 0;
     let month = 0;
     let year = 0;
@@ -168,23 +155,27 @@ export class SearchboxMobileComponent implements OnInit {
     );
   }
   isHoveredR(date: NgbDate) {
-		return (
-			this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate)
-		);
-	}
+    return (
+      this.fromDate &&
+      !this.toDate &&
+      this.hoveredDate &&
+      date.after(this.fromDate) &&
+      date.before(this.hoveredDate)
+    );
+  }
 
-	isInsideR(date: NgbDate) {  
-		return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
-	}
+  isInsideR(date: NgbDate) {
+    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
+  }
 
-	isRangeR(date: NgbDate) {
-		return (
-			date.equals(this.fromDate) ||
-			(this.toDate && date.equals(this.toDate)) ||
-			this.isInside(date) ||
-			this.isHovered(date)
-		);
-	}
+  isRangeR(date: NgbDate) {
+    return (
+      date.equals(this.fromDate) ||
+      (this.toDate && date.equals(this.toDate)) ||
+      this.isInside(date) ||
+      this.isHovered(date)
+    );
+  }
   showDatePicker() {
     this.showPicker = true;
   }

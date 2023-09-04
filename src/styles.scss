@@ -77,6 +77,13 @@ html , body{ height: 100%;background-color:#F5F5F5; display: flex; flex-directio
 .custom-day.faded {
   background-color: rgba(2, 117, 216, 0.5);
 }
+
+// ::ng-deep .ngb-dp-navigation-chevron{
+//   transform: rotate(45deg) !important; 
+// }
+// ::ng-deep .ngb-dp-arrow.right .ngb-dp-navigation-chevron{
+//   transform: rotate(-135deg) !important; 
+// }
 //#endregion
 
 .mat-progress-spinner svg{
