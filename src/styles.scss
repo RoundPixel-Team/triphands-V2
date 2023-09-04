@@ -78,14 +78,6 @@ html , body{ height: 100%;background-color:#F5F5F5; display: flex; flex-directio
   background-color: rgba(2, 117, 216, 0.5);
 }
 
-// ::ng-deep .ngb-dp-navigation-chevron{
-//   transform: rotate(45deg) !important; 
-// }
-// ::ng-deep .ngb-dp-arrow.right .ngb-dp-navigation-chevron{
-//   transform: rotate(-135deg) !important; 
-// }
-//#endregion
-
 .mat-progress-spinner svg{
   position: unset !important;
 }
@@ -152,4 +144,11 @@ html , body{ height: 100%;background-color:#F5F5F5; display: flex; flex-directio
       .ngx-slider .ngx-slider-selection{
       background: #FF0000;
       }
+  }
+
+
+  @media (min-width:770px) {
+    .desktopHide{
+      display: none !important;
+    }
   }

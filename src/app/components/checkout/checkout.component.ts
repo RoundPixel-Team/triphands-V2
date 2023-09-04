@@ -99,9 +99,28 @@ handleLangChange(currentLang:string){
     location.reload()
   }
 
+  CalculateOfflineServiceHeight(){
+    if(document.getElementById('offlineServiceSection') && document.getElementById('offlineServiceSection') != null){
+      return document.getElementById('offlineServiceSection')!.offsetHeight - 300
+    }else{
+      return 50
+    }
+    
+  }
+
+  CalculateFormseHeight(){
+    if(document.getElementById('passengersFormSection') && document.getElementById('passengersFormSection') != null){
+      console.log("GET HEIGHT",document.getElementById('passengersFormSection')!.offsetHeight)
+      return document.getElementById('passengersFormSection')!.offsetHeight - 259
+    }else{
+      return 50
+    }
+    
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
-    // this.flight.destroyer()
+    this.flight.destroyer()
   }
 
 

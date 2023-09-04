@@ -158,9 +158,19 @@ mat-expansion-panel{
     padding: 3% !important;
   }
     .payNowSection{
-      display: flex;
-      flex-direction: column;
-      margin-right: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: -0.4rem;
+        margin-bottom: 0.4em;
+        z-index: 9999999;
+        padding: 4%;
+        -webkit-box-shadow: rgba(0,0,0,.24) 0px 3px 8px;
+        box-shadow: #0000003d 0 3px 8px;
+        border: 2px solid rgba(0,0,0,15%);
+        background-color: white;
       .price{
         margin-left: 18px;
         white-space: nowrap;
@@ -248,4 +258,6 @@ mat-expansion-panel{
     margin-top: 2%;
     margin-bottom: 8%;
   }
+
+
   

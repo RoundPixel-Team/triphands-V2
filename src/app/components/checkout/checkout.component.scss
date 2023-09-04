@@ -100,9 +100,14 @@
     overflow: auto;
   }
 
-
+  .desktopMargin{
+    margin-top: 3% !important;
+  }
 
 @media (max-width: 768px){
+  .desktopMargin{
+    margin-top: 0 !important;
+  }
     .summary-card{
         display: none !important; 
     }
@@ -114,8 +119,10 @@
       position: fixed;
       z-index: 999;
       left: 0;
-      right: 0;
+      right: 0; 
       bottom: 0;
+      box-shadow: #0000003d 0 3px 8px;
+      border: 1px solid rgb(0 0 0 / 15%);
     }
   
 }
