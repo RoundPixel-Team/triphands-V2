@@ -1,13 +1,13 @@
 <app-header [homePage]='false'></app-header>
 <!--DATA BINDING-->
 <div class="container" *ngIf="!flight.loader && flight.selectedFlight && flight.selectedFlight.status == 'Valid'">
-        <div class="summary-card p-2 mt-4 mx-auto ">
+        <div *ngIf="checkoutStepNow == 1" class="summary-card p-2 mt-4 mx-auto ">
             <div class="summary-card-text ms-2 ">{{"checkout.fastConfirm" | translate }}</div>
                 <div class="row justify-content-center align-items-center ">
                     <div class="col-4 summary-price ">
                        <span>{{flight.selectedFlight.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code'}}&nbsp;</span>{{flight.selectedFlight.airItineraryDTO.itinTotalFare.amount | exchange:'value'}}
                     </div>
-                    <div class="col-6 me-3"><button class="btn booknow-btn">{{"checkout.bookNow.fastBookBtn" | translate }}</button></div>
+                    <div class="col-6 me-3"><button (click)="goToNextStep()" class="btn booknow-btn">{{"checkout.bookNow.fastBookBtn" | translate }}</button></div>
                 </div>
         </div>
 

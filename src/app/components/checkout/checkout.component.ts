@@ -118,6 +118,18 @@ handleLangChange(currentLang:string){
     
   }
 
+  goToNextStep(){
+    console.log('show me the form', 2)
+    if(this.flight.usersArray.at(0).get('email')?.status == 'INVALID' || this.flight.usersArray.at(0).get('phoneNumber')?.status == 'INVALID'){
+      this.flight.usersArray.at(0).get('email')?.markAsTouched()
+      this.flight.usersArray.at(0).get('phoneNumber')?.markAsTouched()
+      this.changeCheckoutStep(-1)
+    }else{
+      this.changeCheckoutStep(2)
+    }
+    
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
     this.flight.destroyer()

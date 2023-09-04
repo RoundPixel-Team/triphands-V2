@@ -44,7 +44,7 @@ export class FlightResultComponent implements OnInit,OnDestroy {
         }
         this.searchId=params['searchId']
         console.log("I'LL")
-        this.FlightResult.getDataFromUrl(lang, currency, pointOfReservation, flightType, flightsInfo, serachId, passengers, Cclass, showDirect)
+        this.FlightResult.getDataFromUrl(lang, currency, pointOfReservation, flightType, flightsInfo, serachId, passengers, Cclass, showDirect,4,2)
       });
   }
   

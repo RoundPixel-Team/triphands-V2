@@ -57,6 +57,13 @@
     }
 }
 
+// .airlinesContainer{
+//   margin-inline-start: -4% !important;
+//   width: 58.5vw !important;
+//   .airlineBoxContainer{
+//     width: 30vw !important;
+//   }
+// }
 
 .airlinesContainer,.airlinesContainerMobile{
     position: relative;
@@ -117,7 +124,7 @@
       .customFilterAirlineChevron{
         font-size: 1rem;
         background-color: var(--nine-color);
-        border-radius: 50%;
+        border-radius: 4px;
         padding: 0.5%;
         color: var(--first-color);
         font-weight: bold;
@@ -125,6 +132,7 @@
         margin-left: 2%;
         margin-right: 2%;
         cursor: pointer;
+
       }
       .arRotate{
         transform: rotate(180deg);
