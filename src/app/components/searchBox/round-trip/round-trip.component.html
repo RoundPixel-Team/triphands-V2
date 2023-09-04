@@ -138,6 +138,7 @@
                       {{ "searchbox.depart" | translate }}
                     </p>
                     <input
+                      readonly
                       matInput
                       value="{{
                         searchbox.flightsArray.at(0).get('departingD')?.value
@@ -151,6 +152,7 @@
                       {{ "searchbox.retun" | translate }}
                     </p>
                     <input
+                      readonly
                       matInput
                       value="{{searchbox.searchFlight.controls['returnDate'].value | date : 'MMM dd'}}"
                     />
@@ -167,6 +169,7 @@
                         {{ "searchbox.depart" | translate }}
                       </p>
                       <input
+                        readonly
                         matInput
                         value="{{
                           searchbox.flightsArray.at(0).get('departingD')?.value
@@ -180,6 +183,7 @@
                         {{ "searchbox.retun" | translate }}
                       </p>
                       <input
+                        readonly
                         matInput
                         value="{{
                           searchbox.searchFlight.controls['returnDate'].value

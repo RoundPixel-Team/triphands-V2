@@ -50,6 +50,9 @@
   }
 }
 //#region datepicker
+::ng-deep .ngb-dp-header{
+  direction: ltr !important;
+}
 ::ng-deep .calenderMobile_datepicker ngb-datepicker{
     width: 100%;
     flex-direction: column !important;
