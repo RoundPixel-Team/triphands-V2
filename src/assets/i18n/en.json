@@ -81,7 +81,7 @@
         "change": "Change Charge",
         "cancelFareText":"In case of the booking is cancelled before the departure of the first flight.",
         "changeFareText":"In case of the booking is changed before the departure of the first flight.",
-        "fareLabel":"Trip Hands Service Charge",
+        "fareLabel":"Triphands Service Charge",
         "cabinBaggage": "Cabin Baggage"
 
     }

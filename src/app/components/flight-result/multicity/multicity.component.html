@@ -5,7 +5,7 @@
         
           <mat-card-content class="card-body">
                 <div class="row">
-                    <div class="col-lg-9 col-sm-12 col-md-12 p-1">
+                    <div class="col-lg-9 col-sm-12 col-md-12 ps-4">
                         <div *ngFor=" let data of flight[0].allJourney.flights; let i=index;">
 
 
@@ -448,35 +448,37 @@
           <mat-tab  label="{{'checkout.flightDetails.baggage' |translate}}">
             <div class="baggage">
               <div class="container">
-                <div class="row mt-3">
-                  <div class="col-8 col-md-5 col-lg-5 col-xl-5">
-                    <div class="row">
-                      <div class="col-6 col-md-3 col-lg-3 col-xl-3">
-                        <img
-                          src="{{
-                              flight[0].allJourney.flights[index].flightDTO[0].flightAirline
-                              .airlineLogo
-                          }}"
-                          alt="airline logo"
-                          title="airlineLogo"
-                          class="airline-logo"
-                        />
-                      </div>
-                      <div class="col-6 col-md-10 col-lg-9 col-xl-9">
-                        <p class="airline-name">
-                          {{
-                              flight[0].allJourney.flights[index].flightDTO[0].flightAirline
-                              .airlineName
-                          }}
-                        </p>
+                <div class="" *ngFor="let flightDetails of flight[0].allJourney.flights[index].flightDTO; let i = index">
+                  <div class="row mt-3">
+                    <div class="col-8 col-md-5 col-lg-5 col-xl-5">
+                      <div class="row">
+                        <div class="col-6 col-md-3 col-lg-3 col-xl-3">
+                          <img
+                            src="{{
+                              flightDetails.flightAirline
+                                .airlineLogo
+                            }}"
+                            alt="airline logo"
+                            title="airlineLogo"
+                            class="airline-logo"
+                          />
+                        </div>
+                        <div class="col-6 col-md-10 col-lg-9 col-xl-9">
+                          <p class="airline-name">
+                            {{
+                              flightDetails.flightAirline
+                                .airlineName
+                            }}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-4 col-md-7 col-lg-7 col-xl-7">
-                    <p class="CabinClass">{{"checkout.flightDetails.cabinBaggage" | translate}}</p>
-                    <p class="CabinBagg">
-                      {{ flight[0].baggageInformation[0].baggage }}
-                    </p>
+                    <div class="col-4 col-md-7 col-lg-7 col-xl-7">
+                      <p class="CabinClass">{{"checkout.flightDetails.cabinBaggage" | translate}}</p>
+                      <p class="CabinBagg">
+                        {{ flight[0].baggageInformation[0].baggage }}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -499,7 +501,7 @@
                 <mat-card-content class="card-body">
               <div class="row">
                 
-                  <div class="col-lg-9 col-sm-12 col-md-12 p-1">
+                  <div class="col-lg-9 col-sm-12 col-md-12 ps-4">
                     <div *ngFor="  let moreData of item.allJourney.flights">
                     <div class="first-flight-container">
                       <div class="row mt-3">
@@ -923,35 +925,37 @@
                 <mat-tab  label="{{'checkout.flightDetails.baggage' |translate}}">
                   <div class="baggage">
                     <div class="container">
-                      <div class="row mt-3">
-                        <div class="col-8 col-md-5 col-lg-5 col-xl-5">
-                          <div class="row">
-                            <div class="col-6 col-md-3 col-lg-3 col-xl-3">
-                              <img
-                                src="{{
-                                    flight[0].allJourney.flights[index].flightDTO[0].flightAirline
-                                    .airlineLogo
-                                }}"
-                                alt="airline logo"
-                                title="airlineLogo"
-                                class="airline-logo"
-                              />
-                            </div>
-                            <div class="col-6 col-md-10 col-lg-9 col-xl-9">
-                              <p class="airline-name">
-                                {{
-                                    flight[0].allJourney.flights[index].flightDTO[0].flightAirline
-                                    .airlineName
-                                }}
-                              </p>
+                      <div class="" *ngFor="let flightDetails of flight[0].allJourney.flights[index].flightDTO; let i = index">
+                        <div class="row mt-3">
+                          <div class="col-8 col-md-5 col-lg-5 col-xl-5">
+                            <div class="row">
+                              <div class="col-6 col-md-3 col-lg-3 col-xl-3">
+                                <img
+                                  src="{{
+                                    flightDetails.flightAirline
+                                      .airlineLogo
+                                  }}"
+                                  alt="airline logo"
+                                  title="airlineLogo"
+                                  class="airline-logo"
+                                />
+                              </div>
+                              <div class="col-6 col-md-10 col-lg-9 col-xl-9">
+                                <p class="airline-name">
+                                  {{
+                                    flightDetails.flightAirline
+                                      .airlineName
+                                  }}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="col-4 col-md-7 col-lg-7 col-xl-7">
-                          <p class="CabinClass">{{"checkout.flightDetails.cabinBaggage" | translate}}</p>
-                          <p class="CabinBagg">
-                            {{ flight[0].baggageInformation[0].baggage }}
-                          </p>
+                          <div class="col-4 col-md-7 col-lg-7 col-xl-7">
+                            <p class="CabinClass">{{"checkout.flightDetails.cabinBaggage" | translate}}</p>
+                            <p class="CabinBagg">
+                              {{ flight[0].baggageInformation[0].baggage }}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
