@@ -2,11 +2,12 @@
   "homePage": {
     "myBtn": "Press Here",
     "titleAd":"TripHands.Com",
-    "textAd" :"Your Trip Is Just A Click Away",
+    "textAd" :"Your Trip Is Just A Click Away!",
     "bodyAd":"Trusted by the most discerning travelers, TripHands.com is the ultimate search platform for flights, hotels, and cars",
     "wegoAd":"Loved by Travelers and",
     "wegoAd1":"TRUSTED",
-    "by":"BY"
+    "by":"BY",
+    "topDestination":"Price Per Person is"
   },
   "header": {
     "currentLang": "EN",

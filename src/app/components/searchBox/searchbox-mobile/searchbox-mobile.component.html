@@ -22,33 +22,28 @@
         class="calenderMobile_datepicker"
         *ngIf="flightType == 'RoundTrip'; else elseCondition"
       >
-        <ngb-datepicker
-          #dp
-          [displayMonths]="12"
-          [dayTemplate]="t"
-          outsideDays="hidden"
-          (dateSelect)="onDateSelectionRound($event)"
-          [startDate]="retStartDate()"
-          firstDate="retStartDate()"
-          (restoreFocus)="(true)"
-        >
-        </ngb-datepicker>
-        <ng-template
-          #t
-          let-date
-          let-focused="focused"
-          (click)="$event.stopPropagation()"
-        >
-          <span
-            class="custom-day"
-            [class.focused]="focused"
-            [class.range]="isRangeR(date)"
-            [class.faded]="isHoveredR(date) || isInsideR(date)"
-            (mouseenter)="hoveredDate = date"
-            (mouseleave)="hoveredDate = null"
-            >{{ date.day }}
-          </span>
-        </ng-template>
+      <ngb-datepicker
+      #dp
+      [displayMonths]="12"
+      [dayTemplate]="t"
+      outsideDays="hidden"
+      [firstDayOfWeek]="7"
+      (dateSelect)="onDateSelectionRound($event)"
+      [startDate]="startDateValue"
+      firstDate="startDateValue"
+    >
+    </ngb-datepicker>
+    <ng-template #t let-date let-focused="focused" (click)="$event.stopPropagation()">
+      <span
+        class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isRangeR(date)"
+        [class.faded]="isHoveredR(date) || isInsideR(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null"
+      >{{ date.day }}
+      </span>
+    </ng-template>
       </div>
       <!-- One Way, Multicity Datepicker-->
       <ng-template #elseCondition>

@@ -82,7 +82,9 @@ export class RoundTripComponent implements OnInit {
     
     if(this.count==2){
       this.showDatePicker = false;
+      this.count=0;
     }
+    
   }
   isHovered(date: NgbDate) {
 		return (

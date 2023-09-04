@@ -1,17 +1,19 @@
 <section class="container">
     <div class="row">
-        <div class="col-12 col-md-6 my-2" *ngFor="let card of cards; let i=index">
-            <div class="topDestination" style="background-image: url('{{card.imageUrl}}')">
-                <!-- Top destination text -->
-                <div></div>
-                <div class="topDestination_wrapper">
-                    <h2 class="title">{{card.title | translate}}</h2>
-                    <p  class="body" *ngIf="translate.currentLang == 'en'">{{card.body | translate}}</p>
-                    <p  class="body" *ngIf="translate.currentLang == 'ar'">{{card.bodyAr | translate}}</p>
-                    <span class="footer" *ngIf="translate.currentLang == 'en'">{{card.footer | translate}}</span>
-                    <span class="footer" *ngIf="translate.currentLang == 'ar'">{{card.footerAr | translate}}</span>
+        <ng-container *ngFor="let card of cards; let i=index">
+            <div *ngIf="card.tripIdeas==true" class="col-12 col-md-6 my-2">
+                <div  class="topDestination" style="background-image: url('{{card.imageURL}}')"  loading="lazy">
+                    <!-- Top destination text -->
+                    <div></div>
+                    <div class="topDestination_wrapper">
+                        <h2 class="title" *ngIf="translate.currentLang == 'en'">{{card.distination }}</h2>
+                        <h2 class="title" *ngIf="translate.currentLang == 'ar'">{{card.distinationAr }}</h2>
+                        <p  class="body" *ngIf="translate.currentLang == 'en'">{{card.descriptionEn }}</p>
+                        <p  class="body" *ngIf="translate.currentLang == 'ar'">{{card.descriptionAr }}</p>
+                        <span class="footer">{{'homePage.topDestination' | translate}} {{card.price}}<span class="ms-1">KWD</span></span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </ng-container>
     </div>
 </section>
