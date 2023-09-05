@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FlightCheckoutService } from 'rp-travel-ui';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-book-now',
@@ -14,7 +15,7 @@ export class BookNowComponent implements OnInit {
 
   @Output() checkoutSteps = new EventEmitter<number>();
   
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
   } 
@@ -27,6 +28,7 @@ export class BookNowComponent implements OnInit {
       this.flight.usersArray.at(0).get('phoneNumber')?.markAsTouched()
       this.checkoutSteps.emit(-1)
     }else{
+      this.location.go('/checkout/step2');
       this.checkoutSteps.emit(2)
     }
     
