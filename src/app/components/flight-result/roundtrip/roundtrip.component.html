@@ -21,63 +21,96 @@
                                       </div>
                                 </div>
                                 <div class="col-6">
+                                  
                                     <div class=" d-flex flight-duration">
-                                        <div class="duration me-2">
-                                          {{
-                                            flight[0].totalDuration
-                                              | hourminute
-                                          }}
+                                      <div class="duration me-2 ">
+                                        {{
+                                          data.elapsedTime
+                                            | hourminute
+                                        }}
+                                      </div>
+                                      <div class="stops ">
+                                        <div
+                                          *ngIf="data.stopsNum == 0"
+                                        >
+                                          ({{ "checkout.summaryCard.direct" | translate }})
                                         </div>
-                                        <div class="stops">
-                                          <div
-                                            *ngIf="data.stopsNum == 0"
-                                          >
-                                            ({{ "checkout.summaryCard.direct" | translate }})
-                                          </div>
-                                          <div
-                                            *ngIf="data.stopsNum == 1"
-                                          >
-                                            ({{ "checkout.summaryCard.oneStop" | translate }})
-                                          </div>
-                                          <div
-                                            *ngIf="data.stopsNum > 1"
-                                          >
-                                            ({{ "checkout.summaryCard.twoStops" | translate }})
-                                          </div>
+                                        <div
+                                          *ngIf="data.stopsNum == 1"
+                                        >
+                                          ({{ "checkout.summaryCard.oneStop" | translate }})
+                                        </div>
+                                        <div
+                                          *ngIf="data.stopsNum > 1"
+                                        >
+                                          ({{ "checkout.summaryCard.twoStops" | translate }})
                                         </div>
                                       </div>
+                                    
+                                  
+
+
+  
+                                    </div>
+                                  
+                                    
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-lg-5 col-sm-12 flight-location">
-                                    {{
-                                      data.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
-                                        ? "Dubai"
-                                        : data.flightDTO![0].departureTerminalAirport.cityName
-                                    }}
-                                    ({{ data.flightDTO![0].departureTerminalAirport.airportCode }}) -
-                                    {{
-                                      data.flightDTO![data.flightDTO!.length - 1]
-                                        .arrivalTerminalAirport.cityName
-                                    }}
+                            <div class="row ">
+                                <div class="col-lg-6 col-sm-12 flight-location mt-2">
+                                  <div class="row">
+                                    <div class="col-12">
+                                      {{
+                                        data.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
+                                          ? "Dubai"
+                                          : data.flightDTO![0].departureTerminalAirport.cityName
+                                      }}
+                                      ({{ data.flightDTO![0].departureTerminalAirport.airportCode }}) -
+                                      {{
+                                        data.flightDTO![data.flightDTO!.length - 1]
+                                          .arrivalTerminalAirport.cityName
+                                      }}
+                                      
+                                      ({{
+                                        data.flightDTO![data.flightDTO!.length - 1]
+                                          .arrivalTerminalAirport.airportCode
+                                      }})
+                                    </div>
+                                    <div class="col-12 mt-2">
+                                      <div class="d-flex align-items-center ">
+                                        <img
+                                        class=" me-2 airline-logo "
+                                        src="{{ data.flightAirline!.airlineLogo }}"
+                                      />
+                                      <div class="logo-name">{{ data.flightAirline!.airlineName }}</div>
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                  
+                                  </div>
+                                  <div class="col-6">
+                                    <div *ngFor="let transitData of data.flightDTO">
+                                      <div class="transit" *ngIf="transitData.transitTime != '00:00:00'">
+                                      
+                                        {{ transitData.transitTime  | durationToHourMin }}
+                                      
+                                     in
+                                     
+                                        {{transitData.arrivalTerminalAirport.cityName}}
+                                      
+                                    </div>
+                                    </div>
+                                
                                     
-                                    ({{
-                                      data.flightDTO![data.flightDTO!.length - 1]
-                                        .arrivalTerminalAirport.airportCode
-                                    }})
+                                   
                                   </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="d-flex align-items-center ">
-                                    <img
-                                    class=" me-2 airline-logo "
-                                    src="{{ data.flightAirline!.airlineLogo }}"
-                                  />
-                                  <div class="logo-name">{{ data.flightAirline!.airlineName }}</div>
-                                  </div>
-                            </div>
+                            <!-- <div class="row mt-3">
+                              
+                            </div> -->
                         </div>
-                      <div class="second-flight mt-2" *ngIf="flight[0].allJourney.flights[1] as returnData">
+                      <div class="second-flight mt-3" *ngIf="flight[0].allJourney.flights[1] as returnData">
                         <div class="row">
                             <div class="col-6">
                                 <div class="flight-time">
@@ -92,7 +125,7 @@
                                 <div class=" d-flex flight-duration">
                                     <div class="duration me-2">
                                       {{
-                                        flight[0].totalDuration
+                                        returnData.elapsedTime
                                           | hourminute
                                       }}
                                     </div>
@@ -116,34 +149,55 @@
                                   </div>
                             </div>
                         </div>
-                        <div class="row mt-3">
-                            <div class="col-lg-5 col-sm-12 flight-location">
-                                {{
-                                  returnData.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
-                                    ? "Dubai"
-                                    : returnData.flightDTO![0].departureTerminalAirport.cityName
-                                }}
-                                ({{ returnData.flightDTO![0].departureTerminalAirport.airportCode }}) -
-                                {{
-                                  returnData.flightDTO![returnData.flightDTO!.length - 1]
-                                    .arrivalTerminalAirport.cityName
-                                }}
-                                
-                                ({{
-                                  returnData.flightDTO![returnData.flightDTO!.length - 1]
-                                    .arrivalTerminalAirport.airportCode
-                                }})
+                        <div class="row ">
+                            <div class="col-lg-6 col-sm-12 flight-location mt-2">
+                              <div class="row">
+                                <div class="col-12">
+                                  {{
+                                    returnData.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
+                                      ? "Dubai"
+                                      : returnData.flightDTO![0].departureTerminalAirport.cityName
+                                  }}
+                                  ({{ returnData.flightDTO![0].departureTerminalAirport.airportCode }}) -
+                                  {{
+                                    returnData.flightDTO![returnData.flightDTO!.length - 1]
+                                      .arrivalTerminalAirport.cityName
+                                  }}
+                                  
+                                  ({{
+                                    returnData.flightDTO![returnData.flightDTO!.length - 1]
+                                      .arrivalTerminalAirport.airportCode
+                                  }})
+                                </div>
+                                <div class="col-12 mt-2">
+                                  <div class="d-flex align-items-center ">
+                                    <img
+                                    class=" me-2 airline-logo "
+                                    src="{{ returnData.flightAirline!.airlineLogo }}"
+                                  />
+                                  <div class="logo-name">{{ returnData.flightAirline!.airlineName }}</div>
+                                  </div>
+                                </div>
+                              </div>
+                             
+                              </div>
+                              <div class="col-6">
+                                <div *ngFor="let transitData of data.flightDTO">
+                                  <div class="transit" *ngIf="transitData.transitTime != '00:00:00'">
+                                  
+                                    {{ transitData.transitTime  | durationToHourMin }}
+                                  
+                                 in
+                                 
+                                    {{transitData.arrivalTerminalAirport.cityName}}
+                                  
+                                </div>
+                                </div>
                               </div>
                         </div>
-                        <div class="row mt-3">
-                            <div class="d-flex align-items-center ">
-                                <img
-                                class=" me-2 airline-logo "
-                                src="{{ returnData.flightAirline!.airlineLogo }}"
-                              />
-                              <div class="logo-name">{{ returnData.flightAirline!.airlineName }}</div>
-                              </div>
-                        </div>
+                        <!-- <div class="row mt-3">
+                            
+                        </div> -->
                       </div>
                     </div>
                    
@@ -302,7 +356,7 @@
                         <div class="timeline" *ngFor="let flightDetails of flight[0].allJourney.flights[index].flightDTO; let i = index">
                           <div class="dept_data">
                             <div class="row">
-                              <div class="col-md-2 col-3">
+                              <div class="col-md-2 col-2">
                                 <div class="details_departure_time">
                                   <span class="date">
                                     {{ flightDetails.departureDate | date : "MMM d" }}
@@ -344,7 +398,7 @@
         
                           <div class="flight_data">
                             <div class="row mt-3 mb-3">
-                              <div class="col-md-2 col-3">
+                              <div class="col-md-2 col-2">
                                 <div class="flight-duration-time">
                                   {{ flightDetails.durationPerLeg | hourminute }}
                                 </div>
@@ -393,7 +447,7 @@
                           </div>
                           <div class="arrival_data">
                             <div class="row">
-                              <div class="col-md-2 col-3">
+                              <div class="col-md-2 col-2">
                                 <div class="details_arrival_time">
                                   <span class="date">
                                     {{ flightDetails.arrivalDate | date : "MMM d" }}
@@ -587,7 +641,7 @@
                             <div class=" d-flex flight-duration">
                                 <div class="duration me-2">
                                   {{
-                                    item.totalDuration
+                                    moreData.elapsedTime
                                       | hourminute
                                   }}
                                 </div>
@@ -611,34 +665,53 @@
                               </div>
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-5 col-sm-12 flight-location">
-                            {{
-                              moreData.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
-                                ? "Dubai"
-                                : moreData.flightDTO![0].departureTerminalAirport.cityName
-                            }}
-                            ({{ moreData.flightDTO![0].departureTerminalAirport.airportCode }}) -
-                            {{
-                              moreData.flightDTO![moreData.flightDTO!.length - 1]
-                                .arrivalTerminalAirport.cityName
-                            }}
-                            
-                            ({{
-                              moreData.flightDTO![moreData.flightDTO!.length - 1]
-                                .arrivalTerminalAirport.airportCode
-                            }})
+                    <div class="row ">
+                        <div class="col-lg-6 col-sm-12 flight-location mt-2">
+                          <div class="row">
+                            <div class="col-12">
+                              {{
+                                moreData.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
+                                  ? "Dubai"
+                                  : moreData.flightDTO![0].departureTerminalAirport.cityName
+                              }}
+                              ({{ moreData.flightDTO![0].departureTerminalAirport.airportCode }}) -
+                              {{
+                                moreData.flightDTO![moreData.flightDTO!.length - 1]
+                                  .arrivalTerminalAirport.cityName
+                              }}
+                              
+                              ({{
+                                moreData.flightDTO![moreData.flightDTO!.length - 1]
+                                  .arrivalTerminalAirport.airportCode
+                              }})
+                            </div>
+                            <div class="col-12 mt-2">
+                              <div class="d-flex align-items-center ">
+                                <img
+                                class=" me-2 airline-logo "
+                                src="{{ moreData.flightAirline!.airlineLogo }}"
+                              />
+                              <div class="logo-name">{{ moreData.flightAirline!.airlineName }}</div>
+                              </div>
+                            </div>
+                          </div>
+                        
+                          </div>
+                          <div class="col-6">
+                            <div *ngFor="let transitData of moreData.flightDTO">
+                              <div class="transit" *ngIf="transitData.transitTime != '00:00:00'">
+                              
+                                {{ transitData.transitTime  | durationToHourMin }}
+                              
+                             in
+                             
+                                {{transitData.arrivalTerminalAirport.cityName}}
+                              
+                            </div>
+                            </div>
                           </div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="d-flex align-items-center ">
-                            <img
-                            class=" me-2 airline-logo "
-                            src="{{ moreData.flightAirline!.airlineLogo }}"
-                          />
-                          <div class="logo-name">{{ moreData.flightAirline!.airlineName }}</div>
-                          </div>
-                    </div>
+                    
                     </div>
                     <div class="sec-flight-container">
                       <div class="second-flight mt-3 " *ngIf="item.allJourney.flights[1] as returnData">
@@ -656,7 +729,7 @@
                                 <div class=" d-flex flight-duration">
                                     <div class="duration me-2">
                                       {{
-                                        flight[0].totalDuration
+                                        returnData.elapsedTime
                                           | hourminute
                                       }}
                                     </div>
@@ -680,34 +753,53 @@
                                   </div>
                             </div>
                         </div>
-                        <div class="row mt-3">
-                            <div class="col-lg-5 col-sm-12 flight-location">
-                                {{
-                                  returnData.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
-                                    ? "Dubai"
-                                    : returnData.flightDTO![0].departureTerminalAirport.cityName
-                                }}
-                                ({{ returnData.flightDTO![0].departureTerminalAirport.airportCode }}) -
-                                {{
-                                  returnData.flightDTO![returnData.flightDTO!.length - 1]
-                                    .arrivalTerminalAirport.cityName
-                                }}
-                                
-                                ({{
-                                  returnData.flightDTO![returnData.flightDTO!.length - 1]
-                                    .arrivalTerminalAirport.airportCode
-                                }})
+                        <div class="row ">
+                            <div class="col-lg-6 col-sm-12 flight-location mt-2">
+                              <div class="row">
+                                <div class="col-12">
+                                  {{
+                                    returnData.flightDTO![0].departureTerminalAirport.airportCode == "XNB"
+                                      ? "Dubai"
+                                      : returnData.flightDTO![0].departureTerminalAirport.cityName
+                                  }}
+                                  ({{ returnData.flightDTO![0].departureTerminalAirport.airportCode }}) -
+                                  {{
+                                    returnData.flightDTO![returnData.flightDTO!.length - 1]
+                                      .arrivalTerminalAirport.cityName
+                                  }}
+                                  
+                                  ({{
+                                    returnData.flightDTO![returnData.flightDTO!.length - 1]
+                                      .arrivalTerminalAirport.airportCode
+                                  }})
+                                </div>
+                                <div class="col-12 mt-2">
+                                  <div class="d-flex align-items-center ">
+                                    <img
+                                    class=" me-2 airline-logo "
+                                    src="{{ returnData.flightAirline!.airlineLogo }}"
+                                  />
+                                  <div class="logo-name">{{ returnData.flightAirline!.airlineName }}</div>
+                                  </div>
+                                </div>
+                              </div>
+                             
+                              </div>
+                              <div class="col-6">
+                                <div *ngFor="let transitData of returnData.flightDTO">
+                                  <div class="transit" *ngIf="transitData.transitTime != '00:00:00'">
+                                  
+                                    {{ transitData.transitTime  | durationToHourMin }}
+                                  
+                                 in
+                                 
+                                    {{transitData.arrivalTerminalAirport.cityName}}
+                                  
+                                </div>
+                                </div>
                               </div>
                         </div>
-                        <div class="row mt-3">
-                            <div class="d-flex align-items-center ">
-                                <img
-                                class=" me-2 airline-logo "
-                                src="{{ returnData.flightAirline!.airlineLogo }}"
-                              />
-                              <div class="logo-name">{{ returnData.flightAirline!.airlineName }}</div>
-                              </div>
-                        </div>
+                     
                       </div>
                     </div>
 
@@ -845,7 +937,7 @@
                         <div class="timeline" *ngFor="let flightDetails of flight[0].allJourney.flights[index].flightDTO; let i = index">
                           <div class="dept_data">
                             <div class="row">
-                              <div class="col-md-2 col-3">
+                              <div class="col-md-2 col-2">
                                 <div class="details_departure_time">
                                   <span class="date">
                                     {{ flightDetails.departureDate | date : "MMM d" }}
@@ -887,7 +979,7 @@
         
                           <div class="flight_data">
                             <div class="row mt-3 mb-3">
-                              <div class="col-md-2 col-3">
+                              <div class="col-md-2 col-2">
                                 <div class="flight-duration-time">
                                   {{ flightDetails.durationPerLeg | hourminute }}
                                 </div>
@@ -936,7 +1028,7 @@
                           </div>
                           <div class="arrival_data">
                             <div class="row">
-                              <div class="col-md-2 col-3">
+                              <div class="col-md-2 col-2">
                                 <div class="details_arrival_time">
                                   <span class="date">
                                     {{ flightDetails.arrivalDate | date : "MMM d" }}
