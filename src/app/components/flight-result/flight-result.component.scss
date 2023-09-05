@@ -27,6 +27,12 @@
 }
 
 .sortingContainer {
+  position: sticky;
+    top: 65px;
+    z-index: 999;
+    box-shadow: 2px 1px 5px 0px rgba(62, 125, 195, 0.5);
+    -webkit-box-shadow: 2px 1px 5px 0px rgba(62, 125, 195, 0.5);
+    -moz-box-shadow: 2px 1px 5px 0px rgba(62, 125, 195, 0.5);
   .criteria,
   .sortByCriteria {
     border: 1px solid #F5F5F5;
@@ -75,6 +81,9 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+  position: sticky !important;
+  top: 0;
+  z-index: 999;
 
   .airlineBoxContainer {
     animation: fadeIn 0.5s;
@@ -164,21 +173,8 @@
 }
 
 @media (max-width:769px) {
-  .sortingContainer{
-    position: sticky;
-    top: 65px;
-    z-index: 999;
-    box-shadow: 2px 1px 5px 0px rgba(62, 125, 195, 0.5);
-    -webkit-box-shadow: 2px 1px 5px 0px rgba(62, 125, 195, 0.5);
-    -moz-box-shadow: 2px 1px 5px 0px rgba(62, 125, 195, 0.5);
-  }
   .airlinesContainer {
     display: none !important;
-  }
-  .airlinesContainerMobile{
-    position: sticky !important;
-    top: 0;
-    z-index: 999;
   }
 
   .customFilterAirlineChevron {
