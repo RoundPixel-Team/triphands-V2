@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, ElementRef, Inject, OnDestroy, OnInit, inject } from '@angular/core';
+import { DOCUMENT, Location } from '@angular/common';
+import { Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -30,7 +30,16 @@ export class CheckoutComponent implements OnInit,OnDestroy {
   subscription = new Subscription()
 
   scrollToMainForm!: ElementRef<HTMLInputElement>;
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+
+  //here is an event listener to handle browser back button from checkout step 2
+  @HostListener('window:popstate',['$event'])
+    onPopState() {
+      this.checkoutStepNow = 1;
+    }
+    
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private location: Location,) { }
   
 
   ngOnInit(): void {
@@ -38,8 +47,10 @@ export class CheckoutComponent implements OnInit,OnDestroy {
       this.route.queryParams.subscribe((params)=>{
         this.flight.getSelectedFlightData(params["sid"],+params["sequenceNum"],params["providerKey"]?params["providerKey"]:params["pkey"])
         this.flight.getAllOfflineServices(params["sid"],'KW')
-        // this.flight.fetchLastPassengerData()
+        if(params["wego_click_id"]){localStorage.setItem("click_id", params["wego_click_id"]);}
       })
+
+      
     )
 
     this.subscription.add(this.flight.paymentLink.subscribe((res:any)=>{
@@ -49,23 +60,24 @@ export class CheckoutComponent implements OnInit,OnDestroy {
       }
     }))
     this.subscription.add(this.flight.selectedFlightLang.subscribe((res:any)=>{
-      console.log("show me selected lang",res);
       this.handleLangChange(res);
     }))
-  }
-handleLangChange(currentLang:string){
-  this.translate.use(currentLang)
-  setTimeout(() => {
-    if(this.translate.currentLang=='en'){
-    
-      this.document.dir='ltr';
 
-    }else {
-      this.document.dir='rtl';
-    }
-    localStorage.setItem('lang',currentLang)
-  },300)
-}
+    
+  }
+  handleLangChange(currentLang:string){
+    this.translate.use(currentLang)
+    setTimeout(() => {
+      if(this.translate.currentLang=='en'){
+      
+        this.document.dir='ltr';
+
+      }else {
+        this.document.dir='rtl';
+      }
+      localStorage.setItem('lang',currentLang)
+    },300)
+  }
   changeCheckoutStep(event:number){
     if(event == -1){
       this.invalidPhone()
@@ -95,8 +107,7 @@ handleLangChange(currentLang:string){
 
 
   goToHomePage(){
-    // this.router.navigate(['/'])
-    location.reload()
+    this.router.navigate(['/'])
   }
 
   CalculateOfflineServiceHeight(){
@@ -119,12 +130,12 @@ handleLangChange(currentLang:string){
   }
 
   goToNextStep(){
-    console.log('show me the form', 2)
     if(this.flight.usersArray.at(0).get('email')?.status == 'INVALID' || this.flight.usersArray.at(0).get('phoneNumber')?.status == 'INVALID'){
       this.flight.usersArray.at(0).get('email')?.markAsTouched()
       this.flight.usersArray.at(0).get('phoneNumber')?.markAsTouched()
       this.changeCheckoutStep(-1)
     }else{
+      this.location.go('/checkout/step2');
       this.changeCheckoutStep(2)
     }
     
@@ -134,6 +145,7 @@ handleLangChange(currentLang:string){
     this.subscription.unsubscribe()
     this.flight.destroyer()
   }
+  
 
 
 }

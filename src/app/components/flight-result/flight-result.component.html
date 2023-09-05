@@ -36,7 +36,7 @@
 <!--FILTERS AND CARDS-->
 <div class="container">
      <div class="flights-result-container row mt-3">
-          <div class="col-lg-3 col-sm-12" style="position: relative;">
+          <div class="col-lg-3 col-sm-12 mobileHide" style="position: relative;">
                <app-flights-filters></app-flights-filters>
           </div>
           <div class="col-lg-8 col-sm-12">
@@ -111,6 +111,12 @@
                     </div>
                </div>
                <!-- END SORTING CONTAINER -->
+
+               <!--float filter icon for mobile view-->
+               <div class="floatFilterIcon mt-2 mb-2 desktopHide" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                    <i class="bi bi-funnel"></i>
+                    <span>{{translate.currentLang == 'en'?'Filter':'تصفية'}}</span>
+               </div>
                <div *ngFor="let flight of this.FlightResult.orgnizedResponce; let i=index">
                     <app-oneway-result [flight]="flight" *ngIf="FlightResult.FlightType == 'oneway' || FlightResult.FlightType == 'Oneway' || FlightResult.FlightType =='OneWay' "></app-oneway-result>
                     <app-roundtrip-result [flight]="flight" *ngIf="FlightResult.FlightType== 'roundtrip' || FlightResult.FlightType=='Roundtrip' || FlightResult.FlightType=='RoundTrip' "></app-roundtrip-result>
@@ -177,6 +183,12 @@
      <button *ngIf="FlightResult.response!.searchCriteria!.flightType == 'roundtrip'"
      (click)="FlightResult.sortMyResult(6)" mat-menu-item>{{'sorting.returnLatest' | translate}}</button> -->
 </mat-menu>
+
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false"  tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+     <app-flights-filters></app-flights-filters>
+     
+</div>
 
 
 
