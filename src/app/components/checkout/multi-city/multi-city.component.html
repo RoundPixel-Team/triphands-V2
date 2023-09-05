@@ -146,7 +146,7 @@
                 <div class="timeline" *ngFor="let flightDetails of flight.selectedFlight!.airItineraryDTO!.allJourney.flights[index].flightDTO; let i = index">
                   <div class="dept_data">
                     <div class="row">
-                      <div class="col-md-2 col-3">
+                      <div class="col-md-2 col-2">
                         <div class="details_departure_time">
                           <span class="date">
                             {{ flightDetails.departureDate | date : "MMM d" }}
@@ -188,7 +188,7 @@
   
                   <div class="flight_data">
                     <div class="row mt-3 mb-3">
-                      <div class="col-md-2 col-3">
+                      <div class="col-md-2 col-2">
                         <div class="flight-duration-time">
                           {{ flightDetails.durationPerLeg | hourminute }}
                         </div>
@@ -237,7 +237,7 @@
                   </div>
                   <div class="arrival_data">
                     <div class="row">
-                      <div class="col-md-2 col-3">
+                      <div class="col-md-2 col-2">
                         <div class="details_arrival_time">
                           <span class="date">
                             {{ flightDetails.arrivalDate | date : "MMM d" }}

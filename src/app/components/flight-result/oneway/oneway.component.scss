@@ -44,6 +44,10 @@
       color:var(--seven-color);
       font-size: 1rem;
    }
+   .transit{
+    color:var(--seven-color);
+    font-size: 0.85rem;
+   }
    .flight-duration{
       color:var(--seven-color);
       font-size: 1rem;
@@ -116,8 +120,8 @@
         height: 37px;
       }
       .airline-logo{
-        width: 55px;
-        height: 55px;
+        width: 40px;
+        height: 40px;
         border: 1px solid #e8e8e8;
         padding: 6px;
         border-radius: 5px;

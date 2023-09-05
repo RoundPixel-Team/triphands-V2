@@ -128,7 +128,14 @@ html , body{ height: 100%;background-color:#F5F5F5; display: flex; flex-directio
       display: none;
     }
   }
-
+@media (max-width:400px){
+  .flight_details .mat-tab-labels .mat-tab-label {
+    margin: 2%;
+    padding: 0 0.7em;
+    overflow: hidden;
+    min-width: 60px;
+  }
+}
   .criteria{
     .ngx-slider .ngx-slider-pointer {
       cursor: pointer;
