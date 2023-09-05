@@ -113,7 +113,7 @@
                <!-- END SORTING CONTAINER -->
 
                <!--float filter icon for mobile view-->
-               <div class="floatFilterIcon mt-2 mb-2 desktopHide" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+               <div class="floatFilterIcon mt-2 mb-2 " (click)="openMobileFilterSideNav()">
                     <i class="bi bi-funnel"></i>
                     <span>{{translate.currentLang == 'en'?'Filter':'تصفية'}}</span>
                </div>
@@ -185,7 +185,7 @@
 </mat-menu>
 
 
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false"  tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+<div id="mobileFilterSideNav" #mobileFilterSideNav> 
      <app-flights-filters></app-flights-filters>
      
 </div>

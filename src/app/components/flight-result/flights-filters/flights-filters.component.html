@@ -1,5 +1,8 @@
 <div class="filterContainer" [formGroup]="flightResult.filterForm">
 
+    <div class="closeIcon mb-4 mt-2 desktopHide" (click)="closeMobileSideFilter()">
+        <i class="bi bi-x-circle"></i>
+    </div>
     <!--STOPS FILTER-->
     <div class="filterCriteria mb-4">
         <div class="title">{{'flightFilter.stops' | translate}}</div>

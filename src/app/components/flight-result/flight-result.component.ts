@@ -47,6 +47,11 @@ export class FlightResultComponent implements OnInit,OnDestroy {
         this.FlightResult.getDataFromUrl(lang, currency, pointOfReservation, flightType, flightsInfo, serachId, passengers, Cclass, showDirect,4,2)
       });
   }
+
+  openMobileFilterSideNav(){
+    document.getElementById("mobileFilterSideNav")!.style.width = "100%";
+    console.log("iam in the open",document.getElementById("mobileFilterSideNav")!.style.width)
+  }
   
 
 }

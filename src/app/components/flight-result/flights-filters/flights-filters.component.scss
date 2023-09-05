@@ -2,9 +2,6 @@
     padding: 8% 4%;
     background: var(--nine-color);
     width: 100%;
-    // position: sticky;
-    // top: 1%;
-    // margin-bottom: 10%;
     .filterCriteria{
         width: 100%;
         .title{
@@ -28,5 +25,17 @@
             width: 45%;
             border-width: 2px;
         }
+    }
+}
+.closeIcon{
+    text-align: end;
+    font-size: 1.5rem;
+}
+
+@media (min-width:770px) {
+    .filterContainer{
+        position: sticky;
+        top: 1%;
+        margin-bottom: 10%;
     }
 }

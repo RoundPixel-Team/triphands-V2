@@ -20,4 +20,9 @@ export class FlightsFiltersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  closeMobileSideFilter(){
+    document.getElementById("mobileFilterSideNav")!.style.width = "0";
+    console.log("iam in the close",document.getElementById("mobileFilterSideNav")!.style.width)
+  }
+
 }
