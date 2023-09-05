@@ -46,10 +46,7 @@ export class RoundTripComponent implements OnInit {
       this.toDate.year = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getFullYear()
       this.toDate.month = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getMonth() + 1
       this.toDate.day = new Date(this.searchbox.searchFlight.get('returnDate')?.value).getDate()
-      // this.toDate.day = Number(this.searchbox.searchFlight.get('returnDate')?.value.toString().split(' ')[2])
-      console.log("DATEEEESSSS", this.fromDate);
-      console.log("DATEEEESSSS TOOOO", this.toDate);
-      
+
     }
     else{
       this.fromDate = calendar.getToday()
@@ -66,8 +63,6 @@ export class RoundTripComponent implements OnInit {
     year = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getFullYear()
     month = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getMonth() + 1
     day = new Date(this.searchbox.flightsArray.at(0).get('departingD')?.value).getDate()
-    // day = Number(this.searchbox.flightsArray.at(0).get('departingD')?.value.toString().split(' ')[2])
-
     this.startDateValue =  { year: year, month: month, day: day }
   }
    //update date value from form Array
