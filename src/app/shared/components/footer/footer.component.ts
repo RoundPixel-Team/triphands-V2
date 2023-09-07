@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,31 +10,42 @@ import { Router } from '@angular/router';
 export class FooterComponent implements OnInit {
 
   constructor(
-    private router : Router
+    private router : Router,
+    private viewportScroller: ViewportScroller
   ) { }
 
   ngOnInit(): void {
   }
 
   goToAboutUs(){
-    this.router.navigate(['/aboutUs'])
+    this.router.navigate(['/aboutUs']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+  });
   }
 
   goToContactUs(){
-    this.router.navigate(['/contactUs'])
+    this.router.navigate(['/contactUs']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+  });
   }
 
   goToHome(){
-    this.router.navigate(['/'])
+    this.router.navigate(['/']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+  });
   }
 
 
   goToPrivacy(){
-    this.router.navigate(['/privacyPolicy'])
+    this.router.navigate(['/privacyPolicy']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+  });
   }
 
 
   goToTermsOfUse(){
-    this.router.navigate(['/termsOfUse'])
+    this.router.navigate(['/termsOfUse']).then(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
+  });
   }
 }
