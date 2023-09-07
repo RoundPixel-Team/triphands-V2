@@ -89,6 +89,10 @@
                 <ngx-slider style="opacity: 0.2;"  [value]="0" [highValue]="500" [options]="optionsLoading" *ngIf="flightResult.loading">
                 </ngx-slider>
             </div>
+
+            <div  class="col-12 mb-3 text-center desktopHide" (click)="closeMobileSideFilter()">
+                <button class="closeFilterBtn">{{translate.currentLang == 'en'?'Close':"اغلاق"}}</button>
+            </div>
         </div>
     </div>
 </div>

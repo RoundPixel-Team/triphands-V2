@@ -39,3 +39,14 @@
         margin-bottom: 10%;
     }
 }
+
+.closeFilterBtn{
+    padding: 2%;
+    border: 1px solid var(--one-color);
+    font-size: 1rem;
+    text-align: center;
+    background-color: var(--one-color);
+    color: var(--nine-color);
+    font-family: var(--two-font);
+    width: 100%;
+}

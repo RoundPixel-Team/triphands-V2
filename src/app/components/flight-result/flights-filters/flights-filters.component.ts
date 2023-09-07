@@ -1,5 +1,6 @@
 import { Options } from '@angular-slider/ngx-slider';
 import { Component, OnInit, inject } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { FlightResultService } from 'rp-travel-ui';
 
 @Component({
@@ -15,7 +16,7 @@ export class FlightsFiltersComponent implements OnInit {
     ceil : 0,
     floor:500,
   }
-  constructor() { }
+  constructor(public translate : TranslateService) { }
 
   ngOnInit(): void {
   }
