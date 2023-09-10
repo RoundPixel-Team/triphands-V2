@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightResultService } from 'rp-travel-ui';
+import { FlightResultService, flightResultFilter } from 'rp-travel-ui';
 
 @Component({
   selector: 'app-flight-result',
@@ -43,14 +43,14 @@ export class FlightResultComponent implements OnInit,OnDestroy {
           showDirect = true;
         }
         this.searchId=params['searchId']
-        console.log("I'LL")
         this.FlightResult.getDataFromUrl(lang, currency, pointOfReservation, flightType, flightsInfo, serachId, passengers, Cclass, showDirect,4,2)
-      });
+      }
+      );
+      
   }
 
   openMobileFilterSideNav(){
     document.getElementById("mobileFilterSideNav")!.style.width = "100%";
-    console.log("iam in the open",document.getElementById("mobileFilterSideNav")!.style.width)
   }
   
 
