@@ -112,7 +112,7 @@ export class RoundTripComponent implements OnInit {
   showTravellers(){
     this.showDatePicker = false;
   }
-    //get total Passengers
+  //get total Passengers
   getTotalPassenger(){
     let adult = this.searchbox.searchFlight?.get('passengers.adults')?.value;
     let child = this.searchbox.searchFlight?.get('passengers.child')?.value;
@@ -120,6 +120,8 @@ export class RoundTripComponent implements OnInit {
     return this.searchbox.getTotalPassengers(adult,child,infant);
   }
   submit() {    
+  console.log("FORMMMM", this.searchbox.searchFlight.value);
+
     this.lang = this.translate.currentLang; //get language
     this.currency = this.homePageService.selectedCurrency.Currency_Code; //get currency from homepage service
     this.resultLink = this.searchbox.onSubmit(this.lang,this.currency,this.lang,1,','); //call submit function from searchbox service
@@ -137,7 +139,8 @@ export class RoundTripComponent implements OnInit {
         }
       });
       this.searchbox.searchFlight.updateValueAndValidity();
-    } else if (typeof this.resultLink == 'string' && this.resultLink) {
+    } 
+    else if (typeof this.resultLink == 'string' && this.resultLink) {
       if(this.searchbox.searchFlight.valid){
         localStorage.setItem('form',JSON.stringify(this.searchbox.searchFlight.value))
         this.router.navigate([
