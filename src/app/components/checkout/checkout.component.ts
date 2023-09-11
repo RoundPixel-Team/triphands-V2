@@ -76,6 +76,8 @@ export class CheckoutComponent implements OnInit,OnDestroy {
         this.document.dir='rtl';
       }
       localStorage.setItem('lang',currentLang)
+      this.home.getPointOfSale();
+      this.home.getCountries(this.translate.currentLang)
     },300)
   }
   changeCheckoutStep(event:number){
@@ -122,7 +124,16 @@ export class CheckoutComponent implements OnInit,OnDestroy {
   CalculateFormseHeight(){
     if(document.getElementById('passengersFormSection') && document.getElementById('passengersFormSection') != null){
       console.log("GET HEIGHT",document.getElementById('passengersFormSection')!.offsetHeight)
-      return document.getElementById('passengersFormSection')!.offsetHeight - 259
+      // if(document.getElementById('passengersFormSection')!.offsetHeight > 2000){
+      //   return document.getElementById('passengersFormSection')!.offsetHeight - 1500
+      // }
+      // else if(document.getElementById('passengersFormSection')!.offsetHeight > 1000){
+      //   return document.getElementById('passengersFormSection')!.offsetHeight - 750
+      // }
+      // else{
+        return (document.getElementById('passengersFormSection')!.offsetHeight - 250 * this.flight.usersArray.length) 
+      // }
+      
     }else{
       return 50
     }

@@ -42,6 +42,7 @@ export class PassengerDetailsComponent implements OnInit {
   }
 
   saveBooking(){
+    console.log("show me the form",this.flight.usersArray)
     if(this.flight.usersArray.invalid){
       for(var i = 0; i < this.flight.usersArray.length ; i++){
         this.flight.usersArray.at(i).markAllAsTouched()
