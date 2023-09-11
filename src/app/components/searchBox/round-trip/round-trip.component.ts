@@ -120,9 +120,7 @@ export class RoundTripComponent implements OnInit {
     return this.searchbox.getTotalPassengers(adult,child,infant);
   }
   submit() {    
-  console.log("FORMMMM", this.searchbox.searchFlight.value);
-
-    this.lang = this.translate.currentLang; //get language
+  this.lang = this.translate.currentLang != null ?this.translate.currentLang : 'en'; //get language
     this.currency = this.homePageService.selectedCurrency.Currency_Code; //get currency from homepage service
     this.resultLink = this.searchbox.onSubmit(this.lang,this.currency,this.lang,1,','); //call submit function from searchbox service
     let splittedLink = this.resultLink.toString().split('/');

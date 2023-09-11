@@ -101,7 +101,7 @@ export class OneWayComponent implements OnInit {
       this.showDatePicker = false;
   }
   submit() {
-    this.lang = this.translate.currentLang; //get language
+    this.lang = this.translate.currentLang != null ?this.translate.currentLang : 'en'; //get language
     this.currency = this.homePageService.selectedCurrency.Currency_Code; //get currency from homepage service
     this.resultLink = this.searchbox.onSubmit(
       this.lang,

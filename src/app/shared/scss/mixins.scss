@@ -2,7 +2,7 @@
 @mixin cityInput($width:100%) {
   @include inputStyle();
   padding: 0rem 1rem;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   width: $width;
 }
 @mixin cityInputPlacholder{
