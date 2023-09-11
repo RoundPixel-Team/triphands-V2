@@ -27,7 +27,7 @@ export class SearchBoxComponent implements OnInit {
       let cityPattern = form.Flights[0].departing
       let pattern = /,/;
       //check pattern of depart and land cities if it does'nt match remove th form from local storage
-      if(pattern.test(cityPattern)){
+      if(!pattern.test(cityPattern)){
         localStorage.removeItem("form");
       }
     }
