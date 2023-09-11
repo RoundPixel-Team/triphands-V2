@@ -10,7 +10,7 @@
 
 
                         <div class="row mt-2">
-                            <div class="col-6 ">
+                            <div class="col-6 " [ngClass]="{' ar': translate.currentLang === 'ar' }">
                                 <div class="flight-time">
                                     {{ data.flightDTO![0].departureDate | date : "shortTime" }} -
                                     {{
@@ -528,7 +528,7 @@
                     <div *ngFor="  let moreData of item.allJourney.flights">
                     <div class="first-flight-container">
                       <div class="row mt-3">
-                        <div class="col-6 ">
+                        <div class="col-6 " [ngClass]="{' ar': translate.currentLang === 'ar' }">
                             <div class="flight-time">
                                 {{ moreData.flightDTO![0].departureDate | date : "shortTime" }} -
                                 {{

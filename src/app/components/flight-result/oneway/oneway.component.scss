@@ -6,6 +6,11 @@
 ::ng-deep .mat-card-content{
     margin-bottom: 0px !important;
 }
+.ar{
+  direction: ltr;
+  display: flex;
+  justify-content: flex-end;
+}
 .flight-mat-card{
     display: flex;
     flex-direction: column;
