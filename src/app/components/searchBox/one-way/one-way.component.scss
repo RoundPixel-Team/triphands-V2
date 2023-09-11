@@ -17,6 +17,7 @@
   }
   .travellerComp, .datePicker{
     text-align: center;
+    margin-top: 1rem;
   }
   .closeIcon{
     font-size: 1.3rem;
@@ -48,7 +49,7 @@
 
   .switchArrow {
     transform: rotate(90deg);
-    @include switchArrow(2rem, 77%);
+    @include switchArrow(2rem, 79%);
   }
 
   .ar .switchArrow {

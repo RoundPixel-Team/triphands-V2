@@ -61,8 +61,8 @@
 }
 
 ::ng-deep .searchBox .mat-form-field-appearance-legacy .mat-form-field-wrapper {
-  padding-bottom: 0.7em;
-  height:7vh;
+  padding-bottom: 0 !important;
+  height:4rem;
 }
 
 ::ng-deep .searchBox ngb-datepicker {
@@ -88,7 +88,7 @@
 ::ng-deep .searchBox .ngb-dp-arrow {
   position: absolute !important;
   top: 40% !important;
-  left: -7% !important;
+  left: -15% !important;
 
   button {
     padding: 1.3rem 0.6rem 2.5rem 1rem !important;
@@ -101,7 +101,7 @@
 ::ng-deep .searchBox .ngb-dp-arrow.right {
   position: absolute !important;
   top: 40% !important;
-  right: -7% !important;
+  right: -15% !important;
   left: unset !important;
 
   button {
