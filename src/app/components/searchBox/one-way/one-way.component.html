@@ -149,10 +149,7 @@
                     readonly
                     matInput
                     type="text"
-                    value="{{
-                      searchbox.flightsArray.at(0).get('departingD')?.value
-                        | date : 'MMM dd'
-                    }}"
+                    formControlName="departingD"
                   />
                 </mat-form-field>
               </div>
@@ -167,10 +164,7 @@
                       readonly
                       matInput
                       type="text"
-                      value="{{
-                        searchbox.flightsArray.at(0).get('departingD')?.value
-                          | date : 'MMM dd'
-                      }}"
+                      formControlName="departingD"
                     />
                   </mat-form-field>
                 </div>

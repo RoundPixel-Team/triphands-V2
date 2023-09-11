@@ -63,7 +63,7 @@ export class OneWayComponent implements OnInit {
     let day = 0;
     let month = 0;
     let year = 0;
-    if(this.searchbox.flightsArray.at(index).get('departingD')?.value){
+    if(this.searchbox.flightsArray.at(index).get('departingD')?.value != null){
       year = new Date(this.searchbox.flightsArray.at(index).get('departingD')?.value).getFullYear()
       month = new Date(this.searchbox.flightsArray.at(index).get('departingD')?.value).getMonth() + 1
       day = Number(this.searchbox.flightsArray.at(index).get('departingD')?.value.toString().split(' ')[2])

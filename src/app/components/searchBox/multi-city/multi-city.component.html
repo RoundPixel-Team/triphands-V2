@@ -75,13 +75,11 @@
                     {{ "searchbox.depart" | translate }}
                   </p>
                   <input
+                  *ngIf="searchbox.flightsArray.at(i).get('departingD')!.value != null"
                     readonly
                     matInput
                     type="text"
-                    value="{{
-                      searchbox.flightsArray.at(i).get('departingD')?.value
-                        | date : 'MMM dd'
-                    }}"
+                    value="{{searchbox.flightsArray.at(i).get('departingD')!.value | date : 'MMM dd'}}"
                   />
                 </mat-form-field>
               </div>

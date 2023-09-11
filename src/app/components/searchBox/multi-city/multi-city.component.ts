@@ -41,7 +41,7 @@ export class MultiCityComponent implements OnInit {
     let day = 0;
     let month = 0;
     let year = 0;
-    if(this.searchbox.flightsArray.at(index).get('departingD')?.value){
+    if(this.searchbox.flightsArray.at(index).get('departingD')?.value != null ){
       year = new Date(this.searchbox.flightsArray.at(index).get('departingD')?.value).getFullYear()
       month = new Date(this.searchbox.flightsArray.at(index).get('departingD')?.value).getMonth() + 1
       day = Number(this.searchbox.flightsArray.at(index).get('departingD')?.value.toString().split(' ')[2])
@@ -49,8 +49,8 @@ export class MultiCityComponent implements OnInit {
       return this.startDateValue =  { year: year, month: month, day: day }
     }
     else{
-      return this.startDateValue  =this.calendar.getToday();
       this.searchbox.flightsArray.at(index).get('departingD')?.setValue(this.calendar.getToday())
+      return this.startDateValue  =this.calendar.getToday();
     }
   }
   isHovered(date: NgbDate) {
