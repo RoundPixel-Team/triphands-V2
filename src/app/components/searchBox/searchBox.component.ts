@@ -22,8 +22,17 @@ export class SearchBoxComponent implements OnInit {
   ngOnInit() {
     //Get local storage Form
     let form = JSON.parse(localStorage.getItem('form') as string);
+    //check if local storage have value
+    if(form){
+      let cityPattern = form.Flights[0].departing
+      let pattern = /,/;
+      //check pattern of depart and land cities if it does'nt match remove th form from local storage
+      if(pattern.test(cityPattern)){
+        localStorage.removeItem("form");
+      }
+    }
     this.flightSearch.initSearchForm(form);
-}
+  }
   //select flight type from HTML and set value to searchFlight form
   selectFlightType(flightType: string) {
     this.flightSearch.changeFlightType(flightType);
