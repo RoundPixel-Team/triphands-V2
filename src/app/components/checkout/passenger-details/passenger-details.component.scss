@@ -11,7 +11,8 @@
 
 .sectionContainer{
     background-color: var(--nine-color);
-    padding: 2%;
+    padding: 2%; 
+    position: relative;
     .passengersHeaderTitle{
         color: var(--eight-color);
         font-family: var(--two-font);
@@ -81,7 +82,7 @@
         border: 1px solid var(--three-color);
         width: 100%;
         padding: 4%;
-        color: var(--three-color);
+        color: var(--eight-color);
         font-family: var(--two-font);
         font-size: 1rem;
         font-style: normal;

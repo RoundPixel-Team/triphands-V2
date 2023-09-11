@@ -112,15 +112,6 @@ export class CheckoutComponent implements OnInit,OnDestroy {
     this.router.navigate(['/'])
   }
 
-  CalculateOfflineServiceHeight(){
-    if(document.getElementById('offlineServiceSection') && document.getElementById('offlineServiceSection') != null){
-      return document.getElementById('offlineServiceSection')!.offsetHeight - 300
-    }else{
-      return 50
-    }
-    
-  }
-
   CalculateFormseHeight(){
     if(document.getElementById('passengersFormSection') && document.getElementById('passengersFormSection') != null){
       console.log("GET HEIGHT",document.getElementById('passengersFormSection')!.offsetHeight)
@@ -131,7 +122,7 @@ export class CheckoutComponent implements OnInit,OnDestroy {
       //   return document.getElementById('passengersFormSection')!.offsetHeight - 750
       // }
       // else{
-        return (document.getElementById('passengersFormSection')!.offsetHeight - 250 * this.flight.usersArray.length) 
+        return (document.getElementById('passengersFormSection')!.scrollHeight -  250) 
       // }
       
     }else{
