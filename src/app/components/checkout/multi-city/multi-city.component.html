@@ -50,7 +50,7 @@
                     {{"checkout.summaryCard.nonRefundable" | translate}}
                 </div>
             </div>
-            <div class="col-lg-2 col-sm-4 flight-details" (click)="toggleDetailsCard();getFareRules(this.FlightResult.searchID,flight.selectedFlight!.airItineraryDTO.sequenceNum,flight.selectedFlight!.airItineraryDTO.pKey)">
+            <div class="col-lg-2 col-sm-4 flight-details" (click)="toggleDetailsCard();getFareRules(this.flight.selectedFlight!.searchCriteria.searchId,flight.selectedFlight!.airItineraryDTO.sequenceNum,flight.selectedFlight!.airItineraryDTO.pKey)">
                 {{ "checkout.summaryCard.flightDetails" | translate }}
           
         </div>        </div>
