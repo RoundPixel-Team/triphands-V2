@@ -52,4 +52,7 @@ index:number=0;
       queryParams: { sid: sid, sequenceNum: sequenceNum, providerKey: providerKey },
     });
   }
+  getFareRules(sid: string,sequenceNum: number,providerKey: any){
+    this.FlightResult.showFareRules( sid,sequenceNum,providerKey)
+  }
 }

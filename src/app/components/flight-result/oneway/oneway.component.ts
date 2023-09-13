@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightResultService, airItineraries, flight } from 'rp-travel-ui';
+import { FareRules, FlightResultService, airItineraries, flight } from 'rp-travel-ui';
 
 @Component({
   selector: 'app-oneway-result',
@@ -19,6 +19,7 @@ showMoreDetails:boolean[]=[];
 collapseRoute:boolean=false;
 term!:flight;
 seqNum!:number;
+provierKey!:any;
 moreDetailsIndex: number = 0;
 searchId!:string
 @Input() flight: airItineraries[] = [];
@@ -26,7 +27,7 @@ searchId!:string
   constructor() { }
 
   ngOnInit(): void {
-  
+   
   }
   
   showMoreFlights(){
@@ -51,4 +52,8 @@ searchId!:string
       queryParams: { sid: sid, sequenceNum: sequenceNum, providerKey: providerKey },
     });
   }
+  getFareRules(sid: string,sequenceNum: number,providerKey: any){
+    this.FlightResult.showFareRules( sid,sequenceNum,providerKey)
+  }
 }
+

@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightCheckoutService } from 'rp-travel-ui';
+import { FlightCheckoutService, FlightResultService } from 'rp-travel-ui';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 export class OneWayComponent implements OnInit {
   public flight = inject(FlightCheckoutService) 
   public translate = inject(TranslateService)
+  FlightResult= inject(FlightResultService)
+
   showDetails:boolean=false;
   collapseRoute:boolean=false;
   subscription = new Subscription()
@@ -27,5 +29,7 @@ export class OneWayComponent implements OnInit {
   detailsCollapse(){
     this.collapseRoute=!this.collapseRoute;
   }
- 
+  getFareRules(sid: string,sequenceNum: number,providerKey: any){
+    this.FlightResult.showFareRules( sid,sequenceNum,providerKey)
+  }
 }

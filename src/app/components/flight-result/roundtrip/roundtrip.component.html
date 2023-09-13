@@ -11,7 +11,7 @@
                     <div class="flight-info-container">
                         <div class="first-flight">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-6" [ngClass]="{' ar': translate.currentLang === 'ar' }">
                                     <div class="flight-time">
                                         {{ data.flightDTO![0].departureDate | date : "shortTime" }} -
                                         {{
@@ -112,7 +112,7 @@
                         </div>
                       <div class="second-flight mt-3" *ngIf="flight[0].allJourney.flights[1] as returnData">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-6" [ngClass]="{' ar': translate.currentLang === 'ar' }">
                                 <div class="flight-time">
                                     {{ returnData.flightDTO![0].departureDate | date : "shortTime" }} -
                                     {{
@@ -255,7 +255,7 @@
                     flight[0].allJourney.flights[0],
                     flight[0].sequenceNum
 
-                  )">
+                  );getFareRules(this.FlightResult.searchID,flight[0].sequenceNum,flight[0].pKey)">
                           {{ "checkout.summaryCard.flightDetails" | translate }}
                     
                   </div>
@@ -519,50 +519,51 @@
                   </div>
                 </mat-tab>
                 <mat-tab  label="{{'checkout.flightDetails.fareRules' |translate}}">
-                  <div class="fare-rules w-100">
+                  <div class="fare-rules w-100" *ngIf="FlightResult.fareLoading">
+                    <div class="row">
+                        <div class="col-12 text-center mt-5">
+                            <mat-spinner style="width: 100% !important;"></mat-spinner>
+                        </div>
+                    </div>
+                </div>
+                  <div class="fare-rules w-100"  *ngIf="!FlightResult.fareLoading">
                     <div class="row mb-2">
-                      <div class="col-12 col-md-12 col-lg-6 mb-2">
+                      <div class="col-12 col-md-12 col-lg-12 mb-2">
                         <div class="cancellation">
-                          <p class="cancel-text p-3 m-0">
-                            {{ "checkout.flightDetails.cancel" | translate }}
-                          </p>
-                          <div class="content p-3">
-                           
-                            <ul>
-                              <li>
-                                {{ "checkout.flightDetails.cancelFareText" | translate }}
-                              </li>
-                            </ul>
-                            <div class="d-flex justify-content-between pt-2">
-                              <p>{{ "checkout.flightDetails.fareLabel" | translate }}</p>
-                              <p class="text-price">
-                                  
-                                EGP 500
-                              </p>
+                          <div class="" *ngFor="let rule of FlightResult.fareRules">
+                            <div class="content-title p-3 mt-2 mb-2">ADULTS RULES
+                              <div *ngIf="rule.adtRules.length>0">
+                                <div class="" *ngFor="let adultRules of rule.adtRules">
+                                  <div class="content p-2">{{adultRules.title}}</div>
+                                  <div class="cancel-text mb-2 p-2">{{adultRules.fareRule}}</div>
+                                </div>
+                              </div>
+                           <div *ngIf="rule.adtRules.length==0">
+                            <div class="cancel-text">THERE'S NO ADULTS IN THIS TRIP</div>
+                           </div>
+                          </div>
+                          <div class="content-title p-3 mt-2 mb-2">CHILDREN RULES
+                            <div *ngIf="rule.cnnRules.length>0">
+                              <div class="" *ngFor="let childRules of rule.cnnRules">
+                                <div class="content p-2">{{childRules.title}}</div>
+                                <div class="cancel-text mb-2 p-3">{{childRules.fareRule}}</div>
+                              </div>
+                            </div>
+                         <div *ngIf="rule.cnnRules.length==0">
+                          <div class="cancel-text">THERE'S NO CHILDREN IN THIS TRIP</div>
+                         </div>
+                        </div>
+                        <div class="content-title p-3 mt-2 ">INFANTS RULES
+                          <div *ngIf="rule.infRules.length>0">
+                            <div class="" *ngFor="let infantRules of rule.infRules">
+                              <div class="content p-2">{{infantRules.title}}</div>
+                              <div class="cancel-text mb-2 p-3">{{infantRules.fareRule}}</div>
                             </div>
                           </div>
-                        </div>
+                       <div *ngIf="rule.infRules.length==0">
+                        <div class="cancel-text">THERE'S NO INFANTS IN THIS TRIP</div>
+                       </div>
                       </div>
-        
-                      <div class="col-12 col-md-12 col-lg-6 mb-2">
-                        <div class="cancellation"
-                        >
-                          <p class="cancel-text p-3 m-0">
-                            {{ "checkout.flightDetails.change" | translate }}
-                          </p>
-                          <div class="content p-3">
-                            
-                            <ul>
-                              <li>
-                                {{ "checkout.flightDetails.changeFareText" | translate }}
-                              </li>
-                            </ul>
-                            <div class="d-flex justify-content-between pt-2">
-                              <p>{{ "checkout.flightDetails.fareLabel" | translate }}</p>
-                              <p class="text-price">
-                                EGP 500
-                              </p>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -628,7 +629,7 @@
                   <div class="col-lg-9 col-sm-12 col-md-12 ps-lg-4 ps-sm-0 ps-0">
                     <div class="first-flight-container">
                       <div class="row">
-                        <div class="col-6">
+                        <div class="col-6" [ngClass]="{' ar': translate.currentLang === 'ar' }">
                             <div class="flight-time">
                                 {{ moreData.flightDTO![0].departureDate | date : "shortTime" }} -
                                 {{
@@ -717,7 +718,7 @@
                       <div class="second-flight mt-3 " *ngIf="item.allJourney.flights[1] as returnData">
                         <div class="row">
                             <div class="col-6">
-                                <div class="flight-time">
+                                <div class="flight-time" [ngClass]="{' ar': translate.currentLang === 'ar' }">
                                     {{ returnData.flightDTO![0].departureDate | date : "shortTime" }} -
                                     {{
                                       returnData.flightDTO![returnData.flightDTO!.length - 1].arrivalDate
@@ -837,7 +838,7 @@
                     <div class="col-2">
                     </div>
                     
-                    <div class="col-lg-2 col-sm-4 flight-details" (click)="toggleMoreDetailsCard(m)">
+                    <div class="col-lg-2 col-sm-4 flight-details" (click)="toggleMoreDetailsCard(m);getFareRules(this.FlightResult.searchID,item.sequenceNum,item.pKey)">
                             {{ "checkout.summaryCard.flightDetails" | translate }}
                       
                     </div>
@@ -1100,6 +1101,58 @@
                   </div>
                 </mat-tab>
                 <mat-tab  label="{{'checkout.flightDetails.fareRules' |translate}}">
+                  <div class="fare-rules w-100" *ngIf="FlightResult.fareLoading">
+                    <div class="row">
+                        <div class="col-12 text-center mt-5">
+                            <mat-spinner style="width: 100% !important;"></mat-spinner>
+                        </div>
+                    </div>
+                </div>
+                  <div class="fare-rules w-100"  *ngIf="!FlightResult.fareLoading">
+                    <div class="row mb-2">
+                      <div class="col-12 col-md-12 col-lg-12 mb-2">
+                        <div class="cancellation">
+                          <div class="" *ngFor="let rule of FlightResult.fareRules">
+                            <div class="content-title p-3 mt-2 mb-2">ADULTS RULES
+                              <div *ngIf="rule.adtRules.length>0">
+                                <div class="" *ngFor="let adultRules of rule.adtRules">
+                                  <div class="content p-2">{{adultRules.title}}</div>
+                                  <div class="cancel-text mb-2 p-2">{{adultRules.fareRule}}</div>
+                                </div>
+                              </div>
+                           <div *ngIf="rule.adtRules.length==0">
+                            <div class="cancel-text">THERE'S NO ADULTS IN THIS TRIP</div>
+                           </div>
+                          </div>
+                          <div class="content-title p-3 mt-2 mb-2">CHILDREN RULES
+                            <div *ngIf="rule.cnnRules.length>0">
+                              <div class="" *ngFor="let childRules of rule.cnnRules">
+                                <div class="content p-2">{{childRules.title}}</div>
+                                <div class="cancel-text mb-2 p-3">{{childRules.fareRule}}</div>
+                              </div>
+                            </div>
+                         <div *ngIf="rule.cnnRules.length==0">
+                          <div class="cancel-text">THERE'S NO CHILDREN IN THIS TRIP</div>
+                         </div>
+                        </div>
+                        <div class="content-title p-3 mt-2 ">INFANTS RULES
+                          <div *ngIf="rule.infRules.length>0">
+                            <div class="" *ngFor="let infantRules of rule.infRules">
+                              <div class="content p-2">{{infantRules.title}}</div>
+                              <div class="cancel-text mb-2 p-3">{{infantRules.fareRule}}</div>
+                            </div>
+                          </div>
+                       <div *ngIf="rule.infRules.length==0">
+                        <div class="cancel-text">THERE'S NO INFANTS IN THIS TRIP</div>
+                       </div>
+                      </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+                <!-- <mat-tab  label="{{'checkout.flightDetails.fareRules' |translate}}">
                   <div class="fare-rules w-100">
                     <div class="row mb-2">
                       <div class="col-12 col-md-12 col-lg-6 mb-2">
@@ -1149,7 +1202,7 @@
                       </div>
                     </div>
                   </div>
-                </mat-tab>
+                </mat-tab> -->
                 <mat-tab  label="{{'checkout.flightDetails.baggage' |translate}}">
                   <div class="baggage">
                     <div class="container">

@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FlightCheckoutService } from 'rp-travel-ui';
+import { FlightCheckoutService, FlightResultService } from 'rp-travel-ui';
 
 @Component({
   selector: 'app-round-trip-checkout',
@@ -10,6 +10,8 @@ import { FlightCheckoutService } from 'rp-travel-ui';
 export class RoundTripComponent implements OnInit {
   public flight = inject(FlightCheckoutService) 
   public translate = inject(TranslateService)
+  FlightResult= inject(FlightResultService)
+
   showDetails:boolean=false;
   index:number=0;
   detailsStates: boolean[] = [];
@@ -26,4 +28,7 @@ export class RoundTripComponent implements OnInit {
     } else {
       this.detailsStates[flightIndex] = !this.detailsStates[flightIndex];
     }  }
+    getFareRules(sid: string,sequenceNum: number,providerKey: any){
+      this.FlightResult.showFareRules( sid,sequenceNum,providerKey)
+    }
 }
