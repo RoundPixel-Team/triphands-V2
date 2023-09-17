@@ -145,12 +145,14 @@
                   <p class="cityInputPlacholder">
                     {{ "searchbox.depart" | translate }}
                   </p>
-                  <input
+                    <input
                     readonly
                     matInput
-                    type="text"
-                    formControlName="departingD"
-                  />
+                  value="{{
+                    searchbox.flightsArray.at(0).get('departingD')?.value
+                      | date : 'MMM dd'
+                  }}"
+                />
                 </mat-form-field>
               </div>
               <!-- Date Else Condition -->
