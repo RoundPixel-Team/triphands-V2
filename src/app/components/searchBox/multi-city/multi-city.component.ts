@@ -96,6 +96,10 @@ export class MultiCityComponent implements OnInit {
       ?.setValue(new Date(date.year, date.month - 1, date.day));
       this.showDatePicker[index] = false;
       this.showTraveller[index] = true;
+      let val = this.searchbox.validateMultiCityDates();
+      console.log("ERRORRRR",val);
+      console.log("ERRORRRR",this.searchbox.flightsArray.value);
+      
   }
   addFlight() {
     this.searchbox.addFlight();
