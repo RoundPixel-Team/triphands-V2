@@ -122,7 +122,27 @@
                     <app-roundtrip-result [flight]="flight" *ngIf="FlightResult.FlightType== 'roundtrip' || FlightResult.FlightType=='Roundtrip' || FlightResult.FlightType=='RoundTrip' "></app-roundtrip-result>
                     <app-multicity-result [flight]="flight" *ngIf="FlightResult.FlightType== 'multicity' || FlightResult.FlightType=='Multicity' || FlightResult.FlightType=='MultiCity' "></app-multicity-result> 
                </div>
-                 
+               <div *ngIf="!FlightResult.loading && FlightResult.orgnizedResponce.length==0">
+                    <div class="row flightSummaryContainer">
+                         <!--FLIGHTS SUMMARY-->
+                         <div class="col-6 col-lg-4 flightSummary">
+                              
+                         <p>{{'flightsResult.error' | translate}}</p>
+                               
+                         </div>
+                         <!--MODIFIY BUTTON-->
+                         <div class="col-12 col-lg-4">
+                              <button (click)="modifiySearch = !modifiySearch">{{'flightFilter.modifySearch' | translate}}</button>
+                         </div>
+     
+                         <!--SEARCH BOX CONTAINER-->
+                         <div class="col-12" *ngIf="modifiySearch">
+                              <app-searchBox></app-searchBox>
+                         </div>
+                    </div>
+                
+               </div>
+               
                <div *ngIf="FlightResult.loading"> 
                     
                     <div class="w-100 mt-1 lazyLoadCard">

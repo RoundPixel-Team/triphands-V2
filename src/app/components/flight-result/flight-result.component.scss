@@ -319,3 +319,21 @@
   overflow-x: hidden;
   transition: 0.5s;
 }
+.popupError {
+  margin: 20vh auto;
+  padding: 0px;
+  background: var(--nine-color);
+  border-radius: 5px;
+  width: 40%;
+  position: relative;
+  padding: 4%;
+}
+.searchAgainBtn{
+  border-radius: 10px;
+  background-color: var(--one-color);
+  padding: 2%;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--nine-color);
+}

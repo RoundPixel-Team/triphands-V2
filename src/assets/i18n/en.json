@@ -72,6 +72,7 @@
         "twoStops": "2+ Stops"
     },
     "flightDetails":{
+
         "flightRoute" :"Flight Route",
         "fareRules": "Fare Rules",
         "baggage": "Baggage",
@@ -137,7 +138,8 @@
 },
 "flightsResult":{
   "moreFlights":"More flights at same price",
-  "lessFlights":"Hide more flights"
+  "lessFlights":"Hide more flights",
+  "error":"Sorry, There's no results !"
 },
 
 "aboutUs":{
