@@ -1,8 +1,8 @@
 <section class="container">
     <div class="row">
         <ng-container *ngFor="let card of cards; let i=index">
-            <div *ngIf="card.tripIdeas==true" class="col-12 col-md-6 my-2" (click)="gotoSearchResult(card)">
-                <div  class="topDestination" style="background-image: url('{{card.imageURL}}')"  loading="lazy">
+            <div *ngIf="card.tripIdeas==true" class="col-12 col-md-3 my-2" (click)="gotoSearchResult(card)">
+                <div  class="topDestination" style="background-image: url('{{card.imageURL}}')" loading="lazy">
                     <!-- Top destination text -->
                     <div></div>
                     <div class="topDestination_wrapper">
