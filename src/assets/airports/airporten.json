@@ -9,6 +9,25 @@
         "regionName": "Europe"
     },
     {
+        "airportCode":"IST",
+        "airportName":"Istanbul",
+        "cityName":"Istanbul Ataturk",
+        "cityCode":"IST",
+        "countryCode":"TR",
+        "countryName":"Turkey",
+        "regionName":"Asia"
+    },
+    {
+        "airportCode":"SAW",
+        "airportName":"Sabiha Gökçen International Airport",
+        "cityName":"Istanbul",
+        "cityCode":"ISL",
+        "countryCode":"TR",
+        "countryName":"Turkey",
+        "regionName":"Asia"
+        
+    },
+    {
         "airportCode": "AAA",
         "airportName": "Anaa Airport",
         "cityName": "Anaa",

@@ -43,6 +43,7 @@
                         *ngFor="
                           let city of sharedService.cities
                             | filterCity : item.get('departing')?.value
+                            | limitTo : 5
                         "
                         [value]="city.cityName + ',' + city.airportCode"
                       >
@@ -106,6 +107,7 @@
                         *ngFor="
                           let city of sharedService.cities
                             | filterCity : item.get('landing')?.value
+                            | limitTo : 5
                         "
                         [value]="city.cityName + ',' + city.airportCode"
                       >
