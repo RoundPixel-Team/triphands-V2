@@ -19,44 +19,58 @@ export class PassengerDetailsComponent implements OnInit {
   minAdultDateBirth = new Date(1990, 0, 1)
   minChildDateBirth = new Date(2010, 0, 1)
   minInfantDateBirth = new Date(2020, 0, 1)
-  passengerCompleted: boolean[] = [];
-
+  passengerCompleted: boolean[]=[];
+  step:number = 0;
   @Output() fareBreakup = new EventEmitter<boolean>();
 
-  constructor(private fb : FormBuilder) { 
+  constructor() { 
    
   }
 
   ngOnInit(): void {
-    console.log(this.flight.usersArray.at(0).get('title')?.value)
-    // this.flight.usersForm = this.fb.group({
-    //   // ... Other form controls ...
-    //   firstPanelCompleted: [false],
-    // });
-
-    // // Subscribe to form value changes
-    // this.flight.usersForm.valueChanges.subscribe(() => {
-    //   // Check if the 1st user form is valid and completed
-    //   if (this.isFirstUserFormValidAndCompleted()) {
-    //     this.flight.usersForm.get('firstPanelCompleted').setValue(true);
-    //   }
-    // });
-  }
-  // isFirstUserFormValidAndCompleted(): boolean {
-  //   const firstUserForm = this.flight.usersArray.at(0); // Assuming 1st user is at index 0
-
-  //   // Add your validation logic here
-  //   return firstUserForm.valid  /* Add other conditions as needed */;
-  // }
-
-  initializePassengerCompletion() {
-    for (let i = 0; i < this.flight.usersArray.length; i++) {
-      this.passengerCompleted[i] = false;
+    console.log(this.flight.usersArray.length,'show length');
+    for(let i=0;i< this.flight.usersArray.length;i++){
+      
+      if(i===0){
+        this.passengerCompleted.push(true);
+      }else{
+        this.passengerCompleted.push(false);
+      }
     }
+    this.flight.usersArray.valueChanges.subscribe(()=>{
+      this.initializePassengerCompletion()
+    })
+    
   }
-  completePassengerForm(index: number) {
-    this.passengerCompleted[index] = true;
+  
+setStep(index:number){
+  this.step=index;
+}
+  initializePassengerCompletion() {
+    for(let i=0;i< this.flight.usersArray.length;i++){
+      if(this.flight.usersArray.at(i).status==='VALID'){
+        for(let passenger=0;passenger < this.passengerCompleted.length;passenger++){
+          if(passenger===i){
+            if(i === this.passengerCompleted.length){
+              this.passengerCompleted[i]=true
+            }else{
+              this.passengerCompleted[i+1]=true
+            }
+           
+
+          }else{
+            this.passengerCompleted[i]=false
+          }
+        }
+      }
+    }
+      
+      
+ 
+    
+    
   }
+  
   assignGenderToUser(index:number,value:string){
     this.flight.usersArray.at(index).get('title')?.setValue(value)
   }
