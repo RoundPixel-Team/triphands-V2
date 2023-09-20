@@ -29,4 +29,24 @@
 .topDestination:hover{
     scale:1.05;
     opacity: 90%;
+    cursor: pointer;
+}
+.bestFlight_title{
+    margin-top: 1rem;
+    // color: #0F56A6;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #d92434;
+}
+.bestFlight{
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0.3rem 0;
+    color: #fff;
+    // padding: 1rem 0.5rem;
+    // background-color: #acd3ff3a;
+}
+.bestFlight:hover{
+    cursor: pointer;
+    text-decoration: underline;
 }

@@ -1,14 +1,19 @@
 <div class="footerContainer">
     <div class="container">
+        <!--LOGO-->
+        <div class="row">
+            <div class="logo mt-3 ">
+                <img (click)="goToHome()" style="cursor: pointer;" src="../../../../assets/images/logonew 1.svg">
+            </div>
+        </div>
+        <!-- Best Flights -->
         <div class="row borderBottom">
-            <!--LOGO-->
+            <app-top-destination [destinationView]="false"></app-top-destination>
+        </div>
+        <div class="row borderBottom">
             <div class="col-12 col-lg-6">
-                <div class="logo mt-3">
-                    <img (click)="goToHome()" style="cursor: pointer;" src="../../../../assets/images/logonew 1.svg">
-                </div>
-
-                <div class="texts  mt-3">
-                    <div class="text mt-3">
+                <div class="texts">
+                    <div class="text">
                         <i class="bi bi-geo-alt"></i>
                         {{'footer.location' | translate}}
                     </div>
@@ -24,10 +29,9 @@
                     </div>
                 </div>
             </div>
-
             <!-- COMPANY -->
             <div class="col-12 col-lg-3">
-                <div class="sectionTitle mt-5">
+                <div class="sectionTitle">
                     {{'footer.companyTxt' | translate}}
                 </div>
 
@@ -44,7 +48,7 @@
 
             <!--MORE-->
             <div class="col-12 col-lg-3">
-                <div class="sectionTitle mt-5">
+                <div class="sectionTitle">
                     {{'footer.moreTxt' | translate}}
                 </div>
 

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { destinationCard, topDestinationCard } from './interface';
 import { TranslateService } from '@ngx-translate/core';
 import { inject } from '@angular/core';
@@ -22,6 +22,7 @@ export class TopDestinationComponent implements OnInit {
   cards:Array<destinationCard>=[];
   currency?:string;
   date?:object;
+  @Input() destinationView?: boolean;
   constructor({ nativeElement }: ElementRef<HTMLImageElement>, private datePipe: DatePipe) {
     const supports = 'loading' in HTMLImageElement.prototype;
 

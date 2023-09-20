@@ -30,6 +30,7 @@ import { TravellersComponent } from '../components/searchBox/travellers/travelle
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { TopDestinationComponent } from '../components/top-destination/top-destination.component';
 
 export const MatrialComponents = [
   MatButtonModule,
@@ -46,7 +47,6 @@ export const MatrialComponents = [
   MatFormFieldModule,
   MatInputModule,
   MatCheckboxModule,
-  
   MatSelectModule
 ]
 
@@ -55,13 +55,13 @@ export const SharedComponents = [
   FooterComponent,
   SearchBoxComponent,
   SearchboxMobileComponent,
+  TopDestinationComponent,
   TravellersComponent,
   OneWayComponent,
   RoundTripComponent,
   MultiCityComponent,
   LoginComponent,
   SignupComponent
-  
 ]
 
 @NgModule({
