@@ -5,7 +5,8 @@ import { FlightCheckoutService } from 'rp-travel-ui';
 @Component({
   selector: 'app-offline-service',
   templateUrl: './offline-service.component.html',
-  styleUrls: ['./offline-service.component.scss']
+  styleUrls: ['./offline-service.component.scss'],
+ 
 })
 export class OfflineServiceComponent implements OnInit {
   public translate = inject(TranslateService)

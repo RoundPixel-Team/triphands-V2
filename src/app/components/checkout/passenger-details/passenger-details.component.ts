@@ -54,12 +54,14 @@ setStep(index:number){
             if(i === this.passengerCompleted.length){
               this.passengerCompleted[i]=true
             }else{
+              
               this.passengerCompleted[i+1]=true
+              
             }
            
 
           }else{
-            this.passengerCompleted[i]=false
+            this.passengerCompleted[i]=true
           }
         }
       }

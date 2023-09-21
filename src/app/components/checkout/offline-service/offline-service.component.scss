@@ -22,10 +22,13 @@
             }
         }
         .serviceTitle{
-            font-size: 1.563rem;
+            font-size: 1.5rem;
             color: var(--eight-color);
             font-family: var(--one-font);
             font-weight: 700;
+            .terms-icon{
+                width:50px !important;
+            }
         }
         .serviceDescription{
             font-size: 1.1rem;
@@ -69,8 +72,10 @@
         }
     }
     .serviceTitle,.servicePrice{
-        font-size: 1rem !important;
-        white-space: nowrap;
+        font-size: 0.9rem !important;
+        .terms-icon{
+            width:30px !important;
+        }
     }
 
     .serviceDescription{

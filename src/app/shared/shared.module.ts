@@ -31,6 +31,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { TopDestinationComponent } from '../components/top-destination/top-destination.component';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 export const MatrialComponents = [
   MatButtonModule,
@@ -77,7 +78,8 @@ export const SharedComponents = [
     NgbDatepickerModule,
     NgbAlertModule,
     RouterModule,
-    MatrialComponents
+    MatrialComponents,
+    NgbTooltipModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -89,7 +91,8 @@ export const SharedComponents = [
     NgbDatepickerModule,
     NgbAlertModule,
     RouterModule,
-    TranslateModule
+    TranslateModule,
+    NgbTooltipModule
   ]
 })
 export class SharedModule { }

@@ -114,7 +114,6 @@ export class CheckoutComponent implements OnInit,OnDestroy {
 
   CalculateFormseHeight(){
     if(document.getElementById('passengersFormSection') && document.getElementById('passengersFormSection') != null){
-      console.log("GET HEIGHT",document.getElementById('passengersFormSection')!.offsetHeight)
       // if(document.getElementById('passengersFormSection')!.offsetHeight > 2000){
       //   return document.getElementById('passengersFormSection')!.offsetHeight - 1500
       // }
