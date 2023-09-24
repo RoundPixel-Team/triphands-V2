@@ -21,7 +21,8 @@ export class BookNowComponent implements OnInit {
   } 
 
 
-  goToNextStep(){
+  goToNextStep(bookingType:string){
+    this.flight.bookingType=bookingType;
     console.log('show me the form', 2)
     if(this.flight.usersArray.at(0).get('email')?.status == 'INVALID' || this.flight.usersArray.at(0).get('phoneNumber')?.status == 'INVALID'){
       this.flight.usersArray.at(0).get('email')?.markAsTouched()

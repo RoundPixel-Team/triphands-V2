@@ -200,8 +200,15 @@
             <div class="payNowSection align-items-center">
                 <div class="col-lg-2 col-4 col-sm-4">
                     <div class="price">
-                        {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code' }}  
-                        {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value' }}
+                        {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode | exchange:'code' }} 
+                        <span *ngIf="this.flight.bookingType=='standard'">
+                            {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value' }}
+                        </span>
+                        <span *ngIf="this.flight.bookingType=='permium'">
+                            {{flight.priceWithRecommenedService | exchange:'value'}}
+
+                        </span>
+                        
                     </div>
             
                     <div class="fareBreakup "  data-bs-toggle="modal" data-bs-target="#exampleModal">

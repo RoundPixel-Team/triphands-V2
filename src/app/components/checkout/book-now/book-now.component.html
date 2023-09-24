@@ -31,10 +31,11 @@
             </div> -->
            
             <div class="newBookingLink me-lg-2 ">
-                <a (click)="goToNextStep()">{{'checkout.bookNow.standardFare' | translate}}</a>
+                <a (click)="goToNextStep('standard')">{{'checkout.bookNow.standardFare' | translate}}</a>
+                <!-- {{flight.priceWithRecommenedService | exchange:'value'}} -->
             </div>
             <div  class="premiumBtn ">
-                <button mat-raised-button (click)="goToNextStep()">
+                <button mat-raised-button (click)="goToNextStep('permium')">
                     {{'checkout.bookNow.bookBtn' | translate}}  <span class="" *ngIf="!flight.recommendedOfflineService">
                         {{"checkout.bookNow.premiumTitle" | translate}}
                     </span>
