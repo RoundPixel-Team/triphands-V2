@@ -144,6 +144,8 @@ export class MultiCityComponent implements OnInit {
       });
       this.searchbox.searchFlight.updateValueAndValidity();
     } else if (typeof this.resultLink == 'string' && this.resultLink != '') {
+      // set land city from share service
+      this.sharedService.landCity =((<FormArray>this.searchbox.searchFlight?.get('Flights')).at(0).get('landing')?.value).split(',')[0];
       this.router.navigate([
         '/flightResult',
         splittedLink[0],

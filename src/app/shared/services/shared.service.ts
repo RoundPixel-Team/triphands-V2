@@ -12,6 +12,7 @@ export class SharedService {
   public http = inject(HttpClient);
   public environment = inject(EnvironmentService);
   cities: airPorts[] = airporten;
+  landCity: string='';
   constructor() { 
   }
   getTopDestination(){

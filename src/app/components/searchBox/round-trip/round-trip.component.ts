@@ -5,6 +5,7 @@ import { NgbCalendar, NgbDate, NgbDateParserFormatter } from '@ng-bootstrap/ng-b
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { FormArray } from '@angular/forms';
 @Component({
   selector: 'app-round-trip',
   templateUrl: './round-trip.component.html',
@@ -141,18 +142,10 @@ export class RoundTripComponent implements OnInit {
     else if (typeof this.resultLink == 'string' && this.resultLink) {
       if(this.searchbox.searchFlight.valid){
         localStorage.setItem('form',JSON.stringify(this.searchbox.searchFlight.value))
+        // set land city from share service
+        this.sharedService.landCity =((<FormArray>this.searchbox.searchFlight?.get('Flights')).at(0).get('landing')?.value).split(',')[0];
         this.router.navigate([
-          '/flightResult',
-          splittedLink[0],
-          splittedLink[1],
-          splittedLink[2],
-          splittedLink[3],
-          splittedLink[4],
-          splittedLink[5],
-          splittedLink[6],
-          splittedLink[7],
-          splittedLink[8],
-        ]);
+          '/flightResult', splittedLink[0], splittedLink[1], splittedLink[2], splittedLink[3], splittedLink[4], splittedLink[5], splittedLink[6], splittedLink[7], splittedLink[8],]);
       }
       else{
         this.searchbox.searchFlight.markAllAsTouched();

@@ -97,7 +97,7 @@
       "apply":"استخدام الكوبون"
   },
   "passengers":{
-      "header":"بيانات المسافرين",
+      "header":"تفاصيل المسافر الى ",
       "passengersTitle":"تفاصيل المسافرون",
       "passengersTitleStep":"خطوة 2 من 3",
       "passengersDescriptionTxt":"الرجاء إدخال التفاصيل تمامًا كما تظهر في جواز سفرك.",

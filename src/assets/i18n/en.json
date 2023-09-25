@@ -40,7 +40,7 @@
         "apply":"Apply Coupon"
     },
     "passengers":{
-        "header":"Who is Travelling ?",
+        "header":"Who is Flying To ",
         "passengersTitle":"Passanger Details",
         "passengersTitleStep":"Step 2 of 3",
         "passengersDescriptionTxt":"Please Enter Details Exactly As They Appear On Your Passport.",

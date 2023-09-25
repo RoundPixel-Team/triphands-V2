@@ -204,7 +204,7 @@
                 </div>
            
                
-                <div class="col-lg-3 col-sm-12 col-md-12 right-side-wrapper">
+                <div class="col-lg-3 col-sm-12 col-md-12 right-side-wrapper" [ngClass]="{arx: translate.currentLang === 'ar' }">
                     <div class="flight-price mt-2">
                         <span>{{flight[0].itinTotalFare.currencyCode | exchange:'code'}}&nbsp;</span>{{flight[0].itinTotalFare.amount | exchange:'value'}}
 
@@ -806,7 +806,7 @@
 
                   </div>
                   
-                  <div class="col-lg-3 col-sm-12 col-md-12 right-side-wrapper">
+                  <div class="col-lg-3 col-sm-12 col-md-12 right-side-wrapper" [ngClass]="{arx: translate.currentLang === 'ar' }">
                       <div class="flight-price mt-2">
                           <span>{{item.itinTotalFare.currencyCode | exchange:'code'}}&nbsp;</span>{{item.itinTotalFare.amount | exchange:'value'}}
       

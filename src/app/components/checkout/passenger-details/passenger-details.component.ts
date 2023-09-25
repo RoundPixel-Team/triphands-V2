@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { FlightCheckoutService, HomePageService } from 'rp-travel-ui';
+import { SharedService } from 'src/app/shared/services/shared.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,6 +15,7 @@ export class PassengerDetailsComponent implements OnInit {
   public flight = inject(FlightCheckoutService)
   public translate = inject(TranslateService)
   public home = inject(HomePageService)
+  public shareService = inject(SharedService)
 
   todayDate = new Date();
   minAdultDateBirth = new Date(1990, 0, 1)

@@ -93,6 +93,10 @@
         font-size: 1rem;
     }
   }
+  .arx{
+    border-left: none !important;
+    border-right: 1px dashed var(--three-color) !important;
+  }
 
     .card-footer{
       background-color: var(--fifteen-color);
@@ -297,6 +301,7 @@
     .right-side-wrapper{
       border-top: 1px dashed var(--three-color);
       border-left: none !important;
+      border-right: none !important;
       .flight-price{
           font-size: 1.25rem !important;
           

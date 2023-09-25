@@ -10,7 +10,7 @@
 
 
                         <div class="row mt-2">
-                            <div class="col-6 " [ngClass]="{' ar': translate.currentLang === 'ar' }">
+                            <div class="col-6 " [ngClass]="{ar: translate.currentLang === 'ar' }">
                                 <div class="flight-time">
                                     {{ data.flightDTO![0].departureDate | date : "shortTime" }} -
                                     {{
@@ -102,7 +102,7 @@
 
                     </div>
                     
-                    <div class="col-lg-3 col-sm-12 col-md-12 right-side-wrapper">
+                    <div class="col-lg-3 col-sm-12 col-md-12 right-side-wrapper" [ngClass]="{arx: translate.currentLang === 'ar' }">
                         <div class="flight-price mt-2">
                             <span>{{flight[0].itinTotalFare.currencyCode | exchange:'code'}}&nbsp;</span>{{flight[0].itinTotalFare.amount | exchange:'value'}}
         
@@ -624,7 +624,7 @@
 
 
                  
-                  <div class="col-lg-3 col-sm-12 col-md-12 right-side-wrapper">
+                  <div class="col-lg-3 col-sm-12 col-md-12 right-side-wrapper" [ngClass]="{arx: translate.currentLang === 'ar' }">
                       <div class="flight-price mt-2">
                           <span>{{item.itinTotalFare.currencyCode | exchange:'code'}}&nbsp;</span>{{item.itinTotalFare.amount | exchange:'value'}}
       
