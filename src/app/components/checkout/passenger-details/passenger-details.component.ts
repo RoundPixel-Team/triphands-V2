@@ -28,7 +28,8 @@ export class PassengerDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.flight.usersArray.length,'show length');
+    console.log(this.flight.bookingType,'show booking type');
+    console.log(this.flight.priceWithRecommenedService,'show price');
     for(let i=0;i< this.flight.usersArray.length;i++){
       
       if(i===0){
