@@ -27,7 +27,7 @@
             font-family: var(--one-font);
             font-weight: 700;
             .terms-icon{
-                width:30px !important;
+                width:20px !important;
             }
         }
         .serviceDescription{
@@ -73,9 +73,7 @@
     }
     .serviceTitle,.servicePrice{
         font-size: 0.9rem !important;
-        .terms-icon{
-            width:30px !important;
-        }
+        
     }
 
     .serviceDescription{

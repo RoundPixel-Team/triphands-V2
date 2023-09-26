@@ -210,6 +210,23 @@
                   >
                 </div>
               </ng-container>
+              <ng-container>
+                <div class="row mb-3" *ngIf="this.flight.selectedOfflineServices.length>0">
+                  <span class="fare-title col-6 m-0"
+                    >{{"checkout.serviceFees" | translate}}:</span
+                  >
+                  <span
+                    class="fare-amount col-6 m-0"
+                   
+                  >
+                  {{
+                    flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode
+                      | exchange : "code"
+                  }}
+                    {{ totalServicePrice | exchange : "value" }}</span
+                  >
+                </div>
+              </ng-container>
             </div>
           </div>
   
@@ -218,13 +235,18 @@
               >{{ "checkout.TotalFare" | translate }}:</span
             >
             <span class="total-amount">
+              
               {{
                 flight.selectedFlight!.airItineraryDTO.itinTotalFare.currencyCode
                   | exchange : "code"
               }}
-              {{
-                flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange : "value"
-              }}
+              <span *ngIf="this.flight.bookingType=='standard'">
+                {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value' }}
+            </span>
+            <span *ngIf="this.flight.bookingType=='permium'">
+                {{flight.priceWithRecommenedService | exchange:'value'}}
+
+            </span>
             </span>
           </div>
         </div>

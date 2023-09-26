@@ -62,6 +62,7 @@
     "baseFare":"Base Fare ",
     "tax":"Tax ",
     "paymentFees":"Payment fees",
+    "serviceFees":"Services fees",
     "TotalFare": "Total Fare",
     "to":"to",
     "Taxes": "Taxes",
