@@ -243,7 +243,7 @@
               <span *ngIf="this.flight.bookingType=='standard'">
                 {{ flight.selectedFlight!.airItineraryDTO.itinTotalFare.amount | exchange:'value' }}
             </span>
-            <span *ngIf="this.flight.bookingType=='permium'">
+            <span *ngIf="this.flight.bookingType=='premium'">
                 {{flight.priceWithRecommenedService | exchange:'value'}}
 
             </span>

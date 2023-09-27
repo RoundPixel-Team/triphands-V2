@@ -23,7 +23,7 @@ export class BookNowComponent implements OnInit {
 
   goToNextStep(bookingType:string){
     this.flight.bookingType=bookingType;
-    if(bookingType == 'permium' && this.flight.recommendedOfflineService){
+    if(bookingType == 'premium' && this.flight.recommendedOfflineService && this.flight.usersArray.at(0).get('email')?.status == 'VALID' && this.flight.usersArray.at(0).get('phoneNumber')?.status == 'VALID'  ){
       this.flight.selectedOfflineServices.push(this.flight.recommendedOfflineService?.serviceCode)
     }else{
       let index = this.flight.selectedOfflineServices.findIndex((s)=>{return s == this.flight.recommendedOfflineService?.serviceCode})
