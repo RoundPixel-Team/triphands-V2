@@ -48,23 +48,23 @@
                     <div class="airlineBoxContainer" *ngFor="let airline of FlightResult.customFilteredAirlineSlice; let i = index">
                       <div class="airlineBox" [ngClass]="{ chosedAirline: FlightResult.checkCustomFilterAirline(airline.name)}" 
                       (click)="FlightResult.chooseCustomFilterAirline(airline, i)"> 
-                         <div class="airlineName">{{airline.name | slice:0:15}}</div>
-                              <div class="lowestFareAndlogo">
-                                   <div class="lowestFare">
-                                        <span>{{airline.price | exchange: "value" | currency: "EGY":""}}</span>
-                                        <span>{{airline.currency | exchange: "code" }}</span>
-                                   </div>
-                                   <div class="logo">
-                                        <img  [src]="airline.logo" alt="airline logo"/>
-                                   </div>
-                              </div>
+                      <div class="airlineName">{{airline.name | slice:0:15}}</div>
+                      <div class="lowestFareAndlogo">
+                         <div class="lowestFare">
+                              <span>{{airline.price | exchange: "value" | currency: "EGY":""}}</span>
+                              <span>{{airline.currency | exchange: "code" }}</span>
                          </div>
+                         <div class="logo">
+                              <img  [src]="airline.logo" alt="airline logo"/>
+                         </div>
+                      </div>
+                    </div>
                     </div>
                     <i (click)="FlightResult.nextcustomFilteredAirline()" [ngClass]="{'arRotate':translate.currentLang == 'ar'}" class="bi bi-chevron-right customFilterAirlineChevron"></i>
                </div>
           
-               <!--FOR MOBILE VIEW-->
-               <div class="airlinesContainerMobile" *ngIf="!FlightResult.loading && FlightResult.response">
+                  <!--FOR MOBILE VIEW-->
+                  <div class="airlinesContainerMobile" *ngIf="!FlightResult.loading && FlightResult.response">
                     <i (click)="FlightResult.prevcustomFilteredAirlineMobile()" [ngClass]="{'arRotate':translate.currentLang == 'ar'}" class="bi bi-chevron-left customFilterAirlineChevron"></i>
                     <div class="airlineBoxContainer" *ngFor="let airline of FlightResult.customFilteredAirlineSliceMobile; let i = index">
                       <div class="airlineBox" [ngClass]="{ chosedAirline: FlightResult.checkCustomFilterAirline(airline.name)}" 
@@ -147,47 +147,47 @@
                     
                     <div class="w-100 mt-1 lazyLoadCard">
                          <img
-                         class="w-100 "
-                         src="../../../assets/images/lazyLoadingCard.svg"
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
                          />
-                    </div>
-     
-                    <div class="w-100 mt-1 lazyLoadCard2">
-                    <img
-                         class="w-100 "
-                         src="../../../assets/images/lazyLoadingCard.svg"
-                    />
-                    </div>
-     
-                    <div class="w-100 mt-1 lazyLoadCard3 ">
-                    <img
-                         class="w-100 "
-                         src="../../../assets/images/lazyLoadingCard.svg"
-                    />
-                    </div>
-     
-                    <div class="w-100 mt-1 lazyLoadCard4">
-                    <img
-                         class="w-100 "
-                         src="../../../assets/images/lazyLoadingCard.svg"
-                    />
-                    </div>
-     
-                    <div class="w-100 mt-1 lazyLoadCard5 ">
-                    <img
-                         class="w-100 "
-                         src="../../../assets/images/lazyLoadingCard.svg"
-                    />
-                    </div>
-     
-                    <div class="w-100 mt-1 lazyLoadCard6">
-                    <img
-                         class="w-100 "
-                         src="../../../assets/images/lazyLoadingCard.svg"
-                    />
-                    </div>
+                       </div>
+          
+                       <div class="w-100 mt-1 lazyLoadCard2">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
+          
+                       <div class="w-100 mt-1 lazyLoadCard3 ">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
+          
+                       <div class="w-100 mt-1 lazyLoadCard4">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
+          
+                       <div class="w-100 mt-1 lazyLoadCard5 ">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
+          
+                       <div class="w-100 mt-1 lazyLoadCard6">
+                         <img
+                           class="w-100 "
+                           src="../../../assets/images/lazyLoadingCard.svg"
+                         />
+                       </div>
                
-               </div> 
+          </div> 
           </div>
      </div>
 </div>
@@ -207,4 +207,8 @@
 
 <div id="mobileFilterSideNav" #mobileFilterSideNav> 
      <app-flights-filters></app-flights-filters>
+     
 </div>
+
+
+
