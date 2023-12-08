@@ -46,7 +46,7 @@ export class CheckoutComponent implements OnInit,OnDestroy {
     this.subscription.add(
       this.route.queryParams.subscribe((params)=>{
         this.flight.getSelectedFlightData(params["sid"],+params["sequenceNum"],params["providerKey"]?params["providerKey"]:params["pkey"])
-        this.flight.getAllOfflineServices(params["sid"],'KW')
+        this.flight.getAllOfflineServices(params["sid"],'KW',false)
         if(params["wego_click_id"]){localStorage.setItem("click_id", params["wego_click_id"]);}
       })
 
